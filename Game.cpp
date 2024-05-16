@@ -5,12 +5,20 @@ Game::Game()
 {
     this->initVariables();
     this->initWindow();
+    this->initStateData();
+    this->initStates();
 }
 
 Game::~Game()
 {
     //Zwalnianie pamięci
     delete this->window;
+
+    while (!this->states.empty())
+    {
+        delete this->states.top();
+        this->states.pop();
+    }
 }
 
 
@@ -64,12 +72,54 @@ void Game::updateEvents()
 
 
 /*****************************************************************************
+** Function name:      initStateData
+** Description:        Inicializuje kontener danych na temat state
+*****************************************************************************/
+void Game::initStateData()
+{
+    this->stateData.window = this->window;
+    this->stateData.states = &this->states;
+}
+
+
+/*****************************************************************************
+** Function name:      initStates
+** Description:        Tworzy pierwszy element - menu główne
+*****************************************************************************/
+void Game::initStates()
+{
+    this->states.push(new MainMenuState(&this->stateData));
+}
+
+
+/*****************************************************************************
 ** Function name:      update
 ** Description:        Główna pętla gry
 *****************************************************************************/
 void Game::update()
 {
     this->updateEvents();
+
+
+    if (!this->states.empty())
+    {
+        if (this->window->hasFocus())
+        {
+            this->states.top()->update(this->dt);
+
+            if (this->states.top()->getQuit())
+            {
+                this->states.top()->endState();
+                delete this->states.top();
+                this->states.pop();
+            }
+        }
+    }
+    //Application end
+    else
+    {
+        this->window->close();
+    }
 }
 
 
@@ -80,6 +130,10 @@ void Game::update()
 void Game::render()
 {
     this->window->clear();
+
+    if (!this->states.empty())
+        this->states.top()->render();
+
     this->window->display();
 }
 

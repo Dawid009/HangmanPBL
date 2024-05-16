@@ -2,7 +2,7 @@
 #define HANGMAN_GAME_H
 
 #include <SFML/Graphics.hpp>
-
+#include "States/MainMenuState.h"
 
 class Game {
 
@@ -10,6 +10,9 @@ private:
     sf::RenderWindow *window;
     sf::Event sfEvent;
     sf::Clock dtClock;
+    StateData stateData;
+    std::stack<State*> states;
+
     //DeltaTime
     float dt;
 
@@ -17,6 +20,8 @@ private:
     //Funkcje prywatne
     void initVariables();
     void initWindow();
+    void initStateData();
+    void initStates();
 
 public:
     //Konstruktor/Destruktor
