@@ -6,7 +6,7 @@ MainMenuState::MainMenuState(StateData* state_data)
         : State(state_data)
 {
     //this->initFonts();
-    //this->initGui();
+    this->initGui();
     //this->resetGui();
 }
 MainMenuState::~MainMenuState()
@@ -34,7 +34,28 @@ void MainMenuState::initFonts()
 *****************************************************************************/
 void MainMenuState::initGui()
 {
-    //tu powstanie tworzenie podstawowego widoku
+    const sf::VideoMode& vm = this->stateData->gfxSettings->resolution;
+
+    this->background.setSize(sf::Vector2f(static_cast<float>(vm.width),static_cast<float>(vm.height)));
+
+    if (!this->backgroundTexture.loadFromFile("Resources/background.jpg"))
+    {
+        throw "ERROR::MAIN_MENU::FAILED_TO_LOAD_BACKGROUND_TEXTURE";
+    }
+
+    if (!this->titleTexture.loadFromFile("Resources/title.png"))
+    {
+        throw "ERROR::MAIN_MENU::FAILED_TO_LOAD_TITLE_TEXTURE";
+    }
+
+    this->title.setSize(sf::Vector2f(static_cast<float>(vm.width*0.30),static_cast<float>(vm.height*0.12)));
+    this->title.setPosition(sf::Vector2f(static_cast<float>(vm.width*0.10),static_cast<float>(vm.height*0.12)));
+    this->title.setTexture(&this->titleTexture);
+    this->background.setTexture(&this->backgroundTexture);
+
+
+
+
 }
 
 
@@ -59,6 +80,7 @@ void MainMenuState::render(sf::RenderTarget* target)
         target = this->window;
 
     target->draw(this->background);
+    target->draw(this->title);
 
 }
 

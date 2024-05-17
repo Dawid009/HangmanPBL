@@ -4,6 +4,7 @@
 Game::Game()
 {
     this->initVariables();
+    this->initGraphicsSettings();
     this->initWindow();
     this->initStateData();
     this->initStates();
@@ -39,10 +40,24 @@ void Game::initVariables()
 *****************************************************************************/
 void Game::initWindow()
 {
-    //TODO: Stałe wartości przerobić na zmienne
-    this->window = new sf::RenderWindow(sf::VideoMode(800,600), "Hangman",sf::Style::Close);
-    this->window->setFramerateLimit(60);
-    this->window->setVerticalSyncEnabled(false);
+
+    if(this->gfxSettings.fullscreen)
+        this->window = new sf::RenderWindow(
+                this->gfxSettings.resolution,
+                this->gfxSettings.title,
+                sf::Style::Fullscreen,
+                this->gfxSettings.contextSettings);
+    else
+        this->window = new sf::RenderWindow(
+                this->gfxSettings.resolution,
+                this->gfxSettings.title,
+                sf::Style::Titlebar | sf::Style::Close,
+                this->gfxSettings.contextSettings);
+
+
+
+    this->window->setFramerateLimit(this->gfxSettings.frameRateLimit);
+    this->window->setVerticalSyncEnabled(this->gfxSettings.verticalSync);
 }
 
 
@@ -71,12 +86,19 @@ void Game::updateEvents()
 }
 
 
+void Game::initGraphicsSettings()
+{
+
+    this->gfxSettings.loadFromFile("Config/graphics.ini");
+}
+
 /*****************************************************************************
 ** Function name:      initStateData
 ** Description:        Inicializuje kontener danych na temat state
 *****************************************************************************/
 void Game::initStateData()
 {
+    this->stateData.gfxSettings = &this->gfxSettings;
     this->stateData.window = this->window;
     this->stateData.states = &this->states;
 }

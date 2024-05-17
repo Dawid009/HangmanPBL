@@ -12,12 +12,14 @@ private:
     sf::Clock dtClock;
     StateData stateData;
     std::stack<State*> states;
+    GraphicsSettings gfxSettings;
 
     //DeltaTime
     float dt;
 
 
     //Funkcje prywatne
+    void initGraphicsSettings();
     void initVariables();
     void initWindow();
     void initStateData();

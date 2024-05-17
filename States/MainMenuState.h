@@ -8,7 +8,9 @@ class MainMenuState : public State{
 
 private:
     sf::Texture backgroundTexture;
+    sf::Texture titleTexture;
     sf::RectangleShape background;
+    sf::RectangleShape title;
     sf::Font font;
 
 

@@ -3,6 +3,8 @@
 
 #include <SFML/Graphics.hpp>
 #include <stack>
+#include "../GraphicsSettings.h"
+
 class State;
 
 class StateData
@@ -12,6 +14,7 @@ public:
 
     //Variables
     sf::RenderWindow* window;
+    GraphicsSettings* gfxSettings;
     std::stack<State*>* states;
 };
 
