@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <stack>
-#include "../GraphicsSettings.h"
+#include "../Modules/GraphicsSettings.h"
 
 class State;
 
@@ -24,7 +24,11 @@ protected:
     StateData* stateData;
     std::stack<State*>* states;
     sf::RenderWindow* window;
+    sf::Texture backgroundTexture;
+    sf::RectangleShape background;
+
     bool quit;
+    bool paused;
 
     //Przechowuja info o pozycji myszki na ekranie/oknie
     sf::Vector2i mousePosScreen;

@@ -88,11 +88,9 @@ const bool gui::Button::isPressed() const
 void gui::Button::update(const sf::Vector2i& mousePosWindow)
 {
     this->buttonState = BTN_IDLE;
-
     if (this->shape.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePosWindow)))
     {
         this->buttonState = BTN_HOVER;
-
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
         {
             this->buttonState = BTN_ACTIVE;

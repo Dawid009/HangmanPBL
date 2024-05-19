@@ -131,6 +131,7 @@ void MainMenuState::updateButtons()
     if (this->buttons["GAME_STATE"]->isPressed())
     {
         std::cout<<"Dziala!"<<std::endl;
+        this->states->push(new GameState(this->stateData));
     }
 
     /*
@@ -152,7 +153,6 @@ void MainMenuState::updateButtons()
 void MainMenuState::update(const float& dt)
 {
     this->updateMousePositions();
-
     this->updateButtons();
 }
 

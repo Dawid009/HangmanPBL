@@ -2,15 +2,14 @@
 #define HANGMAN_MAINMENUSTATE_H
 
 #include "State.h"
-#include "../Gui.h"
+#include "../Modules/Gui.h"
+#include "GameState.h"
 
 class MainMenuState : public State{
 
 private:
     //Zmienne
-    sf::Texture backgroundTexture;
     sf::Texture titleTexture;
-    sf::RectangleShape background;
     sf::RectangleShape title;
     sf::Font font;
     std::map<std::string, gui::Button*> buttons;
