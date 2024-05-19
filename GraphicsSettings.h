@@ -7,7 +7,7 @@ class GraphicsSettings {
 public:
     GraphicsSettings();
 
-    //Variables
+    //Zmienne
     std::string title;
     sf::VideoMode resolution;
     bool fullscreen;
@@ -16,7 +16,7 @@ public:
     sf::ContextSettings contextSettings;
     std::vector<sf::VideoMode> videoModes;
 
-    //Functions
+    //Funkcje
     void saveToFile(const std::string path);
     void loadFromFile(const std::string path);
 };

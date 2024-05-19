@@ -12,7 +12,7 @@ class StateData
 public:
     StateData() {};
 
-    //Variables
+    //Zmienne
     sf::RenderWindow* window;
     GraphicsSettings* gfxSettings;
     std::stack<State*>* states;
@@ -20,22 +20,23 @@ public:
 
 class State {
 protected:
+    //Zmienne
     StateData* stateData;
     std::stack<State*>* states;
     sf::RenderWindow* window;
-
     bool quit;
 
+    //Przechowuja info o pozycji myszki na ekranie/oknie
     sf::Vector2i mousePosScreen;
     sf::Vector2i mousePosWindow;
 
 public:
+    //Konstruktor/Destruktor
     State(StateData* state_data);
     virtual ~State();
 
-    //Functions
+    //Funkcje
     void endState();
-
     virtual void updateMousePositions(sf::View* view = nullptr);
     const bool& getQuit() const;
     virtual void update(const float& dt) = 0;
