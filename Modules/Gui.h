@@ -9,6 +9,32 @@ enum button_states{
 };
 
 namespace gui {
+    struct ButtonParams {
+        float x=20.f;
+        float y=20.f;
+        float width=50.f;
+        float height=50.f;
+        sf::Font* font;
+        std::string text = "";
+        unsigned character_size = 10;
+        float thickness = 3.f;
+        sf::Color text_idle_color = sf::Color(70,70,70,255);
+        sf::Color text_hover_color = sf::Color(40,40,40,255);
+        sf::Color text_active_color = sf::Color(20,20,20,255);
+        sf::Color outline_idle_color = sf::Color::Transparent;
+        sf::Color outline_hover_color = sf::Color::Transparent;
+        sf::Color outline_active_color = sf::Color::Transparent;
+        short unsigned id=1;
+        float hoverScale=1.2f;
+        float activeScale=1.1f;
+        float scaleToIdleTime=8.f;
+        float scaleToHoverTime=6.5f;
+        float scaleToActiveTime=10.f;
+        bool drawDebugBorder=false;
+    };
+
+
+
     //Funkcje obliczeniowe
     const float lerp(float a, float b, float t);
     const float calcX(const float percent, const sf::VideoMode& vm);
@@ -38,16 +64,7 @@ namespace gui {
 
     public:
         //Konstruktor/Destruktor
-        Button(float x, float y, float width, float height,
-               sf::Font *font, std::string text, unsigned character_size,float thickness,
-               sf::Color text_idle_color, sf::Color text_hover_color, sf::Color text_active_color,
-               sf::Color outline_idle_color = sf::Color::Transparent,
-               sf::Color outline_hover_color = sf::Color::Transparent,
-               sf::Color outline_active_color = sf::Color::Transparent,
-               short unsigned id = 0,
-               float hoverScale = 1.2f,
-               float activeScale = 1.1f
-               );
+        Button(ButtonParams * params);
         ~Button();
 
         //Funkcje

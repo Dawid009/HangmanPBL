@@ -22,30 +22,31 @@ Keyboard::~Keyboard() {
 *****************************************************************************/
 void Keyboard::initKeyboard() {
     const sf::VideoMode& vm = this->gfxSettings->resolution;
-    const int colorIdle = 40;
-    const int colorHover = 30;
-    const int colorActive = 20;
+
+    auto* ButtonInitParams = new gui::ButtonParams;
+
+
+    ButtonInitParams->width = static_cast<float>(gui::calcCharSize(vm,40));
+    ButtonInitParams->height = static_cast<float>(gui::calcCharSize(vm,50));
+    ButtonInitParams->font = &this->font;
+    ButtonInitParams->thickness = 2.f;
+    ButtonInitParams->character_size = gui::calcCharSize(vm,60);
+    ButtonInitParams->hoverScale = 2.5f;
+    ButtonInitParams->activeScale = 1.8f;
+
+
     //od 65
     int letter = 65;
     for(int i=0;i<3;i++){
         for(int j=0;j<10&&letter<91;j++){
-            buttons[(char)letter] = new gui::Button(
-                    gui::calcX(10,vm)+j*gui::calcX(5.1f,vm),
-                    gui::calcY(55,vm)+i*gui::calcY(8.f,vm),
-                    static_cast<float>(gui::calcCharSize(vm,40)),
-                    static_cast<float>(gui::calcCharSize(vm,50)),
-                    &this->font,std::string(1,(char)letter),gui::calcCharSize(vm,60),2.f,
-                    sf::Color(colorIdle, colorIdle, colorIdle, 255),
-                    sf::Color(colorHover, colorHover, colorHover, 255),
-                    sf::Color(colorActive, colorActive, colorActive, 255),
-                    sf::Color::Transparent,
-                    sf::Color::Transparent,
-                    sf::Color::Transparent,
-                    1,2.5f,1.8f
-            );
+            ButtonInitParams->x =  gui::calcX(10,vm)+j*gui::calcX(5.1f,vm);
+            ButtonInitParams->y =  gui::calcY(55,vm)+i*gui::calcY(8.f,vm);
+            ButtonInitParams->text = std::string(1,(char)letter);
+            buttons[(char)letter] = new gui::Button(ButtonInitParams);
             letter++;
         }
     }
+    delete ButtonInitParams;
 }
 
 

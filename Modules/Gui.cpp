@@ -24,54 +24,47 @@ const unsigned gui::calcCharSize(const sf::VideoMode& vm, const unsigned modifie
     return static_cast<unsigned>((vm.width + vm.height) / modifier);
 }
 
-
-
-gui::Button::Button(float x, float y, float width, float height,
-                    sf::Font* font, std::string text, unsigned character_size,float thickness,
-                    sf::Color text_idle_color, sf::Color text_hover_color, sf::Color text_active_color,
-                    sf::Color outline_idle_color, sf::Color outline_hover_color, sf::Color outline_active_color,
-                    short unsigned id,
-                    float hoverScale,
-                    float activeScale
-                    )
+gui::Button::Button(ButtonParams * params) :
+    id(params->id),
+    buttonState(BTN_IDLE),
+    hoverScale(params->hoverScale),
+    activeScale(params->activeScale),
+    font(params->font),
+    textIdleColor(params->text_idle_color),
+    textHoverColor(params->text_hover_color),
+    textActiveColor(params->text_active_color),
+    outlineIdleColor(params->outline_idle_color),
+    outlineHoverColor(params->outline_hover_color),
+    outlineActiveColor(params->outline_active_color)
 {
-    this->buttonState = BTN_IDLE;
-    this->id = id;
+    if(params->drawDebugBorder){
+        outlineIdleColor= sf::Color::Red;
+        outlineHoverColor=sf::Color::Red;
+        outlineActiveColor=sf::Color::Red;
+    }
 
-    this->hoverScale = hoverScale;
-    this->activeScale=activeScale;
-    this->shape.setPosition(sf::Vector2f(x, y));
-    this->shape.setSize(sf::Vector2f(width, height));
-    this->shape.setOutlineThickness(thickness);
-    this->shape.setOutlineColor(outline_idle_color);
+    this->shape.setPosition(sf::Vector2f(params->x,params->y));
+    this->shape.setSize(sf::Vector2f(params->width, params->height));
+    this->shape.setOutlineThickness(params->thickness);
+    this->shape.setOutlineColor(params->outline_idle_color);
     this->shape.setFillColor(sf::Color(255,0,0,0));
 
-    this->font = font;
-    this->text.setFont(*this->font);
-    this->text.setString(text);
-    this->text.setFillColor(text_idle_color);
-    this->text.setCharacterSize(character_size);
-    this->text.setOrigin(width / 2, height / 2);
+    this->text.setFont(*params->font);
+    this->text.setString(params->text);
+    this->text.setFillColor(params->text_idle_color);
+    this->text.setCharacterSize(params->character_size);
+    this->text.setOrigin(params->width / 2, params->height / 2);
 
     this->text.setPosition(
-            this->shape.getPosition().x + (this->shape.getGlobalBounds().width / 2.f) - (this->text.getGlobalBounds().width / 2.f)+width/2,
-            this->shape.getPosition().y+height/2
+            this->shape.getPosition().x + (this->shape.getGlobalBounds().width / 2.f) - (this->text.getGlobalBounds().width / 2.f)+params->width/2,
+            this->shape.getPosition().y+params->height/2
     );
-
-    this->textIdleColor = text_idle_color;
-    this->textHoverColor = text_hover_color;
-    this->textActiveColor = text_active_color;
-
-    this->outlineIdleColor = outline_idle_color;
-    this->outlineHoverColor = outline_hover_color;
-    this->outlineActiveColor = outline_active_color;
 }
 
 gui::Button::~Button()
 {
 
 }
-
 
 /*****************************************************************************
 ** Function name:      isPressed

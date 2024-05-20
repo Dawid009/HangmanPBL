@@ -61,60 +61,40 @@ void MainMenuState::initGui()
     const int colorHover = 40;
     const int colorActive = 20;
 
-    this->buttons["GAME_STATE"] = new gui::Button(
-            gui::calcX(14,vm),gui::calcY(35,vm),
-            static_cast<float>(gui::calcCharSize(vm,50)*7),
-            static_cast<float>(gui::calcCharSize(vm,50)*1.2),
-            &this->font,"Nowa gra",gui::calcCharSize(vm,50),3.f,
-            sf::Color(colorIdle, colorIdle, colorIdle, 255),
-            sf::Color(colorHover, colorHover, colorHover, 255),
-            sf::Color(colorActive, colorActive, colorActive, 255),
-            sf::Color::Transparent,
-            sf::Color::Transparent,
-            sf::Color::Transparent,
-            1,1.2f,1.1f
-    );
-    this->buttons["CONTINUE_STATE"] = new gui::Button(
-            gui::calcX(14,vm),gui::calcY(42,vm),
-            static_cast<float>(gui::calcCharSize(vm,50)*7),
-            static_cast<float>(gui::calcCharSize(vm,50)*1.2),
-            &this->font,"Kontynuuj",gui::calcCharSize(vm,50),3.f,
-            sf::Color(colorIdle, colorIdle, colorIdle, 100),
-            sf::Color(colorHover, colorHover, colorHover, 255),
-            sf::Color(colorActive, colorActive, colorActive, 255),
-            sf::Color::Transparent,
-            sf::Color::Transparent,
-            sf::Color::Transparent,
-            1,1.2f,1.1f
-    );
+    auto* ButtonInitParams = new gui::ButtonParams;
 
-    this->buttons["OPTIONS_STATE"] = new gui::Button(
-            gui::calcX(14,vm),gui::calcY(55,vm),
-            static_cast<float>(gui::calcCharSize(vm,50)*7),
-            static_cast<float>(gui::calcCharSize(vm,50)*1.2),
-            &this->font,"Opcje",gui::calcCharSize(vm,50),3.f,
-            sf::Color(colorIdle, colorIdle, colorIdle, 255),
-            sf::Color(colorHover, colorHover, colorHover, 255),
-            sf::Color(colorActive, colorActive, colorActive, 255),
-            sf::Color::Transparent,
-            sf::Color::Transparent,
-            sf::Color::Transparent,
-            1,1.2f,1.1f
-    );
+    //Nowa gra
+    ButtonInitParams->x =  gui::calcX(14,vm);
+    ButtonInitParams->y =  gui::calcY(35,vm);
+    ButtonInitParams->width = static_cast<float>(gui::calcCharSize(vm,50)*7);
+    ButtonInitParams->height = static_cast<float>(gui::calcCharSize(vm,50)*1.2);
+    ButtonInitParams->font = &this->font;
+    ButtonInitParams->text = "Nowa gra";
+    ButtonInitParams->character_size = gui::calcCharSize(vm,50);
+    ButtonInitParams->hoverScale = 1.2f;
+    ButtonInitParams->activeScale = 1.1f;
+    //Linie pomocnicze do debugowania
+    ButtonInitParams->drawDebugBorder = true;
+    this->buttons["GAME_STATE"] = new gui::Button(ButtonInitParams);
 
-    this->buttons["EXIT_STATE"] = new gui::Button(
-            gui::calcX(14,vm),gui::calcY(75,vm),
-            static_cast<float>(gui::calcCharSize(vm,50)*7),
-            static_cast<float>(gui::calcCharSize(vm,50)*1.2),
-            &this->font,"Wyjscie",gui::calcCharSize(vm,50),3.f,
-            sf::Color(40, 40, 40, 255),
-            sf::Color(25, 25, 25, 255),
-            sf::Color(10, 10, 10, 255),
-            sf::Color::Transparent,
-            sf::Color::Transparent,
-            sf::Color::Transparent,
-            1,1.2f,1.1f
-            );
+    //Kontynuuj
+    ButtonInitParams->y =  gui::calcY(42,vm);
+    ButtonInitParams->text = "Kontynuuj";
+    this->buttons["CONTINUE_STATE"] = new gui::Button(ButtonInitParams);
+
+    //Opcje
+    ButtonInitParams->y =  gui::calcY(55,vm);
+    ButtonInitParams->text = "Opcje";
+    this->buttons["OPTIONS_STATE"] = new gui::Button(ButtonInitParams);
+
+    //Wyjscie
+    ButtonInitParams->y =  gui::calcY(70,vm);
+    ButtonInitParams->text = "Wyjscie";
+    ButtonInitParams->text_idle_color= sf::Color(40, 40, 40, 255);
+    ButtonInitParams->text_hover_color= sf::Color(25, 25, 25, 255),
+    ButtonInitParams->text_active_color= sf::Color(10, 10, 10, 255),
+    this->buttons["EXIT_STATE"] = new gui::Button(ButtonInitParams);
+    delete ButtonInitParams;
 }
 
 /*****************************************************************************
