@@ -27,17 +27,22 @@ const unsigned gui::calcCharSize(const sf::VideoMode& vm, const unsigned modifie
 
 
 gui::Button::Button(float x, float y, float width, float height,
-                    sf::Font* font, std::string text, unsigned character_size,
+                    sf::Font* font, std::string text, unsigned character_size,float thickness,
                     sf::Color text_idle_color, sf::Color text_hover_color, sf::Color text_active_color,
                     sf::Color outline_idle_color, sf::Color outline_hover_color, sf::Color outline_active_color,
-                    short unsigned id)
+                    short unsigned id,
+                    float hoverScale,
+                    float activeScale
+                    )
 {
     this->buttonState = BTN_IDLE;
     this->id = id;
 
+    this->hoverScale = hoverScale;
+    this->activeScale=activeScale;
     this->shape.setPosition(sf::Vector2f(x, y));
     this->shape.setSize(sf::Vector2f(width, height));
-    this->shape.setOutlineThickness(3.f);
+    this->shape.setOutlineThickness(thickness);
     this->shape.setOutlineColor(outline_idle_color);
     this->shape.setFillColor(sf::Color(255,0,0,0));
 
@@ -85,11 +90,12 @@ const bool gui::Button::isPressed() const
 ** Function name:      update
 ** Description:        Aktualizuje wygląd i sprawdza czy hover/pressed
 *****************************************************************************/
-void gui::Button::update(const sf::Vector2i& mousePosWindow)
+void gui::Button::update(const sf::Vector2i& mousePosWindow, const float& dt)
 {
     this->buttonState = BTN_IDLE;
     if (this->shape.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePosWindow)))
     {
+
         this->buttonState = BTN_HOVER;
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
         {
@@ -101,21 +107,21 @@ void gui::Button::update(const sf::Vector2i& mousePosWindow)
     switch (this->buttonState)
     {
         case BTN_IDLE:
-            scaleXY = lerp(this->text.getScale().x, 1.0f, 0.05f);
+            scaleXY = lerp(this->text.getScale().x, 1.0f, 8.f*dt);
             this->text.setScale(scaleXY,scaleXY);
             this->text.setFillColor(this->textIdleColor);
             this->shape.setOutlineColor(this->outlineIdleColor);
             break;
 
         case BTN_HOVER:
-            scaleXY = lerp(this->text.getScale().x, 1.2f, 0.1f);
+            scaleXY = lerp(this->text.getScale().x, hoverScale, 6.5f*dt);
             this->text.setScale(scaleXY,scaleXY);
             this->text.setFillColor(this->textHoverColor);
             this->shape.setOutlineColor(this->outlineHoverColor);
             break;
 
         case BTN_ACTIVE:
-            scaleXY = lerp(this->text.getScale().x, 1.1f, 1.f);
+            scaleXY = lerp(this->text.getScale().x, activeScale, 10.f*dt);
             this->text.setScale(scaleXY,scaleXY);
             this->text.setFillColor(this->textActiveColor);
             this->shape.setOutlineColor(this->outlineActiveColor);

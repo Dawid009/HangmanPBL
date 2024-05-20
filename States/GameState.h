@@ -2,6 +2,7 @@
 #define HANGMAN_GAMESTATE_H
 #include <SFML/Graphics.hpp>
 #include "State.h"
+#include "../Modules/Keyboard.h"
 
 class GameState : public State {
 private:
@@ -9,6 +10,8 @@ private:
     sf::View view;
     sf::Texture backgroundTexture;
     sf::Font font;
+
+    Keyboard* keyboard;
 
     //Funkcje
     void initView();

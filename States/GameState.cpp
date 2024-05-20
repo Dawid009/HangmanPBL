@@ -1,6 +1,25 @@
 #include "GameState.h"
 
 
+
+GameState::GameState(StateData* state_data)
+        : State(state_data)
+{
+    this->initView();
+    this->initFonts();
+    this->keyboard = new Keyboard(this->font,this->stateData->gfxSettings);
+}
+
+GameState::~GameState()
+{
+
+}
+
+
+/*****************************************************************************
+** Function name:      initFonts
+** Description:        Wczytuje czcionkę z pliku
+*****************************************************************************/
 void GameState::initFonts()
 {
     if (!this->font.loadFromFile("Fonts/Lucida.ttf"))
@@ -9,7 +28,10 @@ void GameState::initFonts()
     }
 }
 
-
+/*****************************************************************************
+** Function name:      initView
+** Description:        Tworzy widok gry
+*****************************************************************************/
 void GameState::initView()
 {
     const sf::VideoMode& vm = this->stateData->gfxSettings->resolution;
@@ -24,25 +46,17 @@ void GameState::initView()
 }
 
 
-GameState::GameState(StateData* state_data)
-        : State(state_data)
-{
-    this->initView();
-    this->initFonts();
-}
-
-GameState::~GameState()
-{
-
-}
-
+/*****************************************************************************
+** Function name:      update
+** Description:        Pętla odpowiadająca za zdarzenia
+*****************************************************************************/
 void GameState::update(const float& dt)
 {
     this->updateMousePositions(&this->view);
 
     if (!this->paused) //gra w  trakcie
     {
-        //gra
+        this->keyboard->update(mousePosWindow,dt);
     }
     else //gra zapauzowana
     {
@@ -50,10 +64,19 @@ void GameState::update(const float& dt)
     }
 }
 
+/*****************************************************************************
+** Function name:      update
+** Description:        Pętla odpowiadająca za wyświetlanie
+*****************************************************************************/
 void GameState::render(sf::RenderTarget* target)
 {
     if (!target)
         target = this->window;
+    target->clear();
 
     target->draw(this->background);
+    this->keyboard->render(target);
+
+
+
 }

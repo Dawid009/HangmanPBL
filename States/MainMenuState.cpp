@@ -65,39 +65,55 @@ void MainMenuState::initGui()
             gui::calcX(14,vm),gui::calcY(35,vm),
             static_cast<float>(gui::calcCharSize(vm,50)*7),
             static_cast<float>(gui::calcCharSize(vm,50)*1.2),
-            &this->font,"Nowa gra",gui::calcCharSize(vm,50),
+            &this->font,"Nowa gra",gui::calcCharSize(vm,50),3.f,
             sf::Color(colorIdle, colorIdle, colorIdle, 255),
             sf::Color(colorHover, colorHover, colorHover, 255),
-            sf::Color(colorActive, colorActive, colorActive, 255)
+            sf::Color(colorActive, colorActive, colorActive, 255),
+            sf::Color::Transparent,
+            sf::Color::Transparent,
+            sf::Color::Transparent,
+            1,1.2f,1.1f
     );
     this->buttons["CONTINUE_STATE"] = new gui::Button(
             gui::calcX(14,vm),gui::calcY(42,vm),
             static_cast<float>(gui::calcCharSize(vm,50)*7),
             static_cast<float>(gui::calcCharSize(vm,50)*1.2),
-            &this->font,"Kontynuuj",gui::calcCharSize(vm,50),
+            &this->font,"Kontynuuj",gui::calcCharSize(vm,50),3.f,
             sf::Color(colorIdle, colorIdle, colorIdle, 100),
             sf::Color(colorHover, colorHover, colorHover, 255),
-            sf::Color(colorActive, colorActive, colorActive, 255)
+            sf::Color(colorActive, colorActive, colorActive, 255),
+            sf::Color::Transparent,
+            sf::Color::Transparent,
+            sf::Color::Transparent,
+            1,1.2f,1.1f
     );
 
     this->buttons["OPTIONS_STATE"] = new gui::Button(
             gui::calcX(14,vm),gui::calcY(55,vm),
             static_cast<float>(gui::calcCharSize(vm,50)*7),
             static_cast<float>(gui::calcCharSize(vm,50)*1.2),
-            &this->font,"Opcje",gui::calcCharSize(vm,50),
+            &this->font,"Opcje",gui::calcCharSize(vm,50),3.f,
             sf::Color(colorIdle, colorIdle, colorIdle, 255),
             sf::Color(colorHover, colorHover, colorHover, 255),
-            sf::Color(colorActive, colorActive, colorActive, 255)
+            sf::Color(colorActive, colorActive, colorActive, 255),
+            sf::Color::Transparent,
+            sf::Color::Transparent,
+            sf::Color::Transparent,
+            1,1.2f,1.1f
     );
 
     this->buttons["EXIT_STATE"] = new gui::Button(
             gui::calcX(14,vm),gui::calcY(75,vm),
             static_cast<float>(gui::calcCharSize(vm,50)*7),
             static_cast<float>(gui::calcCharSize(vm,50)*1.2),
-            &this->font,"Wyjscie",gui::calcCharSize(vm,50),
+            &this->font,"Wyjscie",gui::calcCharSize(vm,50),3.f,
             sf::Color(40, 40, 40, 255),
             sf::Color(25, 25, 25, 255),
-            sf::Color(10, 10, 10, 255)
+            sf::Color(10, 10, 10, 255),
+            sf::Color::Transparent,
+            sf::Color::Transparent,
+            sf::Color::Transparent,
+            1,1.2f,1.1f
             );
 }
 
@@ -120,11 +136,11 @@ void MainMenuState::resetGui()
 ** Function name:      updateButtons
 ** Description:        odpowiada za działanie buttonow
 *****************************************************************************/
-void MainMenuState::updateButtons()
+void MainMenuState::updateButtons(const float& dt)
 {
     for (auto &it : this->buttons)
     {
-        it.second->update(this->mousePosWindow);
+        it.second->update(this->mousePosWindow,dt);
     }
 
     //Nowa gra
@@ -153,21 +169,9 @@ void MainMenuState::updateButtons()
 void MainMenuState::update(const float& dt)
 {
     this->updateMousePositions();
-    this->updateButtons();
+    this->updateButtons(dt);
 }
 
-
-/*****************************************************************************
-** Function name:      renderButtons
-** Description:        odpowiada za wyswietlanie buttonow
-*****************************************************************************/
-void MainMenuState::renderButtons(sf::RenderTarget& target)
-{
-    for (auto &it : this->buttons)
-    {
-        it.second->render(target);
-    }
-}
 
 /*****************************************************************************
 ** Function name:      render
@@ -181,7 +185,12 @@ void MainMenuState::render(sf::RenderTarget* target)
     target->draw(this->background);
     target->draw(this->title);
 
-    this->renderButtons(*target);
+
+    //Renderowanie buttonów
+    for (auto &it : this->buttons)
+    {
+        it.second->render(*target);
+    }
 }
 
 

@@ -33,20 +33,26 @@ namespace gui {
         sf::Color outlineHoverColor;
         sf::Color outlineActiveColor;
 
+        float hoverScale;
+        float activeScale;
+
     public:
         //Konstruktor/Destruktor
         Button(float x, float y, float width, float height,
-               sf::Font *font, std::string text, unsigned character_size,
+               sf::Font *font, std::string text, unsigned character_size,float thickness,
                sf::Color text_idle_color, sf::Color text_hover_color, sf::Color text_active_color,
                sf::Color outline_idle_color = sf::Color::Transparent,
                sf::Color outline_hover_color = sf::Color::Transparent,
                sf::Color outline_active_color = sf::Color::Transparent,
-               short unsigned id = 0);
+               short unsigned id = 0,
+               float hoverScale = 1.2f,
+               float activeScale = 1.1f
+               );
         ~Button();
 
         //Funkcje
         const bool isPressed() const;
-        void update(const sf::Vector2i &mousePosWindow);
+        void update(const sf::Vector2i &mousePosWindow,const float& dt);
         void render(sf::RenderTarget &target);
     };
 }

@@ -19,15 +19,16 @@ private:
     void initGui();
     void resetGui();
 
+
+
 public:
     //Konstruktor/Destruktor
     MainMenuState(StateData* state_data);
     virtual ~MainMenuState();
 
     //Funkcje
-    void updateButtons();
+    void updateButtons(const float& dt);
     void update(const float& dt) override;
-    void renderButtons(sf::RenderTarget& target);
     void render(sf::RenderTarget* target = nullptr) override;
 };
 
