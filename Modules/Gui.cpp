@@ -35,12 +35,20 @@ gui::Button::Button(ButtonParams * params) :
     textActiveColor(params->text_active_color),
     outlineIdleColor(params->outline_idle_color),
     outlineHoverColor(params->outline_hover_color),
-    outlineActiveColor(params->outline_active_color)
+    outlineActiveColor(params->outline_active_color),
+    enabled(params->initEnable)
 {
     if(params->drawDebugBorder){
         outlineIdleColor= sf::Color::Red;
         outlineHoverColor=sf::Color::Red;
         outlineActiveColor=sf::Color::Red;
+    }
+
+    if(!params->initEnable){
+        outlineIdleColor.a = 70;
+        outlineHoverColor.a = 70;
+        outlineActiveColor.a = 70;
+        textIdleColor.a = 70;
     }
 
     this->shape.setPosition(sf::Vector2f(params->x,params->y));
@@ -86,11 +94,11 @@ const bool gui::Button::isPressed() const
 void gui::Button::update(const sf::Vector2i& mousePosWindow, const float& dt)
 {
     this->buttonState = BTN_IDLE;
-    if (this->shape.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePosWindow)))
+    if (this->shape.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePosWindow)) && this->enabled)
     {
 
         this->buttonState = BTN_HOVER;
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->enabled)
         {
             this->buttonState = BTN_ACTIVE;
         }
@@ -135,4 +143,15 @@ void gui::Button::render(sf::RenderTarget& target)
 {
     target.draw(this->shape);
     target.draw(this->text);
+}
+
+void gui::Button::ChangeColor(sf::Color color) {
+    this->textIdleColor = color;
+    this->textHoverColor = sf::Color(std::max(color.r-50,0),std::max(color.g-50,0),std::max(color.b-50,0));
+    this->textActiveColor = sf::Color(std::max(color.r-100,0),std::max(color.g-100,0),std::max(color.b-100,0));
+}
+
+void gui::Button::SetEnabled(bool enabled) {
+    this->enabled = enabled;
+    this->textIdleColor.a = 70;
 }

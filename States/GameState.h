@@ -13,6 +13,7 @@ private:
 
     Keyboard* keyboard;
 
+
     //Funkcje
     void initView();
     void initFonts();
@@ -26,8 +27,6 @@ public:
     //Funkcje
     void update(const float& dt);
     void render(sf::RenderTarget* target = NULL);
-
-
 };
 
 

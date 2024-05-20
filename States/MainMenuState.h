@@ -19,8 +19,6 @@ private:
     void initGui();
     void resetGui();
 
-
-
 public:
     //Konstruktor/Destruktor
     MainMenuState(StateData* state_data);

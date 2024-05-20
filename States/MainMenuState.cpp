@@ -57,10 +57,6 @@ void MainMenuState::initGui()
     this->title.setTexture(&this->titleTexture);
     this->background.setTexture(&this->backgroundTexture);
 
-    const int colorIdle = 70;
-    const int colorHover = 40;
-    const int colorActive = 20;
-
     auto* ButtonInitParams = new gui::ButtonParams;
 
     //Nowa gra
@@ -77,15 +73,19 @@ void MainMenuState::initGui()
     ButtonInitParams->drawDebugBorder = true;
     this->buttons["GAME_STATE"] = new gui::Button(ButtonInitParams);
 
+    ButtonInitParams->initEnable = false;
+
     //Kontynuuj
     ButtonInitParams->y =  gui::calcY(42,vm);
     ButtonInitParams->text = "Kontynuuj";
     this->buttons["CONTINUE_STATE"] = new gui::Button(ButtonInitParams);
 
+    ButtonInitParams->initEnable = true;
     //Opcje
     ButtonInitParams->y =  gui::calcY(55,vm);
     ButtonInitParams->text = "Opcje";
     this->buttons["OPTIONS_STATE"] = new gui::Button(ButtonInitParams);
+
 
     //Wyjscie
     ButtonInitParams->y =  gui::calcY(70,vm);

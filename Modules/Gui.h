@@ -31,9 +31,8 @@ namespace gui {
         float scaleToHoverTime=6.5f;
         float scaleToActiveTime=10.f;
         bool drawDebugBorder=false;
+        bool initEnable=true;
     };
-
-
 
     //Funkcje obliczeniowe
     const float lerp(float a, float b, float t);
@@ -62,6 +61,8 @@ namespace gui {
         float hoverScale;
         float activeScale;
 
+        bool enabled;
+
     public:
         //Konstruktor/Destruktor
         Button(ButtonParams * params);
@@ -71,6 +72,8 @@ namespace gui {
         const bool isPressed() const;
         void update(const sf::Vector2i &mousePosWindow,const float& dt);
         void render(sf::RenderTarget &target);
+        void SetEnabled(bool enabled);
+        void ChangeColor(sf::Color color);
     };
 }
 #endif //HANGMAN_GUI_H

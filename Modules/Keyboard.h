@@ -18,6 +18,9 @@ public:
     virtual ~Keyboard();
 
     //Funkcje
+    void SetButtonEnabled(char key,bool enabled);
+    void SetButtonColor(char key,sf::Color color);
+    const bool IsPressed(char key);
     void updateButtons(const sf::Vector2i& mousePosWindow,const float& dt);
     void update(const sf::Vector2i& mousePosWindow,const float& dt);
     void render(sf::RenderTarget* target = nullptr);

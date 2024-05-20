@@ -57,10 +57,16 @@ void GameState::update(const float& dt)
     if (!this->paused) //gra w  trakcie
     {
         this->keyboard->update(mousePosWindow,dt);
+
+        //Sprawdzanie czy nacisniety przycisk
+        if(this->keyboard->IsPressed('A')){
+            this->keyboard->SetButtonColor('A',sf::Color(0,153,0));
+            this->keyboard->SetButtonEnabled('A',false);
+        }
     }
     else //gra zapauzowana
     {
-        //menu
+
     }
 }
 
