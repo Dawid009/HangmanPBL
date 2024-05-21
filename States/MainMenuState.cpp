@@ -1,6 +1,6 @@
 #include "MainMenuState.h"
 #include <iostream>
-
+#include <locale>
 MainMenuState::MainMenuState(StateData* state_data)
         : State(state_data)
 {
@@ -25,10 +25,11 @@ MainMenuState::~MainMenuState()
 *****************************************************************************/
 void MainMenuState::initFonts()
 {
-    if (!this->font.loadFromFile("Fonts/Lucida.ttf"))
+    if (!this->font.loadFromFile("Fonts/Caveat.ttf"))
     {
         throw("ERROR: Nie udalo sie zaladowac czcionki");
     }
+    std::locale::global(std::locale("pl_PL.UTF-8"));
 }
 
 
@@ -74,7 +75,6 @@ void MainMenuState::initGui()
     this->buttons["GAME_STATE"] = new gui::Button(ButtonInitParams);
 
     ButtonInitParams->initEnable = false;
-
     //Kontynuuj
     ButtonInitParams->y =  gui::calcY(42,vm);
     ButtonInitParams->text = "Kontynuuj";
@@ -89,7 +89,15 @@ void MainMenuState::initGui()
 
     //Wyjscie
     ButtonInitParams->y =  gui::calcY(70,vm);
-    ButtonInitParams->text = "Wyjscie";
+    ButtonInitParams->text = L"Wyjście";
+
+
+    std::string tekst = "ąęćśżźśóńł";
+
+    //for(auto ch : tekst){
+      //  std::cout<<(int)ch<<"  "<<ch<< std::endl;
+    //}
+
     ButtonInitParams->text_idle_color= sf::Color(40, 40, 40, 255);
     ButtonInitParams->text_hover_color= sf::Color(25, 25, 25, 255),
     ButtonInitParams->text_active_color= sf::Color(10, 10, 10, 255),

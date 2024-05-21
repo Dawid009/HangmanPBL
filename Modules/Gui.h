@@ -15,7 +15,7 @@ namespace gui {
         float width=50.f;
         float height=50.f;
         sf::Font* font;
-        std::string text = "";
+        sf::String text = "";
         unsigned character_size = 10;
         float thickness = 3.f;
         sf::Color text_idle_color = sf::Color(70,70,70,255);
@@ -60,6 +60,10 @@ namespace gui {
 
         float hoverScale;
         float activeScale;
+
+        float scaleToIdleTime;
+        float scaleToHoverTime;
+        float scaleToActiveTime;
 
         bool enabled;
 

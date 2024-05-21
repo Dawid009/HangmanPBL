@@ -25,17 +25,18 @@ void Keyboard::initKeyboard() {
     ButtonInitParams->font = &this->font;
     ButtonInitParams->thickness = 2.f;
     ButtonInitParams->character_size = gui::calcCharSize(vm,60);
-    ButtonInitParams->hoverScale = 2.5f;
-    ButtonInitParams->activeScale = 1.8f;
+    ButtonInitParams->hoverScale = 2.0f;
+    ButtonInitParams->activeScale = 1.5f;
+    ButtonInitParams->text_idle_color=sf::Color(30,30,30,255);
 
-    char letter = 65; //65 to A
+    char letter = 65;
     for(int i=0;i<3;i++){
         for(int j=0;j<10&&letter<91;j++){
             ButtonInitParams->x =  gui::calcX(10,vm)+j*gui::calcX(5.1f,vm);
             ButtonInitParams->y =  gui::calcY(55,vm)+i*gui::calcY(8.f,vm);
-            ButtonInitParams->text = std::string(1,letter);
+            ButtonInitParams->text = letter;
             buttons[letter] = new gui::Button(ButtonInitParams);
-            letter++;
+           letter++;
         }
     }
     delete ButtonInitParams;

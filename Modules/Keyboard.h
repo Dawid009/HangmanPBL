@@ -7,7 +7,6 @@ private:
     //Zmienne
     std::map<char, gui::Button*> buttons;
     sf::Font font;
-    sf::RenderTexture renderTexture;
     class GraphicsSettings* gfxSettings;
 
     //Funkcje

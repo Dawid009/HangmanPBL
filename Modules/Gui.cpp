@@ -36,7 +36,10 @@ gui::Button::Button(ButtonParams * params) :
     outlineIdleColor(params->outline_idle_color),
     outlineHoverColor(params->outline_hover_color),
     outlineActiveColor(params->outline_active_color),
-    enabled(params->initEnable)
+    enabled(params->initEnable),
+    scaleToIdleTime(params->scaleToIdleTime),
+    scaleToHoverTime(params->scaleToHoverTime),
+    scaleToActiveTime(params->scaleToActiveTime)
 {
     if(params->drawDebugBorder){
         outlineIdleColor= sf::Color::Red;
@@ -108,21 +111,21 @@ void gui::Button::update(const sf::Vector2i& mousePosWindow, const float& dt)
     switch (this->buttonState)
     {
         case BTN_IDLE:
-            scaleXY = lerp(this->text.getScale().x, 1.0f, 8.f*dt);
+            scaleXY = lerp(this->text.getScale().x, 1.0f, this->scaleToIdleTime*dt);
             this->text.setScale(scaleXY,scaleXY);
             this->text.setFillColor(this->textIdleColor);
             this->shape.setOutlineColor(this->outlineIdleColor);
             break;
 
         case BTN_HOVER:
-            scaleXY = lerp(this->text.getScale().x, hoverScale, 6.5f*dt);
+            scaleXY = lerp(this->text.getScale().x, hoverScale, this->scaleToHoverTime*dt);
             this->text.setScale(scaleXY,scaleXY);
             this->text.setFillColor(this->textHoverColor);
             this->shape.setOutlineColor(this->outlineHoverColor);
             break;
 
         case BTN_ACTIVE:
-            scaleXY = lerp(this->text.getScale().x, activeScale, 10.f*dt);
+            scaleXY = lerp(this->text.getScale().x, activeScale, this->scaleToActiveTime*dt);
             this->text.setScale(scaleXY,scaleXY);
             this->text.setFillColor(this->textActiveColor);
             this->shape.setOutlineColor(this->outlineActiveColor);

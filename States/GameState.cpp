@@ -1,6 +1,5 @@
 #include "GameState.h"
-
-
+#include <fstream>
 
 GameState::GameState(StateData* state_data)
         : State(state_data)
@@ -8,6 +7,8 @@ GameState::GameState(StateData* state_data)
     this->initView();
     this->initFonts();
     this->keyboard = new Keyboard(this->font,this->stateData->gfxSettings);
+
+    this->letterFields = new LetterFields(this->font,this->stateData->gfxSettings,"Tekst*abcd");
 }
 
 GameState::~GameState()
@@ -45,6 +46,19 @@ void GameState::initView()
     this->background.setTexture(&this->backgroundTexture);
 }
 
+void GameState::checkKeyboard(char letter) {
+    if(this->keyboard->IsPressed(letter)){
+
+        if(auto points = this->letterFields->revealLetter(letter)){
+            this->keyboard->SetButtonColor(letter,sf::Color(0,153,0));
+            this->keyboard->SetButtonEnabled(letter,false);
+        }else{
+            this->keyboard->SetButtonColor(letter,sf::Color(250,0,0));
+            this->keyboard->SetButtonEnabled(letter,false);
+        };
+
+    }
+}
 
 /*****************************************************************************
 ** Function name:      update
@@ -57,11 +71,11 @@ void GameState::update(const float& dt)
     if (!this->paused) //gra w  trakcie
     {
         this->keyboard->update(mousePosWindow,dt);
+        this->letterFields->update(dt);
 
         //Sprawdzanie czy nacisniety przycisk
-        if(this->keyboard->IsPressed('A')){
-            this->keyboard->SetButtonColor('A',sf::Color(0,153,0));
-            this->keyboard->SetButtonEnabled('A',false);
+        for(int i=65;i<91;i++){
+            checkKeyboard(static_cast<char>(i));
         }
     }
     else //gra zapauzowana
@@ -82,7 +96,6 @@ void GameState::render(sf::RenderTarget* target)
 
     target->draw(this->background);
     this->keyboard->render(target);
-
-
-
+    this->letterFields->render(target);
 }
+
