@@ -1,5 +1,6 @@
 #include "GameState.h"
 #include <fstream>
+#include <locale>
 
 GameState::GameState(StateData* state_data)
         : State(state_data)
@@ -7,8 +8,8 @@ GameState::GameState(StateData* state_data)
     this->initView();
     this->initFonts();
     this->keyboard = new Keyboard(this->font,this->stateData->gfxSettings);
+    this->letterFields = new LetterFields(this->font,this->stateData->gfxSettings,L"Tekst*śćńęą*wdxc");
 
-    this->letterFields = new LetterFields(this->font,this->stateData->gfxSettings,"Tekst*abcd");
 }
 
 GameState::~GameState()
@@ -23,10 +24,11 @@ GameState::~GameState()
 *****************************************************************************/
 void GameState::initFonts()
 {
-    if (!this->font.loadFromFile("Fonts/Lucida.ttf"))
+    if (!this->font.loadFromFile("Fonts/Caveat.ttf"))
     {
         throw("ERROR::MAINMENUSTATE::COULD NOT LOAD FONT");
     }
+    std::locale::global(std::locale("pl_PL.UTF-8"));
 }
 
 /*****************************************************************************
@@ -46,14 +48,18 @@ void GameState::initView()
     this->background.setTexture(&this->backgroundTexture);
 }
 
+/*****************************************************************************
+** Function name:      checkKeyboard
+** Description:        Sprawdza czy przycisk jest wcisniety i czy są takie litery
+*****************************************************************************/
 void GameState::checkKeyboard(char letter) {
     if(this->keyboard->IsPressed(letter)){
 
-        if(auto points = this->letterFields->revealLetter(letter)){
+       if(auto points = this->letterFields->revealLetter(letter)){
             this->keyboard->SetButtonColor(letter,sf::Color(0,153,0));
-            this->keyboard->SetButtonEnabled(letter,false);
-        }else{
-            this->keyboard->SetButtonColor(letter,sf::Color(250,0,0));
+           this->keyboard->SetButtonEnabled(letter,false);
+       }else{
+           this->keyboard->SetButtonColor(letter,sf::Color(250,0,0));
             this->keyboard->SetButtonEnabled(letter,false);
         };
 
@@ -74,8 +80,8 @@ void GameState::update(const float& dt)
         this->letterFields->update(dt);
 
         //Sprawdzanie czy nacisniety przycisk
-        for(int i=65;i<91;i++){
-            checkKeyboard(static_cast<char>(i));
+        for(short i=0;i<33;i++){
+            checkKeyboard(i);
         }
     }
     else //gra zapauzowana

@@ -29,15 +29,27 @@ void Keyboard::initKeyboard() {
     ButtonInitParams->activeScale = 1.5f;
     ButtonInitParams->text_idle_color=sf::Color(30,30,30,255);
 
-    char letter = 65;
-    for(int i=0;i<3;i++){
-        for(int j=0;j<10&&letter<91;j++){
-            ButtonInitParams->x =  gui::calcX(10,vm)+j*gui::calcX(5.1f,vm);
-            ButtonInitParams->y =  gui::calcY(55,vm)+i*gui::calcY(8.f,vm);
-            ButtonInitParams->text = letter;
-            buttons[letter] = new gui::Button(ButtonInitParams);
-           letter++;
+    sf::String letters = L"AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUWXYŹŻ";
+
+    short id=0;
+    int line=0,pos=0;
+    for(auto ch : letters){
+        if(pos<10){
+            ButtonInitParams->x =  gui::calcX(10,vm)+pos*gui::calcX(5.1f,vm);
+            ButtonInitParams->y =  gui::calcY(55,vm)+line*gui::calcY(8.f,vm);
+            ButtonInitParams->text = sf::String(ch);
+            buttons[id] = new gui::Button(ButtonInitParams);
+            pos++;
+        }else{
+            pos=0;
+            line++;
+            ButtonInitParams->x =  gui::calcX(10,vm)+pos*gui::calcX(5.1f,vm);
+            ButtonInitParams->y =  gui::calcY(55,vm)+line*gui::calcY(8.f,vm);
+            ButtonInitParams->text = sf::String(ch);
+            buttons[id] = new gui::Button(ButtonInitParams);
+            pos++;
         }
+        id++;
     }
     delete ButtonInitParams;
 }
@@ -82,11 +94,11 @@ void Keyboard::render(sf::RenderTarget *target) {
 ** Function name:      SetButton Enabled, Color
 ** Description:        Ustawianie koloru, wylaczanie przycisku
 *****************************************************************************/
-void Keyboard::SetButtonEnabled(char key,bool enabled) {
+void Keyboard::SetButtonEnabled(uint8_t key,bool enabled) {
     buttons[key]->SetEnabled(enabled);
 }
 
-void Keyboard::SetButtonColor(char key,sf::Color color) {
+void Keyboard::SetButtonColor(uint8_t key,sf::Color color) {
     buttons[key]->ChangeColor(color);
 
 }
@@ -95,7 +107,7 @@ void Keyboard::SetButtonColor(char key,sf::Color color) {
 ** Function name:      isPressed
 ** Description:        Zwraca aktualny stan dla danego przycisku
 *****************************************************************************/
-const bool Keyboard::IsPressed(char key) {
+const bool Keyboard::IsPressed(uint8_t key) {
     if (this->buttons[key]->isPressed()) {
         return true;
     } else

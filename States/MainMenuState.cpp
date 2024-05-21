@@ -70,19 +70,17 @@ void MainMenuState::initGui()
     ButtonInitParams->character_size = gui::calcCharSize(vm,50);
     ButtonInitParams->hoverScale = 1.2f;
     ButtonInitParams->activeScale = 1.1f;
-    //Linie pomocnicze do debugowania
-    ButtonInitParams->drawDebugBorder = true;
     this->buttons["GAME_STATE"] = new gui::Button(ButtonInitParams);
 
     ButtonInitParams->initEnable = false;
-    //Kontynuuj
+    /*Kontynuuj
     ButtonInitParams->y =  gui::calcY(42,vm);
     ButtonInitParams->text = "Kontynuuj";
     this->buttons["CONTINUE_STATE"] = new gui::Button(ButtonInitParams);
-
+    */
     ButtonInitParams->initEnable = true;
     //Opcje
-    ButtonInitParams->y =  gui::calcY(55,vm);
+    ButtonInitParams->y =  gui::calcY(43,vm);
     ButtonInitParams->text = "Opcje";
     this->buttons["OPTIONS_STATE"] = new gui::Button(ButtonInitParams);
 
@@ -90,13 +88,6 @@ void MainMenuState::initGui()
     //Wyjscie
     ButtonInitParams->y =  gui::calcY(70,vm);
     ButtonInitParams->text = L"Wyjście";
-
-
-    std::string tekst = "ąęćśżźśóńł";
-
-    //for(auto ch : tekst){
-      //  std::cout<<(int)ch<<"  "<<ch<< std::endl;
-    //}
 
     ButtonInitParams->text_idle_color= sf::Color(40, 40, 40, 255);
     ButtonInitParams->text_hover_color= sf::Color(25, 25, 25, 255),

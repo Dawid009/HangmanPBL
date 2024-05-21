@@ -5,7 +5,7 @@
 class Keyboard {
 private:
     //Zmienne
-    std::map<char, gui::Button*> buttons;
+    std::map<short, gui::Button*> buttons;
     sf::Font font;
     class GraphicsSettings* gfxSettings;
 
@@ -17,9 +17,9 @@ public:
     virtual ~Keyboard();
 
     //Funkcje
-    void SetButtonEnabled(char key,bool enabled);
-    void SetButtonColor(char key,sf::Color color);
-    const bool IsPressed(char key);
+    void SetButtonEnabled(uint8_t key,bool enabled);
+    void SetButtonColor(uint8_t key,sf::Color color);
+    const bool IsPressed(uint8_t key);
     void updateButtons(const sf::Vector2i& mousePosWindow,const float& dt);
     void update(const sf::Vector2i& mousePosWindow,const float& dt);
     void render(sf::RenderTarget* target = nullptr);

@@ -2,31 +2,38 @@
 #include "GraphicsSettings.h"
 #include <sstream>
 
-std::vector<size_t> findStarPositions(const std::string& str) {
-    std::vector<size_t> positions;  // Deklaracja wektora
+/*****************************************************************************
+** Function name:      findStarPositions
+** Description:        Wyszukuje pozycje gwiazdki
+*****************************************************************************/
+int findStarPositions(const std::string& str) {
+    int count=0;// Deklaracja wektora
     for (size_t i = 0; i < str.size(); ++i) {
         if (str[i] == '*') {
-            positions.push_back(i);  // Dodawanie pozycji do wektora
+            count++;// Dodawanie pozycji do wektora
         }
     }
-    return positions;
+    return count;
 }
 
 
-LetterFields::LetterFields(const sf::Font &font, GraphicsSettings *settings,const std::string& Password) {
+LetterFields::LetterFields(const sf::Font &font, GraphicsSettings *settings,const sf::String& Password) {
     this->font = font;
     this->gfxSettings = settings;
     this->initLetterFields(Password);
 }
 
-
-void LetterFields::initLetterFields(std::string Password) {
+/*****************************************************************************
+** Function name:      render
+** Description:        Tworzy tekst o określonej ilości pól
+*****************************************************************************/
+void LetterFields::initLetterFields(const sf::String& Password) {
     const sf::VideoMode& vm = this->gfxSettings->resolution;
 
-    std::vector<size_t> starPositions = findStarPositions(Password);
+    uint8_t starCount = findStarPositions(Password);
     float line=0,pos=0;
 
-    for(int i=0;i<Password.length();i++){
+    for(int i=0;i<Password.getSize();i++){
 
         if(Password[i]=='*')
         {
@@ -42,7 +49,7 @@ void LetterFields::initLetterFields(std::string Password) {
                 txt->setFillColor(sf::Color(70, 70, 70, 0));
                 txt->setPosition(sf::Vector2f(
                         gui::calcX(11.f , vm) + gui::calcX(0.8, vm) + pos * gui::calcX(6, vm),
-                        gui::calcY(20.f-static_cast<float>(starPositions.size()*2), vm) + line * gui::calcY(7, vm)));
+                        gui::calcY(20.f-static_cast<float>(starCount*2), vm) + line * gui::calcY(7, vm)));
 
                 auto *floor = new sf::RectangleShape(sf::Vector2f(
                         gui::calcX(4, vm),
@@ -50,13 +57,13 @@ void LetterFields::initLetterFields(std::string Password) {
 
                 floor->setPosition(sf::Vector2f(
                         gui::calcX(11.f, vm) + pos * gui::calcX(6, vm),
-                        gui::calcY(25.f-static_cast<float>(starPositions.size()*2), vm) + line * gui::calcY(7, vm)));
+                        gui::calcY(25.f-static_cast<float>(starCount*2), vm) + line * gui::calcY(7, vm)));
 
                 floor->setFillColor(sf::Color(70, 70, 70, 255));
 
                 Fields.push_back(new LetterField(
                         false,
-                        Password[i],
+                        sf::String(Password[i]),
                         floor,
                         txt
                 ));
@@ -72,7 +79,10 @@ LetterFields::~LetterFields(){
 }
 
 
-
+/*****************************************************************************
+** Function name:      update
+** Description:        Pętla odpowiadająca za aktualizacje zdarzeń
+*****************************************************************************/
 void LetterFields::update(const float& dt) {
     for (auto &it : this->Fields)
     {
@@ -80,7 +90,10 @@ void LetterFields::update(const float& dt) {
     }
 }
 
-
+/*****************************************************************************
+** Function name:      render
+** Description:        Pętla odpowiadająca za wyświetlanie modułu
+*****************************************************************************/
 void LetterFields::render(sf::RenderTarget *target) {
     for (auto &it : this->Fields)
     {
@@ -90,11 +103,26 @@ void LetterFields::render(sf::RenderTarget *target) {
 
 }
 
-int LetterFields::revealLetter(char letter) {
-    int sum=0;
+/*****************************************************************************
+** Function name:      revealLetter
+** Description:        Podświetla literki jeśli są w tekscie
+*****************************************************************************/
+int LetterFields::revealLetter(uint8_t letter) {
+    uint8_t sum=0;
+
+    sf::String letters = L"AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUWXYZŹŻ";
+
+    short letterId=0;
     for (auto &it : this->Fields)
     {
-        if(tolower(it->character)== tolower(letter))
+        for(uint_fast8_t i=0;i<letters.getSize();i++){
+            if(tolower(it->character[0])==tolower(letters[i]))
+            {
+                letterId=i;
+            }
+        }
+
+        if(letterId==letter)
         {
             sum++;
             it->targetAlpha= 255;
