@@ -4,6 +4,7 @@
 #include "State.h"
 #include "../Modules/Keyboard.h"
 #include "../Modules/LetterFields.h"
+#include "../Modules/Hangman.h"
 
 class GameState : public State {
 private:
@@ -14,6 +15,7 @@ private:
 
     Keyboard* keyboard;
     LetterFields* letterFields;
+    Hangman* hangman;
 
     //Funkcje
     void initView();

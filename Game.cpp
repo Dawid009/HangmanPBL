@@ -40,7 +40,6 @@ void Game::initVariables()
 *****************************************************************************/
 void Game::initWindow()
 {
-
     if(this->gfxSettings.fullscreen)
         this->window = new sf::RenderWindow(
                 this->gfxSettings.resolution,
@@ -53,8 +52,6 @@ void Game::initWindow()
                 this->gfxSettings.title,
                 sf::Style::Titlebar | sf::Style::Close,
                 this->gfxSettings.contextSettings);
-
-
 
     this->window->setFramerateLimit(this->gfxSettings.frameRateLimit);
     this->window->setVerticalSyncEnabled(this->gfxSettings.verticalSync);
@@ -88,7 +85,6 @@ void Game::updateEvents()
 
 void Game::initGraphicsSettings()
 {
-
     this->gfxSettings.loadFromFile("Config/graphics.ini");
 }
 
