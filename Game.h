@@ -33,7 +33,6 @@ public:
     //Funkcje update
     void update();
     void updateDt();
-    void updateEvents();
 
     //Renderowanie
     void render();

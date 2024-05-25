@@ -40,17 +40,10 @@ void Game::initVariables()
 *****************************************************************************/
 void Game::initWindow()
 {
-    if(this->gfxSettings.fullscreen)
         this->window = new sf::RenderWindow(
                 this->gfxSettings.resolution,
                 this->gfxSettings.title,
-                sf::Style::Fullscreen,
-                this->gfxSettings.contextSettings);
-    else
-        this->window = new sf::RenderWindow(
-                this->gfxSettings.resolution,
-                this->gfxSettings.title,
-                sf::Style::Titlebar | sf::Style::Close,
+                this->gfxSettings.fullscreen ? sf::Style::Fullscreen : sf::Style::Titlebar | sf::Style::Close,
                 this->gfxSettings.contextSettings);
 
     this->window->setFramerateLimit(this->gfxSettings.frameRateLimit);
@@ -66,20 +59,6 @@ void Game::updateDt()
 {
     //Aktualizuje zmienną DeltaTime
     this->dt = this->dtClock.restart().asSeconds();
-}
-
-
-/*****************************************************************************
-** Function name:      updateEvents
-** Description:        Aktualizuje eventy SFML
-*****************************************************************************/
-void Game::updateEvents()
-{
-    while (this->window->pollEvent(this->sfEvent))
-    {
-        if (this->sfEvent.type == sf::Event::Closed)
-            this->window->close();
-    }
 }
 
 
@@ -116,8 +95,12 @@ void Game::initStates()
 *****************************************************************************/
 void Game::update()
 {
-    this->updateEvents();
-
+    //SFML EVENTS
+    while (this->window->pollEvent(this->sfEvent))
+    {
+        if (this->sfEvent.type == sf::Event::Closed)
+            this->window->close();
+    }
 
     if (!this->states.empty())
     {
@@ -139,7 +122,6 @@ void Game::update()
         this->window->close();
     }
 }
-
 
 /*****************************************************************************
 ** Function name:      render

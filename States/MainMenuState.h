@@ -12,7 +12,7 @@ private:
     sf::Texture titleTexture;
     sf::RectangleShape title;
     sf::Font font;
-    std::map<std::string, gui::Button*> buttons;
+    std::map<uint8_t, gui::Button*> buttons;
 
 
     //Funkcje

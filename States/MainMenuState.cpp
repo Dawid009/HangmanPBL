@@ -1,6 +1,12 @@
 #include "MainMenuState.h"
 #include <iostream>
 #include <locale>
+
+#define NEW_GAME 1
+#define CONTINUE 2
+#define OPTIONS 3
+#define QUIT 4
+
 MainMenuState::MainMenuState(StateData* state_data)
         : State(state_data)
 {
@@ -29,7 +35,6 @@ void MainMenuState::initFonts()
     {
         throw("ERROR: Nie udalo sie zaladowac czcionki");
     }
-    std::locale::global(std::locale("pl_PL.UTF-8"));
 }
 
 
@@ -66,33 +71,29 @@ void MainMenuState::initGui()
     ButtonInitParams->width = static_cast<float>(gui::calcCharSize(vm,50)*7);
     ButtonInitParams->height = static_cast<float>(gui::calcCharSize(vm,50)*1.2);
     ButtonInitParams->font = &this->font;
-    ButtonInitParams->text = "Nowa gra";
+    ButtonInitParams->text = L"New game";
     ButtonInitParams->character_size = gui::calcCharSize(vm,50);
     ButtonInitParams->hoverScale = 1.2f;
     ButtonInitParams->activeScale = 1.1f;
-    this->buttons["GAME_STATE"] = new gui::Button(ButtonInitParams);
+    this->buttons[NEW_GAME] = new gui::Button(ButtonInitParams);
 
-    ButtonInitParams->initEnable = false;
-    /*Kontynuuj
-    ButtonInitParams->y =  gui::calcY(42,vm);
-    ButtonInitParams->text = "Kontynuuj";
-    this->buttons["CONTINUE_STATE"] = new gui::Button(ButtonInitParams);
-    */
-    ButtonInitParams->initEnable = true;
+    /*Kontynuuj*/
+
+
     //Opcje
     ButtonInitParams->y =  gui::calcY(43,vm);
-    ButtonInitParams->text = "Opcje";
-    this->buttons["OPTIONS_STATE"] = new gui::Button(ButtonInitParams);
+    ButtonInitParams->text = L"Options";
+    this->buttons[OPTIONS] = new gui::Button(ButtonInitParams);
 
 
     //Wyjscie
     ButtonInitParams->y =  gui::calcY(70,vm);
-    ButtonInitParams->text = L"Wyjście";
+    ButtonInitParams->text = L"Quit";
 
     ButtonInitParams->text_idle_color= sf::Color(40, 40, 40, 255);
     ButtonInitParams->text_hover_color= sf::Color(25, 25, 25, 255),
     ButtonInitParams->text_active_color= sf::Color(10, 10, 10, 255),
-    this->buttons["EXIT_STATE"] = new gui::Button(ButtonInitParams);
+    this->buttons[QUIT] = new gui::Button(ButtonInitParams);
     delete ButtonInitParams;
 }
 
@@ -123,18 +124,13 @@ void MainMenuState::updateButtons(const float& dt)
     }
 
     //Nowa gra
-    if (this->buttons["GAME_STATE"]->isPressed())
+
+    if (this->buttons[NEW_GAME]->isPressed())
     {
-        std::cout<<"Dziala!"<<std::endl;
         this->states->push(new GameState(this->stateData));
     }
 
-    /*
-     * Dodać obsluge reszty przyciskow
-     */
-
-    //wyjscie
-    if (this->buttons["EXIT_STATE"]->isPressed())
+    if (this->buttons[QUIT]->isPressed())
     {
         this->endState();
     }

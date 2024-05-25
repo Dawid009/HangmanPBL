@@ -5,16 +5,13 @@
 
 
 struct LetterField{
-    bool isVisible;
-    sf::String character;
+    uint8_t id;
     sf::RectangleShape* floor;
     sf::Text* text;
-    float currentAlpha=0;
     float targetAlpha=0;
 
-    LetterField(bool isVisible, sf::String character, sf::RectangleShape* floor, sf::Text* text1):
-        isVisible(isVisible),
-        character(character),
+    LetterField(uint8_t id, sf::RectangleShape* floor, sf::Text* text1):
+        id(id),
         floor(floor),
         text(text1)
         {}
@@ -29,11 +26,11 @@ private:
     sf::Font font;
 
     //Funkcje
-    void initLetterFields(const sf::String& Password);
+    void initLetterFields(const std::wstring& password);
 
 public:
     //Konstruktor/Destruktor
-    LetterFields(const sf::Font& font, GraphicsSettings* settings,const sf::String& Password);
+    LetterFields(const sf::Font& font, GraphicsSettings* settings,const std::wstring& password);
     virtual ~LetterFields();
 
     //Funkcje
