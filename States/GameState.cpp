@@ -9,27 +9,8 @@ GameState::GameState(StateData* state_data)
     this->initFonts();
     this->keyboard = new Keyboard(this->font,this->stateData->gfxSettings);
 
-    std::srand(std::time(nullptr));
-    int randomLine = std::rand() % 100;
-    std::wstring line;
-    int currentLine = 0;
 
-    std::wifstream file("Resources/hasla.txt");
-    if (file.is_open()) {
-        // Iteracyjne odczytywanie pliku
-        while (std::getline(file, line)) {
-            if (currentLine == randomLine) {
-                break;
-            }
-            currentLine++;
-        }
-        file.close();
-    }else{
-        std::cerr << "Nie można otworzyć pliku" << std::endl;
-    }
-
-
-    this->letterFields = new LetterFields(this->font,this->stateData->gfxSettings,line);
+    this->letterFields = new LetterFields(this->font,this->stateData->gfxSettings,L"Tekstabcd");
     this->hangman = new Hangman(this->stateData->gfxSettings);
 }
 
@@ -73,7 +54,7 @@ void GameState::initView()
 ** Function name:      checkKeyboard
 ** @brief Description:        Sprawdza czy przycisk jest wcisniety i czy są takie litery
 *****************************************************************************/
-void GameState::checkKeyboard(char letter) {
+void GameState::checkKeyboard(const uint8_t letter) {
     if(this->keyboard->IsPressed(letter)){
 
        if(auto points = this->letterFields->revealLetter(letter)){
@@ -82,8 +63,9 @@ void GameState::checkKeyboard(char letter) {
        }else{
            this->keyboard->SetButtonColor(letter,sf::Color(250,0,0));
             this->keyboard->SetButtonEnabled(letter,false);
+            misses++;
+            this->hangman->setLevel(misses);
         };
-
     }
 }
 
@@ -102,7 +84,7 @@ void GameState::update(const float& dt)
         this->hangman->update(dt);
 
         //Sprawdzanie czy nacisniety przycisk
-        for(short i=0;i<34;i++){
+        for(uint8_t i=0;i<34;i++){
             checkKeyboard(i);
         }
     }
@@ -122,7 +104,6 @@ void GameState::render(sf::RenderTarget* target)
         target = this->window;
     target->clear();
     target->draw(this->background);
-
 
     this->hangman->render(target);
     this->keyboard->render(target);

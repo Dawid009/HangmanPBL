@@ -5,7 +5,7 @@
 class Keyboard {
 private:
     //Zmienne
-    std::map<short, gui::Button*> buttons;
+    std::map<uint8_t, gui::Button*> buttons;
     sf::Font font;
     class GraphicsSettings* gfxSettings;
 

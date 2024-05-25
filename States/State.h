@@ -30,8 +30,7 @@ protected:
     bool quit;
     bool paused;
 
-    //Przechowuja info o pozycji myszki na ekranie/oknie
-    sf::Vector2i mousePosScreen;
+    //Przechowuja info o pozycji myszki na oknie
     sf::Vector2i mousePosWindow;
 
 public:

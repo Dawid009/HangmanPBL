@@ -24,7 +24,6 @@ namespace gui {
         sf::Color outline_idle_color = sf::Color::Transparent;
         sf::Color outline_hover_color = sf::Color::Transparent;
         sf::Color outline_active_color = sf::Color::Transparent;
-        short unsigned id=1;
         float hoverScale=1.2f;
         float activeScale=1.1f;
         float scaleToIdleTime=8.f;
@@ -44,10 +43,8 @@ namespace gui {
     private:
         //Zmienne
         short unsigned buttonState;
-        short unsigned id;
 
         sf::RectangleShape shape;
-        sf::Font *font;
         sf::Text text;
 
         sf::Color textIdleColor;

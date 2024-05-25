@@ -8,7 +8,11 @@ Keyboard::Keyboard(const sf::Font& font,GraphicsSettings* settings) {
 }
 
 Keyboard::~Keyboard() {
-
+    delete gfxSettings;
+    for (auto &it : this->buttons)
+    {
+        delete it.second;
+    }
 }
 
 /*****************************************************************************
@@ -29,22 +33,22 @@ void Keyboard::initKeyboard() {
     ButtonInitParams->activeScale = 1.5f;
     ButtonInitParams->text_idle_color=sf::Color(30,30,30,255);
 
-    sf::String letters = L"AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUWXYZŹŻ";
+    constexpr wchar_t letters[35] = L"AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUWXYZŹŻ";
 
-    short id=0;
-    int line=0,pos=0;
+    uint8_t id=0;
+    uint8_t line=0,pos=0;
     for(auto ch : letters){
         if(pos<10){
-            ButtonInitParams->x =  gui::calcX(10,vm)+pos*gui::calcX(5.1f,vm);
-            ButtonInitParams->y =  gui::calcY(55,vm)+line*gui::calcY(8.f,vm);
+            ButtonInitParams->x =  gui::calcX(10,vm)+static_cast<float>(pos)*gui::calcX(5.1f,vm);
+            ButtonInitParams->y =  gui::calcY(55,vm)+static_cast<float>(line)*gui::calcY(8.f,vm);
             ButtonInitParams->text = sf::String(ch);
             buttons[id] = new gui::Button(ButtonInitParams);
             pos++;
         }else{
             pos=0;
             line++;
-            ButtonInitParams->x =  gui::calcX(10,vm)+pos*gui::calcX(5.1f,vm);
-            ButtonInitParams->y =  gui::calcY(55,vm)+line*gui::calcY(8.f,vm);
+            ButtonInitParams->x =  gui::calcX(10,vm)+static_cast<float>(pos)*gui::calcX(5.1f,vm);
+            ButtonInitParams->y =  gui::calcY(55,vm)+static_cast<float>(line)*gui::calcY(8.f,vm);
             ButtonInitParams->text = sf::String(ch);
             buttons[id] = new gui::Button(ButtonInitParams);
             pos++;

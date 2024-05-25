@@ -17,10 +17,11 @@ private:
     LetterFields* letterFields;
     Hangman* hangman;
 
+    int misses=0;
     //Funkcje
     void initView();
     void initFonts();
-    void checkKeyboard(char letter);
+    void checkKeyboard(uint8_t letter);
 
 public:
     //Konstruktor/Destruktor

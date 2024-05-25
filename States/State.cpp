@@ -29,7 +29,6 @@ const bool & State::getQuit() const
 *****************************************************************************/
 void State::updateMousePositions(sf::View* view)
 {
-    this->mousePosScreen = sf::Mouse::getPosition();
     this->mousePosWindow = sf::Mouse::getPosition(*this->window);
 }
 

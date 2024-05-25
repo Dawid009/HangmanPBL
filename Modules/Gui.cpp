@@ -25,11 +25,9 @@ const unsigned gui::calcCharSize(const sf::VideoMode& vm, const unsigned modifie
 }
 
 gui::Button::Button(ButtonParams * params) :
-    id(params->id),
     buttonState(BTN_IDLE),
     hoverScale(params->hoverScale),
     activeScale(params->activeScale),
-    font(params->font),
     textIdleColor(params->text_idle_color),
     textHoverColor(params->text_hover_color),
     textActiveColor(params->text_active_color),
