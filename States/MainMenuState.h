@@ -14,6 +14,7 @@ private:
     sf::Font font;
     std::map<std::string, gui::Button*> buttons;
 
+
     //Funkcje
     void initFonts();
     void initGui();

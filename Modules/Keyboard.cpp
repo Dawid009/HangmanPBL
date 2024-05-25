@@ -29,7 +29,7 @@ void Keyboard::initKeyboard() {
     ButtonInitParams->activeScale = 1.5f;
     ButtonInitParams->text_idle_color=sf::Color(30,30,30,255);
 
-    sf::String letters = L"AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUWXYŹŻ";
+    sf::String letters = L"AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUWXYZŹŻ";
 
     short id=0;
     int line=0,pos=0;
@@ -73,8 +73,6 @@ void Keyboard::updateButtons(const sf::Vector2i& mousePosWindow,const float& dt)
 void Keyboard::update(const sf::Vector2i& mousePosWindow,const float& dt)
 {
     this->updateButtons(mousePosWindow,dt);
-
-
 }
 
 /*****************************************************************************
