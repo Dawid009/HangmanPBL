@@ -1,48 +1,85 @@
+/**
+ * @file State.h
+ * @brief Base State file
+ */
 #ifndef HANGMAN_STATE_H
 #define HANGMAN_STATE_H
 
 #include <SFML/Graphics.hpp>
 #include <stack>
 #include "../Modules/GraphicsSettings.h"
-
 class State;
 
+/** @class StateData
+ * @brief A class that stores data about state
+ * */
 class StateData
 {
 public:
+    /**
+    * @brief Class constructor
+    */
     StateData() {};
-
-    //Zmienne
-    sf::RenderWindow* window;
-    GraphicsSettings* gfxSettings;
-    std::stack<State*>* states;
+    sf::RenderWindow* window;///<The game window pointer.
+    GraphicsSettings* gfxSettings;///<An object that stores settings
+    std::stack<State*>* states;///<A stack that stores the views.
 };
 
+/**
+ * @class State
+ * @brief Base abstract class to create state based on.
+ */
 class State {
 protected:
-    //Zmienne
-    StateData* stateData;
-    std::stack<State*>* states;
-    sf::RenderWindow* window;
-    sf::Texture backgroundTexture;
-    sf::RectangleShape background;
+    StateData* stateData; ///<Variable holding state data
+    std::stack<State*>* states;///<A stack that stores the views.
+    sf::RenderWindow* window;///<The game window pointer.
+    sf::Texture backgroundTexture;///<background texture ref.
+    sf::RectangleShape background;///<Background rectangle.
 
-    bool quit;
-    bool paused;
-
-    //Przechowuja info o pozycji myszki na oknie
-    sf::Vector2i mousePosWindow;
+    bool quit;///<Is the game to be closed
+    bool paused;///<Is the game paused
+    sf::Vector2i mousePosWindow;///<XY mouse position on the window
 
 public:
-    //Konstruktor/Destruktor
+    /**
+    * @brief Class constructor
+    * @param state_data  Pointer to main StateData
+    */
     State(StateData* state_data);
+
+    /**
+    * @brief Class destructor
+    */
     virtual ~State();
 
-    //Funkcje
+    /**
+    * @brief Function to terminate the state
+    */
     void endState();
-    virtual void updateMousePositions(sf::View* view = nullptr);
+
+    /**
+    * @brief Checks if the game should be terminated
+    * @return Returns the result
+    */
     const bool& getQuit() const;
+
+    /**
+    * @brief Function that updates the mouse position.
+    * @param view Pointer to the view component
+    */
+    virtual void updateMousePositions(sf::View* view = nullptr);
+
+    /**
+    * @brief Loop for events
+    * @param dt Delta time
+    */
     virtual void update(const float& dt) = 0;
+
+    /**
+    * @brief Loop for rendering
+    * @param target Pointer to the main renderer
+    */
     virtual void render(sf::RenderTarget* target = nullptr) = 0;
 };
 

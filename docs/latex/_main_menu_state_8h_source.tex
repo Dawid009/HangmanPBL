@@ -1,0 +1,42 @@
+\doxysection{Main\+Menu\+State.\+h}
+\hypertarget{_main_menu_state_8h_source}{}\label{_main_menu_state_8h_source}\index{/Users/dawid/Documents/programowanie/cpp2/Hangman/States/MainMenuState.h@{/Users/dawid/Documents/programowanie/cpp2/Hangman/States/MainMenuState.h}}
+\mbox{\hyperlink{_main_menu_state_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ HANGMAN\_MAINMENUSTATE\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ HANGMAN\_MAINMENUSTATE\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_state_8h}{State.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_gui_8h}{../Modules/Gui.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_state_8h}{GameState.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_main_menu_state}{MainMenuState}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_state}{State}}\{}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \ \ \ \ sf::Texture\ \mbox{\hyperlink{class_main_menu_state_ab9ef389720ad235dd307dfc0b119ae55}{titleTexture}};\ }
+\DoxyCodeLine{00021\ \ \ \ \ sf::RectangleShape\ \mbox{\hyperlink{class_main_menu_state_af2852bcaec617341ea149ebfc25d2324}{title}};\ }
+\DoxyCodeLine{00022\ \ \ \ \ sf::Font\ \mbox{\hyperlink{class_main_menu_state_a452b6e63270b968978ff7fe8267ef15c}{font}};\ }
+\DoxyCodeLine{00023\ \ \ \ \ std::map<uint8\_t,\ gui::Button*>\ \mbox{\hyperlink{class_main_menu_state_a595320998ca16da2070bfdf8fe24e3cb}{buttons}};\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_menu_state_a6a72ebf025483b548c98e248dd18d313}{initFonts}}();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_menu_state_a00c856794e14eef337abd59f24cbbcd5}{initGui}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_menu_state_ab6c7406776e1a945687164432f9f7c67}{resetGui}}();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_main_menu_state_a9a3c8b9e00e104f5c3880406df6550b6}{MainMenuState}}(\mbox{\hyperlink{class_state_data}{StateData}}*\ state\_data);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_main_menu_state_a8af4d586b93c315a1a15b5fe83ec0760}{\string~MainMenuState}}();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_menu_state_ab4aa18e2cba13350b99e95fd53593013}{updateButtons}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_menu_state_a5802eb565dc92febf3480d643a11e699}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_menu_state_a343f2f93b5fe14251f425b0709bf43ba}{render}}(sf::RenderTarget*\ target\ =\ \textcolor{keyword}{nullptr})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00069\ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//HANGMAN\_MAINMENUSTATE\_H}}
+
+\end{DoxyCode}

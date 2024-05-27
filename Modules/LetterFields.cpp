@@ -2,10 +2,6 @@
 #include "GraphicsSettings.h"
 #include <sstream>
 
-/*****************************************************************************
-** Function name:      findStarPositions
-** Description:        Wyszukuje pozycje gwiazdki
-*****************************************************************************/
 int findStarPositions(const std::wstring& str) {
     int count=0;
     for (size_t i = 0; i < str.length(); ++i) {
@@ -32,25 +28,22 @@ LetterFields::~LetterFields(){
 }
 
 
-
-/*****************************************************************************
-** Function name:      render
-** Description:        Tworzy tekst o określonej ilości pól
-*****************************************************************************/
 void LetterFields::initLetterFields(const std::wstring& password) {
     const sf::VideoMode& vm = this->gfxSettings->resolution;
 
     uint8_t starCount = findStarPositions(password);
     float line=0,pos=0;
 
-    for(int i=0;i<password.size();i++){
-
+    for(int i=0;i<password.size();i++)
+    {
         if(password[i]==L'*')
         {
             line++;
             pos=0;
-        }else{
-            if(password[i] != L' ') {
+        }else
+        {
+            if(password[i] != L' ')
+            {
                 auto *txt = new sf::Text();
                 txt->setFont(this->font);
                 txt->setString(password[i]);
@@ -90,22 +83,13 @@ void LetterFields::initLetterFields(const std::wstring& password) {
 }
 
 
-
-/*****************************************************************************
-** Function name:      update
-** Description:        Pętla odpowiadająca za aktualizacje zdarzeń
-*****************************************************************************/
 void LetterFields::update(const float& dt) {
     for (auto &it : this->Fields)
     {
-        it->text->setFillColor(sf::Color(40,40,40,gui::lerp(it->text->getFillColor().a,it->targetAlpha,dt*3)));
+        it->text->setFillColor(sf::Color(40,40,40,static_cast<sf::Uint8>(gui::lerp(it->text->getFillColor().a,it->targetAlpha,dt*3))));
     }
 }
 
-/*****************************************************************************
-** Function name:      render
-** Description:        Pętla odpowiadająca za wyświetlanie modułu
-*****************************************************************************/
 void LetterFields::render(sf::RenderTarget *target) {
     for (auto &it : this->Fields)
     {
@@ -115,10 +99,6 @@ void LetterFields::render(sf::RenderTarget *target) {
 
 }
 
-/*****************************************************************************
-** Function name:      revealLetter
-** Description:        Podświetla literki jeśli są w tekscie
-*****************************************************************************/
 int LetterFields::revealLetter(const uint8_t letter) {
     uint8_t sum=0;
     for (auto &it : this->Fields)

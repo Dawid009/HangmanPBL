@@ -1,7 +1,6 @@
 #include "GraphicsSettings.h"
 #include <fstream>
 
-
 GraphicsSettings::GraphicsSettings()
 {
     this->title = "DEFAULT";
@@ -13,10 +12,6 @@ GraphicsSettings::GraphicsSettings()
     this->videoModes = sf::VideoMode::getFullscreenModes();
 }
 
-/*****************************************************************************
-** Function name:      saveToFile
-** Description:        Zapisuje ustawienia do pliku .ini
-*****************************************************************************/
 void GraphicsSettings::saveToFile(const std::string path)
 {
     std::ofstream ofs(path);
@@ -34,10 +29,6 @@ void GraphicsSettings::saveToFile(const std::string path)
     ofs.close();
 }
 
-/*****************************************************************************
-** Function name:      loadFromFile
-** Description:        Odczytuje ustawienia z pliku .ini
-*****************************************************************************/
 void GraphicsSettings::loadFromFile(const std::string path)
 {
     std::ifstream ifs(path);

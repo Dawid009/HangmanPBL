@@ -1,0 +1,54 @@
+\doxysection{State.\+h}
+\hypertarget{_state_8h_source}{}\label{_state_8h_source}\index{/Users/dawid/Documents/programowanie/cpp2/Hangman/States/State.h@{/Users/dawid/Documents/programowanie/cpp2/Hangman/States/State.h}}
+\mbox{\hyperlink{_state_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ HANGMAN\_STATE\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ HANGMAN\_STATE\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stack>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_graphics_settings_8h}{../Modules/GraphicsSettings.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_state}{State}};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_state_data}{StateData}}}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_state_data_a02aad935420f214b37d4e66d9c9a1ef9}{StateData}}()\ \{\};}
+\DoxyCodeLine{00023\ \ \ \ \ sf::RenderWindow*\ \mbox{\hyperlink{class_state_data_a07974705606e19f59185a4b34895eef0}{window}};}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_graphics_settings}{GraphicsSettings}}*\ \mbox{\hyperlink{class_state_data_ad529413f7092e9c528f9421c9267ca6b}{gfxSettings}};}
+\DoxyCodeLine{00025\ \ \ \ \ std::stack<State*>*\ \mbox{\hyperlink{class_state_data_af7e8fb0c57ed292d0d8cf319643baebf}{states}};}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_state}{State}}\ \{}
+\DoxyCodeLine{00033\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_state_data}{StateData}}*\ \mbox{\hyperlink{class_state_a9c55cdba6e8a4a7b8a6a83fa51311514}{stateData}};\ }
+\DoxyCodeLine{00035\ \ \ \ \ std::stack<State*>*\ \mbox{\hyperlink{class_state_a5692fac721147048fe1d2656f8a7a687}{states}};}
+\DoxyCodeLine{00036\ \ \ \ \ sf::RenderWindow*\ \mbox{\hyperlink{class_state_ae6259a383c98ae7496266a76a9daf478}{window}};}
+\DoxyCodeLine{00037\ \ \ \ \ sf::Texture\ \mbox{\hyperlink{class_state_ad7308f66beb9bed69773ef870c41d106}{backgroundTexture}};}
+\DoxyCodeLine{00038\ \ \ \ \ sf::RectangleShape\ \mbox{\hyperlink{class_state_a91f7cb53440b967bb9ef78d90ae7fab2}{background}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_state_a67102294962f79cfb8fa952a113a351d}{quit}};}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_state_a6f1d7cdbac7fcc935b81eedae466c7f3}{paused}};}
+\DoxyCodeLine{00042\ \ \ \ \ sf::Vector2i\ \mbox{\hyperlink{class_state_ae19be9c58de5545c8cd162f11969d6ee}{mousePosWindow}};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{class_state_a9de42e1e80c4ee2580b17af064498a94}{State}}(\mbox{\hyperlink{class_state_data}{StateData}}*\ state\_data);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_state_afab438d92b90dc18d194dbd9c9c8bab3}{\string~State}}();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_state_a27907b80e927649f92e4dc6a845a9213}{endState}}();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\&\ \mbox{\hyperlink{class_state_a18c3b970753bab2937141803644aaf24}{getQuit}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_state_a9786ffabe44f3e916d81a2750d8370e0}{updateMousePositions}}(sf::View*\ view\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_state_a2c2021d448defc57111202b74ed0aaa0}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt)\ =\ 0;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_state_aa1f36587befc2c03c4033366e5000d2c}{render}}(sf::RenderTarget*\ target\ =\ \textcolor{keyword}{nullptr})\ =\ 0;}
+\DoxyCodeLine{00084\ \};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//HANGMAN\_STATE\_H}}
+
+\end{DoxyCode}

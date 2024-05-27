@@ -1,0 +1,92 @@
+\doxysection{Gui.\+h}
+\hypertarget{_gui_8h_source}{}\label{_gui_8h_source}\index{/Users/dawid/Documents/programowanie/cpp2/Hangman/Modules/Gui.h@{/Users/dawid/Documents/programowanie/cpp2/Hangman/Modules/Gui.h}}
+\mbox{\hyperlink{_gui_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ HANGMAN\_GUI\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ HANGMAN\_GUI\_H}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_gui_8h_a11a6094191da43b6b4568e7736fb89ba}{button\_states}}\{}
+\DoxyCodeLine{00015\ \ \ \ \ BTN\_IDLE\ =\ 0,}
+\DoxyCodeLine{00016\ \ \ \ \ BTN\_HOVER,}
+\DoxyCodeLine{00017\ \ \ \ \ BTN\_ACTIVE}
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{namespace\ }gui\ \{}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgui_1_1_button_params}{ButtonParams}}\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structgui_1_1_button_params_a983c867a843858ad4c8a4e47474c55d8}{x}}=20.f;\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structgui_1_1_button_params_a061cd23b9616c36ae5245ef220a5e0bc}{y}}=20.f;\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structgui_1_1_button_params_ade7dec938640d91f095bddcb1e04d731}{width}}=50.f;\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structgui_1_1_button_params_a1eeee09033b2ce78a29dae1263055fda}{height}}=50.f;\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ sf::Font*\ \mbox{\hyperlink{structgui_1_1_button_params_aa66c3f890d25bb26ce91325528a16db2}{font}};\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ sf::String\ \mbox{\hyperlink{structgui_1_1_button_params_a88dd275ab66439e1bd19474c933cb78c}{text}}\ =\ \textcolor{stringliteral}{"{}"{}};\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{structgui_1_1_button_params_a6cf6986e3a9774be851758e92d7ef302}{character\_size}}\ =\ 10;\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structgui_1_1_button_params_a61beb559138e967f36bdf38d548182f3}{thickness}}\ =\ 3.f;\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ sf::Color\ \mbox{\hyperlink{structgui_1_1_button_params_a6dee46c004e3cee089eee45c678dee24}{text\_idle\_color}}\ =\ sf::Color(70,70,70,255);\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ sf::Color\ \mbox{\hyperlink{structgui_1_1_button_params_aa4cf0ddde287bd29eff9e6504a5a28b2}{text\_hover\_color}}\ =\ sf::Color(40,40,40,255);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ sf::Color\ \mbox{\hyperlink{structgui_1_1_button_params_a8b66a8a42ba2457bdbe13bdc45fe4f28}{text\_active\_color}}\ =\ sf::Color(20,20,20,255);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ sf::Color\ \mbox{\hyperlink{structgui_1_1_button_params_a0ba2977dbb43e4e63922cb6577d5f1b6}{outline\_idle\_color}}\ =\ sf::Color::Transparent;\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ sf::Color\ \mbox{\hyperlink{structgui_1_1_button_params_a3f2d569e14b1cbbaf4a29c13e7cf53ea}{outline\_hover\_color}}\ =\ sf::Color::Transparent;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ sf::Color\ \mbox{\hyperlink{structgui_1_1_button_params_ab833c8bd8fc29f40c72c05f54c6966e8}{outline\_active\_color}}\ =\ sf::Color::Transparent;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structgui_1_1_button_params_a4f6f05f36e3c3ab500238005d6ccca91}{hoverScale}}=1.2f;\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structgui_1_1_button_params_a38b9a7971402609c32ecfd89cb3a688b}{activeScale}}=1.1f;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structgui_1_1_button_params_af7356484d1fc33ff17ece04163c59b18}{scaleToIdleTime}}=8.f;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structgui_1_1_button_params_a08199184f563285bcd9d9205514ebfca}{scaleToHoverTime}}=6.5f;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structgui_1_1_button_params_a56b272ab7e7852d6f08bc57934dc4098}{scaleToActiveTime}}=10.f;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structgui_1_1_button_params_a9d54db27443587a7c0790b74ec4d12f5}{drawDebugBorder}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structgui_1_1_button_params_a4493adc4d59ff3ad2e0b5a24c6c38748}{initEnable}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{00049\ \ \ \ \ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_gui_8h_ab8c235ccff25895b5726e102a11fa200}{lerp}}(\textcolor{keywordtype}{float}\ a,\ \textcolor{keywordtype}{float}\ b,\ \textcolor{keywordtype}{float}\ t);}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_gui_8h_a00417c2d0520f3a4f55309228f650adc}{calcX}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ percent,\ \textcolor{keyword}{const}\ sf::VideoMode\&\ vm);}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_gui_8h_a3ea0b4fa246935137e6bcf7c0ad9d01d}{calcY}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ percent,\ \textcolor{keyword}{const}\ sf::VideoMode\&\ vm);}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{_gui_8h_a0b996e87a6842a64207af59a6345e922}{calcCharSize}}(\textcolor{keyword}{const}\ sf::VideoMode\&\ vm,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ modifier\ =\ 60);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgui_1_1_button}{Button}}\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{short}\ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{classgui_1_1_button_aaadea2b67fc41708e7da56d181fc8321}{buttonState}};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ sf::RectangleShape\ \mbox{\hyperlink{classgui_1_1_button_ac74d98282082064567ca8b0c24a8a326}{shape}};\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ sf::Text\ \mbox{\hyperlink{classgui_1_1_button_a932153467d69bfa8cafaa3ab06748fef}{text}};\ }
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ sf::Color\ \mbox{\hyperlink{classgui_1_1_button_a568e508065735b6a1df67bb580dea34f}{textIdleColor}};\ \ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ sf::Color\ \mbox{\hyperlink{classgui_1_1_button_ac70f7afba2f3635df64818f24a4383a1}{textHoverColor}};\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ sf::Color\ \mbox{\hyperlink{classgui_1_1_button_a9c927c393575b46ef47422313c0d24f6}{textActiveColor}};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ sf::Color\ \mbox{\hyperlink{classgui_1_1_button_a1adb3e955065c917812b34bf4da4e99b}{outlineIdleColor}};}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ sf::Color\ \mbox{\hyperlink{classgui_1_1_button_ad25e4743e4a1d132074c3caeec1ccafb}{outlineHoverColor}};}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ sf::Color\ \mbox{\hyperlink{classgui_1_1_button_a87c554e8517f6827bf8041e06357a2f6}{outlineActiveColor}};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classgui_1_1_button_a7299a5e4ffe952cb3e90ebbeb22a2ec8}{hoverScale}};}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classgui_1_1_button_a85511065cd6b299da8bbf98e7f7b1bb5}{activeScale}};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classgui_1_1_button_a918b96933e778eae651c77f6b2780b20}{scaleToIdleTime}};}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classgui_1_1_button_a056a37ef45c80901500f94d5fba7b680}{scaleToHoverTime}};}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classgui_1_1_button_a7f4dce1072af7e0294f460b2faa96a91}{scaleToActiveTime}};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgui_1_1_button_a342578563bd2debf63359df6463a5f55}{enabled}};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_button_a4dcd3ac9af7338249f50321300a8d08d}{Button}}(\mbox{\hyperlink{structgui_1_1_button_params}{ButtonParams}}\ *\ params);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_button_a088a6010b58ae6ee6e94210213dbf000}{\string~Button}}();}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgui_1_1_button_a472c6a73869f5adec78b67eed68895b7}{isPressed}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_button_a8725786ec052e008adf6805ab2246faa}{SetEnabled}}(\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgui_1_1_button_a342578563bd2debf63359df6463a5f55}{enabled}});}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_button_a9e94fc2378eaca45c35a0220b657b916}{ChangeColor}}(sf::Color\ color);}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_button_a44cb4badbb301b0271a51e1edb2b9976}{update}}(\textcolor{keyword}{const}\ sf::Vector2i\ \&mousePosWindow,\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_button_a1f93eac2279f05eef417a376b0bd7429}{render}}(sf::RenderTarget\ \&target);}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \};}
+\DoxyCodeLine{00153\ \}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//HANGMAN\_GUI\_H}}
+
+\end{DoxyCode}

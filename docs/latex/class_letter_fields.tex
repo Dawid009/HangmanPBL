@@ -1,0 +1,139 @@
+\doxysection{Letter\+Fields Class Reference}
+\hypertarget{class_letter_fields}{}\label{class_letter_fields}\index{LetterFields@{LetterFields}}
+
+
+Class reponsible for drawing and revealing letters on the screen.  
+
+
+
+
+{\ttfamily \#include $<$Letter\+Fields.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_letter_fields_ad99bee47f8edf8f53ecfadf7e6880eb9}\label{class_letter_fields_ad99bee47f8edf8f53ecfadf7e6880eb9} 
+{\bfseries Letter\+Fields} (const sf\+::\+Font \&\mbox{\hyperlink{class_letter_fields_ad8b67e37f350a7caef9f9bafa1d67a90}{font}}, \mbox{\hyperlink{class_graphics_settings}{Graphics\+Settings}} \texorpdfstring{$\ast$}{*}settings, const std\+::wstring \&password)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_letter_fields_a06694a436751ceafdac8dad81aad0774}{\texorpdfstring{$\sim$}{\string~}\+Letter\+Fields}} ()
+\begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_letter_fields_ad6a03845462d1b1a2183f75e9e3198d1}{update}} (const float \&dt)
+\begin{DoxyCompactList}\small\item\em Main module loop updating events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_letter_fields_ae7ee6796d2d48d5f6692f8a2cc6c098e}{render}} (sf\+::\+Render\+Target \texorpdfstring{$\ast$}{*}target=nullptr)
+\begin{DoxyCompactList}\small\item\em Loop for rendering. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_letter_fields_a8fbf0f7af4fb5ff2760bbda5a26f7d6b}{reveal\+Letter}} (uint8\+\_\+t letter)
+\begin{DoxyCompactList}\small\item\em Function that checks whether the text contains a given letter and reveals it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_letter_fields_a95ba8dfeb872fd85fe66617a64f74623}{init\+Letter\+Fields}} (const std\+::wstring \&password)
+\begin{DoxyCompactList}\small\item\em Function creating all fields and their views. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_letter_fields_a4b5a7b764f50e179db6c9ce77e6e9670}\label{class_letter_fields_a4b5a7b764f50e179db6c9ce77e6e9670} 
+std\+::vector$<$ \mbox{\hyperlink{struct_letter_field}{Letter\+Field}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries Fields}
+\begin{DoxyCompactList}\small\item\em A vector that stores all letter. \end{DoxyCompactList}\item 
+\Hypertarget{class_letter_fields_a4369119dee66b6a1d41adfa95325ab60}\label{class_letter_fields_a4369119dee66b6a1d41adfa95325ab60} 
+class \mbox{\hyperlink{class_graphics_settings}{Graphics\+Settings}} \texorpdfstring{$\ast$}{*} {\bfseries gfx\+Settings}
+\begin{DoxyCompactList}\small\item\em Pointer to the graphics settings. \end{DoxyCompactList}\item 
+\Hypertarget{class_letter_fields_ad8b67e37f350a7caef9f9bafa1d67a90}\label{class_letter_fields_ad8b67e37f350a7caef9f9bafa1d67a90} 
+sf\+::\+Font {\bfseries font}
+\begin{DoxyCompactList}\small\item\em Font reference requiered to render text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class reponsible for drawing and revealing letters on the screen. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_letter_fields_a06694a436751ceafdac8dad81aad0774}\index{LetterFields@{LetterFields}!````~LetterFields@{\texorpdfstring{$\sim$}{\string~}LetterFields}}
+\index{````~LetterFields@{\texorpdfstring{$\sim$}{\string~}LetterFields}!LetterFields@{LetterFields}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}LetterFields()}{\string~LetterFields()}}
+{\footnotesize\ttfamily \label{class_letter_fields_a06694a436751ceafdac8dad81aad0774} 
+Letter\+Fields\+::\texorpdfstring{$\sim$}{\string~}\+Letter\+Fields (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Class destructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em font} & Font reference \\
+\hline
+{\em settings} & Pointer to global graphics settings \\
+\hline
+{\em password} & Word to be displayed on the screen \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_letter_fields_a95ba8dfeb872fd85fe66617a64f74623}\index{LetterFields@{LetterFields}!initLetterFields@{initLetterFields}}
+\index{initLetterFields@{initLetterFields}!LetterFields@{LetterFields}}
+\doxysubsubsection{\texorpdfstring{initLetterFields()}{initLetterFields()}}
+{\footnotesize\ttfamily \label{class_letter_fields_a95ba8dfeb872fd85fe66617a64f74623} 
+void Letter\+Fields\+::init\+Letter\+Fields (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{password}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function creating all fields and their views. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em password} & Password to be created visually and stored in array. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_letter_fields_ae7ee6796d2d48d5f6692f8a2cc6c098e}\index{LetterFields@{LetterFields}!render@{render}}
+\index{render@{render}!LetterFields@{LetterFields}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_letter_fields_ae7ee6796d2d48d5f6692f8a2cc6c098e} 
+void Letter\+Fields\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \texorpdfstring{$\ast$}{*}}]{target}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})}
+
+
+
+Loop for rendering. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Pointer to the renderer \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_letter_fields_a8fbf0f7af4fb5ff2760bbda5a26f7d6b}\index{LetterFields@{LetterFields}!revealLetter@{revealLetter}}
+\index{revealLetter@{revealLetter}!LetterFields@{LetterFields}}
+\doxysubsubsection{\texorpdfstring{revealLetter()}{revealLetter()}}
+{\footnotesize\ttfamily \label{class_letter_fields_a8fbf0f7af4fb5ff2760bbda5a26f7d6b} 
+int Letter\+Fields\+::reveal\+Letter (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{letter}{}\end{DoxyParamCaption})}
+
+
+
+Function that checks whether the text contains a given letter and reveals it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em letter} & Id of the letter to be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return amount of points 
+\end{DoxyReturn}
+\Hypertarget{class_letter_fields_ad6a03845462d1b1a2183f75e9e3198d1}\index{LetterFields@{LetterFields}!update@{update}}
+\index{update@{update}!LetterFields@{LetterFields}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_letter_fields_ad6a03845462d1b1a2183f75e9e3198d1} 
+void Letter\+Fields\+::update (\begin{DoxyParamCaption}\item[{const float \&}]{dt}{}\end{DoxyParamCaption})}
+
+
+
+Main module loop updating events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Delta time value \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/\mbox{\hyperlink{_letter_fields_8h}{Letter\+Fields.\+h}}\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/Letter\+Fields.\+cpp\end{DoxyCompactItemize}

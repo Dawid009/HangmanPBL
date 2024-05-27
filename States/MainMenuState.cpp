@@ -25,10 +25,6 @@ MainMenuState::~MainMenuState()
 }
 
 
-/*****************************************************************************
-** Function name:      initFonts
-** Description:        Odczytuje czcionke z pliku
-*****************************************************************************/
 void MainMenuState::initFonts()
 {
     if (!this->font.loadFromFile("Fonts/Caveat.ttf"))
@@ -38,10 +34,6 @@ void MainMenuState::initFonts()
 }
 
 
-/*****************************************************************************
-** Function name:      initGui
-** Description:        Tworzy przyciski, background i inne teksty
-*****************************************************************************/
 void MainMenuState::initGui()
 {
     const sf::VideoMode& vm = this->stateData->gfxSettings->resolution;
@@ -65,7 +57,7 @@ void MainMenuState::initGui()
 
     auto* ButtonInitParams = new gui::ButtonParams;
 
-    //Nowa gra
+    //New game
     ButtonInitParams->x =  gui::calcX(14,vm);
     ButtonInitParams->y =  gui::calcY(35,vm);
     ButtonInitParams->width = static_cast<float>(gui::calcCharSize(vm,50)*7);
@@ -77,16 +69,16 @@ void MainMenuState::initGui()
     ButtonInitParams->activeScale = 1.1f;
     this->buttons[NEW_GAME] = new gui::Button(ButtonInitParams);
 
-    /*Kontynuuj*/
+    /*Continue*/
 
 
-    //Opcje
+    //Options
     ButtonInitParams->y =  gui::calcY(43,vm);
     ButtonInitParams->text = L"Options";
     this->buttons[OPTIONS] = new gui::Button(ButtonInitParams);
 
 
-    //Wyjscie
+    //Exit
     ButtonInitParams->y =  gui::calcY(70,vm);
     ButtonInitParams->text = L"Quit";
 
@@ -97,10 +89,6 @@ void MainMenuState::initGui()
     delete ButtonInitParams;
 }
 
-/*****************************************************************************
-** Function name:      resetGui
-** Description:        wyświetla całe Gui na nowo
-*****************************************************************************/
 void MainMenuState::resetGui()
 {
     auto it = this->buttons.begin();
@@ -112,10 +100,6 @@ void MainMenuState::resetGui()
     this->initGui();
 }
 
-/*****************************************************************************
-** Function name:      updateButtons
-** Description:        odpowiada za działanie buttonow
-*****************************************************************************/
 void MainMenuState::updateButtons(const float& dt)
 {
     for (auto &it : this->buttons)
@@ -136,11 +120,6 @@ void MainMenuState::updateButtons(const float& dt)
     }
 }
 
-
-/*****************************************************************************
-** Function name:      update
-** Description:        Główna pętla dla tego state
-*****************************************************************************/
 void MainMenuState::update(const float& dt)
 {
     this->updateMousePositions();
@@ -148,10 +127,6 @@ void MainMenuState::update(const float& dt)
 }
 
 
-/*****************************************************************************
-** Function name:      render
-** Description:        Główna pętla renderująca dla tego state
-*****************************************************************************/
 void MainMenuState::render(sf::RenderTarget* target)
 {
     if (!target)

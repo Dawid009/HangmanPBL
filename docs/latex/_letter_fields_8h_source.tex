@@ -1,0 +1,46 @@
+\doxysection{Letter\+Fields.\+h}
+\hypertarget{_letter_fields_8h_source}{}\label{_letter_fields_8h_source}\index{/Users/dawid/Documents/programowanie/cpp2/Hangman/Modules/LetterFields.h@{/Users/dawid/Documents/programowanie/cpp2/Hangman/Modules/LetterFields.h}}
+\mbox{\hyperlink{_letter_fields_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ HANGMAN\_LETTERFIELDS\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ HANGMAN\_LETTERFIELDS\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_gui_8h}{Gui.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_letter_field}{LetterField}}\{}
+\DoxyCodeLine{00013\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_letter_field_a7bba378f55a86a9741b95f91c3663a3f}{id}};\ }
+\DoxyCodeLine{00014\ \ \ \ \ sf::RectangleShape*\ \mbox{\hyperlink{struct_letter_field_a56319875fbc2c2153c6df2b4f2afcc8b}{floor}};\ }
+\DoxyCodeLine{00015\ \ \ \ \ sf::Text*\ \mbox{\hyperlink{struct_letter_field_ad48f13cce1a70e0e7ca5895b99c64da2}{text}};\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_letter_field_a3ea99eae6c3facecad310a12657f5ae4}{targetAlpha}}=0;\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{struct_letter_field_a70049a4c81655cfc3b6441e228c18305}{LetterField}}(uint8\_t\ \textcolor{keywordtype}{id},\ sf::RectangleShape*\ \mbox{\hyperlink{struct_letter_field_a56319875fbc2c2153c6df2b4f2afcc8b}{floor}},\ sf::Text*\ \mbox{\hyperlink{struct_letter_field_ad48f13cce1a70e0e7ca5895b99c64da2}{text}}):}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_letter_field_a7bba378f55a86a9741b95f91c3663a3f}{id}}(\mbox{\hyperlink{struct_letter_field_a7bba378f55a86a9741b95f91c3663a3f}{id}}),}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_letter_field_a56319875fbc2c2153c6df2b4f2afcc8b}{floor}}(\mbox{\hyperlink{struct_letter_field_a56319875fbc2c2153c6df2b4f2afcc8b}{floor}}),}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_letter_field_ad48f13cce1a70e0e7ca5895b99c64da2}{text}}(\mbox{\hyperlink{struct_letter_field_ad48f13cce1a70e0e7ca5895b99c64da2}{text}})}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00029\ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_letter_fields}{LetterFields}}\ \{}
+\DoxyCodeLine{00036\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00037\ \ \ \ \ std::vector<LetterField*>\ \mbox{\hyperlink{class_letter_fields_a4b5a7b764f50e179db6c9ce77e6e9670}{Fields}};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_graphics_settings}{GraphicsSettings}}*\ \mbox{\hyperlink{class_letter_fields_a4369119dee66b6a1d41adfa95325ab60}{gfxSettings}};}
+\DoxyCodeLine{00039\ \ \ \ \ sf::Font\ \mbox{\hyperlink{class_letter_fields_ad8b67e37f350a7caef9f9bafa1d67a90}{font}};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_letter_fields_a95ba8dfeb872fd85fe66617a64f74623}{initLetterFields}}(\textcolor{keyword}{const}\ std::wstring\&\ password);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{class_letter_fields_ad99bee47f8edf8f53ecfadf7e6880eb9}{LetterFields}}(\textcolor{keyword}{const}\ sf::Font\&\ \mbox{\hyperlink{class_letter_fields_ad8b67e37f350a7caef9f9bafa1d67a90}{font}},\ \mbox{\hyperlink{class_graphics_settings}{GraphicsSettings}}*\ settings,\textcolor{keyword}{const}\ std::wstring\&\ password);}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_letter_fields_a06694a436751ceafdac8dad81aad0774}{\string~LetterFields}}();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_letter_fields_ad6a03845462d1b1a2183f75e9e3198d1}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_letter_fields_ae7ee6796d2d48d5f6692f8a2cc6c098e}{render}}(sf::RenderTarget*\ target\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_letter_fields_a8fbf0f7af4fb5ff2760bbda5a26f7d6b}{revealLetter}}(uint8\_t\ letter);}
+\DoxyCodeLine{00079\ \};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//HANGMAN\_LETTERFIELDS\_H}}
+
+\end{DoxyCode}
