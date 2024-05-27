@@ -1,0 +1,159 @@
+\doxysection{Keyboard Class Reference}
+\hypertarget{class_keyboard}{}\label{class_keyboard}\index{Keyboard@{Keyboard}}
+
+
+Class reponsible for drawing keyboard.  
+
+
+
+
+{\ttfamily \#include $<$Keyboard.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_keyboard_ab21b4990818084e0703022c7f3b6bc2c}\label{class_keyboard_ab21b4990818084e0703022c7f3b6bc2c} 
+{\bfseries Keyboard} (const sf\+::\+Font \&\mbox{\hyperlink{class_keyboard_aca6f58cde22771e3a7992b079f507347}{font}}, \mbox{\hyperlink{class_graphics_settings}{Graphics\+Settings}} \texorpdfstring{$\ast$}{*}settings)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_keyboard_af6a99ec66c8c722a45b967bf79167038}\label{class_keyboard_af6a99ec66c8c722a45b967bf79167038} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Keyboard} ()
+\begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_keyboard_a95bfaa3563a61fd7a420dfd4ebfd04f5}{Set\+Button\+Enabled}} (uint8\+\_\+t key, bool enabled)
+\begin{DoxyCompactList}\small\item\em Setting button avaiability to locked or unlocked. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_keyboard_a8787a01477ad1a057afe22e599347c80}{Set\+Button\+Color}} (uint8\+\_\+t key, sf\+::\+Color color)
+\begin{DoxyCompactList}\small\item\em Setting button color. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{class_keyboard_a6f725a9cc6c813ecb7651104d44bdb2e}{Is\+Pressed}} (uint8\+\_\+t key)
+\begin{DoxyCompactList}\small\item\em Setting button avaiability to locked or unlocked. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_keyboard_ab7e68cdf23b36f22966136e39a2cc550}{update\+Buttons}} (const sf\+::\+Vector2i \&mouse\+Pos\+Window, const float \&dt)
+\begin{DoxyCompactList}\small\item\em Updating buttons functionality. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_keyboard_a71ba7df6d68045ddaf1e523833f050e0}{update}} (const sf\+::\+Vector2i \&mouse\+Pos\+Window, const float \&dt)
+\begin{DoxyCompactList}\small\item\em Module loop updating events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_keyboard_aa227372d6f7d737a1e29c4896bf66323}{render}} (sf\+::\+Render\+Target \texorpdfstring{$\ast$}{*}target=nullptr)
+\begin{DoxyCompactList}\small\item\em Module loop for rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_keyboard_a2e460089a28e60de1fb31d507e1365b7}\label{class_keyboard_a2e460089a28e60de1fb31d507e1365b7} 
+void {\bfseries init\+Keyboard} ()
+\begin{DoxyCompactList}\small\item\em Function creating all buttons and their views. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_keyboard_a7a16ff3cead8b00b1577a58a00de55a2}\label{class_keyboard_a7a16ff3cead8b00b1577a58a00de55a2} 
+std\+::map$<$ uint8\+\_\+t, \mbox{\hyperlink{classgui_1_1_button}{gui\+::\+Button}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries buttons}
+\begin{DoxyCompactList}\small\item\em A vector that stores all buttons. \end{DoxyCompactList}\item 
+\Hypertarget{class_keyboard_aca6f58cde22771e3a7992b079f507347}\label{class_keyboard_aca6f58cde22771e3a7992b079f507347} 
+sf\+::\+Font {\bfseries font}
+\begin{DoxyCompactList}\small\item\em Font reference requiered to render text. \end{DoxyCompactList}\item 
+\Hypertarget{class_keyboard_a06f3d6998087a82747dfca36a3dec321}\label{class_keyboard_a06f3d6998087a82747dfca36a3dec321} 
+class \mbox{\hyperlink{class_graphics_settings}{Graphics\+Settings}} \texorpdfstring{$\ast$}{*} {\bfseries gfx\+Settings}
+\begin{DoxyCompactList}\small\item\em Pointer to the graphics settings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class reponsible for drawing keyboard. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_keyboard_a6f725a9cc6c813ecb7651104d44bdb2e}\index{Keyboard@{Keyboard}!IsPressed@{IsPressed}}
+\index{IsPressed@{IsPressed}!Keyboard@{Keyboard}}
+\doxysubsubsection{\texorpdfstring{IsPressed()}{IsPressed()}}
+{\footnotesize\ttfamily \label{class_keyboard_a6f725a9cc6c813ecb7651104d44bdb2e} 
+const bool Keyboard\+::\+Is\+Pressed (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Setting button avaiability to locked or unlocked. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Key} & ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns state of the button 
+\end{DoxyReturn}
+\Hypertarget{class_keyboard_aa227372d6f7d737a1e29c4896bf66323}\index{Keyboard@{Keyboard}!render@{render}}
+\index{render@{render}!Keyboard@{Keyboard}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_keyboard_aa227372d6f7d737a1e29c4896bf66323} 
+void Keyboard\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \texorpdfstring{$\ast$}{*}}]{target}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})}
+
+
+
+Module loop for rendering. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Pointer to the renderer \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_keyboard_a8787a01477ad1a057afe22e599347c80}\index{Keyboard@{Keyboard}!SetButtonColor@{SetButtonColor}}
+\index{SetButtonColor@{SetButtonColor}!Keyboard@{Keyboard}}
+\doxysubsubsection{\texorpdfstring{SetButtonColor()}{SetButtonColor()}}
+{\footnotesize\ttfamily \label{class_keyboard_a8787a01477ad1a057afe22e599347c80} 
+void Keyboard\+::\+Set\+Button\+Color (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{key}{, }\item[{sf\+::\+Color}]{color}{}\end{DoxyParamCaption})}
+
+
+
+Setting button color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & ID \\
+\hline
+{\em color} & Color to be set \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_keyboard_a95bfaa3563a61fd7a420dfd4ebfd04f5}\index{Keyboard@{Keyboard}!SetButtonEnabled@{SetButtonEnabled}}
+\index{SetButtonEnabled@{SetButtonEnabled}!Keyboard@{Keyboard}}
+\doxysubsubsection{\texorpdfstring{SetButtonEnabled()}{SetButtonEnabled()}}
+{\footnotesize\ttfamily \label{class_keyboard_a95bfaa3563a61fd7a420dfd4ebfd04f5} 
+void Keyboard\+::\+Set\+Button\+Enabled (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{key}{, }\item[{bool}]{enabled}{}\end{DoxyParamCaption})}
+
+
+
+Setting button avaiability to locked or unlocked. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & ID \\
+\hline
+{\em enabled} & Should be enabled or not \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_keyboard_a71ba7df6d68045ddaf1e523833f050e0}\index{Keyboard@{Keyboard}!update@{update}}
+\index{update@{update}!Keyboard@{Keyboard}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_keyboard_a71ba7df6d68045ddaf1e523833f050e0} 
+void Keyboard\+::update (\begin{DoxyParamCaption}\item[{const sf\+::\+Vector2i \&}]{mouse\+Pos\+Window}{, }\item[{const float \&}]{dt}{}\end{DoxyParamCaption})}
+
+
+
+Module loop updating events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Delta time value \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_keyboard_ab7e68cdf23b36f22966136e39a2cc550}\index{Keyboard@{Keyboard}!updateButtons@{updateButtons}}
+\index{updateButtons@{updateButtons}!Keyboard@{Keyboard}}
+\doxysubsubsection{\texorpdfstring{updateButtons()}{updateButtons()}}
+{\footnotesize\ttfamily \label{class_keyboard_ab7e68cdf23b36f22966136e39a2cc550} 
+void Keyboard\+::update\+Buttons (\begin{DoxyParamCaption}\item[{const sf\+::\+Vector2i \&}]{mouse\+Pos\+Window}{, }\item[{const float \&}]{dt}{}\end{DoxyParamCaption})}
+
+
+
+Updating buttons functionality. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Delta time \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/\mbox{\hyperlink{_keyboard_8h}{Keyboard.\+h}}\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/Keyboard.\+cpp\end{DoxyCompactItemize}

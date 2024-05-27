@@ -1,28 +1,22 @@
 #include "Gui.h"
 #include <iostream>
 
-/*****************************************************************************
-** Function name:      lerp calcX calcY calcCharSize
-** Description:        Funkcje do obliczania interpolacji/rozmiaru na ekranie
-*****************************************************************************/
 const float gui::lerp(float a, float b, float t) {
     return a + t * (b - a);
 }
 
-const float gui::calcX(const float percent, const sf::VideoMode& vm)
-{
+const float gui::calcX(const float percent, const sf::VideoMode &vm) {
     return std::floor(static_cast<float>(vm.width) * (percent / 100.f));
 }
 
-const float gui::calcY(const float percent, const sf::VideoMode& vm)
-{
+const float gui::calcY(const float percent, const sf::VideoMode &vm) {
     return std::floor(static_cast<float>(vm.height) * (percent / 100.f));
 }
 
-const unsigned gui::calcCharSize(const sf::VideoMode& vm, const unsigned modifier)
-{
+const unsigned gui::calcCharSize(const sf::VideoMode &vm, const unsigned modifier) {
     return static_cast<unsigned>((vm.width + vm.height) / modifier);
 }
+
 
 gui::Button::Button(ButtonParams * params) :
     buttonState(BTN_IDLE),
@@ -75,10 +69,6 @@ gui::Button::~Button()
 
 }
 
-/*****************************************************************************
-** Function name:      isPressed
-** Description:        Zwraca info czy przycisk jest wcisniety
-*****************************************************************************/
 const bool gui::Button::isPressed() const
 {
     if (this->buttonState == BTN_ACTIVE)
@@ -88,10 +78,6 @@ const bool gui::Button::isPressed() const
 }
 
 
-/*****************************************************************************
-** Function name:      update
-** Description:        Aktualizuje wygląd i sprawdza czy hover/pressed
-*****************************************************************************/
 void gui::Button::update(const sf::Vector2i& mousePosWindow, const float& dt)
 {
     this->buttonState = BTN_IDLE;
@@ -136,10 +122,6 @@ void gui::Button::update(const sf::Vector2i& mousePosWindow, const float& dt)
 }
 
 
-/*****************************************************************************
-** Function name:      render
-** Description:        Renderuje przycisk
-*****************************************************************************/
 void gui::Button::render(sf::RenderTarget& target)
 {
     target.draw(this->shape);

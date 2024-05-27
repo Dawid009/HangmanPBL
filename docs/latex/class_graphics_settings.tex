@@ -1,0 +1,87 @@
+\doxysection{Graphics\+Settings Class Reference}
+\hypertarget{class_graphics_settings}{}\label{class_graphics_settings}\index{GraphicsSettings@{GraphicsSettings}}
+
+
+Class reading and saving settings.  
+
+
+
+
+{\ttfamily \#include $<$Graphics\+Settings.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_graphics_settings_a3c5fd3428c4a0549bfa5d5f3b1915c34}\label{class_graphics_settings_a3c5fd3428c4a0549bfa5d5f3b1915c34} 
+{\bfseries Graphics\+Settings} ()
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graphics_settings_a050c223b5324b801f0867ee1c255db69}{save\+To\+File}} (const std\+::string path)
+\begin{DoxyCompactList}\small\item\em Saving settings to file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graphics_settings_a3fb097d3414159fff72c69117c10ab23}{load\+From\+File}} (const std\+::string path)
+\begin{DoxyCompactList}\small\item\em Reading settings from file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_graphics_settings_a524c4928c24954f1664cbba71489198a}\label{class_graphics_settings_a524c4928c24954f1664cbba71489198a} 
+std\+::string {\bfseries title}
+\begin{DoxyCompactList}\small\item\em Window title. \end{DoxyCompactList}\item 
+\Hypertarget{class_graphics_settings_adc582bb940381840fba48c7f0abd4d1d}\label{class_graphics_settings_adc582bb940381840fba48c7f0abd4d1d} 
+sf\+::\+Video\+Mode {\bfseries resolution}
+\begin{DoxyCompactList}\small\item\em Window resolution. \end{DoxyCompactList}\item 
+\Hypertarget{class_graphics_settings_af0b9cbfba96c59aa9dd3b9454fbbe412}\label{class_graphics_settings_af0b9cbfba96c59aa9dd3b9454fbbe412} 
+bool {\bfseries fullscreen}
+\begin{DoxyCompactList}\small\item\em Should the game be in fullscreen. \end{DoxyCompactList}\item 
+\Hypertarget{class_graphics_settings_a83ba01db4ea7807c5bfead8f063859ec}\label{class_graphics_settings_a83ba01db4ea7807c5bfead8f063859ec} 
+bool {\bfseries vertical\+Sync}
+\begin{DoxyCompactList}\small\item\em Should the game use vertical sync. \end{DoxyCompactList}\item 
+\Hypertarget{class_graphics_settings_af8ca0dc53c9d85ba0b670e933da061fb}\label{class_graphics_settings_af8ca0dc53c9d85ba0b670e933da061fb} 
+unsigned {\bfseries frame\+Rate\+Limit}
+\begin{DoxyCompactList}\small\item\em FPS cap. \end{DoxyCompactList}\item 
+\Hypertarget{class_graphics_settings_ac01235465bdd01c15e4af5efe55f1f1e}\label{class_graphics_settings_ac01235465bdd01c15e4af5efe55f1f1e} 
+sf\+::\+Context\+Settings {\bfseries context\+Settings}
+\item 
+\Hypertarget{class_graphics_settings_a6dd98c8ce866de60c10dd23e818171d0}\label{class_graphics_settings_a6dd98c8ce866de60c10dd23e818171d0} 
+std\+::vector$<$ sf\+::\+Video\+Mode $>$ {\bfseries video\+Modes}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class reading and saving settings. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_graphics_settings_a3fb097d3414159fff72c69117c10ab23}\index{GraphicsSettings@{GraphicsSettings}!loadFromFile@{loadFromFile}}
+\index{loadFromFile@{loadFromFile}!GraphicsSettings@{GraphicsSettings}}
+\doxysubsubsection{\texorpdfstring{loadFromFile()}{loadFromFile()}}
+{\footnotesize\ttfamily \label{class_graphics_settings_a3fb097d3414159fff72c69117c10ab23} 
+void Graphics\+Settings\+::load\+From\+File (\begin{DoxyParamCaption}\item[{const std\+::string}]{path}{}\end{DoxyParamCaption})}
+
+
+
+Reading settings from file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to graphics.\+ini file \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_graphics_settings_a050c223b5324b801f0867ee1c255db69}\index{GraphicsSettings@{GraphicsSettings}!saveToFile@{saveToFile}}
+\index{saveToFile@{saveToFile}!GraphicsSettings@{GraphicsSettings}}
+\doxysubsubsection{\texorpdfstring{saveToFile()}{saveToFile()}}
+{\footnotesize\ttfamily \label{class_graphics_settings_a050c223b5324b801f0867ee1c255db69} 
+void Graphics\+Settings\+::save\+To\+File (\begin{DoxyParamCaption}\item[{const std\+::string}]{path}{}\end{DoxyParamCaption})}
+
+
+
+Saving settings to file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to graphics.\+ini file \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/\mbox{\hyperlink{_graphics_settings_8h}{Graphics\+Settings.\+h}}\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/Graphics\+Settings.\+cpp\end{DoxyCompactItemize}

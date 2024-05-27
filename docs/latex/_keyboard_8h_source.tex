@@ -1,0 +1,37 @@
+\doxysection{Keyboard.\+h}
+\hypertarget{_keyboard_8h_source}{}\label{_keyboard_8h_source}\index{/Users/dawid/Documents/programowanie/cpp2/Hangman/Modules/Keyboard.h@{/Users/dawid/Documents/programowanie/cpp2/Hangman/Modules/Keyboard.h}}
+\mbox{\hyperlink{_keyboard_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ HANGMAN\_KEYBOARD\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ HANGMAN\_KEYBOARD\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_gui_8h}{Gui.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_keyboard}{Keyboard}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ std::map<uint8\_t,\ gui::Button*>\ \mbox{\hyperlink{class_keyboard_a7a16ff3cead8b00b1577a58a00de55a2}{buttons}};\ }
+\DoxyCodeLine{00016\ \ \ \ \ sf::Font\ \mbox{\hyperlink{class_keyboard_aca6f58cde22771e3a7992b079f507347}{font}};\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_graphics_settings}{GraphicsSettings}}*\ \mbox{\hyperlink{class_keyboard_a06f3d6998087a82747dfca36a3dec321}{gfxSettings}};\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_keyboard_a2e460089a28e60de1fb31d507e1365b7}{initKeyboard}}();}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_keyboard_ab21b4990818084e0703022c7f3b6bc2c}{Keyboard}}(\textcolor{keyword}{const}\ sf::Font\&\ \mbox{\hyperlink{class_keyboard_aca6f58cde22771e3a7992b079f507347}{font}},\ \mbox{\hyperlink{class_graphics_settings}{GraphicsSettings}}*\ settings);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_keyboard_af6a99ec66c8c722a45b967bf79167038}{\string~Keyboard}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_keyboard_a95bfaa3563a61fd7a420dfd4ebfd04f5}{SetButtonEnabled}}(uint8\_t\ key,\textcolor{keywordtype}{bool}\ enabled);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_keyboard_a8787a01477ad1a057afe22e599347c80}{SetButtonColor}}(uint8\_t\ key,sf::Color\ color);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_keyboard_a6f725a9cc6c813ecb7651104d44bdb2e}{IsPressed}}(uint8\_t\ key);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_keyboard_ab7e68cdf23b36f22966136e39a2cc550}{updateButtons}}(\textcolor{keyword}{const}\ sf::Vector2i\&\ mousePosWindow,\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_keyboard_a71ba7df6d68045ddaf1e523833f050e0}{update}}(\textcolor{keyword}{const}\ sf::Vector2i\&\ mousePosWindow,\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_keyboard_aa227372d6f7d737a1e29c4896bf66323}{render}}(sf::RenderTarget*\ target\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//HANGMAN\_KEYBOARD\_H}}
+
+\end{DoxyCode}

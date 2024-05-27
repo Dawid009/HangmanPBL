@@ -1,0 +1,174 @@
+\doxysection{Main\+Menu\+State Class Reference}
+\hypertarget{class_main_menu_state}{}\label{class_main_menu_state}\index{MainMenuState@{MainMenuState}}
+
+
+Main Menu class reponsible for view and logic.  
+
+
+
+
+{\ttfamily \#include $<$Main\+Menu\+State.\+h$>$}
+
+Inheritance diagram for Main\+Menu\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_main_menu_state}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_main_menu_state_a9a3c8b9e00e104f5c3880406df6550b6}{Main\+Menu\+State}} (\mbox{\hyperlink{class_state_data}{State\+Data}} \texorpdfstring{$\ast$}{*}state\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_main_menu_state_a8af4d586b93c315a1a15b5fe83ec0760}\label{class_main_menu_state_a8af4d586b93c315a1a15b5fe83ec0760} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Main\+Menu\+State} ()
+\begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_menu_state_ab4aa18e2cba13350b99e95fd53593013}{update\+Buttons}} (const float \&dt)
+\begin{DoxyCompactList}\small\item\em Function about buttons work. Updating buttons events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_menu_state_a5802eb565dc92febf3480d643a11e699}{update}} (const float \&dt) override
+\begin{DoxyCompactList}\small\item\em Main state loop updating events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_menu_state_a343f2f93b5fe14251f425b0709bf43ba}{render}} (sf\+::\+Render\+Target \texorpdfstring{$\ast$}{*}target=nullptr) override
+\begin{DoxyCompactList}\small\item\em Loop for rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_state_a9de42e1e80c4ee2580b17af064498a94}{State}} (\mbox{\hyperlink{class_state_data}{State\+Data}} \texorpdfstring{$\ast$}{*}state\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+State} ()
+\begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
+void {\bfseries end\+State} ()
+\begin{DoxyCompactList}\small\item\em Function to terminate the state. \end{DoxyCompactList}\item 
+const bool \& \mbox{\hyperlink{class_state_a18c3b970753bab2937141803644aaf24}{get\+Quit}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the game should be terminated. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_state_a9786ffabe44f3e916d81a2750d8370e0}{update\+Mouse\+Positions}} (sf\+::\+View \texorpdfstring{$\ast$}{*}view=nullptr)
+\begin{DoxyCompactList}\small\item\em Function that updates the mouse position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_main_menu_state_a6a72ebf025483b548c98e248dd18d313}\label{class_main_menu_state_a6a72ebf025483b548c98e248dd18d313} 
+void {\bfseries init\+Fonts} ()
+\begin{DoxyCompactList}\small\item\em Function that initialize fonts required to display text. \end{DoxyCompactList}\item 
+\Hypertarget{class_main_menu_state_a00c856794e14eef337abd59f24cbbcd5}\label{class_main_menu_state_a00c856794e14eef337abd59f24cbbcd5} 
+void {\bfseries init\+Gui} ()
+\begin{DoxyCompactList}\small\item\em Function that initialize main manu gui. \end{DoxyCompactList}\item 
+\Hypertarget{class_main_menu_state_ab6c7406776e1a945687164432f9f7c67}\label{class_main_menu_state_ab6c7406776e1a945687164432f9f7c67} 
+void {\bfseries reset\+Gui} ()
+\begin{DoxyCompactList}\small\item\em Function to reset Gui to the default state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_main_menu_state_ab9ef389720ad235dd307dfc0b119ae55}\label{class_main_menu_state_ab9ef389720ad235dd307dfc0b119ae55} 
+sf\+::\+Texture {\bfseries title\+Texture}
+\begin{DoxyCompactList}\small\item\em Texture holding title image. \end{DoxyCompactList}\item 
+\Hypertarget{class_main_menu_state_af2852bcaec617341ea149ebfc25d2324}\label{class_main_menu_state_af2852bcaec617341ea149ebfc25d2324} 
+sf\+::\+Rectangle\+Shape {\bfseries title}
+\begin{DoxyCompactList}\small\item\em Title image rectangle to render on the view. \end{DoxyCompactList}\item 
+\Hypertarget{class_main_menu_state_a452b6e63270b968978ff7fe8267ef15c}\label{class_main_menu_state_a452b6e63270b968978ff7fe8267ef15c} 
+sf\+::\+Font {\bfseries font}
+\begin{DoxyCompactList}\small\item\em Font reference requiered to. \end{DoxyCompactList}\item 
+\Hypertarget{class_main_menu_state_a595320998ca16da2070bfdf8fe24e3cb}\label{class_main_menu_state_a595320998ca16da2070bfdf8fe24e3cb} 
+std\+::map$<$ uint8\+\_\+t, \mbox{\hyperlink{classgui_1_1_button}{gui\+::\+Button}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries buttons}
+\begin{DoxyCompactList}\small\item\em A map that stores the buttons. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_state_data}{State\+Data}} \texorpdfstring{$\ast$}{*} {\bfseries state\+Data}
+\begin{DoxyCompactList}\small\item\em Variable holding state data. \end{DoxyCompactList}\item 
+std\+::stack$<$ \mbox{\hyperlink{class_state}{State}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*} {\bfseries states}
+\begin{DoxyCompactList}\small\item\em A stack that stores the views. \end{DoxyCompactList}\item 
+sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*} {\bfseries window}
+\begin{DoxyCompactList}\small\item\em The game window pointer. \end{DoxyCompactList}\item 
+sf\+::\+Texture {\bfseries background\+Texture}
+\begin{DoxyCompactList}\small\item\em background texture ref. \end{DoxyCompactList}\item 
+sf\+::\+Rectangle\+Shape {\bfseries background}
+\begin{DoxyCompactList}\small\item\em Background rectangle. \end{DoxyCompactList}\item 
+bool {\bfseries quit}
+\begin{DoxyCompactList}\small\item\em Is the game to be closed. \end{DoxyCompactList}\item 
+bool {\bfseries paused}
+\begin{DoxyCompactList}\small\item\em Is the game paused. \end{DoxyCompactList}\item 
+sf\+::\+Vector2i {\bfseries mouse\+Pos\+Window}
+\begin{DoxyCompactList}\small\item\em XY mouse position on the window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main Menu class reponsible for view and logic. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_main_menu_state_a9a3c8b9e00e104f5c3880406df6550b6}\index{MainMenuState@{MainMenuState}!MainMenuState@{MainMenuState}}
+\index{MainMenuState@{MainMenuState}!MainMenuState@{MainMenuState}}
+\doxysubsubsection{\texorpdfstring{MainMenuState()}{MainMenuState()}}
+{\footnotesize\ttfamily \label{class_main_menu_state_a9a3c8b9e00e104f5c3880406df6550b6} 
+Main\+Menu\+State\+::\+Main\+Menu\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_state_data}{State\+Data}} \texorpdfstring{$\ast$}{*}}]{state\+\_\+data}{}\end{DoxyParamCaption})}
+
+
+
+Class constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state\+\_\+date} & Pointer to main state data. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_main_menu_state_a343f2f93b5fe14251f425b0709bf43ba}\index{MainMenuState@{MainMenuState}!render@{render}}
+\index{render@{render}!MainMenuState@{MainMenuState}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_main_menu_state_a343f2f93b5fe14251f425b0709bf43ba} 
+void Main\+Menu\+State\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \texorpdfstring{$\ast$}{*}}]{target}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Loop for rendering. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Pointer to the renderer \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_state_aa1f36587befc2c03c4033366e5000d2c}{State}}.
+
+\Hypertarget{class_main_menu_state_a5802eb565dc92febf3480d643a11e699}\index{MainMenuState@{MainMenuState}!update@{update}}
+\index{update@{update}!MainMenuState@{MainMenuState}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_main_menu_state_a5802eb565dc92febf3480d643a11e699} 
+void Main\+Menu\+State\+::update (\begin{DoxyParamCaption}\item[{const float \&}]{dt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Main state loop updating events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Delta time value \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_state_a2c2021d448defc57111202b74ed0aaa0}{State}}.
+
+\Hypertarget{class_main_menu_state_ab4aa18e2cba13350b99e95fd53593013}\index{MainMenuState@{MainMenuState}!updateButtons@{updateButtons}}
+\index{updateButtons@{updateButtons}!MainMenuState@{MainMenuState}}
+\doxysubsubsection{\texorpdfstring{updateButtons()}{updateButtons()}}
+{\footnotesize\ttfamily \label{class_main_menu_state_ab4aa18e2cba13350b99e95fd53593013} 
+void Main\+Menu\+State\+::update\+Buttons (\begin{DoxyParamCaption}\item[{const float \&}]{dt}{}\end{DoxyParamCaption})}
+
+
+
+Function about buttons work. Updating buttons events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Delta time value \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+States/\mbox{\hyperlink{_main_menu_state_8h}{Main\+Menu\+State.\+h}}\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+States/Main\+Menu\+State.\+cpp\end{DoxyCompactItemize}

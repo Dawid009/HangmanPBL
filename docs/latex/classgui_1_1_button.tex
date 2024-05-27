@@ -1,0 +1,180 @@
+\doxysection{gui\+::Button Class Reference}
+\hypertarget{classgui_1_1_button}{}\label{classgui_1_1_button}\index{gui::Button@{gui::Button}}
+
+
+Class representing a button on the screen.  
+
+
+
+
+{\ttfamily \#include $<$Gui.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgui_1_1_button_a4dcd3ac9af7338249f50321300a8d08d}{Button}} (\mbox{\hyperlink{structgui_1_1_button_params}{Button\+Params}} \texorpdfstring{$\ast$}{*}params)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_button_a088a6010b58ae6ee6e94210213dbf000}\label{classgui_1_1_button_a088a6010b58ae6ee6e94210213dbf000} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Button} ()
+\begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{classgui_1_1_button_a472c6a73869f5adec78b67eed68895b7}{is\+Pressed}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the button is pressed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgui_1_1_button_a8725786ec052e008adf6805ab2246faa}{Set\+Enabled}} (bool \mbox{\hyperlink{classgui_1_1_button_a342578563bd2debf63359df6463a5f55}{enabled}})
+\begin{DoxyCompactList}\small\item\em Sets the button to on or off. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgui_1_1_button_a9e94fc2378eaca45c35a0220b657b916}{Change\+Color}} (sf\+::\+Color color)
+\begin{DoxyCompactList}\small\item\em Sets the button to a given color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgui_1_1_button_a44cb4badbb301b0271a51e1edb2b9976}{update}} (const sf\+::\+Vector2i \&mouse\+Pos\+Window, const float \&dt)
+\begin{DoxyCompactList}\small\item\em Main module loop updating events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgui_1_1_button_a1f93eac2279f05eef417a376b0bd7429}{render}} (sf\+::\+Render\+Target \&target)
+\begin{DoxyCompactList}\small\item\em Loop for rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgui_1_1_button_aaadea2b67fc41708e7da56d181fc8321}\label{classgui_1_1_button_aaadea2b67fc41708e7da56d181fc8321} 
+short unsigned {\bfseries button\+State}
+\begin{DoxyCompactList}\small\item\em Current state of the button. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_button_ac74d98282082064567ca8b0c24a8a326}\label{classgui_1_1_button_ac74d98282082064567ca8b0c24a8a326} 
+sf\+::\+Rectangle\+Shape {\bfseries shape}
+\begin{DoxyCompactList}\small\item\em SFML rectangle. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_button_a932153467d69bfa8cafaa3ab06748fef}\label{classgui_1_1_button_a932153467d69bfa8cafaa3ab06748fef} 
+sf\+::\+Text {\bfseries text}
+\begin{DoxyCompactList}\small\item\em Text to be displayed on the button. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_button_a568e508065735b6a1df67bb580dea34f}\label{classgui_1_1_button_a568e508065735b6a1df67bb580dea34f} 
+sf\+::\+Color {\bfseries text\+Idle\+Color}
+\begin{DoxyCompactList}\small\item\em Text idle color. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_button_ac70f7afba2f3635df64818f24a4383a1}\label{classgui_1_1_button_ac70f7afba2f3635df64818f24a4383a1} 
+sf\+::\+Color {\bfseries text\+Hover\+Color}
+\begin{DoxyCompactList}\small\item\em Text color when hovered. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_button_a9c927c393575b46ef47422313c0d24f6}\label{classgui_1_1_button_a9c927c393575b46ef47422313c0d24f6} 
+sf\+::\+Color {\bfseries text\+Active\+Color}
+\begin{DoxyCompactList}\small\item\em Text color when pressed. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_button_a1adb3e955065c917812b34bf4da4e99b}\label{classgui_1_1_button_a1adb3e955065c917812b34bf4da4e99b} 
+sf\+::\+Color {\bfseries outline\+Idle\+Color}
+\begin{DoxyCompactList}\small\item\em Outline idle color. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_button_ad25e4743e4a1d132074c3caeec1ccafb}\label{classgui_1_1_button_ad25e4743e4a1d132074c3caeec1ccafb} 
+sf\+::\+Color {\bfseries outline\+Hover\+Color}
+\begin{DoxyCompactList}\small\item\em Outline color when hovered. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_button_a87c554e8517f6827bf8041e06357a2f6}\label{classgui_1_1_button_a87c554e8517f6827bf8041e06357a2f6} 
+sf\+::\+Color {\bfseries outline\+Active\+Color}
+\begin{DoxyCompactList}\small\item\em Outline color when pressed. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_button_a7299a5e4ffe952cb3e90ebbeb22a2ec8}\label{classgui_1_1_button_a7299a5e4ffe952cb3e90ebbeb22a2ec8} 
+float {\bfseries hover\+Scale}
+\begin{DoxyCompactList}\small\item\em Scale of button when hovered. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_button_a85511065cd6b299da8bbf98e7f7b1bb5}\label{classgui_1_1_button_a85511065cd6b299da8bbf98e7f7b1bb5} 
+float {\bfseries active\+Scale}
+\begin{DoxyCompactList}\small\item\em Scale of button when pressed. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_button_a918b96933e778eae651c77f6b2780b20}\label{classgui_1_1_button_a918b96933e778eae651c77f6b2780b20} 
+float {\bfseries scale\+To\+Idle\+Time}
+\begin{DoxyCompactList}\small\item\em Scale time required to transit to idle. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_button_a056a37ef45c80901500f94d5fba7b680}\label{classgui_1_1_button_a056a37ef45c80901500f94d5fba7b680} 
+float {\bfseries scale\+To\+Hover\+Time}
+\begin{DoxyCompactList}\small\item\em Scale time required to transit to hover. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_button_a7f4dce1072af7e0294f460b2faa96a91}\label{classgui_1_1_button_a7f4dce1072af7e0294f460b2faa96a91} 
+float {\bfseries scale\+To\+Active\+Time}
+\begin{DoxyCompactList}\small\item\em Scale time required to transit to idle. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_button_a342578563bd2debf63359df6463a5f55}\label{classgui_1_1_button_a342578563bd2debf63359df6463a5f55} 
+bool {\bfseries enabled}
+\begin{DoxyCompactList}\small\item\em Should button be enabled. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing a button on the screen. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgui_1_1_button_a4dcd3ac9af7338249f50321300a8d08d}\index{gui::Button@{gui::Button}!Button@{Button}}
+\index{Button@{Button}!gui::Button@{gui::Button}}
+\doxysubsubsection{\texorpdfstring{Button()}{Button()}}
+{\footnotesize\ttfamily \label{classgui_1_1_button_a4dcd3ac9af7338249f50321300a8d08d} 
+gui\+::\+Button\+::\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgui_1_1_button_params}{Button\+Params}} \texorpdfstring{$\ast$}{*}}]{params}{}\end{DoxyParamCaption})}
+
+
+
+Class constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em params} & Object with all button settings \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgui_1_1_button_a9e94fc2378eaca45c35a0220b657b916}\index{gui::Button@{gui::Button}!ChangeColor@{ChangeColor}}
+\index{ChangeColor@{ChangeColor}!gui::Button@{gui::Button}}
+\doxysubsubsection{\texorpdfstring{ChangeColor()}{ChangeColor()}}
+{\footnotesize\ttfamily \label{classgui_1_1_button_a9e94fc2378eaca45c35a0220b657b916} 
+void gui\+::\+Button\+::\+Change\+Color (\begin{DoxyParamCaption}\item[{sf\+::\+Color}]{color}{}\end{DoxyParamCaption})}
+
+
+
+Sets the button to a given color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Color \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classgui_1_1_button_a472c6a73869f5adec78b67eed68895b7}\index{gui::Button@{gui::Button}!isPressed@{isPressed}}
+\index{isPressed@{isPressed}!gui::Button@{gui::Button}}
+\doxysubsubsection{\texorpdfstring{isPressed()}{isPressed()}}
+{\footnotesize\ttfamily \label{classgui_1_1_button_a472c6a73869f5adec78b67eed68895b7} 
+const bool gui\+::\+Button\+::is\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the button is pressed. 
+
+\begin{DoxyReturn}{Returns}
+Returns a logical yes or no 
+\end{DoxyReturn}
+\Hypertarget{classgui_1_1_button_a1f93eac2279f05eef417a376b0bd7429}\index{gui::Button@{gui::Button}!render@{render}}
+\index{render@{render}!gui::Button@{gui::Button}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{classgui_1_1_button_a1f93eac2279f05eef417a376b0bd7429} 
+void gui\+::\+Button\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{target}{}\end{DoxyParamCaption})}
+
+
+
+Loop for rendering. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Pointer to the renderer \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classgui_1_1_button_a8725786ec052e008adf6805ab2246faa}\index{gui::Button@{gui::Button}!SetEnabled@{SetEnabled}}
+\index{SetEnabled@{SetEnabled}!gui::Button@{gui::Button}}
+\doxysubsubsection{\texorpdfstring{SetEnabled()}{SetEnabled()}}
+{\footnotesize\ttfamily \label{classgui_1_1_button_a8725786ec052e008adf6805ab2246faa} 
+void gui\+::\+Button\+::\+Set\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{enabled}{}\end{DoxyParamCaption})}
+
+
+
+Sets the button to on or off. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enabled} & Should be enabled? \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classgui_1_1_button_a44cb4badbb301b0271a51e1edb2b9976}\index{gui::Button@{gui::Button}!update@{update}}
+\index{update@{update}!gui::Button@{gui::Button}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classgui_1_1_button_a44cb4badbb301b0271a51e1edb2b9976} 
+void gui\+::\+Button\+::update (\begin{DoxyParamCaption}\item[{const sf\+::\+Vector2i \&}]{mouse\+Pos\+Window}{, }\item[{const float \&}]{dt}{}\end{DoxyParamCaption})}
+
+
+
+Main module loop updating events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Delta time value \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/\mbox{\hyperlink{_gui_8h}{Gui.\+h}}\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/Gui.\+cpp\end{DoxyCompactItemize}

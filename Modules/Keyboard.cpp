@@ -15,10 +15,6 @@ Keyboard::~Keyboard() {
     }
 }
 
-/*****************************************************************************
-** Function name:      initKeyboard
-** Description:        Tworzy grid z przycisków
-*****************************************************************************/
 void Keyboard::initKeyboard() {
     const sf::VideoMode& vm = this->gfxSettings->resolution;
 
@@ -58,10 +54,6 @@ void Keyboard::initKeyboard() {
     delete ButtonInitParams;
 }
 
-/*****************************************************************************
-** Function name:      updateButtons
-** Description:        Wywoluje aktualizacje zdarzeń dla kazdego przycisku
-*****************************************************************************/
 void Keyboard::updateButtons(const sf::Vector2i& mousePosWindow,const float& dt)
 {
     for (auto &it : this->buttons)
@@ -70,19 +62,11 @@ void Keyboard::updateButtons(const sf::Vector2i& mousePosWindow,const float& dt)
     }
 }
 
-/*****************************************************************************
-** Function name:      update
-** Description:        Pętla modułu odpowiadająca za zdarzenia
-*****************************************************************************/
 void Keyboard::update(const sf::Vector2i& mousePosWindow,const float& dt)
 {
     this->updateButtons(mousePosWindow,dt);
 }
 
-/*****************************************************************************
-** Function name:      render
-** Description:        Pętla odpowiadająca za wyświetlanie
-*****************************************************************************/
 void Keyboard::render(sf::RenderTarget *target) {
 
     //Renderowanie buttonów
@@ -92,10 +76,6 @@ void Keyboard::render(sf::RenderTarget *target) {
     }
 }
 
-/*****************************************************************************
-** Function name:      SetButton Enabled, Color
-** Description:        Ustawianie koloru, wylaczanie przycisku
-*****************************************************************************/
 void Keyboard::SetButtonEnabled(uint8_t key,bool enabled) {
     buttons[key]->SetEnabled(enabled);
 }
@@ -105,10 +85,7 @@ void Keyboard::SetButtonColor(uint8_t key,sf::Color color) {
 
 }
 
-/*****************************************************************************
-** Function name:      isPressed
-** Description:        Zwraca aktualny stan dla danego przycisku
-*****************************************************************************/
+
 const bool Keyboard::IsPressed(uint8_t key) {
     if (this->buttons[key]->isPressed()) {
         return true;

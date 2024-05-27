@@ -23,10 +23,6 @@ Game::~Game()
 }
 
 
-/*****************************************************************************
-** Function name:      initVariables
-** Description:        Inicjalizuje podstawowowe parametry klasy "Game"
-*****************************************************************************/
 void Game::initVariables()
 {
     this->window = nullptr;
@@ -34,10 +30,6 @@ void Game::initVariables()
 }
 
 
-/*****************************************************************************
-** Function name:      initWindow
-** Description:        Tworzy okno o określonych parametrach
-*****************************************************************************/
 void Game::initWindow()
 {
         this->window = new sf::RenderWindow(
@@ -51,10 +43,6 @@ void Game::initWindow()
 }
 
 
-/*****************************************************************************
-** Function name:      updateDt
-** Description:        Oblicza DeltaTime
-*****************************************************************************/
 void Game::updateDt()
 {
     //Aktualizuje zmienną DeltaTime
@@ -67,10 +55,7 @@ void Game::initGraphicsSettings()
     this->gfxSettings.loadFromFile("Config/graphics.ini");
 }
 
-/*****************************************************************************
-** Function name:      initStateData
-** Description:        Inicializuje kontener danych na temat state
-*****************************************************************************/
+
 void Game::initStateData()
 {
     this->stateData.gfxSettings = &this->gfxSettings;
@@ -79,20 +64,12 @@ void Game::initStateData()
 }
 
 
-/*****************************************************************************
-** Function name:      initStates
-** Description:        Tworzy pierwszy element - menu główne
-*****************************************************************************/
 void Game::initStates()
 {
     this->states.push(new MainMenuState(&this->stateData));
 }
 
 
-/*****************************************************************************
-** Function name:      update
-** Description:        Główna pętla gry
-*****************************************************************************/
 void Game::update()
 {
     //SFML EVENTS
@@ -123,10 +100,6 @@ void Game::update()
     }
 }
 
-/*****************************************************************************
-** Function name:      render
-** Description:        Odpowiada za renderowanie obrazu
-*****************************************************************************/
 void Game::render()
 {
     this->window->clear();
@@ -138,10 +111,6 @@ void Game::render()
 }
 
 
-/*****************************************************************************
-** Function name:      run
-** Description:        Start gry, główna pętla zadań.
-*****************************************************************************/
 void Game::run()
 {
     //Główna pętla gry

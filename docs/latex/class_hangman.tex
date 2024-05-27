@@ -1,0 +1,124 @@
+\doxysection{Hangman Class Reference}
+\hypertarget{class_hangman}{}\label{class_hangman}\index{Hangman@{Hangman}}
+
+
+Class reponsible for drawing hangman.  
+
+
+
+
+{\ttfamily \#include $<$Hangman.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_hangman_a92ca8d1e9c1fbf3cb167c371d2ccfd04}{Hangman}} (\mbox{\hyperlink{class_graphics_settings}{Graphics\+Settings}} \texorpdfstring{$\ast$}{*}settings)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_hangman_a353657d470c500f75c6628cdd119e272}\label{class_hangman_a353657d470c500f75c6628cdd119e272} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Hangman} ()
+\begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_hangman_a6c729fee779be8f734eb83c205e4b440}{set\+Level}} (uint8\+\_\+t level)
+\begin{DoxyCompactList}\small\item\em Sets the number of displayed hangman parts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_hangman_a93e1037c6c63ad8a458b7e8a9ffc1fae}{update}} (const float \&dt)
+\begin{DoxyCompactList}\small\item\em Main module loop updating events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_hangman_a87c3d082cb89abd156918471bc9986b4}{render}} (sf\+::\+Render\+Target \texorpdfstring{$\ast$}{*}target=nullptr)
+\begin{DoxyCompactList}\small\item\em Loop for rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_hangman_a1a9f5e0a7587170104f1eeb037c30387}\label{class_hangman_a1a9f5e0a7587170104f1eeb037c30387} 
+void {\bfseries init\+Hangman} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_hangman_addb7931aaaf0397fbac551427cf3ed5d}\label{class_hangman_addb7931aaaf0397fbac551427cf3ed5d} 
+class \mbox{\hyperlink{class_graphics_settings}{Graphics\+Settings}} \texorpdfstring{$\ast$}{*} {\bfseries gfx\+Settings}
+\begin{DoxyCompactList}\small\item\em Pointer to graphics settings. \end{DoxyCompactList}\item 
+\Hypertarget{class_hangman_a64baa7317e9baf7e0f4f57a7918a7d61}\label{class_hangman_a64baa7317e9baf7e0f4f57a7918a7d61} 
+sf\+::\+Render\+Texture \texorpdfstring{$\ast$}{*} {\bfseries render\+Texture}
+\begin{DoxyCompactList}\small\item\em Texture storing a view of the entire hangman. \end{DoxyCompactList}\item 
+\Hypertarget{class_hangman_aa28de17debcd33d05a34962d80bde6bd}\label{class_hangman_aa28de17debcd33d05a34962d80bde6bd} 
+sf\+::\+Sprite \texorpdfstring{$\ast$}{*} {\bfseries sprite}
+\begin{DoxyCompactList}\small\item\em Sprite needed to display hangman on the screen. \end{DoxyCompactList}\item 
+\Hypertarget{class_hangman_a524104106b08a41c963fae83d9926deb}\label{class_hangman_a524104106b08a41c963fae83d9926deb} 
+sf\+::\+Rectangle\+Shape \texorpdfstring{$\ast$}{*} {\bfseries line}
+\begin{DoxyCompactList}\small\item\em Line object pointer. \end{DoxyCompactList}\item 
+\Hypertarget{class_hangman_a55c7f0df4eb50178503ccbf67e69db74}\label{class_hangman_a55c7f0df4eb50178503ccbf67e69db74} 
+sf\+::\+Shape \texorpdfstring{$\ast$}{*} {\bfseries hangman\+\_\+parts} \mbox{[}6\mbox{]}
+\begin{DoxyCompactList}\small\item\em Pointers to parts of the body. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class reponsible for drawing hangman. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_hangman_a92ca8d1e9c1fbf3cb167c371d2ccfd04}\index{Hangman@{Hangman}!Hangman@{Hangman}}
+\index{Hangman@{Hangman}!Hangman@{Hangman}}
+\doxysubsubsection{\texorpdfstring{Hangman()}{Hangman()}}
+{\footnotesize\ttfamily \label{class_hangman_a92ca8d1e9c1fbf3cb167c371d2ccfd04} 
+Hangman\+::\+Hangman (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graphics_settings}{Graphics\+Settings}} \texorpdfstring{$\ast$}{*}}]{settings}{}\end{DoxyParamCaption})}
+
+
+
+Class constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em settings} & Pointer to the main graphics settings \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_hangman_a87c3d082cb89abd156918471bc9986b4}\index{Hangman@{Hangman}!render@{render}}
+\index{render@{render}!Hangman@{Hangman}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_hangman_a87c3d082cb89abd156918471bc9986b4} 
+void Hangman\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \texorpdfstring{$\ast$}{*}}]{target}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})}
+
+
+
+Loop for rendering. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Pointer to the renderer \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_hangman_a6c729fee779be8f734eb83c205e4b440}\index{Hangman@{Hangman}!setLevel@{setLevel}}
+\index{setLevel@{setLevel}!Hangman@{Hangman}}
+\doxysubsubsection{\texorpdfstring{setLevel()}{setLevel()}}
+{\footnotesize\ttfamily \label{class_hangman_a6c729fee779be8f734eb83c205e4b440} 
+void Hangman\+::set\+Level (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{level}{}\end{DoxyParamCaption})}
+
+
+
+Sets the number of displayed hangman parts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & Level od display (0-\/none, 5-\/all) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_hangman_a93e1037c6c63ad8a458b7e8a9ffc1fae}\index{Hangman@{Hangman}!update@{update}}
+\index{update@{update}!Hangman@{Hangman}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_hangman_a93e1037c6c63ad8a458b7e8a9ffc1fae} 
+void Hangman\+::update (\begin{DoxyParamCaption}\item[{const float \&}]{dt}{}\end{DoxyParamCaption})}
+
+
+
+Main module loop updating events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Delta time value \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/\mbox{\hyperlink{_hangman_8h}{Hangman.\+h}}\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/Hangman.\+cpp\end{DoxyCompactItemize}
