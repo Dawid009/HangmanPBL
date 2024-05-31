@@ -51,6 +51,16 @@ void Keyboard::initKeyboard() {
         }
         id++;
     }
+
+    //przeniesc gdzie indziej
+    ButtonInitParams->x =  gui::calcX(90,vm);
+    ButtonInitParams->y =  gui::calcY(90,vm);
+    ButtonInitParams->text = sf::String("Menu");
+    ButtonInitParams->text_idle_color = sf::Color::White;
+    ButtonInitParams->text_hover_color = sf::Color::White;
+    ButtonInitParams->text_active_color = sf::Color::White;
+    buttons[L'*'] = new gui::Button(ButtonInitParams);
+
     delete ButtonInitParams;
 }
 

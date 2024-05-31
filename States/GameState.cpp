@@ -5,8 +5,11 @@
 GameState::GameState(StateData* state_data)
         : State(state_data)
 {
+    this->paused = false;
+    this->initDeferredRender();
     this->initView();
     this->initFonts();
+    this->initPauseMenu();
     this->keyboard = new Keyboard(this->font,this->stateData->gfxSettings);
     this->letterFields = new LetterFields(this->font,this->stateData->gfxSettings,L"Tekstabcd");
     this->hangman = new Hangman(this->stateData->gfxSettings);
@@ -16,6 +19,26 @@ GameState::~GameState()
 {
 
 }
+
+void GameState::initDeferredRender()
+{
+    this->renderTexture.create(
+            this->stateData->gfxSettings->resolution.width,
+            this->stateData->gfxSettings->resolution.height
+    );
+
+    this->renderSprite.setTexture(this->renderTexture.getTexture());
+    this->renderSprite.setTextureRect(
+            sf::IntRect(
+                    0,
+                    0,
+                    this->stateData->gfxSettings->resolution.width,
+                    this->stateData->gfxSettings->resolution.height
+            )
+    );
+}
+
+
 
 void GameState::initFonts()
 {
@@ -40,6 +63,17 @@ void GameState::initView()
 }
 
 
+void GameState::initPauseMenu()
+{
+    const sf::VideoMode& vm = this->stateData->gfxSettings->resolution;
+    this->pmenu = new PauseMenu(this->stateData->gfxSettings->resolution, this->font);
+    this->pmenu->addButton("QUIT", gui::calcY(74.f, vm), gui::calcX(13.f, vm), gui::calcY(6.f, vm), gui::calcCharSize(vm), L"Quit");
+    this->pmenu->addButton("OPTIONS", gui::calcY(44.f, vm), gui::calcX(13.f, vm), gui::calcY(6.f, vm), gui::calcCharSize(vm), L"Options");
+    this->pmenu->addButton("CONTINUE", gui::calcY(35.f, vm), gui::calcX(13.f, vm), gui::calcY(6.f, vm), gui::calcCharSize(vm), L"Continue");
+}
+
+
+
 void GameState::checkKeyboard(const uint8_t letter) {
     if(this->keyboard->IsPressed(letter)){
 
@@ -55,6 +89,15 @@ void GameState::checkKeyboard(const uint8_t letter) {
     }
 }
 
+void GameState::updatePauseMenuButtons()
+{
+    if (this->pmenu->isButtonPressed("QUIT"))
+        this->endState();
+    if (this->pmenu->isButtonPressed("CONTINUE"))
+        this->paused = false;
+}
+
+
 void GameState::update(const float& dt)
 {
     this->updateMousePositions(&this->view);
@@ -69,22 +112,43 @@ void GameState::update(const float& dt)
         for(uint8_t i=0;i<34;i++){
             checkKeyboard(i);
         }
+
+        if(this->keyboard->IsPressed(L'*')){
+            this->paused = true;
+        }
+
     }
     else //gra zapauzowana
     {
-
+        this->pmenu->update(this->mousePosWindow,dt);
+        this->updatePauseMenuButtons();
     }
 }
 
 void GameState::render(sf::RenderTarget* target)
 {
+
+    this->renderTexture.clear();
     if (!target)
         target = this->window;
-    target->clear();
+    //target->clear();
+    this->renderTexture.clear();
     target->draw(this->background);
 
-    this->hangman->render(target);
-    this->keyboard->render(target);
-    this->letterFields->render(target);
+    renderTexture.draw(this->background);
+    this->hangman->render(&renderTexture);
+    this->keyboard->render(&renderTexture);
+    this->letterFields->render(&renderTexture);
+
+
+    if (this->paused) //Pause menu render
+    {
+        //this->renderTexture.setView(this->renderTexture.getDefaultView());
+        this->pmenu->render(this->renderTexture);
+    }
+
+    this->renderTexture.display();
+    this->renderSprite.setTexture(this->renderTexture.getTexture());
+    target->draw(renderSprite);
 }
 

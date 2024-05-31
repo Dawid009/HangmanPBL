@@ -1,6 +1,9 @@
 #include "Gui.h"
 #include <iostream>
 
+
+bool gui::Button::mousePressed = false;
+
 const float gui::lerp(float a, float b, float t) {
     return a + t * (b - a);
 }
@@ -81,14 +84,20 @@ const bool gui::Button::isPressed() const
 void gui::Button::update(const sf::Vector2i& mousePosWindow, const float& dt)
 {
     this->buttonState = BTN_IDLE;
+
+    if(!sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+        mousePressed=false;
+    }
+
     if (this->shape.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePosWindow)) && this->enabled)
     {
 
         this->buttonState = BTN_HOVER;
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->enabled)
-        {
+        if (!mousePressed && sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->enabled) {
             this->buttonState = BTN_ACTIVE;
+            mousePressed=true;
         }
+
     }
 
     float scaleXY;
