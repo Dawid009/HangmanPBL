@@ -32,7 +32,7 @@ public:
     virtual ~Keyboard();
 
     /**
-    * @brief Setting button avaiability to locked or unlocked
+    * @brief Setting button availability to locked or unlocked
     * @param key ID
     * @param enabled Should be enabled or not
     */
@@ -46,7 +46,7 @@ public:
     void SetButtonColor(uint8_t key,sf::Color color);
 
     /**
-    * @brief Setting button avaiability to locked or unlocked
+    * @brief Checking if button is pressed
     * @param Key ID
     * @returns Returns state of the button
     */

@@ -2,7 +2,6 @@
  * @file Gui.h
  * @brief User interface elements
  */
-
 #ifndef HANGMAN_GUI_H
 #define HANGMAN_GUI_H
 #include <SFML/Graphics.hpp>
@@ -17,8 +16,37 @@ enum button_states{
     BTN_ACTIVE
 };
 
-
 namespace gui {
+
+    /**
+     * @brief Class constructor
+     * @param a Current value
+     * @param b The value to which the function is going
+     * @param t Speed modifier
+     * @returns Returns the value for a given iteration
+     */
+    const float lerp(float a, float b, float t);
+    /**
+    * @brief Based on the percentage of the window, calculates the value of X
+    * @param percent Percentage of screen from point 0
+    * @param vm Pointer to VideoMode
+    * @returns Returns the X value
+    */
+    const float calcX(const float percent, const sf::VideoMode& vm);
+    /**
+    * @brief Based on the percentage of the window, calculates the value of Y
+    * @param percent Percentage of screen from point 0
+    * @param vm Pointer to VideoMode
+    * @returns Returns the Y value
+    */
+    const float calcY(const float percent, const sf::VideoMode& vm);
+    /**
+    * @brief Calculates character size on the screen
+    * @param vm Pointer to VideoMode
+    * @param modifier Char size modifier
+    * @returns Returns character size value
+    */
+    const unsigned calcCharSize(const sf::VideoMode& vm, const unsigned modifier = 60);
 
     /**
     * @struct ButtonParams
@@ -47,36 +75,6 @@ namespace gui {
         bool drawDebugBorder=false;///<Should draw red button border
         bool initEnable=true;///<Should button be enabled
     };
-
-    /**
-    * @brief Class constructor
-    * @param a Current value
-    * @param b The value to which the function is going
-    * @param t Speed modifier
-    * @returns Returns the value for a given iteration
-    */
-    const float lerp(float a, float b, float t);
-    /**
-    * @brief Based on the percentage of the window, calculates the value of X
-    * @param percent Percentage of screen from point 0
-    * @param vm Pointer to VideoMode
-    * @returns Returns the X value
-    */
-    const float calcX(const float percent, const sf::VideoMode& vm);
-    /**
-    * @brief Based on the percentage of the window, calculates the value of Y
-    * @param percent Percentage of screen from point 0
-    * @param vm Pointer to VideoMode
-    * @returns Returns the Y value
-    */
-    const float calcY(const float percent, const sf::VideoMode& vm);
-    /**
-    * @brief Calculates character size on the screen
-    * @param vm Pointer to VideoMode
-    * @param modifier Char size modifier
-    * @returns Returns character size value
-    */
-    const unsigned calcCharSize(const sf::VideoMode& vm, const unsigned modifier = 60);
 
 
     /**
