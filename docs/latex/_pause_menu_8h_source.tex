@@ -1,0 +1,48 @@
+\doxysection{Pause\+Menu.\+h}
+\hypertarget{_pause_menu_8h_source}{}\label{_pause_menu_8h_source}\index{/Users/dawid/Documents/programowanie/cpp2/Hangman/Modules/PauseMenu.h@{/Users/dawid/Documents/programowanie/cpp2/Hangman/Modules/PauseMenu.h}}
+\mbox{\hyperlink{_pause_menu_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ HANGMAN\_PAUSESCREEN\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ HANGMAN\_PAUSESCREEN\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{_gui_8h}{Gui.h}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }Gui;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_pause_menu}{PauseMenu}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ sf::Font\&\ \mbox{\hyperlink{class_pause_menu_a726bb44884253bba6f6db57f9feb6525}{font}};\ }
+\DoxyCodeLine{00022\ \ \ \ \ sf::Text\ \mbox{\hyperlink{class_pause_menu_af5ba74b1b87736fcf91bf30666a10415}{menuText}};\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ sf::RectangleShape\ \mbox{\hyperlink{class_pause_menu_a1ef817d874d8d0649ce9ae96e9fb4be8}{background}};\ }
+\DoxyCodeLine{00025\ \ \ \ \ sf::RectangleShape\ \mbox{\hyperlink{class_pause_menu_a294bba40657cb59b1a71d458bc5b8df7}{container}};\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ std::map<std::string,\ gui::Button*>\ \mbox{\hyperlink{class_pause_menu_ac748d9700721027c5b1e7a29ad1aec30}{buttons}};\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_pause_menu_afc2f75ba9c95fd25134ad3bcf968fee7}{PauseMenu}}(sf::VideoMode\&\ vm,\ sf::Font\&\ \mbox{\hyperlink{class_pause_menu_a726bb44884253bba6f6db57f9feb6525}{font}});}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_pause_menu_af30f0b8f5f59c6779434295a731b0e35}{\string~PauseMenu}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_pause_menu_a72d466bc5a32a3766cbb25e95a728b88}{isButtonPressed}}(\textcolor{keyword}{const}\ std::string\ key);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pause_menu_a666ff4fd9b1dd61435ebf65128a08b2d}{addButton}}(\textcolor{keyword}{const}\ std::string\ key,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ y,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ width,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ height,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ char\_size,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::wstring\&\ text);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pause_menu_adc598e93e50b05a0e41e696ff5c3fa10}{update}}(\textcolor{keyword}{const}\ sf::Vector2i\&\ mousePosWindow,\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pause_menu_ab52735e20aa287ea7a17783e9005e2a8}{render}}(sf::RenderTarget\&\ target);}
+\DoxyCodeLine{00076\ \};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//HANGMAN\_PAUSESCREEN\_H}}
+
+\end{DoxyCode}

@@ -10,35 +10,46 @@
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_keyboard_8h}{../Modules/Keyboard.h}}"{}}}
 \DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_letter_fields_8h}{../Modules/LetterFields.h}}"{}}}
 \DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_hangman_8h}{../Modules/Hangman.h}}"{}}}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_state}{GameState}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_state}{State}}\ \{}
-\DoxyCodeLine{00018\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \ \ \ \ sf::View\ view;\ }
-\DoxyCodeLine{00021\ \ \ \ \ sf::Texture\ \mbox{\hyperlink{class_game_state_a1ed971ac4b35afb31bf8ddf6475d0998}{backgroundTexture}};}
-\DoxyCodeLine{00022\ \ \ \ \ sf::Font\ \mbox{\hyperlink{class_game_state_ab60dc490bb2d288a20712d1455aa70e8}{font}};}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_keyboard}{Keyboard}}*\ \mbox{\hyperlink{class_game_state_a0f5f60339d8bd7749ba3695eb5a98fd0}{keyboard}};\ }
-\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_letter_fields}{LetterFields}}*\ \mbox{\hyperlink{class_game_state_a4b4b81f57322e4d38dc0f5da284e2c91}{letterFields}};\ }
-\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_hangman}{Hangman}}*\ \mbox{\hyperlink{class_game_state_ae1ed9568c0ea36e25a80dc8765f69159}{hangman}};\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_pause_menu_8h}{../Modules/PauseMenu.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_state}{GameState}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_state}{State}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ sf::View\ view;\ }
+\DoxyCodeLine{00022\ \ \ \ \ sf::Texture\ \mbox{\hyperlink{class_game_state_a1ed971ac4b35afb31bf8ddf6475d0998}{backgroundTexture}};}
+\DoxyCodeLine{00023\ \ \ \ \ sf::Font\ \mbox{\hyperlink{class_game_state_ab60dc490bb2d288a20712d1455aa70e8}{font}};}
+\DoxyCodeLine{00024\ \ \ \ \ sf::RenderTexture\ renderTexture;}
+\DoxyCodeLine{00025\ \ \ \ \ sf::Sprite\ renderSprite;}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_pause_menu}{PauseMenu}}*\ pmenu;}
 \DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ misses=0;}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ initView();}
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ initFonts();}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ checkKeyboard(uint8\_t\ letter);}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_game_state_a267b6a5ef80c6c6d252d2cf9b981414d}{GameState}}(\mbox{\hyperlink{class_state_data}{StateData}}*\ state\_data);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_keyboard}{Keyboard}}*\ \mbox{\hyperlink{class_game_state_a0f5f60339d8bd7749ba3695eb5a98fd0}{keyboard}};\ }
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_letter_fields}{LetterFields}}*\ \mbox{\hyperlink{class_game_state_a4b4b81f57322e4d38dc0f5da284e2c91}{letterFields}};\ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_hangman}{Hangman}}*\ \mbox{\hyperlink{class_game_state_ae1ed9568c0ea36e25a80dc8765f69159}{hangman}};\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ misses=0;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ initDeferredRender();}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ initView();}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ initFonts();}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ checkKeyboard(uint8\_t\ letter);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ initPauseMenu();}
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_game_state_ae623df5042cd0c17daa3394fdcb397b3}{\string~GameState}}();}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_state_ac135e64a5c269ecc94d806ed5255ca4b}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt);}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_state_ae49b20a5455335d879340dbe3b92da7f}{render}}(sf::RenderTarget*\ target\ =\ NULL);}
-\DoxyCodeLine{00057\ \};}
+\DoxyCodeLine{00041\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_game_state_a267b6a5ef80c6c6d252d2cf9b981414d}{GameState}}(\mbox{\hyperlink{class_state_data}{StateData}}*\ state\_data);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_game_state_ae623df5042cd0c17daa3394fdcb397b3}{\string~GameState}}();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_state_ac135e64a5c269ecc94d806ed5255ca4b}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt);}
 \DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//HANGMAN\_GAMESTATE\_H}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_state_ae49b20a5455335d879340dbe3b92da7f}{render}}(sf::RenderTarget*\ target\ =\ NULL);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ updatePauseMenuButtons();}
+\DoxyCodeLine{00068\ \};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//HANGMAN\_GAMESTATE\_H}}
 
 \end{DoxyCode}

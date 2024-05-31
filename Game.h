@@ -8,7 +8,6 @@
 #include <SFML/Graphics.hpp>
 #include "States/MainMenuState.h"
 
-
 /** @class Game
  * @brief The basic class of the game
  * */

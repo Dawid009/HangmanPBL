@@ -123,6 +123,9 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~GameState</b> ()<
 <tr class="memitem:ae49b20a5455335d879340dbe3b92da7f" id="r_ae49b20a5455335d879340dbe3b92da7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae49b20a5455335d879340dbe3b92da7f">render</a> (sf::RenderTarget *target=NULL)</td></tr>
 <tr class="memdesc:ae49b20a5455335d879340dbe3b92da7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loop for rendering.  <br /></td></tr>
 <tr class="separator:ae49b20a5455335d879340dbe3b92da7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2a47f94bfffccc635b680d996144e0e" id="r_ad2a47f94bfffccc635b680d996144e0e"><td class="memItemLeft" align="right" valign="top"><a id="ad2a47f94bfffccc635b680d996144e0e" name="ad2a47f94bfffccc635b680d996144e0e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>updatePauseMenuButtons</b> ()</td></tr>
+<tr class="separator:ad2a47f94bfffccc635b680d996144e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_state"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_state')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_state.html">State</a></td></tr>
 <tr class="memitem:a9de42e1e80c4ee2580b17af064498a94 inherit pub_methods_class_state" id="r_a9de42e1e80c4ee2580b17af064498a94"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#a9de42e1e80c4ee2580b17af064498a94">State</a> (<a class="el" href="class_state_data.html">StateData</a> *state_data)</td></tr>
 <tr class="memdesc:a9de42e1e80c4ee2580b17af064498a94 inherit pub_methods_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor.  <br /></td></tr>
@@ -144,6 +147,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>endState</b> ()</td><
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
+<tr class="memitem:a5560dd2fa69f4f5d869127d0e99d50c6" id="r_a5560dd2fa69f4f5d869127d0e99d50c6"><td class="memItemLeft" align="right" valign="top"><a id="a5560dd2fa69f4f5d869127d0e99d50c6" name="a5560dd2fa69f4f5d869127d0e99d50c6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>initDeferredRender</b> ()</td></tr>
+<tr class="separator:a5560dd2fa69f4f5d869127d0e99d50c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a343d71fbf12dd0d0cd8decc17d74e603" id="r_a343d71fbf12dd0d0cd8decc17d74e603"><td class="memItemLeft" align="right" valign="top"><a id="a343d71fbf12dd0d0cd8decc17d74e603" name="a343d71fbf12dd0d0cd8decc17d74e603"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>initView</b> ()</td></tr>
 <tr class="separator:a343d71fbf12dd0d0cd8decc17d74e603"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,6 +159,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>initFonts</b> ()</td>
 <tr class="memitem:af111c6ae35cd13fadd75a884e07ce97d" id="r_af111c6ae35cd13fadd75a884e07ce97d"><td class="memItemLeft" align="right" valign="top"><a id="af111c6ae35cd13fadd75a884e07ce97d" name="af111c6ae35cd13fadd75a884e07ce97d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>checkKeyboard</b> (uint8_t letter)</td></tr>
 <tr class="separator:af111c6ae35cd13fadd75a884e07ce97d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2be131aadedfcd93b417e9b17b1ac81c" id="r_a2be131aadedfcd93b417e9b17b1ac81c"><td class="memItemLeft" align="right" valign="top"><a id="a2be131aadedfcd93b417e9b17b1ac81c" name="a2be131aadedfcd93b417e9b17b1ac81c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>initPauseMenu</b> ()</td></tr>
+<tr class="separator:a2be131aadedfcd93b417e9b17b1ac81c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -167,6 +176,15 @@ sf::Texture&#160;</td><td class="memItemRight" valign="bottom"><b>backgroundText
 sf::Font&#160;</td><td class="memItemRight" valign="bottom"><b>font</b></td></tr>
 <tr class="memdesc:ab60dc490bb2d288a20712d1455aa70e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Font reference requiered to render text. <br /></td></tr>
 <tr class="separator:ab60dc490bb2d288a20712d1455aa70e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a957706ee7af356052e0f1b73544dfaa8" id="r_a957706ee7af356052e0f1b73544dfaa8"><td class="memItemLeft" align="right" valign="top"><a id="a957706ee7af356052e0f1b73544dfaa8" name="a957706ee7af356052e0f1b73544dfaa8"></a>
+sf::RenderTexture&#160;</td><td class="memItemRight" valign="bottom"><b>renderTexture</b></td></tr>
+<tr class="separator:a957706ee7af356052e0f1b73544dfaa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a351fea43676cf6a1b6d8144508d76405" id="r_a351fea43676cf6a1b6d8144508d76405"><td class="memItemLeft" align="right" valign="top"><a id="a351fea43676cf6a1b6d8144508d76405" name="a351fea43676cf6a1b6d8144508d76405"></a>
+sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><b>renderSprite</b></td></tr>
+<tr class="separator:a351fea43676cf6a1b6d8144508d76405"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f85f0e3048be125432a6e6d76e3ee0a" id="r_a4f85f0e3048be125432a6e6d76e3ee0a"><td class="memItemLeft" align="right" valign="top"><a id="a4f85f0e3048be125432a6e6d76e3ee0a" name="a4f85f0e3048be125432a6e6d76e3ee0a"></a>
+<a class="el" href="class_pause_menu.html">PauseMenu</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pmenu</b></td></tr>
+<tr class="separator:a4f85f0e3048be125432a6e6d76e3ee0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f5f60339d8bd7749ba3695eb5a98fd0" id="r_a0f5f60339d8bd7749ba3695eb5a98fd0"><td class="memItemLeft" align="right" valign="top"><a id="a0f5f60339d8bd7749ba3695eb5a98fd0" name="a0f5f60339d8bd7749ba3695eb5a98fd0"></a>
 <a class="el" href="class_keyboard.html">Keyboard</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>keyboard</b></td></tr>
 <tr class="memdesc:a0f5f60339d8bd7749ba3695eb5a98fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_keyboard.html" title="Class reponsible for drawing keyboard.">Keyboard</a> component pointer. <br /></td></tr>

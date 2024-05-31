@@ -26,7 +26,10 @@ virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Game\+State} ()
 void \mbox{\hyperlink{class_game_state_ac135e64a5c269ecc94d806ed5255ca4b}{update}} (const float \&dt)
 \begin{DoxyCompactList}\small\item\em Main state loop updating events. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_game_state_ae49b20a5455335d879340dbe3b92da7f}{render}} (sf\+::\+Render\+Target \texorpdfstring{$\ast$}{*}target=NULL)
-\begin{DoxyCompactList}\small\item\em Loop for rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Loop for rendering. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_state_ad2a47f94bfffccc635b680d996144e0e}\label{class_game_state_ad2a47f94bfffccc635b680d996144e0e} 
+void {\bfseries update\+Pause\+Menu\+Buttons} ()
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_state}{State}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -43,6 +46,9 @@ virtual void \mbox{\hyperlink{class_state_a9786ffabe44f3e916d81a2750d8370e0}{upd
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\Hypertarget{class_game_state_a5560dd2fa69f4f5d869127d0e99d50c6}\label{class_game_state_a5560dd2fa69f4f5d869127d0e99d50c6} 
+void {\bfseries init\+Deferred\+Render} ()
+\item 
 \Hypertarget{class_game_state_a343d71fbf12dd0d0cd8decc17d74e603}\label{class_game_state_a343d71fbf12dd0d0cd8decc17d74e603} 
 void {\bfseries init\+View} ()
 \item 
@@ -51,6 +57,9 @@ void {\bfseries init\+Fonts} ()
 \item 
 \Hypertarget{class_game_state_af111c6ae35cd13fadd75a884e07ce97d}\label{class_game_state_af111c6ae35cd13fadd75a884e07ce97d} 
 void {\bfseries check\+Keyboard} (uint8\+\_\+t letter)
+\item 
+\Hypertarget{class_game_state_a2be131aadedfcd93b417e9b17b1ac81c}\label{class_game_state_a2be131aadedfcd93b417e9b17b1ac81c} 
+void {\bfseries init\+Pause\+Menu} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -64,6 +73,15 @@ sf\+::\+Texture {\bfseries background\+Texture}
 \Hypertarget{class_game_state_ab60dc490bb2d288a20712d1455aa70e8}\label{class_game_state_ab60dc490bb2d288a20712d1455aa70e8} 
 sf\+::\+Font {\bfseries font}
 \begin{DoxyCompactList}\small\item\em Font reference requiered to render text. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_state_a957706ee7af356052e0f1b73544dfaa8}\label{class_game_state_a957706ee7af356052e0f1b73544dfaa8} 
+sf\+::\+Render\+Texture {\bfseries render\+Texture}
+\item 
+\Hypertarget{class_game_state_a351fea43676cf6a1b6d8144508d76405}\label{class_game_state_a351fea43676cf6a1b6d8144508d76405} 
+sf\+::\+Sprite {\bfseries render\+Sprite}
+\item 
+\Hypertarget{class_game_state_a4f85f0e3048be125432a6e6d76e3ee0a}\label{class_game_state_a4f85f0e3048be125432a6e6d76e3ee0a} 
+\mbox{\hyperlink{class_pause_menu}{Pause\+Menu}} \texorpdfstring{$\ast$}{*} {\bfseries pmenu}
+\item 
 \Hypertarget{class_game_state_a0f5f60339d8bd7749ba3695eb5a98fd0}\label{class_game_state_a0f5f60339d8bd7749ba3695eb5a98fd0} 
 \mbox{\hyperlink{class_keyboard}{Keyboard}} \texorpdfstring{$\ast$}{*} {\bfseries keyboard}
 \begin{DoxyCompactList}\small\item\em \doxylink{class_keyboard}{Keyboard} component pointer. \end{DoxyCompactList}\item 

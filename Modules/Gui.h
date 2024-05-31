@@ -105,6 +105,8 @@ namespace gui {
 
         bool enabled;///<Should button be enabled
 
+        static bool mousePressed;
+
     public:
         /**
         * @brief Class constructor

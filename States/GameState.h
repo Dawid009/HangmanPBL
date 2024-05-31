@@ -9,6 +9,7 @@
 #include "../Modules/Keyboard.h"
 #include "../Modules/LetterFields.h"
 #include "../Modules/Hangman.h"
+#include "../Modules/PauseMenu.h"
 
 /**
  * @class GameState
@@ -20,6 +21,10 @@ private:
     sf::View view; ///<
     sf::Texture backgroundTexture;///<Background texture reference.
     sf::Font font;///<Font reference requiered to render text.
+    sf::RenderTexture renderTexture;
+    sf::Sprite renderSprite;
+    PauseMenu* pmenu;
+
 
     Keyboard* keyboard; ///<Keyboard component pointer.
     LetterFields* letterFields; ///<Letter fields display component pointer.
@@ -27,9 +32,11 @@ private:
 
     int misses=0;
 
+    void initDeferredRender();
     void initView();
     void initFonts();
     void checkKeyboard(uint8_t letter);
+    void initPauseMenu();
 
 public:
     /**
@@ -54,6 +61,10 @@ public:
     * @param target Pointer to the renderer
     */
     void render(sf::RenderTarget* target = NULL);
+
+
+
+    void updatePauseMenuButtons();
 };
 
 

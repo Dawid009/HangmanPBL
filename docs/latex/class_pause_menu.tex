@@ -1,0 +1,150 @@
+\doxysection{Pause\+Menu Class Reference}
+\hypertarget{class_pause_menu}{}\label{class_pause_menu}\index{PauseMenu@{PauseMenu}}
+
+
+Class reponsible for in-\/game menu.  
+
+
+
+
+{\ttfamily \#include $<$Pause\+Menu.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_pause_menu_afc2f75ba9c95fd25134ad3bcf968fee7}{Pause\+Menu}} (sf\+::\+Video\+Mode \&vm, sf\+::\+Font \&\mbox{\hyperlink{class_pause_menu_a726bb44884253bba6f6db57f9feb6525}{font}})
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_pause_menu_af30f0b8f5f59c6779434295a731b0e35}\label{class_pause_menu_af30f0b8f5f59c6779434295a731b0e35} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Pause\+Menu} ()
+\begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{class_pause_menu_a72d466bc5a32a3766cbb25e95a728b88}{is\+Button\+Pressed}} (const std\+::string key)
+\begin{DoxyCompactList}\small\item\em Check if button is pressed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pause_menu_a666ff4fd9b1dd61435ebf65128a08b2d}{add\+Button}} (const std\+::string key, const float y, const float width, const float height, const unsigned char\+\_\+size, const std\+::wstring \&text)
+\begin{DoxyCompactList}\small\item\em Creates new button. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pause_menu_adc598e93e50b05a0e41e696ff5c3fa10}{update}} (const sf\+::\+Vector2i \&mouse\+Pos\+Window, const float \&dt)
+\begin{DoxyCompactList}\small\item\em Main state loop updating events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pause_menu_ab52735e20aa287ea7a17783e9005e2a8}{render}} (sf\+::\+Render\+Target \&target)
+\begin{DoxyCompactList}\small\item\em Loop for rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_pause_menu_a726bb44884253bba6f6db57f9feb6525}\label{class_pause_menu_a726bb44884253bba6f6db57f9feb6525} 
+sf\+::\+Font \& {\bfseries font}
+\begin{DoxyCompactList}\small\item\em Pointer to the font. \end{DoxyCompactList}\item 
+\Hypertarget{class_pause_menu_af5ba74b1b87736fcf91bf30666a10415}\label{class_pause_menu_af5ba74b1b87736fcf91bf30666a10415} 
+sf\+::\+Text {\bfseries menu\+Text}
+\begin{DoxyCompactList}\small\item\em Menu text object. \end{DoxyCompactList}\item 
+\Hypertarget{class_pause_menu_a1ef817d874d8d0649ce9ae96e9fb4be8}\label{class_pause_menu_a1ef817d874d8d0649ce9ae96e9fb4be8} 
+sf\+::\+Rectangle\+Shape {\bfseries background}
+\begin{DoxyCompactList}\small\item\em Background object. \end{DoxyCompactList}\item 
+\Hypertarget{class_pause_menu_a294bba40657cb59b1a71d458bc5b8df7}\label{class_pause_menu_a294bba40657cb59b1a71d458bc5b8df7} 
+sf\+::\+Rectangle\+Shape {\bfseries container}
+\begin{DoxyCompactList}\small\item\em Container. \end{DoxyCompactList}\item 
+\Hypertarget{class_pause_menu_ac748d9700721027c5b1e7a29ad1aec30}\label{class_pause_menu_ac748d9700721027c5b1e7a29ad1aec30} 
+std\+::map$<$ std\+::string, \mbox{\hyperlink{classgui_1_1_button}{gui\+::\+Button}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries buttons}
+\begin{DoxyCompactList}\small\item\em A map that stores the buttons. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class reponsible for in-\/game menu. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_pause_menu_afc2f75ba9c95fd25134ad3bcf968fee7}\index{PauseMenu@{PauseMenu}!PauseMenu@{PauseMenu}}
+\index{PauseMenu@{PauseMenu}!PauseMenu@{PauseMenu}}
+\doxysubsubsection{\texorpdfstring{PauseMenu()}{PauseMenu()}}
+{\footnotesize\ttfamily \label{class_pause_menu_afc2f75ba9c95fd25134ad3bcf968fee7} 
+Pause\+Menu\+::\+Pause\+Menu (\begin{DoxyParamCaption}\item[{sf\+::\+Video\+Mode \&}]{vm}{, }\item[{sf\+::\+Font \&}]{font}{}\end{DoxyParamCaption})}
+
+
+
+Class constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vm} & Video Mode \\
+\hline
+{\em font} & Pointer to the font \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_pause_menu_a666ff4fd9b1dd61435ebf65128a08b2d}\index{PauseMenu@{PauseMenu}!addButton@{addButton}}
+\index{addButton@{addButton}!PauseMenu@{PauseMenu}}
+\doxysubsubsection{\texorpdfstring{addButton()}{addButton()}}
+{\footnotesize\ttfamily \label{class_pause_menu_a666ff4fd9b1dd61435ebf65128a08b2d} 
+void Pause\+Menu\+::add\+Button (\begin{DoxyParamCaption}\item[{const std\+::string}]{key}{, }\item[{const float}]{y}{, }\item[{const float}]{width}{, }\item[{const float}]{height}{, }\item[{const unsigned}]{char\+\_\+size}{, }\item[{const std\+::wstring \&}]{text}{}\end{DoxyParamCaption})}
+
+
+
+Creates new button. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Key of the button \\
+\hline
+{\em y} & Y position \\
+\hline
+{\em width} & Width of the button \\
+\hline
+{\em height} & Height of the button \\
+\hline
+{\em char\+\_\+size} & Character size \\
+\hline
+{\em text} & Text ref to display \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_pause_menu_a72d466bc5a32a3766cbb25e95a728b88}\index{PauseMenu@{PauseMenu}!isButtonPressed@{isButtonPressed}}
+\index{isButtonPressed@{isButtonPressed}!PauseMenu@{PauseMenu}}
+\doxysubsubsection{\texorpdfstring{isButtonPressed()}{isButtonPressed()}}
+{\footnotesize\ttfamily \label{class_pause_menu_a72d466bc5a32a3766cbb25e95a728b88} 
+const bool Pause\+Menu\+::is\+Button\+Pressed (\begin{DoxyParamCaption}\item[{const std\+::string}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Check if button is pressed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Key of the button \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return value of true or false 
+\end{DoxyReturn}
+\Hypertarget{class_pause_menu_ab52735e20aa287ea7a17783e9005e2a8}\index{PauseMenu@{PauseMenu}!render@{render}}
+\index{render@{render}!PauseMenu@{PauseMenu}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_pause_menu_ab52735e20aa287ea7a17783e9005e2a8} 
+void Pause\+Menu\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{target}{}\end{DoxyParamCaption})}
+
+
+
+Loop for rendering. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Pointer to the renderer \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_pause_menu_adc598e93e50b05a0e41e696ff5c3fa10}\index{PauseMenu@{PauseMenu}!update@{update}}
+\index{update@{update}!PauseMenu@{PauseMenu}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_pause_menu_adc598e93e50b05a0e41e696ff5c3fa10} 
+void Pause\+Menu\+::update (\begin{DoxyParamCaption}\item[{const sf\+::\+Vector2i \&}]{mouse\+Pos\+Window}{, }\item[{const float \&}]{dt}{}\end{DoxyParamCaption})}
+
+
+
+Main state loop updating events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Delta time value \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/\mbox{\hyperlink{_pause_menu_8h}{Pause\+Menu.\+h}}\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/Pause\+Menu.\+cpp\end{DoxyCompactItemize}

@@ -115,6 +115,7 @@ void MainMenuState::updateButtons(const float& dt)
     if (this->buttons[NEW_GAME]->isPressed())
     {
         this->states->push(new GameState(this->stateData));
+        //new transition to
     }
 
     if (this->buttons[QUIT]->isPressed())

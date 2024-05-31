@@ -11,6 +11,7 @@ var searchData=
   ['initstates_8',['initStates',['../class_game.html#a9374c8f07e57e5697fb0b35f51d96361',1,'Game']]],
   ['initvariables_9',['initVariables',['../class_game.html#aa7255464a62947a22ebcf9f0e5e6c52d',1,'Game']]],
   ['initwindow_10',['initWindow',['../class_game.html#a15f85bb1959ffeae84f17c7f08db9018',1,'Game']]],
-  ['ispressed_11',['IsPressed',['../class_keyboard.html#a6f725a9cc6c813ecb7651104d44bdb2e',1,'Keyboard']]],
-  ['ispressed_12',['isPressed',['../classgui_1_1_button.html#a472c6a73869f5adec78b67eed68895b7',1,'gui::Button']]]
+  ['isbuttonpressed_11',['isButtonPressed',['../class_pause_menu.html#a72d466bc5a32a3766cbb25e95a728b88',1,'PauseMenu']]],
+  ['ispressed_12',['IsPressed',['../class_keyboard.html#a6f725a9cc6c813ecb7651104d44bdb2e',1,'Keyboard']]],
+  ['ispressed_13',['isPressed',['../classgui_1_1_button.html#a472c6a73869f5adec78b67eed68895b7',1,'gui::Button']]]
 ];
