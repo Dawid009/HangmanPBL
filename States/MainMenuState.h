@@ -18,7 +18,7 @@ class MainMenuState : public State{
 
 private:
     sf::Texture titleTexture; ///<Texture holding title image
-    sf::RectangleShape title; ///<Title image rectangle to render on the view
+    sf::Text title; ///<Title image rectangle to render on the view
     sf::Font font; ///<Font reference requiered to
     std::map<uint8_t, gui::Button*> buttons; ///<A map that stores the buttons
 

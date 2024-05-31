@@ -1,9 +1,8 @@
 ## Hangman
-Gra w wisielca napisana w C++17
+Project written using C++ and SFML
 <br/>
-### Konfiguracja projektu:
+### Project configuration:
 
-- Utworzyć plik **CMake** bądź inny, jeśli jest wymagany do uruchomienia.
-- Ustawić wersję języka **C++15** lub **C++17**
-- Dołączyć bibliotekę **SFML 2.6.1**
-- W celu łatwej integracji między różnymi środowiskami i platformami, w **.gitignore** dopisać np. dodatkowe pliki tworzone przez środowisko.
+- Create **CMake** or another if required to run project.
+- Set **C++15** or **C++17** language version
+- Link **SFML 2.6.1** library

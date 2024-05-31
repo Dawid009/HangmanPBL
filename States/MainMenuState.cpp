@@ -50,9 +50,12 @@ void MainMenuState::initGui()
         throw "ERROR::MAIN_MENU::FAILED_TO_LOAD_TITLE_TEXTURE";
     }
 
-    this->title.setSize(sf::Vector2f(static_cast<float>(vm.width*0.30),static_cast<float>(vm.height*0.12)));
-    this->title.setPosition(sf::Vector2f(static_cast<float>(vm.width*0.10),static_cast<float>(vm.height*0.12)));
-    this->title.setTexture(&this->titleTexture);
+    this->title.setPosition(sf::Vector2f(static_cast<float>(vm.width*0.13),static_cast<float>(vm.height*0.12)));
+    this->title.setString("Hangman");
+    this->title.setFont(this->font);
+    this->title.setCharacterSize(gui::calcCharSize(vm,20));
+    this->title.setFillColor(sf::Color(50,50,50,255));
+
     this->background.setTexture(&this->backgroundTexture);
 
     auto* ButtonInitParams = new gui::ButtonParams;
