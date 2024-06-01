@@ -15,9 +15,9 @@ Class reading and saving settings.
 \Hypertarget{class_graphics_settings_a3c5fd3428c4a0549bfa5d5f3b1915c34}\label{class_graphics_settings_a3c5fd3428c4a0549bfa5d5f3b1915c34} 
 {\bfseries Graphics\+Settings} ()
 \begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_graphics_settings_a050c223b5324b801f0867ee1c255db69}{save\+To\+File}} (const std\+::string path)
+void \mbox{\hyperlink{class_graphics_settings_a4a72e8954c3a037ba7cb2332b9b69133}{save\+To\+File}} (const std\+::string \&path) const
 \begin{DoxyCompactList}\small\item\em Saving settings to file. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_graphics_settings_a3fb097d3414159fff72c69117c10ab23}{load\+From\+File}} (const std\+::string path)
+void \mbox{\hyperlink{class_graphics_settings_aad0c81d6e67cb00654e1d22fc773cfe5}{load\+From\+File}} (const std\+::string \&path)
 \begin{DoxyCompactList}\small\item\em Reading settings from file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -42,18 +42,18 @@ sf\+::\+Context\+Settings {\bfseries context\+Settings}
 \item 
 \Hypertarget{class_graphics_settings_a6dd98c8ce866de60c10dd23e818171d0}\label{class_graphics_settings_a6dd98c8ce866de60c10dd23e818171d0} 
 std\+::vector$<$ sf\+::\+Video\+Mode $>$ {\bfseries video\+Modes}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em array of all resolutions \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Class reading and saving settings. 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_graphics_settings_a3fb097d3414159fff72c69117c10ab23}\index{GraphicsSettings@{GraphicsSettings}!loadFromFile@{loadFromFile}}
+\Hypertarget{class_graphics_settings_aad0c81d6e67cb00654e1d22fc773cfe5}\index{GraphicsSettings@{GraphicsSettings}!loadFromFile@{loadFromFile}}
 \index{loadFromFile@{loadFromFile}!GraphicsSettings@{GraphicsSettings}}
 \doxysubsubsection{\texorpdfstring{loadFromFile()}{loadFromFile()}}
-{\footnotesize\ttfamily \label{class_graphics_settings_a3fb097d3414159fff72c69117c10ab23} 
-void Graphics\+Settings\+::load\+From\+File (\begin{DoxyParamCaption}\item[{const std\+::string}]{path}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_graphics_settings_aad0c81d6e67cb00654e1d22fc773cfe5} 
+void Graphics\+Settings\+::load\+From\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path}{}\end{DoxyParamCaption})}
 
 
 
@@ -64,11 +64,11 @@ Reading settings from file.
 {\em path} & Path to graphics.\+ini file \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_graphics_settings_a050c223b5324b801f0867ee1c255db69}\index{GraphicsSettings@{GraphicsSettings}!saveToFile@{saveToFile}}
+\Hypertarget{class_graphics_settings_a4a72e8954c3a037ba7cb2332b9b69133}\index{GraphicsSettings@{GraphicsSettings}!saveToFile@{saveToFile}}
 \index{saveToFile@{saveToFile}!GraphicsSettings@{GraphicsSettings}}
 \doxysubsubsection{\texorpdfstring{saveToFile()}{saveToFile()}}
-{\footnotesize\ttfamily \label{class_graphics_settings_a050c223b5324b801f0867ee1c255db69} 
-void Graphics\+Settings\+::save\+To\+File (\begin{DoxyParamCaption}\item[{const std\+::string}]{path}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_graphics_settings_a4a72e8954c3a037ba7cb2332b9b69133} 
+void Graphics\+Settings\+::save\+To\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path}{}\end{DoxyParamCaption}) const}
 
 
 

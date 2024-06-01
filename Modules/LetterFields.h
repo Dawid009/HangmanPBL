@@ -38,7 +38,6 @@ private:
     class GraphicsSettings* gfxSettings;///<Pointer to the graphics settings
     sf::Font font;///<Font reference requiered to render text.
 
-
     /**
     * @brief Function creating all fields and their views.
     * @param password Password to be created visually and stored in array.

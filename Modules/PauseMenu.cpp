@@ -43,10 +43,7 @@ void PauseMenu::addButton(
 {
     float x = this->container.getPosition().x + this->container.getSize().x / 2.f - width / 2.f;
 
-
     auto* ButtonInitParams = new gui::ButtonParams;
-
-
     ButtonInitParams->x =  x;
     ButtonInitParams->y =  y;
     ButtonInitParams->width = width;

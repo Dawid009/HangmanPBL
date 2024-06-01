@@ -1,7 +1,15 @@
 var searchData=
 [
-  ['update_0',['update',['../class_game.html#a79df6376b332d63c9eca0dcee30305c3',1,'Game::update()'],['../classgui_1_1_button.html#a44cb4badbb301b0271a51e1edb2b9976',1,'gui::Button::update()'],['../class_hangman.html#a93e1037c6c63ad8a458b7e8a9ffc1fae',1,'Hangman::update()'],['../class_keyboard.html#a71ba7df6d68045ddaf1e523833f050e0',1,'Keyboard::update()'],['../class_letter_fields.html#ad6a03845462d1b1a2183f75e9e3198d1',1,'LetterFields::update()'],['../class_pause_menu.html#adc598e93e50b05a0e41e696ff5c3fa10',1,'PauseMenu::update()'],['../class_game_state.html#ac135e64a5c269ecc94d806ed5255ca4b',1,'GameState::update()'],['../class_main_menu_state.html#a5802eb565dc92febf3480d643a11e699',1,'MainMenuState::update()'],['../class_state.html#a2c2021d448defc57111202b74ed0aaa0',1,'State::update()']]],
-  ['updatebuttons_1',['updateButtons',['../class_keyboard.html#ab7e68cdf23b36f22966136e39a2cc550',1,'Keyboard::updateButtons()'],['../class_main_menu_state.html#ab4aa18e2cba13350b99e95fd53593013',1,'MainMenuState::updateButtons()']]],
-  ['updatedt_2',['updateDt',['../class_game.html#a8a513f3fa9524a00cb5b009fefa32c3a',1,'Game']]],
-  ['updatemousepositions_3',['updateMousePositions',['../class_state.html#a9786ffabe44f3e916d81a2750d8370e0',1,'State']]]
+  ['targetalpha_0',['targetAlpha',['../struct_letter_field.html#a3ea99eae6c3facecad310a12657f5ae4',1,'LetterField']]],
+  ['text_1',['text',['../structgui_1_1_button_params.html#a88dd275ab66439e1bd19474c933cb78c',1,'gui::ButtonParams::text'],['../classgui_1_1_button.html#a932153467d69bfa8cafaa3ab06748fef',1,'gui::Button::text'],['../struct_letter_field.html#ad48f13cce1a70e0e7ca5895b99c64da2',1,'LetterField::text']]],
+  ['text_5factive_5fcolor_2',['text_active_color',['../structgui_1_1_button_params.html#a8b66a8a42ba2457bdbe13bdc45fe4f28',1,'gui::ButtonParams']]],
+  ['text_5fhover_5fcolor_3',['text_hover_color',['../structgui_1_1_button_params.html#aa4cf0ddde287bd29eff9e6504a5a28b2',1,'gui::ButtonParams']]],
+  ['text_5fidle_5fcolor_4',['text_idle_color',['../structgui_1_1_button_params.html#a6dee46c004e3cee089eee45c678dee24',1,'gui::ButtonParams']]],
+  ['textactivecolor_5',['textActiveColor',['../classgui_1_1_button.html#a9c927c393575b46ef47422313c0d24f6',1,'gui::Button']]],
+  ['texthovercolor_6',['textHoverColor',['../classgui_1_1_button.html#ac70f7afba2f3635df64818f24a4383a1',1,'gui::Button']]],
+  ['textidlecolor_7',['textIdleColor',['../classgui_1_1_button.html#a568e508065735b6a1df67bb580dea34f',1,'gui::Button']]],
+  ['thickness_8',['thickness',['../structgui_1_1_button_params.html#a61beb559138e967f36bdf38d548182f3',1,'gui::ButtonParams']]],
+  ['title_9',['title',['../class_graphics_settings.html#a524c4928c24954f1664cbba71489198a',1,'GraphicsSettings::title'],['../class_main_menu_state.html#a6f57e7eed3da1f24a89883ba6d132203',1,'MainMenuState::title']]],
+  ['titletexture_10',['titleTexture',['../class_main_menu_state.html#ab9ef389720ad235dd307dfc0b119ae55',1,'MainMenuState']]],
+  ['transition_11',['Transition',['../class_transition.html',1,'']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['width_0',['width',['../structgui_1_1_button_params.html#ade7dec938640d91f095bddcb1e04d731',1,'gui::ButtonParams']]],
-  ['window_1',['window',['../class_game.html#af00d15651edd39b7c28262b23bb50c7a',1,'Game::window'],['../class_state_data.html#a07974705606e19f59185a4b34895eef0',1,'StateData::window'],['../class_state.html#ae6259a383c98ae7496266a76a9daf478',1,'State::window']]]
+  ['verticalsync_0',['verticalSync',['../class_graphics_settings.html#a83ba01db4ea7807c5bfead8f063859ec',1,'GraphicsSettings']]],
+  ['videomodes_1',['videoModes',['../class_graphics_settings.html#a6dd98c8ce866de60c10dd23e818171d0',1,'GraphicsSettings']]],
+  ['view_2',['view',['../class_game_state.html#a73ed1e17069e6a5eaee863aa4674959f',1,'GameState']]]
 ];

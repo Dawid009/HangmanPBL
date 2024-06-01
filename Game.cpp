@@ -32,16 +32,15 @@ void Game::initVariables()
 
 void Game::initWindow()
 {
-        this->window = new sf::RenderWindow(
-                this->gfxSettings.resolution,
-                this->gfxSettings.title,
-                this->gfxSettings.fullscreen ? sf::Style::Fullscreen : sf::Style::Titlebar | sf::Style::Close,
-                this->gfxSettings.contextSettings);
+    this->window = new sf::RenderWindow(
+            this->gfxSettings.resolution,
+            this->gfxSettings.title,
+            this->gfxSettings.fullscreen ? sf::Style::Fullscreen : sf::Style::Titlebar | sf::Style::Close,
+            this->gfxSettings.contextSettings);
 
     this->window->setFramerateLimit(this->gfxSettings.frameRateLimit);
     this->window->setVerticalSyncEnabled(this->gfxSettings.verticalSync);
 }
-
 
 void Game::updateDt()
 {
@@ -93,22 +92,19 @@ void Game::update()
             }
         }
     }
-    //Application end
     else
     {
         this->window->close();
     }
 }
 
+
 void Game::render()
 {
     this->window->clear();
-
     if (!this->states.empty()){
         this->states.top()->render();
     }
-
-
     this->window->display();
 }
 

@@ -19,16 +19,16 @@ class MainMenuState : public State{
 private:
     sf::Texture titleTexture; ///<Texture holding title image
     sf::Text title; ///<Title image rectangle to render on the view
-    sf::Font font; ///<Font reference requiered to
+    sf::Font font; ///<Font reference requiered to display text
     std::map<uint8_t, gui::Button*> buttons; ///<A map that stores the buttons
 
     /**
-    * @brief Function that initialize fonts required to display text.
+    * @brief Function initializing fonts required to display text.
     */
     void initFonts();
 
     /**
-    * @brief Function that initialize main manu gui.
+    * @brief Function initializing main manu gui.
     */
     void initGui();
 

@@ -1,6 +1,8 @@
 #include "MainMenuState.h"
 #include <iostream>
 #include <locale>
+#include <filesystem>
+#include "SettingsState.h"
 
 #define NEW_GAME 1
 #define CONTINUE 2
@@ -40,15 +42,12 @@ void MainMenuState::initGui()
 
     this->background.setSize(sf::Vector2f(static_cast<float>(vm.width),static_cast<float>(vm.height)));
 
-    if (!this->backgroundTexture.loadFromFile("Resources/background.jpg"))
+    std::cout<<std::filesystem::current_path();
+    if (!this->backgroundTexture.loadFromFile("Images/background.jpg"))
     {
         throw "ERROR::MAIN_MENU::FAILED_TO_LOAD_BACKGROUND_TEXTURE";
     }
 
-    if (!this->titleTexture.loadFromFile("Resources/title.png"))
-    {
-        throw "ERROR::MAIN_MENU::FAILED_TO_LOAD_TITLE_TEXTURE";
-    }
 
     this->title.setPosition(sf::Vector2f(static_cast<float>(vm.width*0.13),static_cast<float>(vm.height*0.12)));
     this->title.setString("Hangman");
@@ -80,7 +79,6 @@ void MainMenuState::initGui()
     ButtonInitParams->text = L"Options";
     this->buttons[OPTIONS] = new gui::Button(ButtonInitParams);
 
-
     //Exit
     ButtonInitParams->y =  gui::calcY(70,vm);
     ButtonInitParams->text = L"Quit";
@@ -92,6 +90,7 @@ void MainMenuState::initGui()
     delete ButtonInitParams;
 }
 
+
 void MainMenuState::resetGui()
 {
     auto it = this->buttons.begin();
@@ -102,6 +101,7 @@ void MainMenuState::resetGui()
     this->buttons.clear();
     this->initGui();
 }
+
 
 void MainMenuState::updateButtons(const float& dt)
 {
@@ -118,15 +118,25 @@ void MainMenuState::updateButtons(const float& dt)
         //new transition to
     }
 
+    if (this->buttons[OPTIONS]->isPressed())
+    {
+        this->states->push(new SettingsState(this->stateData));
+        //new transition to
+    }
+
     if (this->buttons[QUIT]->isPressed())
     {
         this->endState();
     }
 }
 
+
 void MainMenuState::update(const float& dt)
 {
     this->updateMousePositions();
+    if(this->stateData->gfxSettings->resolution.width != background.getSize().x || this->stateData->gfxSettings->resolution.height != background.getSize().y){
+        resetGui();
+    }
     this->updateButtons(dt);
 }
 
@@ -138,7 +148,6 @@ void MainMenuState::render(sf::RenderTarget* target)
 
     target->draw(this->background);
     target->draw(this->title);
-
 
     //Renderowanie buttonów
     for (auto &it : this->buttons)

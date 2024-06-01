@@ -20,10 +20,8 @@ class PauseMenu
 private:
     sf::Font& font; ///<Pointer to the font
     sf::Text menuText; ///<Menu text object
-
     sf::RectangleShape background; ///<Background object
     sf::RectangleShape container; ///<Container
-
     std::map<std::string, gui::Button*> buttons; ///<A map that stores the buttons
 
 public:
@@ -64,8 +62,8 @@ public:
 
     /**
     * @brief Main state loop updating events
-     * @param dt Delta time value
-     */
+    * @param dt Delta time value
+    */
     void update(const sf::Vector2i& mousePosWindow,const float& dt);
 
     /**

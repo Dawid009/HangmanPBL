@@ -11,8 +11,12 @@ User interface elements.
 \item 
 struct \mbox{\hyperlink{structgui_1_1_button_params}{gui\+::\+Button\+Params}}
 \begin{DoxyCompactList}\small\item\em Options when creating a button. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structgui_1_1_drop_down_params}{gui\+::\+Drop\+Down\+Params}}
+\begin{DoxyCompactList}\small\item\em Options when creating a dropdown. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classgui_1_1_button}{gui\+::\+Button}}
-\begin{DoxyCompactList}\small\item\em Class representing a button on the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Class representing a button on the screen. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classgui_1_1_drop_down_list}{gui\+::\+Drop\+Down\+List}}
+\begin{DoxyCompactList}\small\item\em Drop\+Down-\/list. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
@@ -25,13 +29,13 @@ enum \mbox{\hyperlink{_gui_8h_a11a6094191da43b6b4568e7736fb89ba}{button\+\_\+sta
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-const float \mbox{\hyperlink{_gui_8h_ab8c235ccff25895b5726e102a11fa200}{gui\+::lerp}} (float a, float b, float t)
+float \mbox{\hyperlink{_gui_8h_accd987f5b398578502e3c352c5e2c149}{gui\+::lerp}} (float a, float b, float t)
 \begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
-const float \mbox{\hyperlink{_gui_8h_a00417c2d0520f3a4f55309228f650adc}{gui\+::calcX}} (const float percent, const sf\+::\+Video\+Mode \&vm)
+float \mbox{\hyperlink{_gui_8h_aecad95a367a2e8df4a7bc926d20931eb}{gui\+::calcX}} (float percent, const sf\+::\+Video\+Mode \&vm)
 \begin{DoxyCompactList}\small\item\em Based on the percentage of the window, calculates the value of X. \end{DoxyCompactList}\item 
-const float \mbox{\hyperlink{_gui_8h_a3ea0b4fa246935137e6bcf7c0ad9d01d}{gui\+::calcY}} (const float percent, const sf\+::\+Video\+Mode \&vm)
+float \mbox{\hyperlink{_gui_8h_a76457a9d0572664e90cfe9a491bbbb17}{gui\+::calcY}} (float percent, const sf\+::\+Video\+Mode \&vm)
 \begin{DoxyCompactList}\small\item\em Based on the percentage of the window, calculates the value of Y. \end{DoxyCompactList}\item 
-const unsigned \mbox{\hyperlink{_gui_8h_a0b996e87a6842a64207af59a6345e922}{gui\+::calc\+Char\+Size}} (const sf\+::\+Video\+Mode \&vm, const unsigned modifier=60)
+unsigned \mbox{\hyperlink{_gui_8h_aa4750708f717578791ebe04f86bf3351}{gui\+::calc\+Char\+Size}} (const sf\+::\+Video\+Mode \&vm, unsigned modifier=60)
 \begin{DoxyCompactList}\small\item\em Calculates character size on the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -41,11 +45,11 @@ User interface elements.
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{_gui_8h_a0b996e87a6842a64207af59a6345e922}\index{Gui.h@{Gui.h}!calcCharSize@{calcCharSize}}
+\Hypertarget{_gui_8h_aa4750708f717578791ebe04f86bf3351}\index{Gui.h@{Gui.h}!calcCharSize@{calcCharSize}}
 \index{calcCharSize@{calcCharSize}!Gui.h@{Gui.h}}
 \doxysubsubsection{\texorpdfstring{calcCharSize()}{calcCharSize()}}
-{\footnotesize\ttfamily \label{_gui_8h_a0b996e87a6842a64207af59a6345e922} 
-const unsigned gui\+::calc\+Char\+Size (\begin{DoxyParamCaption}\item[{const sf\+::\+Video\+Mode \&}]{vm}{, }\item[{const unsigned}]{modifier}{ = {\ttfamily 60}}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_gui_8h_aa4750708f717578791ebe04f86bf3351} 
+unsigned gui\+::calc\+Char\+Size (\begin{DoxyParamCaption}\item[{const sf\+::\+Video\+Mode \&}]{vm}{, }\item[{unsigned}]{modifier}{ = {\ttfamily 60}}\end{DoxyParamCaption})}
 
 
 
@@ -61,11 +65,11 @@ Calculates character size on the screen.
 \begin{DoxyReturn}{Returns}
 Returns character size value 
 \end{DoxyReturn}
-\Hypertarget{_gui_8h_a00417c2d0520f3a4f55309228f650adc}\index{Gui.h@{Gui.h}!calcX@{calcX}}
+\Hypertarget{_gui_8h_aecad95a367a2e8df4a7bc926d20931eb}\index{Gui.h@{Gui.h}!calcX@{calcX}}
 \index{calcX@{calcX}!Gui.h@{Gui.h}}
 \doxysubsubsection{\texorpdfstring{calcX()}{calcX()}}
-{\footnotesize\ttfamily \label{_gui_8h_a00417c2d0520f3a4f55309228f650adc} 
-const float gui\+::calcX (\begin{DoxyParamCaption}\item[{const float}]{percent}{, }\item[{const sf\+::\+Video\+Mode \&}]{vm}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_gui_8h_aecad95a367a2e8df4a7bc926d20931eb} 
+float gui\+::calcX (\begin{DoxyParamCaption}\item[{float}]{percent}{, }\item[{const sf\+::\+Video\+Mode \&}]{vm}{}\end{DoxyParamCaption})}
 
 
 
@@ -81,11 +85,11 @@ Based on the percentage of the window, calculates the value of X.
 \begin{DoxyReturn}{Returns}
 Returns the X value 
 \end{DoxyReturn}
-\Hypertarget{_gui_8h_a3ea0b4fa246935137e6bcf7c0ad9d01d}\index{Gui.h@{Gui.h}!calcY@{calcY}}
+\Hypertarget{_gui_8h_a76457a9d0572664e90cfe9a491bbbb17}\index{Gui.h@{Gui.h}!calcY@{calcY}}
 \index{calcY@{calcY}!Gui.h@{Gui.h}}
 \doxysubsubsection{\texorpdfstring{calcY()}{calcY()}}
-{\footnotesize\ttfamily \label{_gui_8h_a3ea0b4fa246935137e6bcf7c0ad9d01d} 
-const float gui\+::calcY (\begin{DoxyParamCaption}\item[{const float}]{percent}{, }\item[{const sf\+::\+Video\+Mode \&}]{vm}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_gui_8h_a76457a9d0572664e90cfe9a491bbbb17} 
+float gui\+::calcY (\begin{DoxyParamCaption}\item[{float}]{percent}{, }\item[{const sf\+::\+Video\+Mode \&}]{vm}{}\end{DoxyParamCaption})}
 
 
 
@@ -101,11 +105,11 @@ Based on the percentage of the window, calculates the value of Y.
 \begin{DoxyReturn}{Returns}
 Returns the Y value 
 \end{DoxyReturn}
-\Hypertarget{_gui_8h_ab8c235ccff25895b5726e102a11fa200}\index{Gui.h@{Gui.h}!lerp@{lerp}}
+\Hypertarget{_gui_8h_accd987f5b398578502e3c352c5e2c149}\index{Gui.h@{Gui.h}!lerp@{lerp}}
 \index{lerp@{lerp}!Gui.h@{Gui.h}}
 \doxysubsubsection{\texorpdfstring{lerp()}{lerp()}}
-{\footnotesize\ttfamily \label{_gui_8h_ab8c235ccff25895b5726e102a11fa200} 
-const float gui\+::lerp (\begin{DoxyParamCaption}\item[{float}]{a}{, }\item[{float}]{b}{, }\item[{float}]{t}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_gui_8h_accd987f5b398578502e3c352c5e2c149} 
+float gui\+::lerp (\begin{DoxyParamCaption}\item[{float}]{a}{, }\item[{float}]{b}{, }\item[{float}]{t}{}\end{DoxyParamCaption})}
 
 
 

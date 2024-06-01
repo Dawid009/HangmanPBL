@@ -112,12 +112,12 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~Button</b> ()</td></tr>
 <tr class="memdesc:a088a6010b58ae6ee6e94210213dbf000"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class destructor. <br /></td></tr>
 <tr class="separator:a088a6010b58ae6ee6e94210213dbf000"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a472c6a73869f5adec78b67eed68895b7" id="r_a472c6a73869f5adec78b67eed68895b7"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a472c6a73869f5adec78b67eed68895b7">isPressed</a> () const</td></tr>
-<tr class="memdesc:a472c6a73869f5adec78b67eed68895b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the button is pressed.  <br /></td></tr>
-<tr class="separator:a472c6a73869f5adec78b67eed68895b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8725786ec052e008adf6805ab2246faa" id="r_a8725786ec052e008adf6805ab2246faa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8725786ec052e008adf6805ab2246faa">SetEnabled</a> (bool <a class="el" href="#a342578563bd2debf63359df6463a5f55">enabled</a>)</td></tr>
-<tr class="memdesc:a8725786ec052e008adf6805ab2246faa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the button to on or off.  <br /></td></tr>
-<tr class="separator:a8725786ec052e008adf6805ab2246faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae636da5f0375715fff7e373dd7ffcc0a" id="r_ae636da5f0375715fff7e373dd7ffcc0a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae636da5f0375715fff7e373dd7ffcc0a">isPressed</a> () const</td></tr>
+<tr class="memdesc:ae636da5f0375715fff7e373dd7ffcc0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the button is pressed.  <br /></td></tr>
+<tr class="separator:ae636da5f0375715fff7e373dd7ffcc0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae473bec4158d87b3e9ef8adcda6f7776" id="r_ae473bec4158d87b3e9ef8adcda6f7776"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae473bec4158d87b3e9ef8adcda6f7776">SetEnabled</a> (bool enable)</td></tr>
+<tr class="memdesc:ae473bec4158d87b3e9ef8adcda6f7776"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the button to on or off.  <br /></td></tr>
+<tr class="separator:ae473bec4158d87b3e9ef8adcda6f7776"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e94fc2378eaca45c35a0220b657b916" id="r_a9e94fc2378eaca45c35a0220b657b916"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e94fc2378eaca45c35a0220b657b916">ChangeColor</a> (sf::Color color)</td></tr>
 <tr class="memdesc:a9e94fc2378eaca45c35a0220b657b916"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the button to a given color.  <br /></td></tr>
 <tr class="separator:a9e94fc2378eaca45c35a0220b657b916"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,6 +127,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1f93eac2279f05eef417a376b0bd7429" id="r_a1f93eac2279f05eef417a376b0bd7429"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f93eac2279f05eef417a376b0bd7429">render</a> (sf::RenderTarget &amp;target)</td></tr>
 <tr class="memdesc:a1f93eac2279f05eef417a376b0bd7429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loop for rendering.  <br /></td></tr>
 <tr class="separator:a1f93eac2279f05eef417a376b0bd7429"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afba184519d4237452847c846b23e04a1" id="r_afba184519d4237452847c846b23e04a1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afba184519d4237452847c846b23e04a1">getText</a> () const</td></tr>
+<tr class="memdesc:afba184519d4237452847c846b23e04a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets text from the button.  <br /></td></tr>
+<tr class="separator:afba184519d4237452847c846b23e04a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4b11239a7d9e4c0b8f25ea0d969d17b" id="r_ab4b11239a7d9e4c0b8f25ea0d969d17b"><td class="memItemLeft" align="right" valign="top">const short unsigned &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4b11239a7d9e4c0b8f25ea0d969d17b">getId</a> () const</td></tr>
+<tr class="memdesc:ab4b11239a7d9e4c0b8f25ea0d969d17b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets id of the button.  <br /></td></tr>
+<tr class="separator:ab4b11239a7d9e4c0b8f25ea0d969d17b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c3ae2027121cfca048463d9f01673e2" id="r_a7c3ae2027121cfca048463d9f01673e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c3ae2027121cfca048463d9f01673e2">setText</a> (const std::string &amp;<a class="el" href="#a932153467d69bfa8cafaa3ab06748fef">text</a>)</td></tr>
+<tr class="memdesc:a7c3ae2027121cfca048463d9f01673e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setting button text.  <br /></td></tr>
+<tr class="separator:a7c3ae2027121cfca048463d9f01673e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97b5820c6acb36cd76886ecb0996ffba" id="r_a97b5820c6acb36cd76886ecb0996ffba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97b5820c6acb36cd76886ecb0996ffba">setId</a> (short unsigned <a class="el" href="#af0c77221a25c252c20135fde01d6eef0">id</a>)</td></tr>
+<tr class="memdesc:a97b5820c6acb36cd76886ecb0996ffba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setting button id.  <br /></td></tr>
+<tr class="separator:a97b5820c6acb36cd76886ecb0996ffba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -134,6 +146,10 @@ Private Attributes</h2></td></tr>
 short unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>buttonState</b></td></tr>
 <tr class="memdesc:aaadea2b67fc41708e7da56d181fc8321"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current state of the button. <br /></td></tr>
 <tr class="separator:aaadea2b67fc41708e7da56d181fc8321"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0c77221a25c252c20135fde01d6eef0" id="r_af0c77221a25c252c20135fde01d6eef0"><td class="memItemLeft" align="right" valign="top"><a id="af0c77221a25c252c20135fde01d6eef0" name="af0c77221a25c252c20135fde01d6eef0"></a>
+short unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>id</b></td></tr>
+<tr class="memdesc:af0c77221a25c252c20135fde01d6eef0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classgui_1_1_button.html" title="Class representing a button on the screen.">Button</a> id. <br /></td></tr>
+<tr class="separator:af0c77221a25c252c20135fde01d6eef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac74d98282082064567ca8b0c24a8a326" id="r_ac74d98282082064567ca8b0c24a8a326"><td class="memItemLeft" align="right" valign="top"><a id="ac74d98282082064567ca8b0c24a8a326" name="ac74d98282082064567ca8b0c24a8a326"></a>
 sf::RectangleShape&#160;</td><td class="memItemRight" valign="bottom"><b>shape</b></td></tr>
 <tr class="memdesc:ac74d98282082064567ca8b0c24a8a326"><td class="mdescLeft">&#160;</td><td class="mdescRight">SFML rectangle. <br /></td></tr>
@@ -166,6 +182,18 @@ sf::Color&#160;</td><td class="memItemRight" valign="bottom"><b>outlineHoverColo
 sf::Color&#160;</td><td class="memItemRight" valign="bottom"><b>outlineActiveColor</b></td></tr>
 <tr class="memdesc:a87c554e8517f6827bf8041e06357a2f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outline color when pressed. <br /></td></tr>
 <tr class="separator:a87c554e8517f6827bf8041e06357a2f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3db2f2820b6ff9070792e48373ccbdd6" id="r_a3db2f2820b6ff9070792e48373ccbdd6"><td class="memItemLeft" align="right" valign="top"><a id="a3db2f2820b6ff9070792e48373ccbdd6" name="a3db2f2820b6ff9070792e48373ccbdd6"></a>
+sf::Color&#160;</td><td class="memItemRight" valign="bottom"><b>backgroundIdleColor</b></td></tr>
+<tr class="memdesc:a3db2f2820b6ff9070792e48373ccbdd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outline idle color. <br /></td></tr>
+<tr class="separator:a3db2f2820b6ff9070792e48373ccbdd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b8bb97bbf5b90b8e937e285ef371c6c" id="r_a3b8bb97bbf5b90b8e937e285ef371c6c"><td class="memItemLeft" align="right" valign="top"><a id="a3b8bb97bbf5b90b8e937e285ef371c6c" name="a3b8bb97bbf5b90b8e937e285ef371c6c"></a>
+sf::Color&#160;</td><td class="memItemRight" valign="bottom"><b>backgroundHoverColor</b></td></tr>
+<tr class="memdesc:a3b8bb97bbf5b90b8e937e285ef371c6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outline color when hovered. <br /></td></tr>
+<tr class="separator:a3b8bb97bbf5b90b8e937e285ef371c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f0fc6548f0e15233340c91e9829659c" id="r_a6f0fc6548f0e15233340c91e9829659c"><td class="memItemLeft" align="right" valign="top"><a id="a6f0fc6548f0e15233340c91e9829659c" name="a6f0fc6548f0e15233340c91e9829659c"></a>
+sf::Color&#160;</td><td class="memItemRight" valign="bottom"><b>backgroundActiveColor</b></td></tr>
+<tr class="memdesc:a6f0fc6548f0e15233340c91e9829659c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outline color when pressed. <br /></td></tr>
+<tr class="separator:a6f0fc6548f0e15233340c91e9829659c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7299a5e4ffe952cb3e90ebbeb22a2ec8" id="r_a7299a5e4ffe952cb3e90ebbeb22a2ec8"><td class="memItemLeft" align="right" valign="top"><a id="a7299a5e4ffe952cb3e90ebbeb22a2ec8" name="a7299a5e4ffe952cb3e90ebbeb22a2ec8"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>hoverScale</b></td></tr>
 <tr class="memdesc:a7299a5e4ffe952cb3e90ebbeb22a2ec8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale of button when hovered. <br /></td></tr>
@@ -195,6 +223,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enabled</b></td></tr>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:ae5b6afcafce12bac06bb01b8bdae66d4" id="r_ae5b6afcafce12bac06bb01b8bdae66d4"><td class="memItemLeft" align="right" valign="top"><a id="ae5b6afcafce12bac06bb01b8bdae66d4" name="ae5b6afcafce12bac06bb01b8bdae66d4"></a>
 static bool&#160;</td><td class="memItemRight" valign="bottom"><b>mousePressed</b> = false</td></tr>
+<tr class="memdesc:ae5b6afcafce12bac06bb01b8bdae66d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is left mouse button pressed anywhere. <br /></td></tr>
 <tr class="separator:ae5b6afcafce12bac06bb01b8bdae66d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -205,6 +234,9 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><b>mousePressed</
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">gui::Button::Button </td>
@@ -213,6 +245,11 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><b>mousePressed</
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Class constructor. </p>
@@ -251,14 +288,54 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><b>mousePressed</
 
 </div>
 </div>
-<a id="a472c6a73869f5adec78b67eed68895b7" name="a472c6a73869f5adec78b67eed68895b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a472c6a73869f5adec78b67eed68895b7">&#9670;&#160;</a></span>isPressed()</h2>
+<a id="ab4b11239a7d9e4c0b8f25ea0d969d17b" name="ab4b11239a7d9e4c0b8f25ea0d969d17b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4b11239a7d9e4c0b8f25ea0d969d17b">&#9670;&#160;</a></span>getId()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const bool gui::Button::isPressed </td>
+          <td class="memname">const short unsigned &amp; gui::Button::getId </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets id of the button. </p>
+<dl class="section return"><dt>Returns</dt><dd>returns an id </dd></dl>
+
+</div>
+</div>
+<a id="afba184519d4237452847c846b23e04a1" name="afba184519d4237452847c846b23e04a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afba184519d4237452847c846b23e04a1">&#9670;&#160;</a></span>getText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string gui::Button::getText </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets text from the button. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns a text </dd></dl>
+
+</div>
+</div>
+<a id="ae636da5f0375715fff7e373dd7ffcc0a" name="ae636da5f0375715fff7e373dd7ffcc0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae636da5f0375715fff7e373dd7ffcc0a">&#9670;&#160;</a></span>isPressed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gui::Button::isPressed </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -296,8 +373,8 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><b>mousePressed</
 
 </div>
 </div>
-<a id="a8725786ec052e008adf6805ab2246faa" name="a8725786ec052e008adf6805ab2246faa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8725786ec052e008adf6805ab2246faa">&#9670;&#160;</a></span>SetEnabled()</h2>
+<a id="ae473bec4158d87b3e9ef8adcda6f7776" name="ae473bec4158d87b3e9ef8adcda6f7776"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae473bec4158d87b3e9ef8adcda6f7776">&#9670;&#160;</a></span>SetEnabled()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -305,7 +382,7 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><b>mousePressed</
         <tr>
           <td class="memname">void gui::Button::SetEnabled </td>
           <td>(</td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>enabled</em></span></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>enable</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -315,6 +392,56 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><b>mousePressed</
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">enabled</td><td>Should be enabled? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a97b5820c6acb36cd76886ecb0996ffba" name="a97b5820c6acb36cd76886ecb0996ffba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97b5820c6acb36cd76886ecb0996ffba">&#9670;&#160;</a></span>setId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gui::Button::setId </td>
+          <td>(</td>
+          <td class="paramtype">short unsigned</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setting button id. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Id </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7c3ae2027121cfca048463d9f01673e2" name="a7c3ae2027121cfca048463d9f01673e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c3ae2027121cfca048463d9f01673e2">&#9670;&#160;</a></span>setText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gui::Button::setText </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>text</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setting button text. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Text to be set </td></tr>
   </table>
   </dd>
 </dl>

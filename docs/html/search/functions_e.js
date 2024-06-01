@@ -1,12 +1,9 @@
 var searchData=
 [
-  ['_7ebutton_0',['~Button',['../classgui_1_1_button.html#a088a6010b58ae6ee6e94210213dbf000',1,'gui::Button']]],
-  ['_7egame_1',['~Game',['../class_game.html#ae3d112ca6e0e55150d2fdbc704474530',1,'Game']]],
-  ['_7egamestate_2',['~GameState',['../class_game_state.html#ae623df5042cd0c17daa3394fdcb397b3',1,'GameState']]],
-  ['_7ehangman_3',['~Hangman',['../class_hangman.html#a353657d470c500f75c6628cdd119e272',1,'Hangman']]],
-  ['_7ekeyboard_4',['~Keyboard',['../class_keyboard.html#af6a99ec66c8c722a45b967bf79167038',1,'Keyboard']]],
-  ['_7eletterfields_5',['~LetterFields',['../class_letter_fields.html#a06694a436751ceafdac8dad81aad0774',1,'LetterFields']]],
-  ['_7emainmenustate_6',['~MainMenuState',['../class_main_menu_state.html#a8af4d586b93c315a1a15b5fe83ec0760',1,'MainMenuState']]],
-  ['_7epausemenu_7',['~PauseMenu',['../class_pause_menu.html#af30f0b8f5f59c6779434295a731b0e35',1,'PauseMenu']]],
-  ['_7estate_8',['~State',['../class_state.html#afab438d92b90dc18d194dbd9c9c8bab3',1,'State']]]
+  ['update_0',['update',['../class_game.html#a79df6376b332d63c9eca0dcee30305c3',1,'Game::update()'],['../classgui_1_1_button.html#a44cb4badbb301b0271a51e1edb2b9976',1,'gui::Button::update()'],['../classgui_1_1_drop_down_list.html#a4f98302f29a47b2c79df0f64e8abc541',1,'gui::DropDownList::update()'],['../class_hangman.html#a93e1037c6c63ad8a458b7e8a9ffc1fae',1,'Hangman::update()'],['../class_keyboard.html#a71ba7df6d68045ddaf1e523833f050e0',1,'Keyboard::update()'],['../class_letter_fields.html#ad6a03845462d1b1a2183f75e9e3198d1',1,'LetterFields::update()'],['../class_pause_menu.html#adc598e93e50b05a0e41e696ff5c3fa10',1,'PauseMenu::update()'],['../class_game_state.html#ac135e64a5c269ecc94d806ed5255ca4b',1,'GameState::update()'],['../class_main_menu_state.html#a5802eb565dc92febf3480d643a11e699',1,'MainMenuState::update()'],['../class_settings_state.html#a75ad65b165fe93646fc914d7a46f0bf5',1,'SettingsState::update()'],['../class_state.html#a2c2021d448defc57111202b74ed0aaa0',1,'State::update()']]],
+  ['updatebuttons_1',['updateButtons',['../class_keyboard.html#ab7e68cdf23b36f22966136e39a2cc550',1,'Keyboard::updateButtons()'],['../class_main_menu_state.html#ab4aa18e2cba13350b99e95fd53593013',1,'MainMenuState::updateButtons()']]],
+  ['updatedt_2',['updateDt',['../class_game.html#a8a513f3fa9524a00cb5b009fefa32c3a',1,'Game']]],
+  ['updategui_3',['updateGui',['../class_settings_state.html#ae93c595eb623fc91d5e15d11d7b53946',1,'SettingsState']]],
+  ['updatemousepositions_4',['updateMousePositions',['../class_state.html#a9786ffabe44f3e916d81a2750d8370e0',1,'State']]],
+  ['updatepausemenubuttons_5',['updatePauseMenuButtons',['../class_game_state.html#ad2a47f94bfffccc635b680d996144e0e',1,'GameState']]]
 ];

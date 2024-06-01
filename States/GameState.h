@@ -17,25 +17,43 @@
  */
 class GameState : public State {
 private:
-
-    sf::View view; ///<
+    sf::View view; ///<Game view
     sf::Texture backgroundTexture;///<Background texture reference.
     sf::Font font;///<Font reference requiered to render text.
-    sf::RenderTexture renderTexture;
-    sf::Sprite renderSprite;
-    PauseMenu* pmenu;
-
+    sf::RenderTexture renderTexture;///<deferred renderer screen view
+    sf::Sprite renderSprite; ///<deferred renderer sprite
+    PauseMenu* pmenu;///<in-game menu component pointer
 
     Keyboard* keyboard; ///<Keyboard component pointer.
     LetterFields* letterFields; ///<Letter fields display component pointer.
     Hangman* hangman; ///<Hangman display component pointer.
 
-    int misses=0;
+    int misses=0;///<Misses count
 
+    /**
+    * @brief Creates a renderer
+    */
     void initDeferredRender();
+
+    /**
+    * @brief Function initializing gui.
+    */
     void initView();
+
+    /**
+    * @brief Function initializing fonts required to display text.
+    */
     void initFonts();
+
+    /**
+    * @brief Function checking if button is pressed
+    * @param letter Button id
+    */
     void checkKeyboard(uint8_t letter);
+
+    /**
+    * @brief Function initializing PauseMenu component
+    */
     void initPauseMenu();
 
 public:
@@ -63,7 +81,9 @@ public:
     void render(sf::RenderTarget* target = NULL);
 
 
-
+    /**
+    * @brief Function updating PauseMenu component events
+    */
     void updatePauseMenuButtons();
 };
 

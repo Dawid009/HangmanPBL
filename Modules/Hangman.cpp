@@ -116,8 +116,6 @@ void Hangman::setLevel(uint8_t level) {
     for(auto part : hangman_parts){
         renderTexture->draw(*part);
     }
-
     renderTexture->display();
     sprite->setTexture(renderTexture->getTexture());
-
 }

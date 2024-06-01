@@ -25,18 +25,18 @@ public:
     bool verticalSync;///<Should the game use vertical sync
     unsigned frameRateLimit;///<FPS cap
     sf::ContextSettings contextSettings; ///<
-    std::vector<sf::VideoMode> videoModes; ///<
+    std::vector<sf::VideoMode> videoModes; ///<array of all resolutions
 
     /**
     * @brief Saving settings to file
     * @param path Path to graphics.ini file
     */
-    void saveToFile(const std::string path);
+    void saveToFile(const std::string& path) const;
     /**
     * @brief Reading settings from file
     * @param path Path to graphics.ini file
     */
-    void loadFromFile(const std::string path);
+    void loadFromFile(const std::string& path);
 };
 
 #endif //HANGMAN_GRAPHICSSETTINGS_H
