@@ -1,3 +1,6 @@
+/**************************************************************
+*     WORK IN PROGRESS. IS NOT COMPILED WITH THE PROJECT      *
+**************************************************************/
 #include "Transition.h"
 #include "GraphicsSettings.h"
 #include "Gui.h"

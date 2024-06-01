@@ -49,12 +49,13 @@ void GameState::initFonts()
     std::locale::global(std::locale("pl_PL.UTF-8"));
 }
 
+
 void GameState::initView()
 {
     const sf::VideoMode& vm = this->stateData->gfxSettings->resolution;
     this->background.setSize(sf::Vector2f(static_cast<float>(vm.width),static_cast<float>(vm.height)));
 
-    if (!this->backgroundTexture.loadFromFile("Resources/gamebackground.jpg"))
+    if (!this->backgroundTexture.loadFromFile("Images/gamebackground.jpg"))
     {
         throw "ERROR::MAIN_MENU::FAILED_TO_LOAD_BACKGROUND_TEXTURE";
     }
@@ -73,7 +74,6 @@ void GameState::initPauseMenu()
 }
 
 
-
 void GameState::checkKeyboard(const uint8_t letter) {
     if(this->keyboard->IsPressed(letter)){
 
@@ -88,6 +88,7 @@ void GameState::checkKeyboard(const uint8_t letter) {
         };
     }
 }
+
 
 void GameState::updatePauseMenuButtons()
 {
@@ -125,25 +126,22 @@ void GameState::update(const float& dt)
     }
 }
 
+
 void GameState::render(sf::RenderTarget* target)
 {
 
     this->renderTexture.clear();
     if (!target)
         target = this->window;
-    //target->clear();
     this->renderTexture.clear();
     target->draw(this->background);
-
     renderTexture.draw(this->background);
     this->hangman->render(&renderTexture);
     this->keyboard->render(&renderTexture);
     this->letterFields->render(&renderTexture);
 
-
-    if (this->paused) //Pause menu render
+    if (this->paused)
     {
-        //this->renderTexture.setView(this->renderTexture.getDefaultView());
         this->pmenu->render(this->renderTexture);
     }
 

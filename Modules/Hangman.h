@@ -19,9 +19,11 @@ private:
     sf::RectangleShape* line; ///<Line object pointer
     sf::Shape* hangman_parts[6]; ///<Pointers to parts of the body
 
+    /**
+    * @brief Function initializing hangman
+    */
     void initHangman();
 public:
-
     /**
     * @brief Class constructor
     * @param settings Pointer to the main graphics settings

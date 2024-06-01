@@ -48,7 +48,6 @@ private:
     void initStates();
 
 public:
-
     /**
     * @brief Class constructor
     */
@@ -78,7 +77,6 @@ public:
     * @brief A feature that runs the entire game
     */
     void run();
-
 };
 
 

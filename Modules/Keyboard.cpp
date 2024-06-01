@@ -7,6 +7,7 @@ Keyboard::Keyboard(const sf::Font& font,GraphicsSettings* settings) {
     this->initKeyboard();
 }
 
+
 Keyboard::~Keyboard() {
     delete gfxSettings;
     for (auto &it : this->buttons)
@@ -14,6 +15,7 @@ Keyboard::~Keyboard() {
         delete it.second;
     }
 }
+
 
 void Keyboard::initKeyboard() {
     const sf::VideoMode& vm = this->gfxSettings->resolution;
@@ -64,6 +66,7 @@ void Keyboard::initKeyboard() {
     delete ButtonInitParams;
 }
 
+
 void Keyboard::updateButtons(const sf::Vector2i& mousePosWindow,const float& dt)
 {
     for (auto &it : this->buttons)
@@ -72,10 +75,12 @@ void Keyboard::updateButtons(const sf::Vector2i& mousePosWindow,const float& dt)
     }
 }
 
+
 void Keyboard::update(const sf::Vector2i& mousePosWindow,const float& dt)
 {
     this->updateButtons(mousePosWindow,dt);
 }
+
 
 void Keyboard::render(sf::RenderTarget *target) {
 
@@ -86,9 +91,11 @@ void Keyboard::render(sf::RenderTarget *target) {
     }
 }
 
+
 void Keyboard::SetButtonEnabled(uint8_t key,bool enabled) {
     buttons[key]->SetEnabled(enabled);
 }
+
 
 void Keyboard::SetButtonColor(uint8_t key,sf::Color color) {
     buttons[key]->ChangeColor(color);

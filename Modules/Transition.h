@@ -1,4 +1,6 @@
-
+/**************************************************************
+*     WORK IN PROGRESS. IS NOT COMPILED WITH THE PROJECT      *
+**************************************************************/
 #ifndef HANGMAN_TRANSITION_H
 #define HANGMAN_TRANSITION_H
 #include "SFML/Graphics.hpp"

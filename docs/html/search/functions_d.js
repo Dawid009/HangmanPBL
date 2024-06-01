@@ -1,7 +1,13 @@
 var searchData=
 [
-  ['update_0',['update',['../class_game.html#a79df6376b332d63c9eca0dcee30305c3',1,'Game::update()'],['../classgui_1_1_button.html#a44cb4badbb301b0271a51e1edb2b9976',1,'gui::Button::update()'],['../class_hangman.html#a93e1037c6c63ad8a458b7e8a9ffc1fae',1,'Hangman::update()'],['../class_keyboard.html#a71ba7df6d68045ddaf1e523833f050e0',1,'Keyboard::update()'],['../class_letter_fields.html#ad6a03845462d1b1a2183f75e9e3198d1',1,'LetterFields::update()'],['../class_pause_menu.html#adc598e93e50b05a0e41e696ff5c3fa10',1,'PauseMenu::update()'],['../class_game_state.html#ac135e64a5c269ecc94d806ed5255ca4b',1,'GameState::update()'],['../class_main_menu_state.html#a5802eb565dc92febf3480d643a11e699',1,'MainMenuState::update()'],['../class_state.html#a2c2021d448defc57111202b74ed0aaa0',1,'State::update()']]],
-  ['updatebuttons_1',['updateButtons',['../class_keyboard.html#ab7e68cdf23b36f22966136e39a2cc550',1,'Keyboard::updateButtons()'],['../class_main_menu_state.html#ab4aa18e2cba13350b99e95fd53593013',1,'MainMenuState::updateButtons()']]],
-  ['updatedt_2',['updateDt',['../class_game.html#a8a513f3fa9524a00cb5b009fefa32c3a',1,'Game']]],
-  ['updatemousepositions_3',['updateMousePositions',['../class_state.html#a9786ffabe44f3e916d81a2750d8370e0',1,'State']]]
+  ['savetofile_0',['saveToFile',['../class_graphics_settings.html#a4a72e8954c3a037ba7cb2332b9b69133',1,'GraphicsSettings']]],
+  ['setbuttoncolor_1',['SetButtonColor',['../class_keyboard.html#a8787a01477ad1a057afe22e599347c80',1,'Keyboard']]],
+  ['setbuttonenabled_2',['SetButtonEnabled',['../class_keyboard.html#a95bfaa3563a61fd7a420dfd4ebfd04f5',1,'Keyboard']]],
+  ['setenabled_3',['SetEnabled',['../classgui_1_1_button.html#ae473bec4158d87b3e9ef8adcda6f7776',1,'gui::Button']]],
+  ['setid_4',['setId',['../classgui_1_1_button.html#a97b5820c6acb36cd76886ecb0996ffba',1,'gui::Button']]],
+  ['setlevel_5',['setLevel',['../class_hangman.html#a6c729fee779be8f734eb83c205e4b440',1,'Hangman']]],
+  ['settext_6',['setText',['../classgui_1_1_button.html#a7c3ae2027121cfca048463d9f01673e2',1,'gui::Button']]],
+  ['settingsstate_7',['SettingsState',['../class_settings_state.html#a561642b37dd87062bc5c2020ebe1e08c',1,'SettingsState']]],
+  ['state_8',['State',['../class_state.html#a9de42e1e80c4ee2580b17af064498a94',1,'State']]],
+  ['statedata_9',['StateData',['../class_state_data.html#a02aad935420f214b37d4e66d9c9a1ef9',1,'StateData']]]
 ];

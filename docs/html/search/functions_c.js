@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['savetofile_0',['saveToFile',['../class_graphics_settings.html#a050c223b5324b801f0867ee1c255db69',1,'GraphicsSettings']]],
-  ['setbuttoncolor_1',['SetButtonColor',['../class_keyboard.html#a8787a01477ad1a057afe22e599347c80',1,'Keyboard']]],
-  ['setbuttonenabled_2',['SetButtonEnabled',['../class_keyboard.html#a95bfaa3563a61fd7a420dfd4ebfd04f5',1,'Keyboard']]],
-  ['setenabled_3',['SetEnabled',['../classgui_1_1_button.html#a8725786ec052e008adf6805ab2246faa',1,'gui::Button']]],
-  ['setlevel_4',['setLevel',['../class_hangman.html#a6c729fee779be8f734eb83c205e4b440',1,'Hangman']]],
-  ['state_5',['State',['../class_state.html#a9de42e1e80c4ee2580b17af064498a94',1,'State']]],
-  ['statedata_6',['StateData',['../class_state_data.html#a02aad935420f214b37d4e66d9c9a1ef9',1,'StateData']]]
+  ['render_0',['render',['../class_game.html#a15ddd769261d923827a3cdf41499c843',1,'Game::render()'],['../classgui_1_1_button.html#a1f93eac2279f05eef417a376b0bd7429',1,'gui::Button::render()'],['../classgui_1_1_drop_down_list.html#a32f5a1e67542118760ce42a53d771dd4',1,'gui::DropDownList::render()'],['../class_hangman.html#a87c3d082cb89abd156918471bc9986b4',1,'Hangman::render()'],['../class_keyboard.html#aa227372d6f7d737a1e29c4896bf66323',1,'Keyboard::render()'],['../class_letter_fields.html#ae7ee6796d2d48d5f6692f8a2cc6c098e',1,'LetterFields::render()'],['../class_pause_menu.html#ab52735e20aa287ea7a17783e9005e2a8',1,'PauseMenu::render()'],['../class_game_state.html#ae49b20a5455335d879340dbe3b92da7f',1,'GameState::render()'],['../class_main_menu_state.html#a343f2f93b5fe14251f425b0709bf43ba',1,'MainMenuState::render()'],['../class_settings_state.html#a9685d562ba72bb84104a9e17a8a27427',1,'SettingsState::render()'],['../class_state.html#aa1f36587befc2c03c4033366e5000d2c',1,'State::render()']]],
+  ['resetgui_1',['resetGui',['../class_main_menu_state.html#ab6c7406776e1a945687164432f9f7c67',1,'MainMenuState::resetGui()'],['../class_settings_state.html#a92f3b139a6ff405647703a93901b041f',1,'SettingsState::resetGui()']]],
+  ['revealletter_2',['revealLetter',['../class_letter_fields.html#a8fbf0f7af4fb5ff2760bbda5a26f7d6b',1,'LetterFields']]],
+  ['run_3',['run',['../class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa',1,'Game']]]
 ];

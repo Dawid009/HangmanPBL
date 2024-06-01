@@ -1,19 +1,10 @@
 var searchData=
 [
-  ['savetofile_0',['saveToFile',['../class_graphics_settings.html#a050c223b5324b801f0867ee1c255db69',1,'GraphicsSettings']]],
-  ['scaletoactivetime_1',['scaleToActiveTime',['../structgui_1_1_button_params.html#a56b272ab7e7852d6f08bc57934dc4098',1,'gui::ButtonParams::scaleToActiveTime'],['../classgui_1_1_button.html#a7f4dce1072af7e0294f460b2faa96a91',1,'gui::Button::scaleToActiveTime']]],
-  ['scaletohovertime_2',['scaleToHoverTime',['../structgui_1_1_button_params.html#a08199184f563285bcd9d9205514ebfca',1,'gui::ButtonParams::scaleToHoverTime'],['../classgui_1_1_button.html#a056a37ef45c80901500f94d5fba7b680',1,'gui::Button::scaleToHoverTime']]],
-  ['scaletoidletime_3',['scaleToIdleTime',['../structgui_1_1_button_params.html#af7356484d1fc33ff17ece04163c59b18',1,'gui::ButtonParams::scaleToIdleTime'],['../classgui_1_1_button.html#a918b96933e778eae651c77f6b2780b20',1,'gui::Button::scaleToIdleTime']]],
-  ['setbuttoncolor_4',['SetButtonColor',['../class_keyboard.html#a8787a01477ad1a057afe22e599347c80',1,'Keyboard']]],
-  ['setbuttonenabled_5',['SetButtonEnabled',['../class_keyboard.html#a95bfaa3563a61fd7a420dfd4ebfd04f5',1,'Keyboard']]],
-  ['setenabled_6',['SetEnabled',['../classgui_1_1_button.html#a8725786ec052e008adf6805ab2246faa',1,'gui::Button']]],
-  ['setlevel_7',['setLevel',['../class_hangman.html#a6c729fee779be8f734eb83c205e4b440',1,'Hangman']]],
-  ['sfevent_8',['sfEvent',['../class_game.html#a1392fa61566de5b31a8d5e22586f3dcc',1,'Game']]],
-  ['shape_9',['shape',['../classgui_1_1_button.html#ac74d98282082064567ca8b0c24a8a326',1,'gui::Button']]],
-  ['sprite_10',['sprite',['../class_hangman.html#aa28de17debcd33d05a34962d80bde6bd',1,'Hangman']]],
-  ['state_11',['State',['../class_state.html',1,'State'],['../class_state.html#a9de42e1e80c4ee2580b17af064498a94',1,'State::State()']]],
-  ['state_2eh_12',['State.h',['../_state_8h.html',1,'']]],
-  ['statedata_13',['StateData',['../class_state_data.html',1,'StateData'],['../class_state_data.html#a02aad935420f214b37d4e66d9c9a1ef9',1,'StateData::StateData()']]],
-  ['statedata_14',['stateData',['../class_game.html#a8ef3b436fc7c6a03fa2b79133e863ebe',1,'Game::stateData'],['../class_state.html#a9c55cdba6e8a4a7b8a6a83fa51311514',1,'State::stateData']]],
-  ['states_15',['states',['../class_game.html#ab953bd17e03bc976b1dc13eb6dde9ee0',1,'Game::states'],['../class_state_data.html#af7e8fb0c57ed292d0d8cf319643baebf',1,'StateData::states'],['../class_state.html#a5692fac721147048fe1d2656f8a7a687',1,'State::states']]]
+  ['render_0',['render',['../class_game.html#a15ddd769261d923827a3cdf41499c843',1,'Game::render()'],['../classgui_1_1_button.html#a1f93eac2279f05eef417a376b0bd7429',1,'gui::Button::render()'],['../classgui_1_1_drop_down_list.html#a32f5a1e67542118760ce42a53d771dd4',1,'gui::DropDownList::render()'],['../class_hangman.html#a87c3d082cb89abd156918471bc9986b4',1,'Hangman::render()'],['../class_keyboard.html#aa227372d6f7d737a1e29c4896bf66323',1,'Keyboard::render()'],['../class_letter_fields.html#ae7ee6796d2d48d5f6692f8a2cc6c098e',1,'LetterFields::render()'],['../class_pause_menu.html#ab52735e20aa287ea7a17783e9005e2a8',1,'PauseMenu::render()'],['../class_game_state.html#ae49b20a5455335d879340dbe3b92da7f',1,'GameState::render()'],['../class_main_menu_state.html#a343f2f93b5fe14251f425b0709bf43ba',1,'MainMenuState::render()'],['../class_settings_state.html#a9685d562ba72bb84104a9e17a8a27427',1,'SettingsState::render()'],['../class_state.html#aa1f36587befc2c03c4033366e5000d2c',1,'State::render()']]],
+  ['rendersprite_1',['renderSprite',['../class_game_state.html#a351fea43676cf6a1b6d8144508d76405',1,'GameState']]],
+  ['rendertexture_2',['renderTexture',['../class_hangman.html#a64baa7317e9baf7e0f4f57a7918a7d61',1,'Hangman::renderTexture'],['../class_game_state.html#a957706ee7af356052e0f1b73544dfaa8',1,'GameState::renderTexture']]],
+  ['resetgui_3',['resetGui',['../class_main_menu_state.html#ab6c7406776e1a945687164432f9f7c67',1,'MainMenuState::resetGui()'],['../class_settings_state.html#a92f3b139a6ff405647703a93901b041f',1,'SettingsState::resetGui()']]],
+  ['resolution_4',['resolution',['../class_graphics_settings.html#adc582bb940381840fba48c7f0abd4d1d',1,'GraphicsSettings']]],
+  ['revealletter_5',['revealLetter',['../class_letter_fields.html#a8fbf0f7af4fb5ff2760bbda5a26f7d6b',1,'LetterFields']]],
+  ['run_6',['run',['../class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa',1,'Game']]]
 ];

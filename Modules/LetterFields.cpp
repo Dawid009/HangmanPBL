@@ -19,6 +19,7 @@ LetterFields::LetterFields(const sf::Font &font, GraphicsSettings *settings,cons
     this->initLetterFields(password);
 }
 
+
 LetterFields::~LetterFields(){
     //Zwalnianie pamięci
     delete gfxSettings;
@@ -90,6 +91,7 @@ void LetterFields::update(const float& dt) {
     }
 }
 
+
 void LetterFields::render(sf::RenderTarget *target) {
     for (auto &it : this->Fields)
     {
@@ -98,6 +100,7 @@ void LetterFields::render(sf::RenderTarget *target) {
     }
 
 }
+
 
 int LetterFields::revealLetter(const uint8_t letter) {
     uint8_t sum=0;

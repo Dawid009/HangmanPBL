@@ -108,8 +108,14 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgui_1_1_button_params.html">gui::ButtonParams</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options when creating a button.  <a href="structgui_1_1_button_params.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgui_1_1_drop_down_params.html">gui::DropDownParams</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options when creating a dropdown.  <a href="structgui_1_1_drop_down_params.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgui_1_1_button.html">gui::Button</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class representing a button on the screen.  <a href="classgui_1_1_button.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgui_1_1_drop_down_list.html">gui::DropDownList</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">DropDown-list.  <a href="classgui_1_1_drop_down_list.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
@@ -123,37 +129,37 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab8c235ccff25895b5726e102a11fa200" id="r_ab8c235ccff25895b5726e102a11fa200"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8c235ccff25895b5726e102a11fa200">gui::lerp</a> (float a, float b, float t)</td></tr>
-<tr class="memdesc:ab8c235ccff25895b5726e102a11fa200"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor.  <br /></td></tr>
-<tr class="separator:ab8c235ccff25895b5726e102a11fa200"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00417c2d0520f3a4f55309228f650adc" id="r_a00417c2d0520f3a4f55309228f650adc"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00417c2d0520f3a4f55309228f650adc">gui::calcX</a> (const float percent, const sf::VideoMode &amp;vm)</td></tr>
-<tr class="memdesc:a00417c2d0520f3a4f55309228f650adc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Based on the percentage of the window, calculates the value of X.  <br /></td></tr>
-<tr class="separator:a00417c2d0520f3a4f55309228f650adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ea0b4fa246935137e6bcf7c0ad9d01d" id="r_a3ea0b4fa246935137e6bcf7c0ad9d01d"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ea0b4fa246935137e6bcf7c0ad9d01d">gui::calcY</a> (const float percent, const sf::VideoMode &amp;vm)</td></tr>
-<tr class="memdesc:a3ea0b4fa246935137e6bcf7c0ad9d01d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Based on the percentage of the window, calculates the value of Y.  <br /></td></tr>
-<tr class="separator:a3ea0b4fa246935137e6bcf7c0ad9d01d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b996e87a6842a64207af59a6345e922" id="r_a0b996e87a6842a64207af59a6345e922"><td class="memItemLeft" align="right" valign="top">const unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b996e87a6842a64207af59a6345e922">gui::calcCharSize</a> (const sf::VideoMode &amp;vm, const unsigned modifier=60)</td></tr>
-<tr class="memdesc:a0b996e87a6842a64207af59a6345e922"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates character size on the screen.  <br /></td></tr>
-<tr class="separator:a0b996e87a6842a64207af59a6345e922"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accd987f5b398578502e3c352c5e2c149" id="r_accd987f5b398578502e3c352c5e2c149"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#accd987f5b398578502e3c352c5e2c149">gui::lerp</a> (float a, float b, float t)</td></tr>
+<tr class="memdesc:accd987f5b398578502e3c352c5e2c149"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor.  <br /></td></tr>
+<tr class="separator:accd987f5b398578502e3c352c5e2c149"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecad95a367a2e8df4a7bc926d20931eb" id="r_aecad95a367a2e8df4a7bc926d20931eb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecad95a367a2e8df4a7bc926d20931eb">gui::calcX</a> (float percent, const sf::VideoMode &amp;vm)</td></tr>
+<tr class="memdesc:aecad95a367a2e8df4a7bc926d20931eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Based on the percentage of the window, calculates the value of X.  <br /></td></tr>
+<tr class="separator:aecad95a367a2e8df4a7bc926d20931eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76457a9d0572664e90cfe9a491bbbb17" id="r_a76457a9d0572664e90cfe9a491bbbb17"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76457a9d0572664e90cfe9a491bbbb17">gui::calcY</a> (float percent, const sf::VideoMode &amp;vm)</td></tr>
+<tr class="memdesc:a76457a9d0572664e90cfe9a491bbbb17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Based on the percentage of the window, calculates the value of Y.  <br /></td></tr>
+<tr class="separator:a76457a9d0572664e90cfe9a491bbbb17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4750708f717578791ebe04f86bf3351" id="r_aa4750708f717578791ebe04f86bf3351"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4750708f717578791ebe04f86bf3351">gui::calcCharSize</a> (const sf::VideoMode &amp;vm, unsigned modifier=60)</td></tr>
+<tr class="memdesc:aa4750708f717578791ebe04f86bf3351"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates character size on the screen.  <br /></td></tr>
+<tr class="separator:aa4750708f717578791ebe04f86bf3351"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>User interface elements. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a0b996e87a6842a64207af59a6345e922" name="a0b996e87a6842a64207af59a6345e922"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b996e87a6842a64207af59a6345e922">&#9670;&#160;</a></span>calcCharSize()</h2>
+<a id="aa4750708f717578791ebe04f86bf3351" name="aa4750708f717578791ebe04f86bf3351"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4750708f717578791ebe04f86bf3351">&#9670;&#160;</a></span>calcCharSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const unsigned gui::calcCharSize </td>
+          <td class="memname">unsigned gui::calcCharSize </td>
           <td>(</td>
           <td class="paramtype">const sf::VideoMode &amp;</td>          <td class="paramname"><span class="paramname"><em>vm</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const unsigned</td>          <td class="paramname"><span class="paramname"><em>modifier</em></span><span class="paramdefsep"> = </span><span class="paramdefval">60</span>&#160;)</td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>modifier</em></span><span class="paramdefsep"> = </span><span class="paramdefval">60</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -170,16 +176,16 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a00417c2d0520f3a4f55309228f650adc" name="a00417c2d0520f3a4f55309228f650adc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00417c2d0520f3a4f55309228f650adc">&#9670;&#160;</a></span>calcX()</h2>
+<a id="aecad95a367a2e8df4a7bc926d20931eb" name="aecad95a367a2e8df4a7bc926d20931eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecad95a367a2e8df4a7bc926d20931eb">&#9670;&#160;</a></span>calcX()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const float gui::calcX </td>
+          <td class="memname">float gui::calcX </td>
           <td>(</td>
-          <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>percent</em></span>, </td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>percent</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -201,16 +207,16 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a3ea0b4fa246935137e6bcf7c0ad9d01d" name="a3ea0b4fa246935137e6bcf7c0ad9d01d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ea0b4fa246935137e6bcf7c0ad9d01d">&#9670;&#160;</a></span>calcY()</h2>
+<a id="a76457a9d0572664e90cfe9a491bbbb17" name="a76457a9d0572664e90cfe9a491bbbb17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76457a9d0572664e90cfe9a491bbbb17">&#9670;&#160;</a></span>calcY()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const float gui::calcY </td>
+          <td class="memname">float gui::calcY </td>
           <td>(</td>
-          <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>percent</em></span>, </td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>percent</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -232,14 +238,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab8c235ccff25895b5726e102a11fa200" name="ab8c235ccff25895b5726e102a11fa200"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8c235ccff25895b5726e102a11fa200">&#9670;&#160;</a></span>lerp()</h2>
+<a id="accd987f5b398578502e3c352c5e2c149" name="accd987f5b398578502e3c352c5e2c149"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accd987f5b398578502e3c352c5e2c149">&#9670;&#160;</a></span>lerp()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const float gui::lerp </td>
+          <td class="memname">float gui::lerp </td>
           <td>(</td>
           <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
         </tr>

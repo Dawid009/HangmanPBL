@@ -1,0 +1,134 @@
+\doxysection{gui\+::Drop\+Down\+List Class Reference}
+\hypertarget{classgui_1_1_drop_down_list}{}\label{classgui_1_1_drop_down_list}\index{gui::DropDownList@{gui::DropDownList}}
+
+
+Drop\+Down-\/list.  
+
+
+
+
+{\ttfamily \#include $<$Gui.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgui_1_1_drop_down_list_adbbc1e9d955a572caaf1bf9ddb6088a9}{Drop\+Down\+List}} (\mbox{\hyperlink{structgui_1_1_drop_down_params}{Drop\+Down\+Params}} \texorpdfstring{$\ast$}{*}params)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_drop_down_list_a729b8eb04d1377b7e14d30fbe40f98b6}\label{classgui_1_1_drop_down_list_a729b8eb04d1377b7e14d30fbe40f98b6} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Drop\+Down\+List} ()
+\begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
+const unsigned short \& \mbox{\hyperlink{classgui_1_1_drop_down_list_ade75db937276bead0f64ca89c9c26484}{get\+Active\+Element\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Returns the id of the current selection. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classgui_1_1_drop_down_list_a867042ee90ff2b354595ee76f49eaf30}{get\+Keytime}} ()
+\begin{DoxyCompactList}\small\item\em Get keytime value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgui_1_1_drop_down_list_a4f98302f29a47b2c79df0f64e8abc541}{update}} (const sf\+::\+Vector2i \&mouse\+Pos\+Window, const float \&dt)
+\begin{DoxyCompactList}\small\item\em Main module loop updating events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgui_1_1_drop_down_list_a32f5a1e67542118760ce42a53d771dd4}{render}} (sf\+::\+Render\+Target \&target)
+\begin{DoxyCompactList}\small\item\em Loop for rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgui_1_1_drop_down_list_a9544aba42d4df1c7d7fb0d35ba6ccf10}\label{classgui_1_1_drop_down_list_a9544aba42d4df1c7d7fb0d35ba6ccf10} 
+float {\bfseries keytime}
+\begin{DoxyCompactList}\small\item\em Keytime. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_drop_down_list_a1e8564e9d2404a60443df50b250e3235}\label{classgui_1_1_drop_down_list_a1e8564e9d2404a60443df50b250e3235} 
+float {\bfseries keytime\+Max}
+\begin{DoxyCompactList}\small\item\em Keytime\+Max. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_drop_down_list_acb3bff187d5d315e1684fbeb8a20d05f}\label{classgui_1_1_drop_down_list_acb3bff187d5d315e1684fbeb8a20d05f} 
+sf\+::\+Font \& {\bfseries font}
+\begin{DoxyCompactList}\small\item\em Font reference requiered to render text. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_drop_down_list_a7acd07160673df815009975bbe8fba8b}\label{classgui_1_1_drop_down_list_a7acd07160673df815009975bbe8fba8b} 
+\mbox{\hyperlink{classgui_1_1_button}{gui\+::\+Button}} \texorpdfstring{$\ast$}{*} {\bfseries active\+Element}
+\begin{DoxyCompactList}\small\item\em Active dropdown element. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_drop_down_list_a218c5b96817cdb8de29f7ea02bb02963}\label{classgui_1_1_drop_down_list_a218c5b96817cdb8de29f7ea02bb02963} 
+std\+::vector$<$ \mbox{\hyperlink{classgui_1_1_button}{gui\+::\+Button}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries list}
+\begin{DoxyCompactList}\small\item\em All dropdown positions. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_drop_down_list_abade11bac98d742cabd4f89ad464b5e9}\label{classgui_1_1_drop_down_list_abade11bac98d742cabd4f89ad464b5e9} 
+bool {\bfseries show\+List}
+\begin{DoxyCompactList}\small\item\em Should list be visible. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Drop\+Down-\/list. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgui_1_1_drop_down_list_adbbc1e9d955a572caaf1bf9ddb6088a9}\index{gui::DropDownList@{gui::DropDownList}!DropDownList@{DropDownList}}
+\index{DropDownList@{DropDownList}!gui::DropDownList@{gui::DropDownList}}
+\doxysubsubsection{\texorpdfstring{DropDownList()}{DropDownList()}}
+{\footnotesize\ttfamily \label{classgui_1_1_drop_down_list_adbbc1e9d955a572caaf1bf9ddb6088a9} 
+gui\+::\+Drop\+Down\+List\+::\+Drop\+Down\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgui_1_1_drop_down_params}{Drop\+Down\+Params}} \texorpdfstring{$\ast$}{*}}]{params}{}\end{DoxyParamCaption})}
+
+
+
+Class constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em params} & Object with all dropdown settings \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgui_1_1_drop_down_list_ade75db937276bead0f64ca89c9c26484}\index{gui::DropDownList@{gui::DropDownList}!getActiveElementId@{getActiveElementId}}
+\index{getActiveElementId@{getActiveElementId}!gui::DropDownList@{gui::DropDownList}}
+\doxysubsubsection{\texorpdfstring{getActiveElementId()}{getActiveElementId()}}
+{\footnotesize\ttfamily \label{classgui_1_1_drop_down_list_ade75db937276bead0f64ca89c9c26484} 
+const unsigned short \& gui\+::\+Drop\+Down\+List\+::get\+Active\+Element\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the id of the current selection. 
+
+\begin{DoxyReturn}{Returns}
+returns Id 
+\end{DoxyReturn}
+\Hypertarget{classgui_1_1_drop_down_list_a867042ee90ff2b354595ee76f49eaf30}\index{gui::DropDownList@{gui::DropDownList}!getKeytime@{getKeytime}}
+\index{getKeytime@{getKeytime}!gui::DropDownList@{gui::DropDownList}}
+\doxysubsubsection{\texorpdfstring{getKeytime()}{getKeytime()}}
+{\footnotesize\ttfamily \label{classgui_1_1_drop_down_list_a867042ee90ff2b354595ee76f49eaf30} 
+bool gui\+::\+Drop\+Down\+List\+::get\+Keytime (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get keytime value. 
+
+\begin{DoxyReturn}{Returns}
+returns keytime 
+\end{DoxyReturn}
+\Hypertarget{classgui_1_1_drop_down_list_a32f5a1e67542118760ce42a53d771dd4}\index{gui::DropDownList@{gui::DropDownList}!render@{render}}
+\index{render@{render}!gui::DropDownList@{gui::DropDownList}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{classgui_1_1_drop_down_list_a32f5a1e67542118760ce42a53d771dd4} 
+void gui\+::\+Drop\+Down\+List\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{target}{}\end{DoxyParamCaption})}
+
+
+
+Loop for rendering. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Pointer to the renderer \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classgui_1_1_drop_down_list_a4f98302f29a47b2c79df0f64e8abc541}\index{gui::DropDownList@{gui::DropDownList}!update@{update}}
+\index{update@{update}!gui::DropDownList@{gui::DropDownList}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classgui_1_1_drop_down_list_a4f98302f29a47b2c79df0f64e8abc541} 
+void gui\+::\+Drop\+Down\+List\+::update (\begin{DoxyParamCaption}\item[{const sf\+::\+Vector2i \&}]{mouse\+Pos\+Window}{, }\item[{const float \&}]{dt}{}\end{DoxyParamCaption})}
+
+
+
+Main module loop updating events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Delta time value \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/\mbox{\hyperlink{_gui_8h}{Gui.\+h}}\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/Gui.\+cpp\end{DoxyCompactItemize}

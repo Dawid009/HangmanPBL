@@ -17,22 +17,33 @@ Class representing a button on the screen.
 \Hypertarget{classgui_1_1_button_a088a6010b58ae6ee6e94210213dbf000}\label{classgui_1_1_button_a088a6010b58ae6ee6e94210213dbf000} 
 {\bfseries \texorpdfstring{$\sim$}{\string~}\+Button} ()
 \begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
-const bool \mbox{\hyperlink{classgui_1_1_button_a472c6a73869f5adec78b67eed68895b7}{is\+Pressed}} () const
+bool \mbox{\hyperlink{classgui_1_1_button_ae636da5f0375715fff7e373dd7ffcc0a}{is\+Pressed}} () const
 \begin{DoxyCompactList}\small\item\em Checks if the button is pressed. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classgui_1_1_button_a8725786ec052e008adf6805ab2246faa}{Set\+Enabled}} (bool \mbox{\hyperlink{classgui_1_1_button_a342578563bd2debf63359df6463a5f55}{enabled}})
+void \mbox{\hyperlink{classgui_1_1_button_ae473bec4158d87b3e9ef8adcda6f7776}{Set\+Enabled}} (bool enable)
 \begin{DoxyCompactList}\small\item\em Sets the button to on or off. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classgui_1_1_button_a9e94fc2378eaca45c35a0220b657b916}{Change\+Color}} (sf\+::\+Color color)
 \begin{DoxyCompactList}\small\item\em Sets the button to a given color. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classgui_1_1_button_a44cb4badbb301b0271a51e1edb2b9976}{update}} (const sf\+::\+Vector2i \&mouse\+Pos\+Window, const float \&dt)
 \begin{DoxyCompactList}\small\item\em Main module loop updating events. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classgui_1_1_button_a1f93eac2279f05eef417a376b0bd7429}{render}} (sf\+::\+Render\+Target \&target)
-\begin{DoxyCompactList}\small\item\em Loop for rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Loop for rendering. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classgui_1_1_button_afba184519d4237452847c846b23e04a1}{get\+Text}} () const
+\begin{DoxyCompactList}\small\item\em Gets text from the button. \end{DoxyCompactList}\item 
+const short unsigned \& \mbox{\hyperlink{classgui_1_1_button_ab4b11239a7d9e4c0b8f25ea0d969d17b}{get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Gets id of the button. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgui_1_1_button_a7c3ae2027121cfca048463d9f01673e2}{set\+Text}} (const std\+::string \&\mbox{\hyperlink{classgui_1_1_button_a932153467d69bfa8cafaa3ab06748fef}{text}})
+\begin{DoxyCompactList}\small\item\em Setting button text. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgui_1_1_button_a97b5820c6acb36cd76886ecb0996ffba}{set\+Id}} (short unsigned \mbox{\hyperlink{classgui_1_1_button_af0c77221a25c252c20135fde01d6eef0}{id}})
+\begin{DoxyCompactList}\small\item\em Setting button id. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{classgui_1_1_button_aaadea2b67fc41708e7da56d181fc8321}\label{classgui_1_1_button_aaadea2b67fc41708e7da56d181fc8321} 
 short unsigned {\bfseries button\+State}
 \begin{DoxyCompactList}\small\item\em Current state of the button. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_button_af0c77221a25c252c20135fde01d6eef0}\label{classgui_1_1_button_af0c77221a25c252c20135fde01d6eef0} 
+short unsigned {\bfseries id}
+\begin{DoxyCompactList}\small\item\em \doxylink{classgui_1_1_button}{Button} id. \end{DoxyCompactList}\item 
 \Hypertarget{classgui_1_1_button_ac74d98282082064567ca8b0c24a8a326}\label{classgui_1_1_button_ac74d98282082064567ca8b0c24a8a326} 
 sf\+::\+Rectangle\+Shape {\bfseries shape}
 \begin{DoxyCompactList}\small\item\em SFML rectangle. \end{DoxyCompactList}\item 
@@ -57,6 +68,15 @@ sf\+::\+Color {\bfseries outline\+Hover\+Color}
 \Hypertarget{classgui_1_1_button_a87c554e8517f6827bf8041e06357a2f6}\label{classgui_1_1_button_a87c554e8517f6827bf8041e06357a2f6} 
 sf\+::\+Color {\bfseries outline\+Active\+Color}
 \begin{DoxyCompactList}\small\item\em Outline color when pressed. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_button_a3db2f2820b6ff9070792e48373ccbdd6}\label{classgui_1_1_button_a3db2f2820b6ff9070792e48373ccbdd6} 
+sf\+::\+Color {\bfseries background\+Idle\+Color}
+\begin{DoxyCompactList}\small\item\em Outline idle color. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_button_a3b8bb97bbf5b90b8e937e285ef371c6c}\label{classgui_1_1_button_a3b8bb97bbf5b90b8e937e285ef371c6c} 
+sf\+::\+Color {\bfseries background\+Hover\+Color}
+\begin{DoxyCompactList}\small\item\em Outline color when hovered. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1_button_a6f0fc6548f0e15233340c91e9829659c}\label{classgui_1_1_button_a6f0fc6548f0e15233340c91e9829659c} 
+sf\+::\+Color {\bfseries background\+Active\+Color}
+\begin{DoxyCompactList}\small\item\em Outline color when pressed. \end{DoxyCompactList}\item 
 \Hypertarget{classgui_1_1_button_a7299a5e4ffe952cb3e90ebbeb22a2ec8}\label{classgui_1_1_button_a7299a5e4ffe952cb3e90ebbeb22a2ec8} 
 float {\bfseries hover\+Scale}
 \begin{DoxyCompactList}\small\item\em Scale of button when hovered. \end{DoxyCompactList}\item 
@@ -80,7 +100,7 @@ bool {\bfseries enabled}
 \item 
 \Hypertarget{classgui_1_1_button_ae5b6afcafce12bac06bb01b8bdae66d4}\label{classgui_1_1_button_ae5b6afcafce12bac06bb01b8bdae66d4} 
 static bool {\bfseries mouse\+Pressed} = false
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Is left mouse button pressed anywhere. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -91,7 +111,7 @@ Class representing a button on the screen.
 \index{Button@{Button}!gui::Button@{gui::Button}}
 \doxysubsubsection{\texorpdfstring{Button()}{Button()}}
 {\footnotesize\ttfamily \label{classgui_1_1_button_a4dcd3ac9af7338249f50321300a8d08d} 
-gui\+::\+Button\+::\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgui_1_1_button_params}{Button\+Params}} \texorpdfstring{$\ast$}{*}}]{params}{}\end{DoxyParamCaption})}
+gui\+::\+Button\+::\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgui_1_1_button_params}{Button\+Params}} \texorpdfstring{$\ast$}{*}}]{params}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 
 
@@ -120,11 +140,37 @@ Sets the button to a given color.
 {\em color} & Color \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classgui_1_1_button_a472c6a73869f5adec78b67eed68895b7}\index{gui::Button@{gui::Button}!isPressed@{isPressed}}
+\Hypertarget{classgui_1_1_button_ab4b11239a7d9e4c0b8f25ea0d969d17b}\index{gui::Button@{gui::Button}!getId@{getId}}
+\index{getId@{getId}!gui::Button@{gui::Button}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily \label{classgui_1_1_button_ab4b11239a7d9e4c0b8f25ea0d969d17b} 
+const short unsigned \& gui\+::\+Button\+::get\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets id of the button. 
+
+\begin{DoxyReturn}{Returns}
+returns an id 
+\end{DoxyReturn}
+\Hypertarget{classgui_1_1_button_afba184519d4237452847c846b23e04a1}\index{gui::Button@{gui::Button}!getText@{getText}}
+\index{getText@{getText}!gui::Button@{gui::Button}}
+\doxysubsubsection{\texorpdfstring{getText()}{getText()}}
+{\footnotesize\ttfamily \label{classgui_1_1_button_afba184519d4237452847c846b23e04a1} 
+std\+::string gui\+::\+Button\+::get\+Text (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets text from the button. 
+
+\begin{DoxyReturn}{Returns}
+Returns a text 
+\end{DoxyReturn}
+\Hypertarget{classgui_1_1_button_ae636da5f0375715fff7e373dd7ffcc0a}\index{gui::Button@{gui::Button}!isPressed@{isPressed}}
 \index{isPressed@{isPressed}!gui::Button@{gui::Button}}
 \doxysubsubsection{\texorpdfstring{isPressed()}{isPressed()}}
-{\footnotesize\ttfamily \label{classgui_1_1_button_a472c6a73869f5adec78b67eed68895b7} 
-const bool gui\+::\+Button\+::is\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classgui_1_1_button_ae636da5f0375715fff7e373dd7ffcc0a} 
+bool gui\+::\+Button\+::is\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -148,11 +194,11 @@ Loop for rendering.
 {\em target} & Pointer to the renderer \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classgui_1_1_button_a8725786ec052e008adf6805ab2246faa}\index{gui::Button@{gui::Button}!SetEnabled@{SetEnabled}}
+\Hypertarget{classgui_1_1_button_ae473bec4158d87b3e9ef8adcda6f7776}\index{gui::Button@{gui::Button}!SetEnabled@{SetEnabled}}
 \index{SetEnabled@{SetEnabled}!gui::Button@{gui::Button}}
 \doxysubsubsection{\texorpdfstring{SetEnabled()}{SetEnabled()}}
-{\footnotesize\ttfamily \label{classgui_1_1_button_a8725786ec052e008adf6805ab2246faa} 
-void gui\+::\+Button\+::\+Set\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{enabled}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classgui_1_1_button_ae473bec4158d87b3e9ef8adcda6f7776} 
+void gui\+::\+Button\+::\+Set\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{enable}{}\end{DoxyParamCaption})}
 
 
 
@@ -161,6 +207,36 @@ Sets the button to on or off.
 
 \begin{DoxyParams}{Parameters}
 {\em enabled} & Should be enabled? \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classgui_1_1_button_a97b5820c6acb36cd76886ecb0996ffba}\index{gui::Button@{gui::Button}!setId@{setId}}
+\index{setId@{setId}!gui::Button@{gui::Button}}
+\doxysubsubsection{\texorpdfstring{setId()}{setId()}}
+{\footnotesize\ttfamily \label{classgui_1_1_button_a97b5820c6acb36cd76886ecb0996ffba} 
+void gui\+::\+Button\+::set\+Id (\begin{DoxyParamCaption}\item[{short unsigned}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Setting button id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Id \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classgui_1_1_button_a7c3ae2027121cfca048463d9f01673e2}\index{gui::Button@{gui::Button}!setText@{setText}}
+\index{setText@{setText}!gui::Button@{gui::Button}}
+\doxysubsubsection{\texorpdfstring{setText()}{setText()}}
+{\footnotesize\ttfamily \label{classgui_1_1_button_a7c3ae2027121cfca048463d9f01673e2} 
+void gui\+::\+Button\+::set\+Text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{}\end{DoxyParamCaption})}
+
+
+
+Setting button text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Text to be set \\
 \hline
 \end{DoxyParams}
 \Hypertarget{classgui_1_1_button_a44cb4badbb301b0271a51e1edb2b9976}\index{gui::Button@{gui::Button}!update@{update}}

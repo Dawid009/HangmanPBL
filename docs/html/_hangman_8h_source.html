@@ -107,26 +107,26 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_hangman.html#a524104106b08a41c963fae83d9926deb">   19</a></span>    sf::RectangleShape* <a class="code hl_variable" href="class_hangman.html#a524104106b08a41c963fae83d9926deb">line</a>; </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_hangman.html#a55c7f0df4eb50178503ccbf67e69db74">   20</a></span>    sf::Shape* <a class="code hl_variable" href="class_hangman.html#a55c7f0df4eb50178503ccbf67e69db74">hangman_parts</a>[6]; </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> initHangman();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_function" href="class_hangman.html#a92ca8d1e9c1fbf3cb167c371d2ccfd04">Hangman</a>(<a class="code hl_class" href="class_graphics_settings.html">GraphicsSettings</a> *settings);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">virtual</span> <a class="code hl_function" href="class_hangman.html#a353657d470c500f75c6628cdd119e272">~Hangman</a>();</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_hangman.html#a6c729fee779be8f734eb83c205e4b440">setLevel</a>(uint8_t level);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_hangman.html#a93e1037c6c63ad8a458b7e8a9ffc1fae">update</a>(<span class="keyword">const</span> <span class="keywordtype">float</span>&amp; dt);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_hangman.html#a87c3d082cb89abd156918471bc9986b4">render</a>(sf::RenderTarget* target = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_hangman.html#a1a9f5e0a7587170104f1eeb037c30387">initHangman</a>();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_function" href="class_hangman.html#a92ca8d1e9c1fbf3cb167c371d2ccfd04">Hangman</a>(<a class="code hl_class" href="class_graphics_settings.html">GraphicsSettings</a> *settings);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">virtual</span> <a class="code hl_function" href="class_hangman.html#a353657d470c500f75c6628cdd119e272">~Hangman</a>();</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_hangman.html#a6c729fee779be8f734eb83c205e4b440">setLevel</a>(uint8_t level);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_hangman.html#a93e1037c6c63ad8a458b7e8a9ffc1fae">update</a>(<span class="keyword">const</span> <span class="keywordtype">float</span>&amp; dt);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_hangman.html#a87c3d082cb89abd156918471bc9986b4">render</a>(sf::RenderTarget* target = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
 </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#endif </span><span class="comment">//HANGMAN_HANGMAN_H</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#endif </span><span class="comment">//HANGMAN_HANGMAN_H</span></div>
 <div class="ttc" id="a_gui_8h_html"><div class="ttname"><a href="_gui_8h.html">Gui.h</a></div><div class="ttdoc">User interface elements.</div></div>
 <div class="ttc" id="aclass_graphics_settings_html"><div class="ttname"><a href="class_graphics_settings.html">GraphicsSettings</a></div><div class="ttdoc">Class reading and saving settings.</div><div class="ttdef"><b>Definition</b> GraphicsSettings.h:15</div></div>
 <div class="ttc" id="aclass_hangman_html"><div class="ttname"><a href="class_hangman.html">Hangman</a></div><div class="ttdoc">Class reponsible for drawing hangman.</div><div class="ttdef"><b>Definition</b> Hangman.h:13</div></div>
+<div class="ttc" id="aclass_hangman_html_a1a9f5e0a7587170104f1eeb037c30387"><div class="ttname"><a href="class_hangman.html#a1a9f5e0a7587170104f1eeb037c30387">Hangman::initHangman</a></div><div class="ttdeci">void initHangman()</div><div class="ttdoc">Function initializing hangman.</div><div class="ttdef"><b>Definition</b> Hangman.cpp:26</div></div>
 <div class="ttc" id="aclass_hangman_html_a353657d470c500f75c6628cdd119e272"><div class="ttname"><a href="class_hangman.html#a353657d470c500f75c6628cdd119e272">Hangman::~Hangman</a></div><div class="ttdeci">virtual ~Hangman()</div><div class="ttdoc">Class destructor.</div><div class="ttdef"><b>Definition</b> Hangman.cpp:15</div></div>
 <div class="ttc" id="aclass_hangman_html_a524104106b08a41c963fae83d9926deb"><div class="ttname"><a href="class_hangman.html#a524104106b08a41c963fae83d9926deb">Hangman::line</a></div><div class="ttdeci">sf::RectangleShape * line</div><div class="ttdoc">Line object pointer.</div><div class="ttdef"><b>Definition</b> Hangman.h:19</div></div>
 <div class="ttc" id="aclass_hangman_html_a55c7f0df4eb50178503ccbf67e69db74"><div class="ttname"><a href="class_hangman.html#a55c7f0df4eb50178503ccbf67e69db74">Hangman::hangman_parts</a></div><div class="ttdeci">sf::Shape * hangman_parts[6]</div><div class="ttdoc">Pointers to parts of the body.</div><div class="ttdef"><b>Definition</b> Hangman.h:20</div></div>
