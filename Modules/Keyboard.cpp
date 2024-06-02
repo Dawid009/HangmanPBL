@@ -33,8 +33,8 @@ void Keyboard::initKeyboard() {
 
     constexpr wchar_t letters[35] = L"AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUWXYZŹŻ";
 
-    uint8_t id=0;
-    uint8_t line=0,pos=0;
+    uint8_t id{0};
+    uint8_t line{0},pos{0};
     for(auto ch : letters){
         if(pos<10){
             ButtonInitParams->x =  gui::calcX(10,vm)+static_cast<float>(pos)*gui::calcX(5.1f,vm);
@@ -57,10 +57,12 @@ void Keyboard::initKeyboard() {
     //przeniesc gdzie indziej
     ButtonInitParams->x =  gui::calcX(90,vm);
     ButtonInitParams->y =  gui::calcY(90,vm);
-    ButtonInitParams->text = sf::String("Menu");
-    ButtonInitParams->text_idle_color = sf::Color::White;
+    ButtonInitParams->hoverScale = 1.2f;
+    ButtonInitParams->activeScale = 1.1f;
+    ButtonInitParams->text_idle_color = sf::Color(180,180,180,255);
     ButtonInitParams->text_hover_color = sf::Color::White;
     ButtonInitParams->text_active_color = sf::Color::White;
+    ButtonInitParams->text = sf::String("Menu");
     buttons[L'*'] = new gui::Button(ButtonInitParams);
 
     delete ButtonInitParams;
@@ -103,7 +105,7 @@ void Keyboard::SetButtonColor(uint8_t key,sf::Color color) {
 }
 
 
-const bool Keyboard::IsPressed(uint8_t key) {
+bool Keyboard::IsPressed(uint8_t key) {
     if (this->buttons[key]->isPressed()) {
         return true;
     } else

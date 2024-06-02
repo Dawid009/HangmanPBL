@@ -50,7 +50,7 @@ public:
     * @param Key ID
     * @returns Returns state of the button
     */
-    const bool IsPressed(uint8_t key);
+    bool IsPressed(uint8_t key);
     /**
     * @brief Updating buttons functionality
     * @param dt Delta time

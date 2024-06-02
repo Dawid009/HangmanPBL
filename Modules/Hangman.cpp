@@ -30,7 +30,7 @@ void Hangman::initHangman() {
     renderTexture->create(180.f, 500.f);
     renderTexture->clear(sf::Color::Transparent);
 
-    constexpr char color = 40;
+    constexpr char color{40};
 
     line = new sf::RectangleShape(sf::Vector2f(5.f,140.f));
     line->setPosition(sf::Vector2f(90.f,0.f));
@@ -80,7 +80,7 @@ void Hangman::render(sf::RenderTarget *target) {
 }
 
 void Hangman::setLevel(uint8_t level) {
-    const unsigned char color = 40;
+    const unsigned char color{40};
     renderTexture->clear(sf::Color::Transparent);
     renderTexture->draw(*line);
 

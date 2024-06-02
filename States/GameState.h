@@ -27,7 +27,8 @@ private:
     Keyboard* keyboard; ///<Keyboard component pointer.
     LetterFields* letterFields; ///<Letter fields display component pointer.
     Hangman* hangman; ///<Hangman display component pointer.
-
+    sf::Text* fpsText; ///<Fps text
+    float delay=0;///<Fps update delay counter
     int misses=0;///<Misses count
 
     /**

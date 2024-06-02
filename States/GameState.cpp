@@ -53,6 +53,16 @@ void GameState::initFonts()
 void GameState::initView()
 {
     const sf::VideoMode& vm = this->stateData->gfxSettings->resolution;
+
+    if(stateData->showfps){
+        fpsText = new sf::Text();
+        fpsText->setString("");
+        fpsText->setFont(this->font);
+        fpsText->setCharacterSize(gui::calcCharSize(vm,70.f));
+        fpsText->setPosition(sf::Vector2f(gui::calcX(0.5f,vm),gui::calcY(0.5f,vm)));
+        fpsText->setFillColor(sf::Color(20, 20, 20, 255));
+    }
+
     this->background.setSize(sf::Vector2f(static_cast<float>(vm.width),static_cast<float>(vm.height)));
 
     if (!this->backgroundTexture.loadFromFile("Images/gamebackground.jpg"))
@@ -110,7 +120,7 @@ void GameState::update(const float& dt)
         this->hangman->update(dt);
 
         //Sprawdzanie czy nacisniety przycisk
-        for(uint8_t i=0;i<34;i++){
+        for(uint8_t i{0};i<34;i++){
             checkKeyboard(i);
         }
 
@@ -123,6 +133,14 @@ void GameState::update(const float& dt)
     {
         this->pmenu->update(this->mousePosWindow,dt);
         this->updatePauseMenuButtons();
+    }
+
+
+    if(this->stateData->showfps && delay>1.5f){
+        fpsText->setString(std::to_string(static_cast<int>(1/dt)));
+        delay=0;
+    }else{
+        delay+=dt;
     }
 }
 
@@ -148,5 +166,9 @@ void GameState::render(sf::RenderTarget* target)
     this->renderTexture.display();
     this->renderSprite.setTexture(this->renderTexture.getTexture());
     target->draw(renderSprite);
+
+    if(this->stateData->showfps){
+        target->draw(*fpsText);
+    }
 }
 

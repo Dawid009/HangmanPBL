@@ -53,31 +53,31 @@ namespace gui {
     * @brief Options when creating a button
     */
     struct ButtonParams {
-        float x=20.f; ///<Button position x
-        float y=20.f; ///<Button position y
-        float width=50.f; ///<Button width
-        float height=50.f; ///<Button height
-        sf::Font* font; ///<Pointer to any font
-        sf::String text = ""; ///<Text to be displayed on the button
-        unsigned character_size = 10; ///<Text character size
-        float thickness = 3.f; ///<Button outline thickness
-        sf::Color text_idle_color = sf::Color(70,70,70,255); ///<Text idle color
-        sf::Color text_hover_color = sf::Color(40,40,40,255);///<Text color when hovered
-        sf::Color text_active_color = sf::Color(20,20,20,255);///<Text color when pressed
-        sf::Color outline_idle_color = sf::Color::Transparent; ///<Outline idle color
-        sf::Color outline_hover_color = sf::Color::Transparent;///<Outline color when hovered
-        sf::Color outline_active_color = sf::Color::Transparent;///<Outline color when pressed
-        sf::Color background_idle_color= sf::Color::Transparent;///<Outline idle color
-        sf::Color background_hover_color = sf::Color::Transparent;///<Outline color when hovered
-        sf::Color background_active_color = sf::Color::Transparent;///<Outline color when pressed
-        float hoverScale=1.2f; ///<Scale of button when hovered
-        float activeScale=1.1f;///<Scale of button when pressed
-        float scaleToIdleTime=8.f;///<Scale time required to transit to idle
-        float scaleToHoverTime=6.5f;///<Scale time required to transit to hover
-        float scaleToActiveTime=10.f;///<Scale time required to transit to idle
-        bool drawDebugBorder=false;///<Should draw red button border
-        bool initEnable=true;///<Should button be enabled
-        short id=0;
+        float x{20.f}; ///<Button position x
+        float y{20.f}; ///<Button position y
+        float width{50.f}; ///<Button width
+        float height{50.f}; ///<Button height
+        sf::Font* font{nullptr}; ///<Pointer to any font
+        sf::String text{""}; ///<Text to be displayed on the button
+        unsigned character_size{10}; ///<Text character size
+        float thickness{3.f}; ///<Button outline thickness
+        sf::Color text_idle_color{sf::Color(70,70,70,255)}; ///<Text idle color
+        sf::Color text_hover_color{sf::Color(40,40,40,255)};///<Text color when hovered
+        sf::Color text_active_color{sf::Color(20,20,20,255)};///<Text color when pressed
+        sf::Color outline_idle_color{sf::Color::Transparent}; ///<Outline idle color
+        sf::Color outline_hover_color{sf::Color::Transparent};///<Outline color when hovered
+        sf::Color outline_active_color{sf::Color::Transparent};///<Outline color when pressed
+        sf::Color background_idle_color{sf::Color::Transparent};///<Outline idle color
+        sf::Color background_hover_color{sf::Color::Transparent};///<Outline color when hovered
+        sf::Color background_active_color{sf::Color::Transparent};///<Outline color when pressed
+        float hoverScale{1.2f}; ///<Scale of button when hovered
+        float activeScale{1.1f};///<Scale of button when pressed
+        float scaleToIdleTime{8.f};///<Scale time required to transit to idle
+        float scaleToHoverTime{6.5f};///<Scale time required to transit to hover
+        float scaleToActiveTime{10.f};///<Scale time required to transit to idle
+        bool drawDebugBorder{false};///<Should draw red button border
+        bool initEnable{true};///<Should button be enabled
+        short id{0}; ///<Button id
     };
 
     /**
@@ -85,15 +85,16 @@ namespace gui {
     * @brief Options when creating a dropdown
     */
     struct DropDownParams{
-        float x=20.f; ///<Dropdown position x
-        float y=20.f; ///<Dropdown position y
-        float width=50.f; ///<Dropdown width
-        float height=50.f;///<Dropdown one element height
-        sf::Font* font;///<Pointer to any font
-        unsigned nrOfElements=0; ///<Element list size
-        unsigned character_size = 15; ///<Character size
-        short id = 0;///<Default index
-        std::string* list;///<List of elements
+        float x{20.f}; ///<Dropdown position x
+        float y{20.f}; ///<Dropdown position y
+        float width{50.f}; ///<Dropdown width
+        float height{50.f};///<Dropdown one element height
+        sf::Font* font{nullptr};///<Pointer to any font
+        unsigned nrOfElements{0}; ///<Element list size
+        unsigned character_size{15}; ///<Character size
+        short id{0};///<Default index
+        std::string* list{nullptr};///<List of elements
+        std::string* label{nullptr}; ///<Label above the list
     };
 
     /**
@@ -209,6 +210,7 @@ namespace gui {
         float keytimeMax;///<KeytimeMax
 
         sf::Font& font;///<Font reference requiered to render text.
+        sf::Text* label;
         gui::Button* activeElement;///<Active dropdown element
         std::vector<gui::Button*> list;///<All dropdown positions
         bool showList;///<Should list be visible
@@ -218,7 +220,7 @@ namespace gui {
         * @brief Class constructor
         * @param params Object with all dropdown settings
         */
-        DropDownList(DropDownParams* params);
+        explicit DropDownList(DropDownParams* params);
 
         /**
         * @brief Class destructor

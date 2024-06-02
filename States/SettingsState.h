@@ -23,9 +23,10 @@ private:
         std::map<std::string, gui::Button*> buttons;///<A map that stores buttons
         std::map<std::string, gui::DropDownList*> dropDownLists;///<A map that stores all dropdown lists
 
-        sf::Text optionsText; ///<Options text
-
+        sf::Text* fpsText; ///<Fps text
+        float delay{0.f}; ///<Fps delay counter
         std::vector<sf::VideoMode> modes; ///<Screen modes read from file
+        uint8_t fps[6] = {0,240,120,60,30,15}; ///<Screen fps limits
 
         /**
         * @brief Function to assign basic values to variables

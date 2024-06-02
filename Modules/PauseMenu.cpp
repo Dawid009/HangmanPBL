@@ -28,7 +28,7 @@ PauseMenu::~PauseMenu()
     }
 }
 
-const bool PauseMenu::isButtonPressed(const std::string key)
+bool PauseMenu::isButtonPressed(const std::string& key)
 {
     return this->buttons[key]->isPressed();
 }
@@ -50,7 +50,7 @@ void PauseMenu::addButton(
     ButtonInitParams->height = height;
     ButtonInitParams->font = &this->font;
     ButtonInitParams->text = text;
-    ButtonInitParams->text_idle_color = sf::Color::White;
+    ButtonInitParams->text_idle_color = sf::Color(180,180,180,255);
     ButtonInitParams->text_hover_color = sf::Color::White;
     ButtonInitParams->text_active_color = sf::Color::White;
     ButtonInitParams->character_size = char_size;

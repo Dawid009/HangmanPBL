@@ -13,7 +13,7 @@ struct LetterField{
     uint8_t id; ///<Id for textfield identification
     sf::RectangleShape* floor; ///<Pointer to the floor of the field
     sf::Text* text; ///<Text to be displayed on the screen
-    float targetAlpha=0; ///<Target alpha used in linear interpolation
+    float targetAlpha{0}; ///<Target alpha used in linear interpolation
 
     /**
     * @brief Struct constructor
