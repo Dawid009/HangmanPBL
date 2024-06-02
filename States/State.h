@@ -19,10 +19,11 @@ public:
     /**
     * @brief Class constructor
     */
-    StateData() {};
+    StateData() : showfps(true) {};
     sf::RenderWindow* window;///<The game window pointer.
     GraphicsSettings* gfxSettings;///<An object that stores settings
     std::stack<State*>* states;///<A stack that stores the views.
+    bool showfps;///<Should fps be visible
 };
 
 /**
@@ -36,7 +37,6 @@ protected:
     sf::RenderWindow* window;///<The game window pointer.
     sf::Texture backgroundTexture;///<background texture ref.
     sf::RectangleShape background;///<Background rectangle.
-
     bool quit;///<Is the game to be closed
     bool paused;///<Is the game paused
     sf::Vector2i mousePosWindow;///<XY mouse position on the window

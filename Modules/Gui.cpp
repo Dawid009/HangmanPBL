@@ -153,22 +153,23 @@ void gui::Button::SetEnabled(bool enable) {
 }
 
 
-
 std::string gui::Button::getText() const
 {
     return this->text.getString();
 }
+
 
 const short unsigned & gui::Button::getId() const
 {
     return this->id;
 }
 
-//Modifiers
+
 void gui::Button::setText(const std::string& text)
 {
     this->text.setString(text);
 }
+
 
 void gui::Button::setId(short unsigned id)
 {
@@ -176,10 +177,23 @@ void gui::Button::setId(short unsigned id)
 }
 
 
-
 gui::DropDownList::DropDownList(DropDownParams* params)
         : font(*params->font), showList(false), keytimeMax(1.f), keytime(0.f)
 {
+
+    if(params->label!= nullptr){
+        label = new sf::Text();
+        label->setString(*params->label);
+        label->setFont(*params->font);
+        label->setCharacterSize(params->character_size*1.4f);
+        label->setPosition(sf::Vector2f(params->x+params->width/2,params->y-params->character_size));
+        label->setFillColor(sf::Color(20, 20, 20, 255));
+        label->setStyle(1);
+        sf::FloatRect textBounds = label->getLocalBounds();
+        label->setOrigin(textBounds.left + textBounds.width / 2.0f,
+                       textBounds.top + textBounds.height / 2.0f);
+    }
+
     auto* ButtonInitParams = new gui::ButtonParams;
     ButtonInitParams->x =  params->x;
     ButtonInitParams->y =  params->y;
@@ -191,17 +205,25 @@ gui::DropDownList::DropDownList(DropDownParams* params)
     ButtonInitParams->text_hover_color = sf::Color::White;
     ButtonInitParams->text_active_color = sf::Color::White;
     ButtonInitParams->character_size = params->character_size;
-    ButtonInitParams->hoverScale = 1.2f;
-    ButtonInitParams->activeScale = 1.1f;
-    ButtonInitParams->background_idle_color = sf::Color(255, 255, 255, 200);
-    ButtonInitParams->background_hover_color = sf::Color(255, 255, 255, 255);
+    ButtonInitParams->hoverScale = 1.15f;
+    ButtonInitParams->activeScale = 1.05f;
+    ButtonInitParams->background_idle_color = sf::Color(100, 100, 100, 200);
+    ButtonInitParams->background_hover_color = sf::Color(100, 100, 100, 255);
+    ButtonInitParams->outline_idle_color = sf::Color(80, 80, 80, 255);
+    ButtonInitParams->outline_active_color = sf::Color(80, 80, 80, 255);
+    ButtonInitParams->outline_hover_color = sf::Color(80, 80, 80, 255);
+    ButtonInitParams->thickness = 1.5f;
     ButtonInitParams->id = params->id;
-
     this->activeElement = new gui::Button(ButtonInitParams);
 
-    for (unsigned i = 0; i < params->nrOfElements; i++)
+    ButtonInitParams->background_idle_color = sf::Color(140, 140, 140, 200);
+    ButtonInitParams->background_hover_color = sf::Color(140, 140, 140, 255);
+    ButtonInitParams->outline_idle_color = sf::Color::Transparent;
+    ButtonInitParams->outline_active_color = sf::Color(80, 80, 80, 255);
+    ButtonInitParams->outline_hover_color = sf::Color(80, 80, 80, 255);
+    for (unsigned i{0}; i < params->nrOfElements; i++)
     {
-        ButtonInitParams->y =  params->y + ((static_cast<float>(i)+1) * params->height);
+        ButtonInitParams->y =  params->y + ((static_cast<float>(i)+1) * (params->height+3.f));
         ButtonInitParams->text = params->list[i];
         ButtonInitParams->id = i;
         this->list.push_back(
@@ -272,6 +294,8 @@ void gui::DropDownList::update(const sf::Vector2i & mousePosWindow, const float&
 void gui::DropDownList::render(sf::RenderTarget & target)
 {
     this->activeElement->render(target);
+    if(label!= nullptr)
+        target.draw(*label);
 
     if (this->showList)
     {

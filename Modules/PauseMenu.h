@@ -42,17 +42,17 @@ public:
     * @param key Key of the button
     * @return Return value of true or false
     */
-    const bool isButtonPressed(const std::string key);
+    bool isButtonPressed(const std::string& key);
 
     /**
-   * @brief Creates new button
-   * @param key Key of the button
-   * @param y Y position
-   * @param width Width of the button
-   * @param height Height of the button
-   * @param char_size Character size
-   * @param text Text ref to display
-   */
+    * @brief Creates new button
+    * @param key Key of the button
+    * @param y Y position
+    * @param width Width of the button
+    * @param height Height of the button
+    * @param char_size Character size
+    * @param text Text ref to display
+    */
     void addButton(const std::string key,
                    const float y,
                    const float width,

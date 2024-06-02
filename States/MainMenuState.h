@@ -42,7 +42,7 @@ public:
     * @brief Class constructor
     * @param state_date Pointer to main state data.
     */
-    MainMenuState(StateData* state_data);
+    explicit MainMenuState(StateData* state_data);
 
     /**
     * @brief Class destructor

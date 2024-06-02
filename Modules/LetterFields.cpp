@@ -3,8 +3,8 @@
 #include <sstream>
 
 int findStarPositions(const std::wstring& str) {
-    int count=0;
-    for (size_t i = 0; i < str.length(); ++i) {
+    int count{0};
+    for (size_t i{0}; i < str.length(); ++i) {
         if (str[i] == '*') {
             count++;
         }
@@ -33,9 +33,9 @@ void LetterFields::initLetterFields(const std::wstring& password) {
     const sf::VideoMode& vm = this->gfxSettings->resolution;
 
     uint8_t starCount = findStarPositions(password);
-    float line=0,pos=0;
+    float line{0},pos{0};
 
-    for(int i=0;i<password.size();i++)
+    for(int i{0};i<password.size();i++)
     {
         if(password[i]==L'*')
         {
@@ -66,7 +66,7 @@ void LetterFields::initLetterFields(const std::wstring& password) {
                 floor->setFillColor(sf::Color(70, 70, 70, 255));
 
                 constexpr wchar_t letters[35] = L"AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUWXYZŹŻ";
-                for(uint_fast8_t j=0;j<35;j++){
+                for(uint_fast8_t j{0};j<35;j++){
                     if(tolower(password[i])==tolower(letters[j]))
                     {
                         Fields.push_back(new LetterField(
@@ -103,7 +103,7 @@ void LetterFields::render(sf::RenderTarget *target) {
 
 
 int LetterFields::revealLetter(const uint8_t letter) {
-    uint8_t sum=0;
+    uint8_t sum{0};
     for (auto &it : this->Fields)
     {
         if(it->id==letter)
