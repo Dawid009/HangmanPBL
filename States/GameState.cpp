@@ -42,7 +42,7 @@ void GameState::initDeferredRender()
 
 void GameState::initFonts()
 {
-    if (!this->font.loadFromFile("Fonts/Caveat.ttf"))
+    if (!this->font.loadFromFile(this->stateData->localpath+"Fonts/Caveat.ttf"))
     {
         throw("ERROR::MAINMENUSTATE::COULD NOT LOAD FONT");
     }
@@ -65,7 +65,7 @@ void GameState::initView()
 
     this->background.setSize(sf::Vector2f(static_cast<float>(vm.width),static_cast<float>(vm.height)));
 
-    if (!this->backgroundTexture.loadFromFile("Images/gamebackground.jpg"))
+    if (!this->backgroundTexture.loadFromFile(this->stateData->localpath+"Images/gamebackground.jpg"))
     {
         throw "ERROR::MAIN_MENU::FAILED_TO_LOAD_BACKGROUND_TEXTURE";
     }

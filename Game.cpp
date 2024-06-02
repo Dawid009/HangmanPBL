@@ -1,8 +1,26 @@
 #include "Game.h"
 
+#include <CoreFoundation/CoreFoundation.h>
 
 Game::Game()
 {
+    CFBundleRef mainBundle = CFBundleGetMainBundle();
+    if (mainBundle) {
+        CFURLRef bundleURL = CFBundleCopyBundleURL(mainBundle);
+        if (bundleURL) {
+            CFStringRef bundlePath = CFURLCopyFileSystemPath(bundleURL, kCFURLPOSIXPathStyle);
+            if (bundlePath) {
+                char path[PATH_MAX];
+                if (CFStringGetCString(bundlePath, path, sizeof(path), kCFStringEncodingUTF8)) {
+                    std::string bundlePathString(path); // Konwersja na C++ string
+                    std::cout << "Bundle path: " << bundlePathString << std::endl;
+                    this->stateData.localpath = bundlePathString+"/Contents/Resources/";
+                }
+                CFRelease(bundlePath); // Pamiętaj o zwolnieniu zasobu
+            }
+            CFRelease(bundleURL); // Pamiętaj o zwolnieniu zasobu
+        }
+    }
     this->initVariables();
     this->initGraphicsSettings();
     this->initWindow();
@@ -51,7 +69,7 @@ void Game::updateDt()
 
 void Game::initGraphicsSettings()
 {
-    this->gfxSettings.loadFromFile("Config/graphics.ini");
+    this->gfxSettings.loadFromFile(this->stateData.localpath+"Config/graphics.ini");
 }
 
 

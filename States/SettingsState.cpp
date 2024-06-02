@@ -1,5 +1,5 @@
 #include "SettingsState.h"
-
+#include "MainMenuState.h"
 
 void SettingsState::initVariables()
 {
@@ -8,7 +8,7 @@ void SettingsState::initVariables()
 
 void SettingsState::initFonts()
 {
-    if (!this->font.loadFromFile("Fonts/Caveat.ttf"))
+    if (!this->font.loadFromFile(this->stateData->localpath+"Fonts/Caveat.ttf"))
     {
         throw("ERROR::MAINMENUSTATE::COULD NOT LOAD FONT");
     }
@@ -37,7 +37,7 @@ void SettingsState::initGui()
                     )
     );
 
-    if (!this->backgroundTexture.loadFromFile("Images/background.jpg"))
+    if (!this->backgroundTexture.loadFromFile(this->stateData->localpath+"Images/background.jpg"))
     {
         throw "ERROR::MAIN_MENU_STATE::FAILED_TO_LOAD_BACKGROUND_TEXTURE";
     }
@@ -207,12 +207,14 @@ void SettingsState::updateGui(const float & dt)
 
     if (this->buttons["APPLY"]->isPressed())
     {
+        auto ptr = this->stateData->states->top();
+
         this->stateData->gfxSettings->resolution = this->modes[this->dropDownLists["RESOLUTION"]->getActiveElementId()];
         this->stateData->gfxSettings->fullscreen = this->dropDownLists["FULLSCREEN"]->getActiveElementId() != 0;
         this->stateData->gfxSettings->contextSettings.antialiasingLevel = this->dropDownLists["ALIASING"]->getActiveElementId() !=0;
         this->stateData->gfxSettings->verticalSync = this->dropDownLists["VSYNC"]->getActiveElementId() !=0;
         this->stateData->gfxSettings->frameRateLimit = this->fps[this->dropDownLists["FPS"]->getActiveElementId()];
-        this->stateData->gfxSettings->saveToFile("Config/graphics.ini");
+        this->stateData->gfxSettings->saveToFile(this->stateData->localpath+"Config/graphics.ini");
         this->window->create(this->stateData->gfxSettings->resolution, this->stateData->gfxSettings->title, this->stateData->gfxSettings->fullscreen?  sf::Style::Fullscreen :  sf::Style::Default);
         this->window->setFramerateLimit(this->stateData->gfxSettings->frameRateLimit);
         this->resetGui();

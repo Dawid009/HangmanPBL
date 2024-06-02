@@ -29,7 +29,7 @@ MainMenuState::~MainMenuState()
 
 void MainMenuState::initFonts()
 {
-    if (!this->font.loadFromFile("Fonts/Caveat.ttf"))
+    if (!this->font.loadFromFile(this->stateData->localpath+"Fonts/Caveat.ttf"))
     {
         throw("ERROR: Nie udalo sie zaladowac czcionki");
     }
@@ -42,8 +42,7 @@ void MainMenuState::initGui()
 
     this->background.setSize(sf::Vector2f(static_cast<float>(vm.width),static_cast<float>(vm.height)));
 
-    std::cout<<std::filesystem::current_path();
-    if (!this->backgroundTexture.loadFromFile("Images/background.jpg"))
+    if (!this->backgroundTexture.loadFromFile(this->stateData->localpath+"Images/background.jpg"))
     {
         throw "ERROR::MAIN_MENU::FAILED_TO_LOAD_BACKGROUND_TEXTURE";
     }
