@@ -19,11 +19,10 @@ public:
     /**
     * @brief Class constructor
     */
-    StateData() : showfps(true) {};
+    StateData() {};
     sf::RenderWindow* window;///<The game window pointer.
     GraphicsSettings* gfxSettings;///<An object that stores settings
     std::stack<State*>* states;///<A stack that stores the views.
-    bool showfps;///<Should fps be visible
     std::string localpath;
 };
 

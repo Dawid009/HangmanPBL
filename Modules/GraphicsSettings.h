@@ -23,6 +23,7 @@ public:
     sf::VideoMode resolution;///<Window resolution
     bool fullscreen;///<Should the game be in fullscreen
     bool verticalSync;///<Should the game use vertical sync
+    bool showFps;
     unsigned frameRateLimit;///<FPS cap
     sf::ContextSettings contextSettings; ///<
     std::vector<sf::VideoMode> videoModes; ///<array of all resolutions

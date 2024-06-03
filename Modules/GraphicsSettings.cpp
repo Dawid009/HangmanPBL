@@ -11,6 +11,7 @@ GraphicsSettings::GraphicsSettings()
     this->frameRateLimit = 120;
     this->contextSettings.antialiasingLevel = 0;
     this->videoModes = sf::VideoMode::getFullscreenModes();
+    this->showFps = true;
 }
 
 void GraphicsSettings::saveToFile(const std::string& path) const
@@ -25,6 +26,7 @@ void GraphicsSettings::saveToFile(const std::string& path) const
         ofs << this->frameRateLimit<<std::endl;
         ofs << this->verticalSync<<std::endl;
         ofs << this->contextSettings.antialiasingLevel<<std::endl;
+        ofs << this->showFps<<std::endl;
     }
 
     ofs.close();
@@ -42,6 +44,7 @@ void GraphicsSettings::loadFromFile(const std::string& path)
         ifs >> this->frameRateLimit;
         ifs >> this->verticalSync;
         ifs >> this->contextSettings.antialiasingLevel;
+        ifs >> this->showFps;
     }
 
     ifs.close();

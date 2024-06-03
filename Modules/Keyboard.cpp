@@ -27,9 +27,11 @@ void Keyboard::initKeyboard() {
     ButtonInitParams->font = &this->font;
     ButtonInitParams->thickness = 2.f;
     ButtonInitParams->character_size = gui::calcCharSize(vm,60);
-    ButtonInitParams->hoverScale = 2.0f;
-    ButtonInitParams->activeScale = 1.5f;
+    ButtonInitParams->hoverScale = 1.5f;
+    ButtonInitParams->activeScale = 1.2f;
     ButtonInitParams->text_idle_color=sf::Color(30,30,30,255);
+    ButtonInitParams->scaleToHoverTime=10.f;
+    ButtonInitParams->scaleToIdleTime=10.f;
 
     constexpr wchar_t letters[35] = L"AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUWXYZŹŻ";
 
@@ -37,7 +39,7 @@ void Keyboard::initKeyboard() {
     uint8_t line{0},pos{0};
     for(auto ch : letters){
         if(pos<10){
-            ButtonInitParams->x =  gui::calcX(10,vm)+static_cast<float>(pos)*gui::calcX(5.1f,vm);
+            ButtonInitParams->x =  gui::calcX(7,vm)+static_cast<float>(pos)*gui::calcX(5.1f,vm);
             ButtonInitParams->y =  gui::calcY(55,vm)+static_cast<float>(line)*gui::calcY(8.f,vm);
             ButtonInitParams->text = sf::String(ch);
             buttons[id] = new gui::Button(ButtonInitParams);
@@ -45,7 +47,7 @@ void Keyboard::initKeyboard() {
         }else{
             pos=0;
             line++;
-            ButtonInitParams->x =  gui::calcX(10,vm)+static_cast<float>(pos)*gui::calcX(5.1f,vm);
+            ButtonInitParams->x =  gui::calcX(7,vm)+static_cast<float>(pos)*gui::calcX(5.1f,vm);
             ButtonInitParams->y =  gui::calcY(55,vm)+static_cast<float>(line)*gui::calcY(8.f,vm);
             ButtonInitParams->text = sf::String(ch);
             buttons[id] = new gui::Button(ButtonInitParams);

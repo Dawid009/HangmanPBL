@@ -1,7 +1,5 @@
 #include "MainMenuState.h"
-#include <iostream>
 #include <locale>
-#include <filesystem>
 #include "SettingsState.h"
 
 #define NEW_GAME 1
@@ -19,10 +17,9 @@ MainMenuState::MainMenuState(StateData* state_data)
 
 MainMenuState::~MainMenuState()
 {
-    auto it = this->buttons.begin();
-    for (it = this->buttons.begin(); it != this->buttons.end(); ++it)
+    for (auto &it : this->buttons)
     {
-        delete it->second;
+        delete it.second;
     }
 }
 
@@ -92,10 +89,9 @@ void MainMenuState::initGui()
 
 void MainMenuState::resetGui()
 {
-    auto it = this->buttons.begin();
-    for (it = this->buttons.begin(); it != this->buttons.end(); ++it)
+    for (auto &it : this->buttons)
     {
-        delete it->second;
+        delete it.second;
     }
     this->buttons.clear();
     this->initGui();

@@ -48,19 +48,19 @@ void LetterFields::initLetterFields(const std::wstring& password) {
                 auto *txt = new sf::Text();
                 txt->setFont(this->font);
                 txt->setString(password[i]);
-                txt->setCharacterSize(gui::calcCharSize(vm,60));
+                txt->setCharacterSize(gui::calcCharSize(vm,50));
 
                 txt->setFillColor(sf::Color(70, 70, 70, 0));
                 txt->setPosition(sf::Vector2f(
-                        gui::calcX(11.f , vm) + gui::calcX(0.8, vm) + pos * gui::calcX(6, vm),
-                        gui::calcY(20.f-static_cast<float>(starCount*2), vm) + line * gui::calcY(7, vm)));
+                        gui::calcX(7.f , vm) + gui::calcX(0.8, vm) + pos * gui::calcX(6, vm),
+                        gui::calcY(19.4f-static_cast<float>(starCount*2), vm) + line * gui::calcY(7, vm)));
 
                 auto *floor = new sf::RectangleShape(sf::Vector2f(
                         gui::calcX(4, vm),
                         gui::calcX(0.3, vm)));
 
                 floor->setPosition(sf::Vector2f(
-                        gui::calcX(11.f, vm) + pos * gui::calcX(6, vm),
+                        gui::calcX(7.f, vm) + pos * gui::calcX(6, vm),
                         gui::calcY(25.f-static_cast<float>(starCount*2), vm) + line * gui::calcY(7, vm)));
 
                 floor->setFillColor(sf::Color(70, 70, 70, 255));
@@ -80,7 +80,6 @@ void LetterFields::initLetterFields(const std::wstring& password) {
             pos++;
         }
     }
-
 }
 
 

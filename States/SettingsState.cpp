@@ -1,9 +1,16 @@
 #include "SettingsState.h"
-#include "MainMenuState.h"
 
 void SettingsState::initVariables()
 {
     this->modes = sf::VideoMode::getFullscreenModes();
+    const sf::VideoMode& vm = this->stateData->gfxSettings->resolution;
+    fpsText = new sf::Text();
+
+    fpsText->setString("");
+    fpsText->setFont(this->font);
+    fpsText->setCharacterSize(gui::calcCharSize(vm,70.f));
+    fpsText->setPosition(sf::Vector2f(gui::calcX(0.5f,vm),gui::calcY(0.5f,vm)));
+    fpsText->setFillColor(sf::Color(20, 20, 20, 255));
 }
 
 void SettingsState::initFonts()
@@ -17,17 +24,6 @@ void SettingsState::initFonts()
 void SettingsState::initGui()
 {
     const sf::VideoMode& vm = this->stateData->gfxSettings->resolution;
-
-
-
-    if(stateData->showfps){
-        fpsText = new sf::Text();
-        fpsText->setString("");
-        fpsText->setFont(this->font);
-        fpsText->setCharacterSize(gui::calcCharSize(vm,70.f));
-        fpsText->setPosition(sf::Vector2f(gui::calcX(0.5f,vm),gui::calcY(0.5f,vm)));
-        fpsText->setFillColor(sf::Color(20, 20, 20, 255));
-    }
 
     this->background.setSize(
             sf::Vector2f
@@ -80,13 +76,13 @@ void SettingsState::initGui()
 
     auto* DropdownParams = new gui::DropDownParams();
     DropdownParams->x = gui::calcX(42.5f, vm);
-    DropdownParams->y = gui::calcY(21.f, vm);
+    DropdownParams->y = gui::calcY(16.f, vm);
     DropdownParams->width = gui::calcX(9.f, vm);
-    DropdownParams->height = gui::calcY(4.5f, vm);
+    DropdownParams->height = gui::calcY(4.0f, vm);
     DropdownParams->font = &font;
     DropdownParams->list = modes_str.data();
     DropdownParams->nrOfElements = modes_str.size();
-    DropdownParams->character_size = gui::calcCharSize(vm,85);
+    DropdownParams->character_size = gui::calcCharSize(vm,90);
     DropdownParams->id = active_id;
     auto text = new std::string{"Resolution"};
     DropdownParams->label = text;
@@ -94,8 +90,8 @@ void SettingsState::initGui()
 
 
     std::vector<std::string> fullscreen_str;
-    fullscreen_str.push_back("OFF");
-    fullscreen_str.push_back("ON");
+    fullscreen_str.emplace_back("OFF");
+    fullscreen_str.emplace_back("ON");
     DropdownParams->x = gui::calcX(6.f, vm);
     DropdownParams->id = this->stateData->gfxSettings->fullscreen?1:0;
     DropdownParams->list = fullscreen_str.data();
@@ -105,8 +101,8 @@ void SettingsState::initGui()
 
 
     std::vector<std::string> vsync_str;
-    vsync_str.push_back("OFF");
-    vsync_str.push_back("ON");
+    vsync_str.emplace_back("OFF");
+    vsync_str.emplace_back("ON");
     DropdownParams->x = gui::calcX(18.f, vm);
     DropdownParams->id = this->stateData->gfxSettings->contextSettings.antialiasingLevel?1:0;
     DropdownParams->list = vsync_str.data();
@@ -116,8 +112,8 @@ void SettingsState::initGui()
 
 
     std::vector<std::string> aliasing_str;
-    aliasing_str.push_back("OFF");
-    aliasing_str.push_back("ON");
+    aliasing_str.emplace_back("OFF");
+    aliasing_str.emplace_back("ON");
     DropdownParams->x = gui::calcX(30.f, vm);
     DropdownParams->id = this->stateData->gfxSettings->contextSettings.antialiasingLevel?1:0;
     DropdownParams->list = aliasing_str.data();
@@ -127,14 +123,14 @@ void SettingsState::initGui()
 
 
     std::vector<std::string> fpscap_str;
-    fpscap_str.push_back("MAX");
-    fpscap_str.push_back("240");
-    fpscap_str.push_back("120");
-    fpscap_str.push_back("60");
-    fpscap_str.push_back("30");
-    fpscap_str.push_back("15");
+    fpscap_str.emplace_back("MAX");
+    fpscap_str.emplace_back("240");
+    fpscap_str.emplace_back("120");
+    fpscap_str.emplace_back("60");
+    fpscap_str.emplace_back("30");
+    fpscap_str.emplace_back("15");
     DropdownParams->x = gui::calcX(6.f, vm);
-    DropdownParams->y= gui::calcY(45.f, vm);
+    DropdownParams->y= gui::calcY(40.f, vm);
     for(int i{0};i<6;i++){
         if(this->stateData->gfxSettings->frameRateLimit==fps[i])
         {
@@ -147,22 +143,33 @@ void SettingsState::initGui()
     *text = "Fps Cap";
     this->dropDownLists["FPS"] = new gui::DropDownList(DropdownParams);
 
+
+    std::vector<std::string> showfps_str;
+    showfps_str.emplace_back("OFF");
+    showfps_str.emplace_back("ON");
+    DropdownParams->x = gui::calcX(18.f, vm);
+    DropdownParams->y= gui::calcY(40.f, vm);
+    DropdownParams->id = this->stateData->gfxSettings->showFps?1:0;
+    DropdownParams->list = showfps_str.data();
+    DropdownParams->nrOfElements = showfps_str.size();
+    *text = "Show Fps";
+    this->dropDownLists["SHOWFPS"] = new gui::DropDownList(DropdownParams);
+
+
     delete DropdownParams;
 }
 
 void SettingsState::resetGui()
 {
-    auto it = this->buttons.begin();
-    for (it = this->buttons.begin(); it != this->buttons.end(); ++it)
+    for (auto& it : buttons)
     {
-        delete it->second;
+        delete it.second;
     }
     this->buttons.clear();
 
-   auto it2 = this->dropDownLists.begin();
-    for (it2 = this->dropDownLists.begin(); it2 != this->dropDownLists.end(); ++it2)
+    for (auto& it2: dropDownLists)
     {
-        delete it2->second;
+        delete it2.second;
     }
     this->dropDownLists.clear();
 
@@ -179,16 +186,15 @@ SettingsState::SettingsState(StateData* state_data)
 
 SettingsState::~SettingsState()
 {
-    auto it = this->buttons.begin();
-    for (it = this->buttons.begin(); it != this->buttons.end(); ++it)
+
+    for (auto &it : buttons)
     {
-        delete it->second;
+        delete it.second;
     }
 
-    auto it2 = this->dropDownLists.begin();
-    for (it2 = this->dropDownLists.begin(); it2 != this->dropDownLists.end(); ++it2)
+    for (auto &it2 : dropDownLists)
     {
-        delete it2->second;
+        delete it2.second;
     }
 }
 
@@ -207,15 +213,14 @@ void SettingsState::updateGui(const float & dt)
 
     if (this->buttons["APPLY"]->isPressed())
     {
-        auto ptr = this->stateData->states->top();
-
         this->stateData->gfxSettings->resolution = this->modes[this->dropDownLists["RESOLUTION"]->getActiveElementId()];
         this->stateData->gfxSettings->fullscreen = this->dropDownLists["FULLSCREEN"]->getActiveElementId() != 0;
         this->stateData->gfxSettings->contextSettings.antialiasingLevel = this->dropDownLists["ALIASING"]->getActiveElementId() !=0;
         this->stateData->gfxSettings->verticalSync = this->dropDownLists["VSYNC"]->getActiveElementId() !=0;
         this->stateData->gfxSettings->frameRateLimit = this->fps[this->dropDownLists["FPS"]->getActiveElementId()];
+        this->stateData->gfxSettings->showFps= dropDownLists["SHOWFPS"]->getActiveElementId() !=0;
         this->stateData->gfxSettings->saveToFile(this->stateData->localpath+"Config/graphics.ini");
-        this->window->create(this->stateData->gfxSettings->resolution, this->stateData->gfxSettings->title, this->stateData->gfxSettings->fullscreen?  sf::Style::Fullscreen :  sf::Style::Default);
+        this->window->create(this->stateData->gfxSettings->resolution, this->stateData->gfxSettings->title, this->stateData->gfxSettings->fullscreen?  sf::Style::Fullscreen :  sf::Style::Titlebar | sf::Style::Close);
         this->window->setFramerateLimit(this->stateData->gfxSettings->frameRateLimit);
         this->resetGui();
     }
@@ -225,7 +230,7 @@ void SettingsState::updateGui(const float & dt)
         it.second->update(this->mousePosWindow, dt);
     }
 
-    if(this->stateData->showfps && delay>1.5f){
+    if(this->stateData->gfxSettings->showFps && delay>1.5f){
         fpsText->setString(std::to_string(static_cast<int>(1/dt)));
         delay=0;
     }else{
@@ -257,7 +262,7 @@ void SettingsState::render(sf::RenderTarget* target)
     {
         it.second->render(*target);
     }
-    if(this->stateData->showfps){
+    if(this->stateData->gfxSettings->showFps){
         target->draw(*fpsText);
     }
 }

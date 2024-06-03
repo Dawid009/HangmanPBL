@@ -214,6 +214,8 @@ namespace gui {
         gui::Button* activeElement;///<Active dropdown element
         std::vector<gui::Button*> list;///<All dropdown positions
         bool showList;///<Should list be visible
+        int renderIndex;
+        sf::Clock elapsed;
 
     public:
         /**

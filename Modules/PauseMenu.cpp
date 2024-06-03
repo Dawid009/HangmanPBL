@@ -21,10 +21,9 @@ PauseMenu::PauseMenu(sf::VideoMode& vm, sf::Font& font)
 
 PauseMenu::~PauseMenu()
 {
-    auto it = this->buttons.begin();
-    for (it = this->buttons.begin(); it != this->buttons.end(); ++it)
+    for (auto &it : this->buttons)
     {
-        delete it->second;
+        delete it.second;
     }
 }
 

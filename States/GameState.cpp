@@ -1,6 +1,6 @@
 #include "GameState.h"
-#include <fstream>
 #include <locale>
+#include <fstream>
 
 GameState::GameState(StateData* state_data)
         : State(state_data)
@@ -11,14 +11,33 @@ GameState::GameState(StateData* state_data)
     this->initFonts();
     this->initPauseMenu();
     this->keyboard = new Keyboard(this->font,this->stateData->gfxSettings);
-    this->letterFields = new LetterFields(this->font,this->stateData->gfxSettings,L"Tekstabcd");
+
+    std::srand(std::time(nullptr));
+    int randomLine = std::rand() % 170;
+    std::wstring line;
+    int currentLine = 0;
+
+    std::wifstream file(this->stateData->localpath+"Passwords/PL.txt");
+    if (file.is_open()) {
+        // Iteracyjne odczytywanie pliku
+        while (std::getline(file, line)) {
+            if (currentLine == randomLine) {
+                break;
+            }
+            currentLine++;
+        }
+        file.close();
+    }else{
+        std::cerr << "Nie można otworzyć pliku" << std::endl;
+    }
+
+
+
+    this->letterFields = new LetterFields(this->font,this->stateData->gfxSettings,line);
     this->hangman = new Hangman(this->stateData->gfxSettings);
 }
 
-GameState::~GameState()
-{
-
-}
+GameState::~GameState() = default;
 
 void GameState::initDeferredRender()
 {
@@ -54,7 +73,7 @@ void GameState::initView()
 {
     const sf::VideoMode& vm = this->stateData->gfxSettings->resolution;
 
-    if(stateData->showfps){
+    if(stateData->gfxSettings->showFps){
         fpsText = new sf::Text();
         fpsText->setString("");
         fpsText->setFont(this->font);
@@ -85,18 +104,25 @@ void GameState::initPauseMenu()
 
 
 void GameState::checkKeyboard(const uint8_t letter) {
-    if(this->keyboard->IsPressed(letter)){
+    if(misses<6){
+        if(this->keyboard->IsPressed(letter)){
+            if(auto points = this->letterFields->revealLetter(letter)){
+                this->keyboard->SetButtonEnabled(letter,false);
+                this->keyboard->SetButtonColor(letter,sf::Color(0,153,0,255));
 
-       if(auto points = this->letterFields->revealLetter(letter)){
-            this->keyboard->SetButtonColor(letter,sf::Color(0,153,0));
-           this->keyboard->SetButtonEnabled(letter,false);
-       }else{
-           this->keyboard->SetButtonColor(letter,sf::Color(250,0,0));
-            this->keyboard->SetButtonEnabled(letter,false);
-            misses++;
-            this->hangman->setLevel(misses);
-        };
+            }else{
+                this->keyboard->SetButtonEnabled(letter,false);
+                this->keyboard->SetButtonColor(letter,sf::Color(250,0,0,255));
+                misses++;
+                this->hangman->setLevel(misses);
+            };
+        }
+    }else{
+        this->keyboard->SetButtonEnabled(letter,false);
+        this->letterFields->revealLetter(letter);
     }
+
+
 }
 
 
@@ -117,7 +143,6 @@ void GameState::update(const float& dt)
     {
         this->keyboard->update(mousePosWindow,dt);
         this->letterFields->update(dt);
-        this->hangman->update(dt);
 
         //Sprawdzanie czy nacisniety przycisk
         for(uint8_t i{0};i<34;i++){
@@ -136,7 +161,7 @@ void GameState::update(const float& dt)
     }
 
 
-    if(this->stateData->showfps && delay>1.5f){
+    if(this->stateData->gfxSettings->showFps && delay>1.5f){
         fpsText->setString(std::to_string(static_cast<int>(1/dt)));
         delay=0;
     }else{
@@ -167,7 +192,7 @@ void GameState::render(sf::RenderTarget* target)
     this->renderSprite.setTexture(this->renderTexture.getTexture());
     target->draw(renderSprite);
 
-    if(this->stateData->showfps){
+    if(this->stateData->gfxSettings->showFps){
         target->draw(*fpsText);
     }
 }

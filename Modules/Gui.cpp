@@ -223,7 +223,7 @@ gui::DropDownList::DropDownList(DropDownParams* params)
     ButtonInitParams->outline_hover_color = sf::Color(80, 80, 80, 255);
     for (unsigned i{0}; i < params->nrOfElements; i++)
     {
-        ButtonInitParams->y =  params->y + ((static_cast<float>(i)+1) * (params->height+3.f));
+        ButtonInitParams->y =  params->y + ((static_cast<float>(i)+1) * (params->height+2.f));
         ButtonInitParams->text = params->list[i];
         ButtonInitParams->id = i;
         this->list.push_back(
@@ -266,13 +266,20 @@ void gui::DropDownList::update(const sf::Vector2i & mousePosWindow, const float&
 
     this->activeElement->update(mousePosWindow,dt);
 
+    if(renderIndex<this->list.size() && elapsed.getElapsedTime() >= sf::milliseconds((80/list.size()/(dt*80)))){
+        renderIndex++;
+        elapsed.restart();
+    }
 
     if (this->activeElement->isPressed() && this->getKeytime())
     {
         if (this->showList)
             this->showList = false;
-        else
+        else{
             this->showList = true;
+            renderIndex=0;
+        }
+
     }
 
     if (this->showList)
@@ -299,9 +306,8 @@ void gui::DropDownList::render(sf::RenderTarget & target)
 
     if (this->showList)
     {
-        for (auto &i : this->list)
-        {
-            i->render(target);
+        for(int i=0;i<renderIndex;i++){
+            this->list[i]->render(target);
         }
     }
 }
