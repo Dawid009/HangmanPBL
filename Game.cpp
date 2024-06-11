@@ -83,7 +83,7 @@ void Game::initStateData()
 
 void Game::initStates()
 {
-    this->states.push(new MainMenuState(&this->stateData));
+    this->states.push(new LoadingState(&this->stateData));
 }
 
 

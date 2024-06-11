@@ -38,6 +38,9 @@ void Keyboard::initKeyboard() {
     uint8_t id{0};
     uint8_t line{0},pos{0};
     for(auto ch : letters){
+
+        if(ch==L'\0') continue;
+
         if(pos<10){
             ButtonInitParams->x =  gui::calcX(7,vm)+static_cast<float>(pos)*gui::calcX(5.1f,vm);
             ButtonInitParams->y =  gui::calcY(55,vm)+static_cast<float>(line)*gui::calcY(8.f,vm);
@@ -55,6 +58,7 @@ void Keyboard::initKeyboard() {
         }
         id++;
     }
+
 
     //przeniesc gdzie indziej
     ButtonInitParams->x =  gui::calcX(90,vm);

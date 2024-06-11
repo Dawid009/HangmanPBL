@@ -1,9 +1,9 @@
 var searchData=
 [
   ['initdeferredrender_0',['initDeferredRender',['../class_game_state.html#a5560dd2fa69f4f5d869127d0e99d50c6',1,'GameState']]],
-  ['initfonts_1',['initFonts',['../class_game_state.html#a254268c7021969701d6df3bbae2e3f4a',1,'GameState::initFonts()'],['../class_main_menu_state.html#a6a72ebf025483b548c98e248dd18d313',1,'MainMenuState::initFonts()'],['../class_settings_state.html#a8de5e3fed25c68e883e82961a52e89b4',1,'SettingsState::initFonts()']]],
+  ['initfonts_1',['initFonts',['../class_game_state.html#a254268c7021969701d6df3bbae2e3f4a',1,'GameState::initFonts()'],['../class_loading_state.html#af7b8121dd926afaac79142d6cf8ac530',1,'LoadingState::initFonts()'],['../class_main_menu_state.html#a6a72ebf025483b548c98e248dd18d313',1,'MainMenuState::initFonts()'],['../class_settings_state.html#a8de5e3fed25c68e883e82961a52e89b4',1,'SettingsState::initFonts()']]],
   ['initgraphicssettings_2',['initGraphicsSettings',['../class_game.html#afa6c7beb947e976c71b698f6967d19b1',1,'Game']]],
-  ['initgui_3',['initGui',['../class_main_menu_state.html#a00c856794e14eef337abd59f24cbbcd5',1,'MainMenuState::initGui()'],['../class_settings_state.html#ac14d9ba995ebc344495f8aa7efb45186',1,'SettingsState::initGui()']]],
+  ['initgui_3',['initGui',['../class_loading_state.html#ab835982e132d2afa5bddd367981bf9e3',1,'LoadingState::initGui()'],['../class_main_menu_state.html#a00c856794e14eef337abd59f24cbbcd5',1,'MainMenuState::initGui()'],['../class_settings_state.html#ac14d9ba995ebc344495f8aa7efb45186',1,'SettingsState::initGui()']]],
   ['inithangman_4',['initHangman',['../class_hangman.html#a1a9f5e0a7587170104f1eeb037c30387',1,'Hangman']]],
   ['initkeyboard_5',['initKeyboard',['../class_keyboard.html#a2e460089a28e60de1fb31d507e1365b7',1,'Keyboard']]],
   ['initletterfields_6',['initLetterFields',['../class_letter_fields.html#a95ba8dfeb872fd85fe66617a64f74623',1,'LetterFields']]],

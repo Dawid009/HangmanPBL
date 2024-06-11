@@ -6,7 +6,7 @@
 #define HANGMAN_GAME_H
 
 #include <SFML/Graphics.hpp>
-#include "States/MainMenuState.h"
+#include "States/LoadingState.h"
 
 /** @class Game
  * @brief The basic class of the game

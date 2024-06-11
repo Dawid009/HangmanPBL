@@ -63,7 +63,7 @@ void LetterFields::initLetterFields(const std::wstring& password) {
                         gui::calcX(7.f, vm) + pos * gui::calcX(6, vm),
                         gui::calcY(25.f-static_cast<float>(starCount*2), vm) + line * gui::calcY(7, vm)));
 
-                floor->setFillColor(sf::Color(70, 70, 70, 255));
+                 floor->setFillColor(sf::Color(70, 70, 70, 255));
 
                 constexpr wchar_t letters[35] = L"AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUWXYZŹŻ";
                 for(uint_fast8_t j{0};j<35;j++){

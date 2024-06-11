@@ -14,12 +14,11 @@ var searchData=
   ['settingsstate_2eh_11',['SettingsState.h',['../_settings_state_8h.html',1,'']]],
   ['sfevent_12',['sfEvent',['../class_game.html#a1392fa61566de5b31a8d5e22586f3dcc',1,'Game']]],
   ['shape_13',['shape',['../classgui_1_1_button.html#ac74d98282082064567ca8b0c24a8a326',1,'gui::Button']]],
-  ['showfps_14',['showfps',['../class_state_data.html#a1ba41128b0c527f8136d099aa242b150',1,'StateData']]],
-  ['showlist_15',['showList',['../classgui_1_1_drop_down_list.html#abade11bac98d742cabd4f89ad464b5e9',1,'gui::DropDownList']]],
-  ['sprite_16',['sprite',['../class_hangman.html#aa28de17debcd33d05a34962d80bde6bd',1,'Hangman']]],
-  ['state_17',['State',['../class_state.html',1,'State'],['../class_state.html#a9de42e1e80c4ee2580b17af064498a94',1,'State::State()']]],
-  ['state_2eh_18',['State.h',['../_state_8h.html',1,'']]],
-  ['statedata_19',['StateData',['../class_state_data.html',1,'StateData'],['../class_state_data.html#a02aad935420f214b37d4e66d9c9a1ef9',1,'StateData::StateData()']]],
-  ['statedata_20',['stateData',['../class_game.html#a8ef3b436fc7c6a03fa2b79133e863ebe',1,'Game::stateData'],['../class_state.html#a9c55cdba6e8a4a7b8a6a83fa51311514',1,'State::stateData']]],
-  ['states_21',['states',['../class_game.html#ab953bd17e03bc976b1dc13eb6dde9ee0',1,'Game::states'],['../class_state_data.html#af7e8fb0c57ed292d0d8cf319643baebf',1,'StateData::states'],['../class_state.html#a5692fac721147048fe1d2656f8a7a687',1,'State::states']]]
+  ['showlist_14',['showList',['../classgui_1_1_drop_down_list.html#abade11bac98d742cabd4f89ad464b5e9',1,'gui::DropDownList']]],
+  ['sprite_15',['sprite',['../class_hangman.html#aa28de17debcd33d05a34962d80bde6bd',1,'Hangman']]],
+  ['state_16',['State',['../class_state.html',1,'State'],['../class_state.html#a9de42e1e80c4ee2580b17af064498a94',1,'State::State()']]],
+  ['state_2eh_17',['State.h',['../_state_8h.html',1,'']]],
+  ['statedata_18',['StateData',['../class_state_data.html',1,'StateData'],['../class_state_data.html#a02aad935420f214b37d4e66d9c9a1ef9',1,'StateData::StateData()']]],
+  ['statedata_19',['stateData',['../class_game.html#a8ef3b436fc7c6a03fa2b79133e863ebe',1,'Game::stateData'],['../class_state.html#a9c55cdba6e8a4a7b8a6a83fa51311514',1,'State::stateData']]],
+  ['states_20',['states',['../class_game.html#ab953bd17e03bc976b1dc13eb6dde9ee0',1,'Game::states'],['../class_state_data.html#af7e8fb0c57ed292d0d8cf319643baebf',1,'StateData::states'],['../class_state.html#a5692fac721147048fe1d2656f8a7a687',1,'State::states']]]
 ];

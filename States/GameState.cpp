@@ -17,7 +17,7 @@ GameState::GameState(StateData* state_data)
     std::wstring line;
     int currentLine = 0;
 
-    std::wifstream file(this->stateData->localpath+"Passwords/PL.txt");
+    std::wifstream file(this->stateData->localpath+"Passwords/PL.ini");
     if (file.is_open()) {
         // Iteracyjne odczytywanie pliku
         while (std::getline(file, line)) {
@@ -98,7 +98,6 @@ void GameState::initPauseMenu()
     const sf::VideoMode& vm = this->stateData->gfxSettings->resolution;
     this->pmenu = new PauseMenu(this->stateData->gfxSettings->resolution, this->font);
     this->pmenu->addButton("QUIT", gui::calcY(74.f, vm), gui::calcX(13.f, vm), gui::calcY(6.f, vm), gui::calcCharSize(vm), L"Quit");
-    this->pmenu->addButton("OPTIONS", gui::calcY(44.f, vm), gui::calcX(13.f, vm), gui::calcY(6.f, vm), gui::calcCharSize(vm), L"Options");
     this->pmenu->addButton("CONTINUE", gui::calcY(35.f, vm), gui::calcX(13.f, vm), gui::calcY(6.f, vm), gui::calcCharSize(vm), L"Continue");
 }
 
@@ -121,8 +120,6 @@ void GameState::checkKeyboard(const uint8_t letter) {
         this->keyboard->SetButtonEnabled(letter,false);
         this->letterFields->revealLetter(letter);
     }
-
-
 }
 
 

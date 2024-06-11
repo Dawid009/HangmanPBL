@@ -44,10 +44,10 @@ void MainMenuState::initGui()
         throw "ERROR::MAIN_MENU::FAILED_TO_LOAD_BACKGROUND_TEXTURE";
     }
 
-
     this->title.setPosition(sf::Vector2f(static_cast<float>(vm.width*0.13),static_cast<float>(vm.height*0.12)));
     this->title.setString("Hangman");
     this->title.setFont(this->font);
+    this->title.setStyle(1);
     this->title.setCharacterSize(gui::calcCharSize(vm,20));
     this->title.setFillColor(sf::Color(50,50,50,255));
 
@@ -65,6 +65,9 @@ void MainMenuState::initGui()
     ButtonInitParams->character_size = gui::calcCharSize(vm,50);
     ButtonInitParams->hoverScale = 1.2f;
     ButtonInitParams->activeScale = 1.1f;
+    ButtonInitParams->text_idle_color= sf::Color(40, 40, 40, 255);
+    ButtonInitParams->text_hover_color= sf::Color(25, 25, 25, 255),
+    ButtonInitParams->text_active_color= sf::Color(10, 10, 10, 255),
     this->buttons[NEW_GAME] = new gui::Button(ButtonInitParams);
 
     /*Continue*/
@@ -79,9 +82,7 @@ void MainMenuState::initGui()
     ButtonInitParams->y =  gui::calcY(70,vm);
     ButtonInitParams->text = L"Quit";
 
-    ButtonInitParams->text_idle_color= sf::Color(40, 40, 40, 255);
-    ButtonInitParams->text_hover_color= sf::Color(25, 25, 25, 255),
-    ButtonInitParams->text_active_color= sf::Color(10, 10, 10, 255),
+
     this->buttons[QUIT] = new gui::Button(ButtonInitParams);
     delete ButtonInitParams;
 }
@@ -122,6 +123,7 @@ void MainMenuState::updateButtons(const float& dt)
     if (this->buttons[QUIT]->isPressed())
     {
         this->endState();
+        window->close();
     }
 }
 

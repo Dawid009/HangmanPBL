@@ -127,23 +127,25 @@
 \DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_button}{gui::Button}}*\ \mbox{\hyperlink{classgui_1_1_drop_down_list_a7acd07160673df815009975bbe8fba8b}{activeElement}};}
 \DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ std::vector<gui::Button*>\ \mbox{\hyperlink{classgui_1_1_drop_down_list_a218c5b96817cdb8de29f7ea02bb02963}{list}};}
 \DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgui_1_1_drop_down_list_abade11bac98d742cabd4f89ad464b5e9}{showList}};}
-\DoxyCodeLine{00217\ }
-\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classgui_1_1_drop_down_list_adbbc1e9d955a572caaf1bf9ddb6088a9}{DropDownList}}(\mbox{\hyperlink{structgui_1_1_drop_down_params}{DropDownParams}}*\ params);}
-\DoxyCodeLine{00224\ }
-\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_drop_down_list_a729b8eb04d1377b7e14d30fbe40f98b6}{\string~DropDownList}}();}
-\DoxyCodeLine{00229\ }
-\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\&\ \mbox{\hyperlink{classgui_1_1_drop_down_list_ade75db937276bead0f64ca89c9c26484}{getActiveElementId}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00235\ }
-\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgui_1_1_drop_down_list_a867042ee90ff2b354595ee76f49eaf30}{getKeytime}}();}
-\DoxyCodeLine{00241\ }
-\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_drop_down_list_a4f98302f29a47b2c79df0f64e8abc541}{update}}(\textcolor{keyword}{const}\ sf::Vector2i\&\ mousePosWindow,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt);}
-\DoxyCodeLine{00247\ }
-\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_drop_down_list_a32f5a1e67542118760ce42a53d771dd4}{render}}(sf::RenderTarget\&\ target);}
-\DoxyCodeLine{00253\ \ \ \ \ \};}
-\DoxyCodeLine{00254\ }
-\DoxyCodeLine{00255\ }
-\DoxyCodeLine{00256\ \}}
-\DoxyCodeLine{00257\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//HANGMAN\_GUI\_H}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ renderIndex;}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ sf::Clock\ elapsed;}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classgui_1_1_drop_down_list_adbbc1e9d955a572caaf1bf9ddb6088a9}{DropDownList}}(\mbox{\hyperlink{structgui_1_1_drop_down_params}{DropDownParams}}*\ params);}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_drop_down_list_a729b8eb04d1377b7e14d30fbe40f98b6}{\string~DropDownList}}();}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\&\ \mbox{\hyperlink{classgui_1_1_drop_down_list_ade75db937276bead0f64ca89c9c26484}{getActiveElementId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgui_1_1_drop_down_list_a867042ee90ff2b354595ee76f49eaf30}{getKeytime}}();}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_drop_down_list_a4f98302f29a47b2c79df0f64e8abc541}{update}}(\textcolor{keyword}{const}\ sf::Vector2i\&\ mousePosWindow,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt);}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_drop_down_list_a32f5a1e67542118760ce42a53d771dd4}{render}}(sf::RenderTarget\&\ target);}
+\DoxyCodeLine{00255\ \ \ \ \ \};}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \}}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//HANGMAN\_GUI\_H}}
 
 \end{DoxyCode}

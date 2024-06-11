@@ -8,5 +8,7 @@ var searchData=
   ['letterfields_2eh_5',['LetterFields.h',['../_letter_fields_8h.html',1,'']]],
   ['line_6',['line',['../class_hangman.html#a524104106b08a41c963fae83d9926deb',1,'Hangman']]],
   ['list_7',['list',['../structgui_1_1_drop_down_params.html#a43a5df718b69936ca82619c890627690',1,'gui::DropDownParams::list'],['../classgui_1_1_drop_down_list.html#a218c5b96817cdb8de29f7ea02bb02963',1,'gui::DropDownList::list']]],
-  ['loadfromfile_8',['loadFromFile',['../class_graphics_settings.html#aad0c81d6e67cb00654e1d22fc773cfe5',1,'GraphicsSettings']]]
+  ['loadfromfile_8',['loadFromFile',['../class_graphics_settings.html#aad0c81d6e67cb00654e1d22fc773cfe5',1,'GraphicsSettings']]],
+  ['loadingstate_9',['LoadingState',['../class_loading_state.html',1,'LoadingState'],['../class_loading_state.html#adb2ee0932d349c6ad200c3437e3e8c1f',1,'LoadingState::LoadingState()']]],
+  ['loadingstate_2eh_10',['LoadingState.h',['../_loading_state_8h.html',1,'']]]
 ];
