@@ -35,6 +35,7 @@ GameState::GameState(StateData* state_data)
 
     this->letterFields = new LetterFields(this->font,this->stateData->gfxSettings,line);
     this->hangman = new Hangman(this->stateData->gfxSettings);
+    this->pointsModule = new Points(line.length());
 }
 
 GameState::~GameState() = default;
@@ -82,6 +83,16 @@ void GameState::initView()
         fpsText->setFillColor(sf::Color(20, 20, 20, 255));
     }
 
+    pointsText = new sf::Text();
+    pointsText->setString("Punkty");
+    pointsText->setFont(this->font);
+    pointsText->setCharacterSize(gui::calcCharSize(vm,50.f));
+    pointsText->setPosition(sf::Vector2f(gui::calcX(10.f,vm),gui::calcY(2.f,vm)));
+    pointsText->setFillColor(sf::Color(20, 20, 20, 255));
+    pointsText->setStyle(0);
+
+
+
     this->background.setSize(sf::Vector2f(static_cast<float>(vm.width),static_cast<float>(vm.height)));
 
     if (!this->backgroundTexture.loadFromFile(this->stateData->localpath+"Images/gamebackground.jpg"))
@@ -97,8 +108,9 @@ void GameState::initPauseMenu()
 {
     const sf::VideoMode& vm = this->stateData->gfxSettings->resolution;
     this->pmenu = new PauseMenu(this->stateData->gfxSettings->resolution, this->font);
-    this->pmenu->addButton("QUIT", gui::calcY(74.f, vm), gui::calcX(13.f, vm), gui::calcY(6.f, vm), gui::calcCharSize(vm), L"Quit");
-    this->pmenu->addButton("CONTINUE", gui::calcY(35.f, vm), gui::calcX(13.f, vm), gui::calcY(6.f, vm), gui::calcCharSize(vm), L"Continue");
+    this->pmenu->addButton("QUIT", gui::calcY(74.f, vm), gui::calcX(13.f, vm), gui::calcY(6.f, vm), gui::calcCharSize(vm), L"Wyjdz");
+    this->pmenu->addButton("RESTART", gui::calcY(45.f, vm), gui::calcX(13.f, vm), gui::calcY(6.f, vm), gui::calcCharSize(vm), L"Restart");
+    this->pmenu->addButton("CONTINUE", gui::calcY(35.f, vm), gui::calcX(13.f, vm), gui::calcY(6.f, vm), gui::calcCharSize(vm), L"Kontynuuj");
 }
 
 
@@ -106,20 +118,23 @@ void GameState::checkKeyboard(const uint8_t letter) {
     if(misses<6){
         if(this->keyboard->IsPressed(letter)){
             if(auto points = this->letterFields->revealLetter(letter)){
+                this->pointsModule->addPoints(letter, points);
                 this->keyboard->SetButtonEnabled(letter,false);
                 this->keyboard->SetButtonColor(letter,sf::Color(0,153,0,255));
-
             }else{
+                this->pointsModule->addPoints(letter, points);
                 this->keyboard->SetButtonEnabled(letter,false);
                 this->keyboard->SetButtonColor(letter,sf::Color(250,0,0,255));
                 misses++;
                 this->hangman->setLevel(misses);
             };
+
         }
     }else{
         this->keyboard->SetButtonEnabled(letter,false);
         this->letterFields->revealLetter(letter);
     }
+    pointsText->setString("Punkty: "+std::to_string(this->pointsModule->getPoints()));
 }
 
 
@@ -129,6 +144,10 @@ void GameState::updatePauseMenuButtons()
         this->endState();
     if (this->pmenu->isButtonPressed("CONTINUE"))
         this->paused = false;
+    if (this->pmenu->isButtonPressed("RESTART")) {
+        this->states->pop();
+        this->states->push(new GameState(stateData));
+    }
 }
 
 
@@ -169,16 +188,23 @@ void GameState::update(const float& dt)
 
 void GameState::render(sf::RenderTarget* target)
 {
-
+    //dodać prerenderowanie niektórych elementów
     this->renderTexture.clear();
     if (!target)
         target = this->window;
     this->renderTexture.clear();
-    target->draw(this->background);
+    //target->draw(this->background);
+
     renderTexture.draw(this->background);
     this->hangman->render(&renderTexture);
     this->keyboard->render(&renderTexture);
     this->letterFields->render(&renderTexture);
+
+    if(this->stateData->gfxSettings->showFps){
+        renderTexture.draw(*fpsText);
+    }
+
+    renderTexture.draw(*pointsText);
 
     if (this->paused)
     {
@@ -188,9 +214,5 @@ void GameState::render(sf::RenderTarget* target)
     this->renderTexture.display();
     this->renderSprite.setTexture(this->renderTexture.getTexture());
     target->draw(renderSprite);
-
-    if(this->stateData->gfxSettings->showFps){
-        target->draw(*fpsText);
-    }
 }
 

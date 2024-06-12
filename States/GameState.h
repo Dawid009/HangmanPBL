@@ -10,6 +10,7 @@
 #include "../Modules/LetterFields.h"
 #include "../Modules/Hangman.h"
 #include "../Modules/PauseMenu.h"
+#include "../Modules/Points.h"
 
 /**
  * @class GameState
@@ -27,7 +28,9 @@ private:
     Keyboard* keyboard; ///<Keyboard component pointer.
     LetterFields* letterFields; ///<Letter fields display component pointer.
     Hangman* hangman; ///<Hangman display component pointer.
+    Points* pointsModule; ///<Pointer to points module
     sf::Text* fpsText; ///<Fps text
+    sf::Text* pointsText; ///<Points text on the screen
     float delay=0;///<Fps update delay counter
     int misses=0;///<Misses count
 

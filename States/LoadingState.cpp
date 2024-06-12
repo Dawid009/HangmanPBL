@@ -40,7 +40,7 @@ void LoadingState::initGui()
     title.setFillColor(sf::Color::Black);
     title.setCharacterSize(gui::calcCharSize(vm,20));
     title.setPosition(sf::Vector2f(gui::calcX(30,vm),gui::calcY(40,vm)));
-    title.setString("HANGMAN");
+    title.setString("WISIELEC");
     title.setFont(this->font);
     title.setStyle(1);
 }
@@ -69,7 +69,6 @@ void LoadingState::update(const float& dt)
         }
         time.restart();
     }
-
     if (time.getElapsedTime().asSeconds() >= 1.5f&& !fadein) {
         this->fade.setFillColor(sf::Color(20,20,20,this->fade.getFillColor().a+dt*800));
         if(this->fade.getFillColor().a>240){

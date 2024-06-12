@@ -45,7 +45,7 @@ void MainMenuState::initGui()
     }
 
     this->title.setPosition(sf::Vector2f(static_cast<float>(vm.width*0.13),static_cast<float>(vm.height*0.12)));
-    this->title.setString("Hangman");
+    this->title.setString("Wisielec");
     this->title.setFont(this->font);
     this->title.setStyle(1);
     this->title.setCharacterSize(gui::calcCharSize(vm,20));
@@ -61,7 +61,7 @@ void MainMenuState::initGui()
     ButtonInitParams->width = static_cast<float>(gui::calcCharSize(vm,50)*7);
     ButtonInitParams->height = static_cast<float>(gui::calcCharSize(vm,50)*1.2);
     ButtonInitParams->font = &this->font;
-    ButtonInitParams->text = L"New game";
+    ButtonInitParams->text = L"Nowa gra";
     ButtonInitParams->character_size = gui::calcCharSize(vm,50);
     ButtonInitParams->hoverScale = 1.2f;
     ButtonInitParams->activeScale = 1.1f;
@@ -75,12 +75,12 @@ void MainMenuState::initGui()
 
     //Options
     ButtonInitParams->y =  gui::calcY(43,vm);
-    ButtonInitParams->text = L"Options";
+    ButtonInitParams->text = L"Opcje";
     this->buttons[OPTIONS] = new gui::Button(ButtonInitParams);
 
     //Exit
     ButtonInitParams->y =  gui::calcY(70,vm);
-    ButtonInitParams->text = L"Quit";
+    ButtonInitParams->text = L"Wyjście";
 
 
     this->buttons[QUIT] = new gui::Button(ButtonInitParams);

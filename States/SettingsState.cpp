@@ -47,7 +47,7 @@ void SettingsState::initGui()
     ButtonInitParams->width = gui::calcX(9.f, vm);
     ButtonInitParams->height = gui::calcY(6.f, vm);
     ButtonInitParams->font = &this->font;
-    ButtonInitParams->text = "Back";
+    ButtonInitParams->text = L"Wróc";
     ButtonInitParams->text_idle_color= sf::Color(40, 40, 40, 255);
     ButtonInitParams->text_hover_color= sf::Color(25, 25, 25, 255),
     ButtonInitParams->text_active_color= sf::Color(10, 10, 10, 255),
@@ -59,7 +59,7 @@ void SettingsState::initGui()
 
     ButtonInitParams->x =  gui::calcX(25.f, vm);
     ButtonInitParams->y =  gui::calcY(81.5f, vm);
-    ButtonInitParams->text = "Apply & Save";
+    ButtonInitParams->text = "Aplikuj i zapisz";
     this->buttons["APPLY"] = new gui::Button(ButtonInitParams);
 
 
@@ -84,7 +84,7 @@ void SettingsState::initGui()
     DropdownParams->nrOfElements = modes_str.size();
     DropdownParams->character_size = gui::calcCharSize(vm,90);
     DropdownParams->id = active_id;
-    auto text = new std::string{"Resolution"};
+    auto text = new std::wstring{L"Rozdzielczość"};
     DropdownParams->label = text;
     this->dropDownLists["RESOLUTION"] = new gui::DropDownList(DropdownParams);
 
@@ -96,7 +96,7 @@ void SettingsState::initGui()
     DropdownParams->id = this->stateData->gfxSettings->fullscreen?1:0;
     DropdownParams->list = fullscreen_str.data();
     DropdownParams->nrOfElements = fullscreen_str.size();
-    *text = "Fullscreen";
+    *text = L"Pełny ekran";
     this->dropDownLists["FULLSCREEN"] = new gui::DropDownList(DropdownParams);
 
 
@@ -107,7 +107,7 @@ void SettingsState::initGui()
     DropdownParams->id = this->stateData->gfxSettings->contextSettings.antialiasingLevel?1:0;
     DropdownParams->list = vsync_str.data();
     DropdownParams->nrOfElements = vsync_str.size();
-    *text = "VSync";
+    *text = L"VSync";
     this->dropDownLists["VSYNC"] = new gui::DropDownList(DropdownParams);
 
 
@@ -118,7 +118,7 @@ void SettingsState::initGui()
     DropdownParams->id = this->stateData->gfxSettings->contextSettings.antialiasingLevel?1:0;
     DropdownParams->list = aliasing_str.data();
     DropdownParams->nrOfElements = aliasing_str.size();
-    *text = "Anti-aliasing";
+    *text = L"Anti-aliasing";
     this->dropDownLists["ALIASING"] = new gui::DropDownList(DropdownParams);
 
 
@@ -140,7 +140,7 @@ void SettingsState::initGui()
     }
     DropdownParams->list = fpscap_str.data();
     DropdownParams->nrOfElements = fpscap_str.size();
-    *text = "Fps Cap";
+    *text = L"Limit FPS";
     this->dropDownLists["FPS"] = new gui::DropDownList(DropdownParams);
 
 
@@ -152,7 +152,7 @@ void SettingsState::initGui()
     DropdownParams->id = this->stateData->gfxSettings->showFps?1:0;
     DropdownParams->list = showfps_str.data();
     DropdownParams->nrOfElements = showfps_str.size();
-    *text = "Show Fps";
+    *text = L"Pokaż Fps";
     this->dropDownLists["SHOWFPS"] = new gui::DropDownList(DropdownParams);
 
 

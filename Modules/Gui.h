@@ -94,7 +94,7 @@ namespace gui {
         unsigned character_size{15}; ///<Character size
         short id{0};///<Default index
         std::string* list{nullptr};///<List of elements
-        std::string* label{nullptr}; ///<Label above the list
+        std::wstring* label{nullptr}; ///<Label above the list
     };
 
     /**
