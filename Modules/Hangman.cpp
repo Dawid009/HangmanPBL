@@ -17,7 +17,6 @@ Hangman::~Hangman() {
     delete line;
     delete renderTexture;
     delete sprite;
-    delete gfxSettings;
     for(auto part : hangman_parts){
         delete part;
     }

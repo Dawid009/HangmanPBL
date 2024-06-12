@@ -22,8 +22,9 @@ LetterFields::LetterFields(const sf::Font &font, GraphicsSettings *settings,cons
 
 LetterFields::~LetterFields(){
     //Zwalnianie pamięci
-    delete gfxSettings;
     for(auto field : Fields){
+        delete field->text;
+        delete field->floor;
         delete field;
     }
 }

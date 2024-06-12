@@ -72,7 +72,11 @@ void LoadingState::update(const float& dt)
     if (time.getElapsedTime().asSeconds() >= 1.5f&& !fadein) {
         this->fade.setFillColor(sf::Color(20,20,20,this->fade.getFillColor().a+dt*800));
         if(this->fade.getFillColor().a>240){
-            this->states->push(new MainMenuState(this->stateData));
+
+            MainMenuState* temp = new MainMenuState(stateData);
+            delete this->states->top();
+            this->states->pop();
+            this->stateData->states->push(temp);
         }
     }
 }
@@ -86,6 +90,4 @@ void LoadingState::render(sf::RenderTarget* target)
     target->draw(this->background);
     target->draw(title);
     target->draw(fade);
-
-
 }

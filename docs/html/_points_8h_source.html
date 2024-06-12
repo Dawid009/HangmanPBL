@@ -92,32 +92,39 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">Points.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef HANGMAN_POINTS_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define HANGMAN_POINTS_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_points.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="class_points.html">Points</a> {</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordtype">float</span> PointsAmount;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordtype">size_t</span> wordLength;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">float</span> correctStreak;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">float</span> missStreak;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_class" href="class_points.html">Points</a>(<span class="keywordtype">size_t</span> length);</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> addPoints(<span class="keyword">const</span> uint8_t letterId,<span class="keywordtype">int</span> amount);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">int</span> getPoints() {<span class="keywordflow">return</span> PointsAmount;};</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>};</div>
+<a href="_points_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef HANGMAN_POINTS_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define HANGMAN_POINTS_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_points.html">   14</a></span><span class="keyword">class </span><a class="code hl_class" href="class_points.html">Points</a> {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_points.html#aa5af7e8ae18d54edd737d4e383afd7fc">   17</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_points.html#aa5af7e8ae18d54edd737d4e383afd7fc">PointsAmount</a>; </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_points.html#a2c3e1f956cc4e67c9d08f6b79de0fefe">   18</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_variable" href="class_points.html#a2c3e1f956cc4e67c9d08f6b79de0fefe">wordLength</a>; </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_points.html#a2cff005118ce97d128e4660539a88f32">   19</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_points.html#a2cff005118ce97d128e4660539a88f32">correctStreak</a>; </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_points.html#a8aeb324c69f5a3e06abb40adc7794080">   20</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_points.html#a8aeb324c69f5a3e06abb40adc7794080">missStreak</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_function" href="class_points.html#ad9fee478b4bf94526386c4327898798d">Points</a>(<span class="keywordtype">size_t</span> length);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_points.html#a69225177d8015382ee9616f554722715">addPoints</a>(<span class="keyword">const</span> uint8_t letterId,<span class="keywordtype">int</span> amount);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_points.html#a978cbb40d9467df33e23873653cf629b">   39</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_points.html#a978cbb40d9467df33e23873653cf629b">getPoints</a>() {<span class="keywordflow">return</span> <a class="code hl_variable" href="class_points.html#aa5af7e8ae18d54edd737d4e383afd7fc">PointsAmount</a>;};</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
 </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#endif </span><span class="comment">//HANGMAN_POINTS_H</span></div>
-<div class="ttc" id="aclass_points_html"><div class="ttname"><a href="class_points.html">Points</a></div><div class="ttdef"><b>Definition</b> Points.h:7</div></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#endif </span><span class="comment">//HANGMAN_POINTS_H</span></div>
+<div class="ttc" id="aclass_points_html"><div class="ttname"><a href="class_points.html">Points</a></div><div class="ttdoc">Class reponsible for game points.</div><div class="ttdef"><b>Definition</b> Points.h:14</div></div>
+<div class="ttc" id="aclass_points_html_a2c3e1f956cc4e67c9d08f6b79de0fefe"><div class="ttname"><a href="class_points.html#a2c3e1f956cc4e67c9d08f6b79de0fefe">Points::wordLength</a></div><div class="ttdeci">size_t wordLength</div><div class="ttdoc">Password length.</div><div class="ttdef"><b>Definition</b> Points.h:18</div></div>
+<div class="ttc" id="aclass_points_html_a2cff005118ce97d128e4660539a88f32"><div class="ttname"><a href="class_points.html#a2cff005118ce97d128e4660539a88f32">Points::correctStreak</a></div><div class="ttdeci">float correctStreak</div><div class="ttdoc">Streak.</div><div class="ttdef"><b>Definition</b> Points.h:19</div></div>
+<div class="ttc" id="aclass_points_html_a69225177d8015382ee9616f554722715"><div class="ttname"><a href="class_points.html#a69225177d8015382ee9616f554722715">Points::addPoints</a></div><div class="ttdeci">void addPoints(const uint8_t letterId, int amount)</div><div class="ttdoc">Add points based on letter type and amount of letter hits.</div><div class="ttdef"><b>Definition</b> Points.cpp:10</div></div>
+<div class="ttc" id="aclass_points_html_a8aeb324c69f5a3e06abb40adc7794080"><div class="ttname"><a href="class_points.html#a8aeb324c69f5a3e06abb40adc7794080">Points::missStreak</a></div><div class="ttdeci">float missStreak</div><div class="ttdoc">Streak.</div><div class="ttdef"><b>Definition</b> Points.h:20</div></div>
+<div class="ttc" id="aclass_points_html_a978cbb40d9467df33e23873653cf629b"><div class="ttname"><a href="class_points.html#a978cbb40d9467df33e23873653cf629b">Points::getPoints</a></div><div class="ttdeci">int getPoints()</div><div class="ttdoc">Returns points amount.</div><div class="ttdef"><b>Definition</b> Points.h:39</div></div>
+<div class="ttc" id="aclass_points_html_aa5af7e8ae18d54edd737d4e383afd7fc"><div class="ttname"><a href="class_points.html#aa5af7e8ae18d54edd737d4e383afd7fc">Points::PointsAmount</a></div><div class="ttdeci">float PointsAmount</div><div class="ttdoc">Amount of the points.</div><div class="ttdef"><b>Definition</b> Points.h:17</div></div>
+<div class="ttc" id="aclass_points_html_ad9fee478b4bf94526386c4327898798d"><div class="ttname"><a href="class_points.html#ad9fee478b4bf94526386c4327898798d">Points::Points</a></div><div class="ttdeci">Points(size_t length)</div><div class="ttdoc">Class constructor.</div><div class="ttdef"><b>Definition</b> Points.cpp:5</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

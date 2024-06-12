@@ -8,9 +8,9 @@ Points::Points(size_t length) : correctStreak(0), PointsAmount(0){
 
 
 void Points::addPoints(const uint8_t letterId, int amount){
-    constexpr float single_scale = 10.f;
-    constexpr float multi_scale = 15.f;
-    constexpr float polish_scale = 20.f;
+    constexpr float single_scale{10.f};
+    constexpr float multi_scale{15.f};
+    constexpr float polish_scale{20.f};
 
 
     constexpr int single[] = {0, 6, 11, 19, 27, 30};
@@ -36,7 +36,6 @@ void Points::addPoints(const uint8_t letterId, int amount){
         }
 
         PointsAmount+=points*(correctStreak/(static_cast<float>(wordLength)/3));
-        std::cout<<"+"<<points*(correctStreak/(static_cast<float>(wordLength)/3))<< "   Stan konta: "<<PointsAmount<<std::endl;
         missStreak=0;
     }else{
         //miss
@@ -61,7 +60,6 @@ void Points::addPoints(const uint8_t letterId, int amount){
 
             PointsAmount-=points*((missStreak/2.f) /(static_cast<float>(wordLength)/4));
             if(PointsAmount<0) PointsAmount=0;
-            std::cout<<"-"<<points*((missStreak/2.f) /(static_cast<float>(wordLength)/4))<< "   Stan konta: "<<PointsAmount<<std::endl;
         }
         correctStreak=0;
     }

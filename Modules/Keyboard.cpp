@@ -9,7 +9,6 @@ Keyboard::Keyboard(const sf::Font& font,GraphicsSettings* settings) {
 
 
 Keyboard::~Keyboard() {
-    delete gfxSettings;
     for (auto &it : this->buttons)
     {
         delete it.second;

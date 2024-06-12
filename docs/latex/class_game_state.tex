@@ -52,6 +52,8 @@ void {\bfseries init\+Deferred\+Render} ()
 \Hypertarget{class_game_state_a343d71fbf12dd0d0cd8decc17d74e603}\label{class_game_state_a343d71fbf12dd0d0cd8decc17d74e603} 
 void {\bfseries init\+View} ()
 \begin{DoxyCompactList}\small\item\em Function initializing gui. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_state_ac095e4bc1135419f0c30109103030a7d}{pick\+Random\+Password}} (std\+::wstring \&string\+Ref, int max\+Row)
+\begin{DoxyCompactList}\small\item\em Function picking random password from list. \end{DoxyCompactList}\item 
 \Hypertarget{class_game_state_a254268c7021969701d6df3bbae2e3f4a}\label{class_game_state_a254268c7021969701d6df3bbae2e3f4a} 
 void {\bfseries init\+Fonts} ()
 \begin{DoxyCompactList}\small\item\em Function initializing fonts required to display text. \end{DoxyCompactList}\item 
@@ -162,6 +164,21 @@ Function checking if button is pressed.
 
 \begin{DoxyParams}{Parameters}
 {\em letter} & Button id \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_state_ac095e4bc1135419f0c30109103030a7d}\index{GameState@{GameState}!pickRandomPassword@{pickRandomPassword}}
+\index{pickRandomPassword@{pickRandomPassword}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{pickRandomPassword()}{pickRandomPassword()}}
+{\footnotesize\ttfamily \label{class_game_state_ac095e4bc1135419f0c30109103030a7d} 
+void Game\+State\+::pick\+Random\+Password (\begin{DoxyParamCaption}\item[{std\+::wstring \&}]{string\+Ref}{, }\item[{int}]{max\+Row}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function picking random password from list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+Row} & File rows count \\
 \hline
 \end{DoxyParams}
 \Hypertarget{class_game_state_ae49b20a5455335d879340dbe3b92da7f}\index{GameState@{GameState}!render@{render}}

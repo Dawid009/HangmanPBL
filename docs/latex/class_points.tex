@@ -1,35 +1,95 @@
 \doxysection{Points Class Reference}
 \hypertarget{class_points}{}\label{class_points}\index{Points@{Points}}
+
+
+Class reponsible for game points.  
+
+
+
+
+{\ttfamily \#include $<$Points.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_points_ad9fee478b4bf94526386c4327898798d}\label{class_points_ad9fee478b4bf94526386c4327898798d} 
-{\bfseries Points} (size\+\_\+t length)
-\item 
-\Hypertarget{class_points_a69225177d8015382ee9616f554722715}\label{class_points_a69225177d8015382ee9616f554722715} 
-void {\bfseries add\+Points} (const uint8\+\_\+t letter\+Id, int amount)
-\item 
-\Hypertarget{class_points_a978cbb40d9467df33e23873653cf629b}\label{class_points_a978cbb40d9467df33e23873653cf629b} 
-int {\bfseries get\+Points} ()
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_points_ad9fee478b4bf94526386c4327898798d}{Points}} (size\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_points_a69225177d8015382ee9616f554722715}{add\+Points}} (const uint8\+\_\+t letter\+Id, int amount)
+\begin{DoxyCompactList}\small\item\em Add points based on letter type and amount of letter hits. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_points_a978cbb40d9467df33e23873653cf629b}{get\+Points}} ()
+\begin{DoxyCompactList}\small\item\em Returns points amount. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{class_points_aa5af7e8ae18d54edd737d4e383afd7fc}\label{class_points_aa5af7e8ae18d54edd737d4e383afd7fc} 
 float {\bfseries Points\+Amount}
-\item 
+\begin{DoxyCompactList}\small\item\em Amount of the points. \end{DoxyCompactList}\item 
 \Hypertarget{class_points_a2c3e1f956cc4e67c9d08f6b79de0fefe}\label{class_points_a2c3e1f956cc4e67c9d08f6b79de0fefe} 
 size\+\_\+t {\bfseries word\+Length}
-\item 
+\begin{DoxyCompactList}\small\item\em Password length. \end{DoxyCompactList}\item 
 \Hypertarget{class_points_a2cff005118ce97d128e4660539a88f32}\label{class_points_a2cff005118ce97d128e4660539a88f32} 
 float {\bfseries correct\+Streak}
-\item 
+\begin{DoxyCompactList}\small\item\em Streak. \end{DoxyCompactList}\item 
 \Hypertarget{class_points_a8aeb324c69f5a3e06abb40adc7794080}\label{class_points_a8aeb324c69f5a3e06abb40adc7794080} 
 float {\bfseries miss\+Streak}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Streak. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class reponsible for game points. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_points_ad9fee478b4bf94526386c4327898798d}\index{Points@{Points}!Points@{Points}}
+\index{Points@{Points}!Points@{Points}}
+\doxysubsubsection{\texorpdfstring{Points()}{Points()}}
+{\footnotesize\ttfamily \label{class_points_ad9fee478b4bf94526386c4327898798d} 
+Points\+::\+Points (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{length}{}\end{DoxyParamCaption})}
+
+
+
+Class constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & Password length \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_points_a69225177d8015382ee9616f554722715}\index{Points@{Points}!addPoints@{addPoints}}
+\index{addPoints@{addPoints}!Points@{Points}}
+\doxysubsubsection{\texorpdfstring{addPoints()}{addPoints()}}
+{\footnotesize\ttfamily \label{class_points_a69225177d8015382ee9616f554722715} 
+void Points\+::add\+Points (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{letter\+Id}{, }\item[{int}]{amount}{}\end{DoxyParamCaption})}
+
+
+
+Add points based on letter type and amount of letter hits. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em letter\+Id} & Id of the letter \\
+\hline
+{\em amount} & Amount of letter hits \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_points_a978cbb40d9467df33e23873653cf629b}\index{Points@{Points}!getPoints@{getPoints}}
+\index{getPoints@{getPoints}!Points@{Points}}
+\doxysubsubsection{\texorpdfstring{getPoints()}{getPoints()}}
+{\footnotesize\ttfamily \label{class_points_a978cbb40d9467df33e23873653cf629b} 
+int Points\+::get\+Points (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns points amount. 
+
+\begin{DoxyReturn}{Returns}
+Point amount 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/Points.\+h\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/\mbox{\hyperlink{_points_8h}{Points.\+h}}\item 
 /\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/Points.\+cpp\end{DoxyCompactItemize}

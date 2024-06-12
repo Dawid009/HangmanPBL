@@ -12,13 +12,13 @@ Game::Game()
             if (bundlePath) {
                 char path[PATH_MAX];
                 if (CFStringGetCString(bundlePath, path, sizeof(path), kCFStringEncodingUTF8)) {
-                    std::string bundlePathString(path); // Konwersja na C++ string
+                    std::string bundlePathString(path);
                     std::cout << "Bundle path: " << bundlePathString << std::endl;
                     this->stateData.localpath = bundlePathString+"/Contents/Resources/";
                 }
-                CFRelease(bundlePath); // Pamiętaj o zwolnieniu zasobu
+                CFRelease(bundlePath);
             }
-            CFRelease(bundleURL); // Pamiętaj o zwolnieniu zasobu
+            CFRelease(bundleURL);
         }
     }
     this->initVariables();

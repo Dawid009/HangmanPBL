@@ -53,7 +53,7 @@ public:
     * @param char_size Character size
     * @param text Text ref to display
     */
-    void addButton(const std::string key,
+    void addButton(const std::string& key,
                    const float y,
                    const float width,
                    const float height,

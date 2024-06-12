@@ -45,6 +45,12 @@ private:
     void initView();
 
     /**
+    * @brief Function picking random password from list
+    * @param maxRow File rows count
+    */
+    void pickRandomPassword(std::wstring& stringRef,int maxRow);
+
+    /**
     * @brief Function initializing fonts required to display text.
     */
     void initFonts();

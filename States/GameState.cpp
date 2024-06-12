@@ -12,8 +12,29 @@ GameState::GameState(StateData* state_data)
     this->initPauseMenu();
     this->keyboard = new Keyboard(this->font,this->stateData->gfxSettings);
 
+    std::wstring line;
+    this->pickRandomPassword(line,170);
+
+    this->letterFields = new LetterFields(this->font,this->stateData->gfxSettings,line);
+    this->hangman = new Hangman(this->stateData->gfxSettings);
+    this->pointsModule = new Points(line.length());
+}
+
+GameState::~GameState() {
+    delete letterFields;
+    delete hangman;
+    delete keyboard;
+    if(fpsText!= nullptr) delete fpsText;
+    delete pointsText;
+    delete pmenu;
+    delete pointsModule;
+    std::cout<<"Destruktor gamestate!"<<std::endl;
+};
+
+
+void GameState::pickRandomPassword(std::wstring& stringRef,int maxRow){
     std::srand(std::time(nullptr));
-    int randomLine = std::rand() % 170;
+    int randomLine = std::rand() % maxRow;
     std::wstring line;
     int currentLine = 0;
 
@@ -30,15 +51,8 @@ GameState::GameState(StateData* state_data)
     }else{
         std::cerr << "Nie można otworzyć pliku" << std::endl;
     }
-
-
-
-    this->letterFields = new LetterFields(this->font,this->stateData->gfxSettings,line);
-    this->hangman = new Hangman(this->stateData->gfxSettings);
-    this->pointsModule = new Points(line.length());
+    stringRef = line;
 }
-
-GameState::~GameState() = default;
 
 void GameState::initDeferredRender()
 {
@@ -91,8 +105,6 @@ void GameState::initView()
     pointsText->setFillColor(sf::Color(20, 20, 20, 255));
     pointsText->setStyle(0);
 
-
-
     this->background.setSize(sf::Vector2f(static_cast<float>(vm.width),static_cast<float>(vm.height)));
 
     if (!this->backgroundTexture.loadFromFile(this->stateData->localpath+"Images/gamebackground.jpg"))
@@ -108,7 +120,7 @@ void GameState::initPauseMenu()
 {
     const sf::VideoMode& vm = this->stateData->gfxSettings->resolution;
     this->pmenu = new PauseMenu(this->stateData->gfxSettings->resolution, this->font);
-    this->pmenu->addButton("QUIT", gui::calcY(74.f, vm), gui::calcX(13.f, vm), gui::calcY(6.f, vm), gui::calcCharSize(vm), L"Wyjdz");
+    this->pmenu->addButton("QUIT", gui::calcY(74.f, vm), gui::calcX(13.f, vm), gui::calcY(6.f, vm), gui::calcCharSize(vm), L"Wyjdź");
     this->pmenu->addButton("RESTART", gui::calcY(45.f, vm), gui::calcX(13.f, vm), gui::calcY(6.f, vm), gui::calcCharSize(vm), L"Restart");
     this->pmenu->addButton("CONTINUE", gui::calcY(35.f, vm), gui::calcX(13.f, vm), gui::calcY(6.f, vm), gui::calcCharSize(vm), L"Kontynuuj");
 }
@@ -145,8 +157,10 @@ void GameState::updatePauseMenuButtons()
     if (this->pmenu->isButtonPressed("CONTINUE"))
         this->paused = false;
     if (this->pmenu->isButtonPressed("RESTART")) {
+        GameState* temp = new GameState(stateData);
+        delete this->states->top();
         this->states->pop();
-        this->states->push(new GameState(stateData));
+        this->stateData->states->push(temp);
     }
 }
 
