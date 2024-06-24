@@ -1,11 +1,13 @@
 #include "MainMenuState.h"
 #include <locale>
 #include "SettingsState.h"
+#include "SavesListState.h"
 
 #define NEW_GAME 1
 #define CONTINUE 2
 #define OPTIONS 3
 #define QUIT 4
+#define SAVES 5
 
 MainMenuState::MainMenuState(StateData* state_data)
         : State(state_data)
@@ -61,22 +63,26 @@ void MainMenuState::initGui()
     ButtonInitParams->width = static_cast<float>(gui::calcCharSize(vm,50)*7);
     ButtonInitParams->height = static_cast<float>(gui::calcCharSize(vm,50)*1.2);
     ButtonInitParams->font = &this->font;
-    ButtonInitParams->text = L"Nowa gra";
+    ButtonInitParams->text = L"Graj";
     ButtonInitParams->character_size = gui::calcCharSize(vm,50);
     ButtonInitParams->hoverScale = 1.2f;
     ButtonInitParams->activeScale = 1.1f;
     ButtonInitParams->text_idle_color= sf::Color(40, 40, 40, 255);
     ButtonInitParams->text_hover_color= sf::Color(25, 25, 25, 255),
     ButtonInitParams->text_active_color= sf::Color(10, 10, 10, 255),
-    this->buttons[NEW_GAME] = new gui::Button(ButtonInitParams);
+    this->buttons[SAVES] = new gui::Button(ButtonInitParams);
 
-    /*Continue*/
 
+    //ButtonInitParams->y =  gui::calcY(43,vm);
+    //ButtonInitParams->text = L"Zapisy";
+    //this->buttons[SAVES] = new gui::Button(ButtonInitParams);
 
     //Options
     ButtonInitParams->y =  gui::calcY(43,vm);
     ButtonInitParams->text = L"Opcje";
     this->buttons[OPTIONS] = new gui::Button(ButtonInitParams);
+
+
 
     //Exit
     ButtonInitParams->y =  gui::calcY(70,vm);
@@ -108,16 +114,19 @@ void MainMenuState::updateButtons(const float& dt)
 
     //Nowa gra
 
-    if (this->buttons[NEW_GAME]->isPressed())
+    //if (this->buttons[NEW_GAME]->isPressed())
+    //{
+   //     this->states->push(new GameState(this->stateData));
+   // }
+
+    if (this->buttons[SAVES]->isPressed())
     {
-        this->states->push(new GameState(this->stateData));
-        //new transition to
+        this->states->push(new SavesListState(this->stateData));
     }
 
     if (this->buttons[OPTIONS]->isPressed())
     {
         this->states->push(new SettingsState(this->stateData));
-        //new transition to
     }
 
     if (this->buttons[QUIT]->isPressed())
