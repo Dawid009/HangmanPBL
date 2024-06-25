@@ -10,7 +10,7 @@
 #define SAVES 5
 
 MainMenuState::MainMenuState(StateData* state_data)
-        : State(state_data)
+        : State(state_data), stateptr(nullptr)
 {
     this->initFonts();
     this->initGui();
@@ -46,6 +46,17 @@ void MainMenuState::initGui()
         throw "ERROR::MAIN_MENU::FAILED_TO_LOAD_BACKGROUND_TEXTURE";
     }
 
+    this->fade.setSize(
+           sf::Vector2f
+                    (
+                            static_cast<float>(vm.width),
+                            static_cast<float>(vm.height)
+                    )
+    );
+
+    this->fade.setFillColor(sf::Color(50,50,50,255));
+
+
     this->title.setPosition(sf::Vector2f(static_cast<float>(vm.width*0.13),static_cast<float>(vm.height*0.12)));
     this->title.setString("Wisielec");
     this->title.setFont(this->font);
@@ -71,11 +82,6 @@ void MainMenuState::initGui()
     ButtonInitParams->text_hover_color= sf::Color(25, 25, 25, 255),
     ButtonInitParams->text_active_color= sf::Color(10, 10, 10, 255),
     this->buttons[SAVES] = new gui::Button(ButtonInitParams);
-
-
-    //ButtonInitParams->y =  gui::calcY(43,vm);
-    //ButtonInitParams->text = L"Zapisy";
-    //this->buttons[SAVES] = new gui::Button(ButtonInitParams);
 
     //Options
     ButtonInitParams->y =  gui::calcY(43,vm);
@@ -112,21 +118,14 @@ void MainMenuState::updateButtons(const float& dt)
         it.second->update(this->mousePosWindow,dt);
     }
 
-    //Nowa gra
-
-    //if (this->buttons[NEW_GAME]->isPressed())
-    //{
-   //     this->states->push(new GameState(this->stateData));
-   // }
-
     if (this->buttons[SAVES]->isPressed())
     {
-        this->states->push(new SavesListState(this->stateData));
+        stateptr = new SavesListState(this->stateData);
     }
 
     if (this->buttons[OPTIONS]->isPressed())
     {
-        this->states->push(new SettingsState(this->stateData));
+        stateptr = new SettingsState(this->stateData);
     }
 
     if (this->buttons[QUIT]->isPressed())
@@ -139,6 +138,25 @@ void MainMenuState::updateButtons(const float& dt)
 
 void MainMenuState::update(const float& dt)
 {
+    if(fadein){
+        this->fade.setFillColor(sf::Color(20,20,20,this->fade.getFillColor().a-dt*1000));
+        if(this->fade.getFillColor().a<20){
+            fadein=false;
+        }
+        time.restart();
+    }
+
+    if (!pushedNew && stateptr!= nullptr) {
+        this->fade.setFillColor(sf::Color(20,20,20,this->fade.getFillColor().a+dt*1000));
+        if(this->fade.getFillColor().a>240){
+            pushedNew=true;
+            //MainMenuState* temp = new MainMenuState(stateData);
+            //delete this->states->top();
+            this->states->pop();
+            this->stateData->states->push(stateptr);
+        }
+    }
+
     this->updateMousePositions();
     if(this->stateData->gfxSettings->resolution.width != background.getSize().x || this->stateData->gfxSettings->resolution.height != background.getSize().y){
         resetGui();
@@ -160,6 +178,7 @@ void MainMenuState::render(sf::RenderTarget* target)
     {
         it.second->render(*target);
     }
+    target->draw(this->fade);
 }
 
 

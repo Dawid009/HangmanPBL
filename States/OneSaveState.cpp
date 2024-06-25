@@ -9,7 +9,7 @@
 #define REMOVE 12
 
 OneSaveState::OneSaveState(StateData* state_data, SaveGame * saveGame)
-        : State(state_data), saveGamePtr(saveGame)
+        : State(state_data), saveGamePtr(saveGame),stateptr(nullptr)
 {
     this->initFonts();
     this->initGui();
@@ -46,6 +46,16 @@ void OneSaveState::initGui()
     {
         throw "ERROR::MAIN_MENU::FAILED_TO_LOAD_BACKGROUND_TEXTURE";
     }
+
+    this->fade.setSize(
+            sf::Vector2f
+                    (
+                            static_cast<float>(vm.width),
+                            static_cast<float>(vm.height)
+                    )
+    );
+
+    this->fade.setFillColor(sf::Color(20,20,20,255));
 
     this->title.setPosition(sf::Vector2f(static_cast<float>(gui::calcX(15.f,vm)),static_cast<float>(gui::calcY(9.f,vm))));
     this->title.setString("Zapis:  "+saveGamePtr->getSaveName());
@@ -138,27 +148,18 @@ void OneSaveState::updateButtons(const float& dt)
 {
     if (this->buttons[QUIT]->isPressed())
     {
-        SavesListState *temp = new SavesListState(this->stateData);
-        this->endState();
-        this->states->pop();
-        this->states->push(temp);
+        stateptr = new SavesListState(this->stateData);
     }
 
     if (this->buttons[REMOVE]->isPressed())
     {
         std::remove(this->saveGamePtr->path.c_str());
-        SavesListState *temp = new SavesListState(this->stateData);
-        this->endState();
-        this->states->pop();
-        this->states->push(temp);
+        stateptr = new SavesListState(this->stateData);
     }
 
     if (this->buttons[PLAY]->isPressed())
     {
-        GameState * temp = new GameState(this->stateData, saveGamePtr);
-        this->endState();
-        this->states->pop();
-        this->states->push(temp);
+        stateptr = new GameState(this->stateData, saveGamePtr);
     }
 
     for (auto &it : this->buttons)
@@ -170,6 +171,27 @@ void OneSaveState::updateButtons(const float& dt)
 
 void OneSaveState::update(const float& dt)
 {
+
+    if(fadein){
+        this->fade.setFillColor(sf::Color(20,20,20,this->fade.getFillColor().a-dt*1000));
+        if(this->fade.getFillColor().a<20){
+            fadein=false;
+        }
+        time.restart();
+    }
+
+    if (!pushedNew && stateptr!= nullptr) {
+        this->fade.setFillColor(sf::Color(20,20,20,this->fade.getFillColor().a+dt*900));
+        if(this->fade.getFillColor().a>240){
+            pushedNew=true;
+            //MainMenuState* temp = new MainMenuState(stateData);
+            //delete this->states->top();
+            this->states->pop();
+            this->stateData->states->push(stateptr);
+        }
+    }
+
+
     this->updateMousePositions();
     if(this->stateData->gfxSettings->resolution.width != background.getSize().x || this->stateData->gfxSettings->resolution.height != background.getSize().y){
         resetGui();
@@ -196,6 +218,8 @@ void OneSaveState::render(sf::RenderTarget* target)
     {
         target->draw(*it);
     }
+
+    target->draw(fade);
 }
 
 

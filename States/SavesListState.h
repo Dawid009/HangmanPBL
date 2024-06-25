@@ -25,6 +25,11 @@ private:
     gui::Button* newGameButton;///<New game button pointer
     std::vector<SaveGameBase*> simpleSaves; ///<All saves in dir
     std::vector<sf::Text*> texts; ///<All text pointers vector
+    sf::Clock time;
+    sf::RectangleShape fade;///<Fade in/out black rectangle
+    bool fadein=true; ///<Is fading in or out
+    bool pushedNew=false;
+    State* stateptr;
 
     /**
     * @brief Function initializing fonts required to display text.
