@@ -44,9 +44,7 @@ void SaveGame::saveToFile(const std::string& path) const
             if(i>=this->picked_letters.size()-1) continue;
             ofs << ",";
         }
-
     }
-
     ofs.close();
 }
 
@@ -114,7 +112,7 @@ void SaveGame::loadAllFromFile(const std::string& path)
 }
 
 SaveGame::SaveGame(): win_games(0), loss_games(0), current_password_id(0), misses(0), playtime(0),total_good_hits(0),total_miss_hits(0) {
-    srand(time(NULL)); // Seed the time
+    srand(time(NULL));
     int finalNum = rand()%(201)+1;
     this->save_name = "Gra"+std::to_string(finalNum);
     this->path = path;
@@ -125,7 +123,7 @@ SaveGame::SaveGame(): win_games(0), loss_games(0), current_password_id(0), misse
 }
 
 SaveGame::SaveGame(const std::string& path): win_games(0), loss_games(0), current_password_id(0), misses(0), playtime(0),total_good_hits(0),total_miss_hits(0) {
-    srand(time(NULL)); // Seed the time
+    srand(time(NULL));
     int finalNum = rand() % (100) + 1;
     this->save_name = "Gra" + std::to_string(finalNum);
     this->path = path + this->save_name+".ini";
