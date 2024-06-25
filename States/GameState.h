@@ -11,6 +11,8 @@
 #include "../Modules/Hangman.h"
 #include "../Modules/PauseMenu.h"
 #include "../Modules/Points.h"
+#include "../Modules/SaveGame.h"
+#include "../Modules/EndScreen.h"
 
 /**
  * @class GameState
@@ -24,7 +26,16 @@ private:
     sf::RenderTexture renderTexture;///<deferred renderer screen view
     sf::Sprite renderSprite; ///<deferred renderer sprite
     PauseMenu* pmenu;///<in-game menu component pointer
+    EndScreen* endScreen;///<End screen pointer
+    sf::Clock endClock;///<End screen delay
+    double totalTime=0;///<Total playtime in session
+    sf::Clock timeClock;///<Time clock object
+    //double time=0;///<Time counter
+    bool initRevealed = false;///<Are letters from savegame revealed
+    bool ended = false;///<Is game ended?
+    int passwordLine;///<Id of the password
 
+    SaveGame* saveGamePtr;
     Keyboard* keyboard; ///<Keyboard component pointer.
     LetterFields* letterFields; ///<Letter fields display component pointer.
     Hangman* hangman; ///<Hangman display component pointer.
@@ -33,7 +44,7 @@ private:
     sf::Text* pointsText; ///<Points text on the screen
     float delay=0;///<Fps update delay counter
     int misses=0;///<Misses count
-
+    int passes=0;
     /**
     * @brief Creates a renderer
     */
@@ -71,7 +82,7 @@ public:
     * @brief Class constructor
     * @param state_date Pointer to main state data.
     */
-    GameState(StateData* state_data);
+    GameState(StateData* state_data, SaveGame * saveGame);
 
     /**
     * @brief Class destructor
@@ -95,6 +106,11 @@ public:
     * @brief Function updating PauseMenu component events
     */
     void updatePauseMenuButtons();
+
+    /**
+   * @brief Function updating End Screen component events
+   */
+    void updateEndScreenButtons();
 };
 
 

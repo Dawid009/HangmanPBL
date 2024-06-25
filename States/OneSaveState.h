@@ -11,8 +11,8 @@
 
 
 /**
- * @class MainMenuState
- * @brief Main Menu class reponsible for view and logic
+ * @class OneSaveState
+ * @brief One Save State class reponsible for view and logic
  */
 class OneSaveState : public State{
 
@@ -21,8 +21,8 @@ private:
     sf::Text title; ///<Title image rectangle to render on the view
     sf::Font font; ///<Font reference requiered to display text
     std::map<uint8_t, gui::Button*> buttons; ///<A map that stores the buttons
-    std::vector<sf::Text*> texts;
-    SaveGame * saveGamePtr;
+    std::vector<sf::Text*> texts; ///<All text pointers vector
+    SaveGame * saveGamePtr; ///<Pointer to this savegame object
 
     /**
     * @brief Function initializing fonts required to display text.
@@ -40,11 +40,11 @@ private:
     void resetGui();
 
 
-
 public:
     /**
     * @brief Class constructor
     * @param state_date Pointer to main state data.
+     * @param saveGame Pointer to the savegame object.
     */
     explicit OneSaveState(StateData* state_data, SaveGame * saveGame);
 

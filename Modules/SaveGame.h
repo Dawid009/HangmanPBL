@@ -1,57 +1,134 @@
-//
-// Created by Dawid Knura on 19/06/2024.
-//
+/**
+ * @file SaveGame.h
+ * @brief SaveGame and SaveGameBase classes
+ */
 
 #ifndef HANGMAN_SAVEGAME_H
 #define HANGMAN_SAVEGAME_H
 #include <string>
 #include "SFML/Graphics.hpp"
 
-class SaveGameBase {
+/**
+ * @struct Date
+ * @brief Struct representing date
+ */
+struct Date{
+    int day;
+    int month;
+    int year;
+    int hour;
+    int minute;
 
-protected:
-    std::string save_name;
-    int total_points;
-    std::string date;
+    Date(){
+        std::time_t t = std::time(0);
+        std::tm* now = std::localtime(&t);
+        this->day = now->tm_mday;
+        this->month = now->tm_mon+1;
+        this->year = now->tm_year+1900;
+        this->hour=now->tm_hour;
+        this->minute=now->tm_min;
+    }
 
-public:
-
-    std::string path;
-    /**
-    * @brief Class constructor
-    */
-    SaveGameBase();
-    /**
-    * @brief Saving settings to file
-    * @param path Path to graphics.ini file
-    */
-
-    /**
-    * @brief Reading settings from file
-    * @param path Path to graphics.ini file
-    */
-    void loadSimpleFromFile(const std::string& path);
-    const std::string& getSaveName() { return this->save_name;}
-    const std::string& getDate() { return this->date;}
-    int getPoints() {return this->total_points;}
-
+    std::string getDate() const {
+        std::string date_temp;
+        date_temp+=(this->day<10?"0":"")+std::to_string(this->day)+".";
+        date_temp+=(this->month<10?"0":"")+std::to_string(this->month)+".";
+        date_temp+=std::to_string(year)+"  ";
+        date_temp+=(this->hour<10?"0":"")+std::to_string(this->hour)+":";
+        date_temp+=(this->minute<10?"0":"")+std::to_string(this->minute);
+        return date_temp;
+    }
 };
 
 
 
-class SaveGame : public SaveGameBase{
-    //current game
+/**
+ * @class SaveGameBase
+ * @brief Base class for savegame
+ */
+class SaveGameBase {
+
+protected:
+    std::string save_name;///<Savegame name
+    int total_points;///<Total savegame points
+
+
 public:
+    Date date;///<Date object
+    std::string path;///<Path to the file
+    /**
+    * @brief Class constructor
+    */
+    SaveGameBase();
+
+    /**
+    * @brief Reading savegame simple info from file
+    * @param path path to the location of savegame
+    */
+    void loadSimpleFromFile(const std::string& path);
+
+    /**
+    * @brief Getter for savegame name
+    * @return Returns name
+    */
+    const std::string& getSaveName() { return this->save_name;}
+    /**
+    * @brief Getter for savegame Date
+    * @return Returns  date
+    */
+    const std::string getDate() { return this->date.getDate();}
+
+    /**
+    * @brief Getter for savegame Points
+    * @return Returns points
+    */
+    int getPoints() {return this->total_points;}
+
+    /**
+    * @brief Function adding points to the savegame
+    * @param points Points amount
+    */
+    void addPoints(int points) {this->total_points+=points;}
+
+};
+
+
+/**
+ * @class SaveGame
+ * @brief Extended savegame object info
+ */
+class SaveGame : public SaveGameBase{
+public:
+    int current_password_id;///<Id of the pass
+    int misses;///<Misses count in session
+    std::vector<int> picked_letters;///<Picked letters in session
+    std::vector<int> win_games_id;///<Win games id's
+    int win_games; ///<Win games count
+    int loss_games;///<Loss games count
+    int playtime;///<Total playtime
+    int total_good_hits;///<Good hits
+    int total_miss_hits;///<Bad hits
+
+    /**
+    * @brief Class constructor
+    */
     SaveGame();
+    /**
+    * @brief Class constructor
+    * @param path path to the location of savegame
+    */
+    SaveGame(const std::string& path);
+
+    /**
+    * @brief Function saving savegame to file
+    * @param path path to the location of savegame
+    */
     void saveToFile(const std::string& path) const;
 
-    int current_password_id;
-    int misses;
-    std::vector<int> picked_letters;
-    std::vector<int> win_games_id;
-    int win_games;
-    int loss_games;
-    int playtime;
+    /**
+    * @brief Function loading all info from file
+    * @param path path to the location of savegame
+    */
     void loadAllFromFile(const std::string& path);
 };
 

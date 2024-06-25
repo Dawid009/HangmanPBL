@@ -1,0 +1,48 @@
+\doxysection{End\+Screen.\+h}
+\hypertarget{_end_screen_8h_source}{}\label{_end_screen_8h_source}\index{/Users/dawid/Documents/programowanie/cpp2/Hangman/Modules/EndScreen.h@{/Users/dawid/Documents/programowanie/cpp2/Hangman/Modules/EndScreen.h}}
+\mbox{\hyperlink{_end_screen_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ HANGMAN\_ENDSCREEN\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ HANGMAN\_ENDSCREEN\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{_gui_8h}{Gui.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_save_game_8h}{SaveGame.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }Gui;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_end_screen}{EndScreen}}}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_save_game}{SaveGame}}*\ \mbox{\hyperlink{class_end_screen_a893e846df2761c7f09b81f0cca01e246}{saveGame}};\ }
+\DoxyCodeLine{00024\ \ \ \ \ sf::Font\&\ \mbox{\hyperlink{class_end_screen_ab0d4ca75943cc48753639ba9c3535d4c}{font}};\ }
+\DoxyCodeLine{00025\ \ \ \ \ sf::Text\ \mbox{\hyperlink{class_end_screen_acdfbf1dc0417c9d1bc7359fb5c1d273c}{menuText}};\ }
+\DoxyCodeLine{00026\ \ \ \ \ sf::RectangleShape\ \mbox{\hyperlink{class_end_screen_a155a8d3482ca71af33cfdd25b6be2951}{background}};\ }
+\DoxyCodeLine{00027\ \ \ \ \ sf::RectangleShape\ \mbox{\hyperlink{class_end_screen_a25a7bf9499cf4058a8c35137d70a1b30}{container}};\ }
+\DoxyCodeLine{00028\ \ \ \ \ std::map<std::string,\ gui::Button*>\ \mbox{\hyperlink{class_end_screen_ab8b129f1e347e8281b609a74b1349f75}{buttons}};\ }
+\DoxyCodeLine{00029\ \ \ \ \ sf::Text\ \mbox{\hyperlink{class_end_screen_a56c476f6e60302d94d0b43ec0d35beca}{winText}};\ }
+\DoxyCodeLine{00030\ \ \ \ \ sf::Text\ \mbox{\hyperlink{class_end_screen_aeb99bb6224634ef9ecb228084b010cbf}{loseText}};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_end_screen_ac5074e27ae959084ec1eda64e8f56340}{win}}=\textcolor{keyword}{false};\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_end_screen_a482c0fef4029a1b059766de72f7bc3ee}{EndScreen}}(sf::VideoMode\&\ vm,\ sf::Font\&\ \mbox{\hyperlink{class_end_screen_ab0d4ca75943cc48753639ba9c3535d4c}{font}});}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_end_screen_a2bf71fd8fe94ee4ff206ff5303110864}{\string~EndScreen}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_end_screen_a526722e49165e7aaa52bd8b0346d4ef4}{isButtonPressed}}(\textcolor{keyword}{const}\ std::string\&\ key);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_end_screen_ae703976d498b663f11c64e29fae29986}{setWin}}(\textcolor{keywordtype}{bool}\ iswin)\ \{this-\/>win\ =\ iswin;\};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_end_screen_a8a0cd97a9635cfd007a69f3a580395ee}{update}}(\textcolor{keyword}{const}\ sf::Vector2i\&\ mousePosWindow,\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_end_screen_a577ac64603dad46451a85be383b31163}{render}}(sf::RenderTarget\&\ target);}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

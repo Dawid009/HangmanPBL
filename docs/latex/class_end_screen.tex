@@ -1,0 +1,152 @@
+\doxysection{End\+Screen Class Reference}
+\hypertarget{class_end_screen}{}\label{class_end_screen}\index{EndScreen@{EndScreen}}
+
+
+Class reponsible for End screen overlay.  
+
+
+
+
+{\ttfamily \#include $<$End\+Screen.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_end_screen_a482c0fef4029a1b059766de72f7bc3ee}{End\+Screen}} (sf\+::\+Video\+Mode \&vm, sf\+::\+Font \&\mbox{\hyperlink{class_end_screen_ab0d4ca75943cc48753639ba9c3535d4c}{font}})
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_end_screen_a2bf71fd8fe94ee4ff206ff5303110864}\label{class_end_screen_a2bf71fd8fe94ee4ff206ff5303110864} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+End\+Screen} ()
+\begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_end_screen_a526722e49165e7aaa52bd8b0346d4ef4}{is\+Button\+Pressed}} (const std\+::string \&key)
+\begin{DoxyCompactList}\small\item\em Check if button is pressed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_end_screen_ae703976d498b663f11c64e29fae29986}{set\+Win}} (bool iswin)
+\begin{DoxyCompactList}\small\item\em Function setting this object to win or not. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_end_screen_a8a0cd97a9635cfd007a69f3a580395ee}{update}} (const sf\+::\+Vector2i \&mouse\+Pos\+Window, const float \&dt)
+\begin{DoxyCompactList}\small\item\em Main state loop updating events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_end_screen_a577ac64603dad46451a85be383b31163}{render}} (sf\+::\+Render\+Target \&target)
+\begin{DoxyCompactList}\small\item\em Loop for rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_end_screen_a893e846df2761c7f09b81f0cca01e246}\label{class_end_screen_a893e846df2761c7f09b81f0cca01e246} 
+\mbox{\hyperlink{class_save_game}{Save\+Game}} \texorpdfstring{$\ast$}{*} {\bfseries save\+Game}
+\begin{DoxyCompactList}\small\item\em Savegame pointer. \end{DoxyCompactList}\item 
+\Hypertarget{class_end_screen_ab0d4ca75943cc48753639ba9c3535d4c}\label{class_end_screen_ab0d4ca75943cc48753639ba9c3535d4c} 
+sf\+::\+Font \& {\bfseries font}
+\begin{DoxyCompactList}\small\item\em Pointer to the font. \end{DoxyCompactList}\item 
+\Hypertarget{class_end_screen_acdfbf1dc0417c9d1bc7359fb5c1d273c}\label{class_end_screen_acdfbf1dc0417c9d1bc7359fb5c1d273c} 
+sf\+::\+Text {\bfseries menu\+Text}
+\begin{DoxyCompactList}\small\item\em Menu text object. \end{DoxyCompactList}\item 
+\Hypertarget{class_end_screen_a155a8d3482ca71af33cfdd25b6be2951}\label{class_end_screen_a155a8d3482ca71af33cfdd25b6be2951} 
+sf\+::\+Rectangle\+Shape {\bfseries background}
+\begin{DoxyCompactList}\small\item\em Background object. \end{DoxyCompactList}\item 
+\Hypertarget{class_end_screen_a25a7bf9499cf4058a8c35137d70a1b30}\label{class_end_screen_a25a7bf9499cf4058a8c35137d70a1b30} 
+sf\+::\+Rectangle\+Shape {\bfseries container}
+\begin{DoxyCompactList}\small\item\em Container. \end{DoxyCompactList}\item 
+\Hypertarget{class_end_screen_ab8b129f1e347e8281b609a74b1349f75}\label{class_end_screen_ab8b129f1e347e8281b609a74b1349f75} 
+std\+::map$<$ std\+::string, \mbox{\hyperlink{classgui_1_1_button}{gui\+::\+Button}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries buttons}
+\begin{DoxyCompactList}\small\item\em A map that stores the buttons. \end{DoxyCompactList}\item 
+\Hypertarget{class_end_screen_a56c476f6e60302d94d0b43ec0d35beca}\label{class_end_screen_a56c476f6e60302d94d0b43ec0d35beca} 
+sf\+::\+Text {\bfseries win\+Text}
+\begin{DoxyCompactList}\small\item\em Win text object pointer. \end{DoxyCompactList}\item 
+\Hypertarget{class_end_screen_aeb99bb6224634ef9ecb228084b010cbf}\label{class_end_screen_aeb99bb6224634ef9ecb228084b010cbf} 
+sf\+::\+Text {\bfseries lose\+Text}
+\begin{DoxyCompactList}\small\item\em Lose text object pointer. \end{DoxyCompactList}\item 
+\Hypertarget{class_end_screen_ac5074e27ae959084ec1eda64e8f56340}\label{class_end_screen_ac5074e27ae959084ec1eda64e8f56340} 
+bool {\bfseries win} =false
+\begin{DoxyCompactList}\small\item\em Is game win? \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class reponsible for End screen overlay. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_end_screen_a482c0fef4029a1b059766de72f7bc3ee}\index{EndScreen@{EndScreen}!EndScreen@{EndScreen}}
+\index{EndScreen@{EndScreen}!EndScreen@{EndScreen}}
+\doxysubsubsection{\texorpdfstring{EndScreen()}{EndScreen()}}
+{\footnotesize\ttfamily \label{class_end_screen_a482c0fef4029a1b059766de72f7bc3ee} 
+End\+Screen\+::\+End\+Screen (\begin{DoxyParamCaption}\item[{sf\+::\+Video\+Mode \&}]{vm}{, }\item[{sf\+::\+Font \&}]{font}{}\end{DoxyParamCaption})}
+
+
+
+Class constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vm} & Video Mode \\
+\hline
+{\em font} & Pointer to the font \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_end_screen_a526722e49165e7aaa52bd8b0346d4ef4}\index{EndScreen@{EndScreen}!isButtonPressed@{isButtonPressed}}
+\index{isButtonPressed@{isButtonPressed}!EndScreen@{EndScreen}}
+\doxysubsubsection{\texorpdfstring{isButtonPressed()}{isButtonPressed()}}
+{\footnotesize\ttfamily \label{class_end_screen_a526722e49165e7aaa52bd8b0346d4ef4} 
+bool End\+Screen\+::is\+Button\+Pressed (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Check if button is pressed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Key of the button \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return value of true or false 
+\end{DoxyReturn}
+\Hypertarget{class_end_screen_a577ac64603dad46451a85be383b31163}\index{EndScreen@{EndScreen}!render@{render}}
+\index{render@{render}!EndScreen@{EndScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_end_screen_a577ac64603dad46451a85be383b31163} 
+void End\+Screen\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{target}{}\end{DoxyParamCaption})}
+
+
+
+Loop for rendering. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Pointer to the renderer \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_end_screen_ae703976d498b663f11c64e29fae29986}\index{EndScreen@{EndScreen}!setWin@{setWin}}
+\index{setWin@{setWin}!EndScreen@{EndScreen}}
+\doxysubsubsection{\texorpdfstring{setWin()}{setWin()}}
+{\footnotesize\ttfamily \label{class_end_screen_ae703976d498b663f11c64e29fae29986} 
+void End\+Screen\+::set\+Win (\begin{DoxyParamCaption}\item[{bool}]{iswin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function setting this object to win or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iswin} & Bool is win or not \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_end_screen_a8a0cd97a9635cfd007a69f3a580395ee}\index{EndScreen@{EndScreen}!update@{update}}
+\index{update@{update}!EndScreen@{EndScreen}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_end_screen_a8a0cd97a9635cfd007a69f3a580395ee} 
+void End\+Screen\+::update (\begin{DoxyParamCaption}\item[{const sf\+::\+Vector2i \&}]{mouse\+Pos\+Window}{, }\item[{const float \&}]{dt}{}\end{DoxyParamCaption})}
+
+
+
+Main state loop updating events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Delta time value \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/\mbox{\hyperlink{_end_screen_8h}{End\+Screen.\+h}}\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/End\+Screen.\+cpp\end{DoxyCompactItemize}

@@ -1,9 +1,11 @@
 #include "GameState.h"
 #include <locale>
 #include <fstream>
+#include <algorithm>
+#include "OneSaveState.h"
 
-GameState::GameState(StateData* state_data)
-        : State(state_data)
+GameState::GameState(StateData* state_data, SaveGame* saveGame)
+        : State(state_data), saveGamePtr(saveGame)
 {
     this->paused = false;
     this->initDeferredRender();
@@ -33,16 +35,22 @@ GameState::~GameState() {
 
 
 void GameState::pickRandomPassword(std::wstring& stringRef,int maxRow){
-    std::srand(std::time(nullptr));
-    int randomLine = std::rand() % maxRow;
+    if(saveGamePtr->current_password_id!=0)
+        passwordLine=saveGamePtr->current_password_id;
+    else {
+        std::srand(std::time(nullptr));
+        passwordLine = (std::rand() % maxRow) + 1;
+    }
     std::wstring line;
-    int currentLine = 0;
+    int currentLine = 1;
+
+
 
     std::wifstream file(this->stateData->localpath+"Passwords/PL.ini");
     if (file.is_open()) {
         // Iteracyjne odczytywanie pliku
         while (std::getline(file, line)) {
-            if (currentLine == randomLine) {
+            if (currentLine == passwordLine) {
                 break;
             }
             currentLine++;
@@ -51,6 +59,8 @@ void GameState::pickRandomPassword(std::wstring& stringRef,int maxRow){
     }else{
         std::cerr << "Nie można otworzyć pliku" << std::endl;
     }
+
+    saveGamePtr->current_password_id=passwordLine;
     stringRef = line;
 }
 
@@ -115,64 +125,143 @@ void GameState::initView()
     this->background.setTexture(&this->backgroundTexture);
 }
 
-
 void GameState::initPauseMenu()
 {
     const sf::VideoMode& vm = this->stateData->gfxSettings->resolution;
     this->pmenu = new PauseMenu(this->stateData->gfxSettings->resolution, this->font);
     this->pmenu->addButton("QUIT", gui::calcY(74.f, vm), gui::calcX(13.f, vm), gui::calcY(6.f, vm), gui::calcCharSize(vm), L"Wyjdź");
-    this->pmenu->addButton("RESTART", gui::calcY(45.f, vm), gui::calcX(13.f, vm), gui::calcY(6.f, vm), gui::calcCharSize(vm), L"Restart");
     this->pmenu->addButton("CONTINUE", gui::calcY(35.f, vm), gui::calcX(13.f, vm), gui::calcY(6.f, vm), gui::calcCharSize(vm), L"Kontynuuj");
+
+    this->endScreen = new EndScreen(this->stateData->gfxSettings->resolution,this->font);
 }
 
 
 void GameState::checkKeyboard(const uint8_t letter) {
+
+    if(timeClock.getElapsedTime().asSeconds()>1 && !ended){
+        timeClock.restart();
+        this->saveGamePtr->playtime+=totalTime;
+        totalTime=0;
+    }
     if(misses<6){
         if(this->keyboard->IsPressed(letter)){
             if(auto points = this->letterFields->revealLetter(letter)){
+                passes+=points;
+                this->saveGamePtr->total_good_hits++;
                 this->pointsModule->addPoints(letter, points);
                 this->keyboard->SetButtonEnabled(letter,false);
                 this->keyboard->SetButtonColor(letter,sf::Color(0,153,0,255));
             }else{
+                this->saveGamePtr->total_miss_hits++;
                 this->pointsModule->addPoints(letter, points);
                 this->keyboard->SetButtonEnabled(letter,false);
                 this->keyboard->SetButtonColor(letter,sf::Color(250,0,0,255));
                 misses++;
                 this->hangman->setLevel(misses);
             };
+            this->saveGamePtr->picked_letters.push_back(letter);
+            this->saveGamePtr->date = Date();
 
+            this->saveGamePtr->saveToFile(saveGamePtr->path);
         }
+
+        if(!initRevealed) {
+            for (auto letter: saveGamePtr->picked_letters) {
+                if (auto points = this->letterFields->revealLetter(letter)) {
+                    passes+=points;
+                    this->pointsModule->addPoints(letter, points);
+                    this->keyboard->SetButtonEnabled(letter, false);
+                    this->keyboard->SetButtonColor(letter, sf::Color(0, 153, 0, 255));
+                } else {
+                    this->pointsModule->addPoints(letter, points);
+                    this->keyboard->SetButtonEnabled(letter, false);
+                    this->keyboard->SetButtonColor(letter, sf::Color(250, 0, 0, 255));
+                    misses++;
+                    this->hangman->setLevel(misses);
+                };
+            }
+            initRevealed = true;
+        }
+        endClock.restart();
     }else{
-        this->keyboard->SetButtonEnabled(letter,false);
-        this->letterFields->revealLetter(letter);
+        for(int i=0;i<34;i++){
+            letterFields->revealLetter(i);
+        }
+
+        if(!ended){
+            if (endClock.getElapsedTime().asSeconds() >= 2) {
+                this->keyboard->SetButtonEnabled(letter,false);
+                this->letterFields->revealLetter(letter);
+                this->saveGamePtr->addPoints(this->pointsModule->getPoints()*-1);
+                this->saveGamePtr->current_password_id=0;
+                this->saveGamePtr->picked_letters.clear();
+                this->saveGamePtr->loss_games++;
+                this->saveGamePtr->saveToFile(this->saveGamePtr->path);
+                this->endScreen->setWin(false);
+                ended =true;
+            }
+        }
+
+    }
+
+    if(this->letterFields->getLength()==passes){
+        if(ended==false) {
+            if (endClock.getElapsedTime().asSeconds() >= 2) {
+                this->saveGamePtr->addPoints(this->pointsModule->getPoints());
+                this->saveGamePtr->win_games_id.push_back(this->saveGamePtr->current_password_id);
+                this->saveGamePtr->current_password_id = 0;
+                this->saveGamePtr->picked_letters.clear();
+                this->saveGamePtr->win_games++;
+                this->saveGamePtr->saveToFile(this->saveGamePtr->path);
+                this->endScreen->setWin(true);
+                ended = true;
+            }
+        }
     }
     pointsText->setString("Punkty: "+std::to_string(this->pointsModule->getPoints()));
 }
 
 
-void GameState::updatePauseMenuButtons()
-{
-    if (this->pmenu->isButtonPressed("QUIT"))
+void GameState::updatePauseMenuButtons() {
+    if (this->pmenu->isButtonPressed("QUIT")) {
+        OneSaveState *temp = new OneSaveState(this->stateData, saveGamePtr);
         this->endState();
+        this->states->pop();
+        this->states->push(temp);
+    }
     if (this->pmenu->isButtonPressed("CONTINUE"))
         this->paused = false;
-    if (this->pmenu->isButtonPressed("RESTART")) {
-        GameState* temp = new GameState(stateData);
-        delete this->states->top();
-        this->states->pop();
-        this->stateData->states->push(temp);
-    }
+
 }
 
+
+void GameState::updateEndScreenButtons() {
+    if(this->endScreen->isButtonPressed("NEW")){
+        GameState * temp = new GameState(this->stateData, saveGamePtr);
+        this->states->pop();
+        this->states->push(temp);
+        this->endState();
+    }
+
+    if(this->endScreen->isButtonPressed("QUIT")){
+        OneSaveState * temp = new OneSaveState(this->stateData, saveGamePtr);
+        this->states->pop();
+        this->states->push(temp);
+        this->endState();
+    }
+
+
+}
 
 void GameState::update(const float& dt)
 {
     this->updateMousePositions(&this->view);
 
-    if (!this->paused) //gra w  trakcie
+    if (!this->paused && !ended) //gra w  trakcie
     {
-        this->keyboard->update(mousePosWindow,dt);
+        totalTime+=dt;
         this->letterFields->update(dt);
+        this->keyboard->update(mousePosWindow,dt);
 
         //Sprawdzanie czy nacisniety przycisk
         for(uint8_t i{0};i<34;i++){
@@ -182,14 +271,19 @@ void GameState::update(const float& dt)
         if(this->keyboard->IsPressed(L'*')){
             this->paused = true;
         }
-
     }
     else //gra zapauzowana
     {
+        timeClock.restart();
         this->pmenu->update(this->mousePosWindow,dt);
         this->updatePauseMenuButtons();
     }
 
+    if(this->ended) {
+        timeClock.restart();
+        this->updateEndScreenButtons();
+        this->endScreen->update(this->mousePosWindow, dt);
+    }
 
     if(this->stateData->gfxSettings->showFps && delay>1.5f){
         fpsText->setString(std::to_string(static_cast<int>(1/dt)));
@@ -220,13 +314,21 @@ void GameState::render(sf::RenderTarget* target)
 
     renderTexture.draw(*pointsText);
 
-    if (this->paused)
+    if (this->paused && !ended)
     {
         this->pmenu->render(this->renderTexture);
     }
+
+    if(this->ended) {
+        this->endScreen->render(this->renderTexture);
+    }
+
+
 
     this->renderTexture.display();
     this->renderSprite.setTexture(this->renderTexture.getTexture());
     target->draw(renderSprite);
 }
+
+
 

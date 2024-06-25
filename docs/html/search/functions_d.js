@@ -1,13 +1,8 @@
 var searchData=
 [
-  ['savetofile_0',['saveToFile',['../class_graphics_settings.html#a4a72e8954c3a037ba7cb2332b9b69133',1,'GraphicsSettings']]],
-  ['setbuttoncolor_1',['SetButtonColor',['../class_keyboard.html#a8787a01477ad1a057afe22e599347c80',1,'Keyboard']]],
-  ['setbuttonenabled_2',['SetButtonEnabled',['../class_keyboard.html#a95bfaa3563a61fd7a420dfd4ebfd04f5',1,'Keyboard']]],
-  ['setenabled_3',['SetEnabled',['../classgui_1_1_button.html#ae473bec4158d87b3e9ef8adcda6f7776',1,'gui::Button']]],
-  ['setid_4',['setId',['../classgui_1_1_button.html#a97b5820c6acb36cd76886ecb0996ffba',1,'gui::Button']]],
-  ['setlevel_5',['setLevel',['../class_hangman.html#a6c729fee779be8f734eb83c205e4b440',1,'Hangman']]],
-  ['settext_6',['setText',['../classgui_1_1_button.html#a7c3ae2027121cfca048463d9f01673e2',1,'gui::Button']]],
-  ['settingsstate_7',['SettingsState',['../class_settings_state.html#a561642b37dd87062bc5c2020ebe1e08c',1,'SettingsState']]],
-  ['state_8',['State',['../class_state.html#a9de42e1e80c4ee2580b17af064498a94',1,'State']]],
-  ['statedata_9',['StateData',['../class_state_data.html#a02aad935420f214b37d4e66d9c9a1ef9',1,'StateData']]]
+  ['readsavegames_0',['readSavegames',['../class_saves_list_state.html#ab352497e471f645c08ec80289a05eeac',1,'SavesListState']]],
+  ['render_1',['render',['../class_game.html#a15ddd769261d923827a3cdf41499c843',1,'Game::render()'],['../class_end_screen.html#a577ac64603dad46451a85be383b31163',1,'EndScreen::render()'],['../classgui_1_1_button.html#a1f93eac2279f05eef417a376b0bd7429',1,'gui::Button::render()'],['../classgui_1_1_drop_down_list.html#a32f5a1e67542118760ce42a53d771dd4',1,'gui::DropDownList::render()'],['../class_hangman.html#a87c3d082cb89abd156918471bc9986b4',1,'Hangman::render()'],['../class_keyboard.html#aa227372d6f7d737a1e29c4896bf66323',1,'Keyboard::render()'],['../class_letter_fields.html#ae7ee6796d2d48d5f6692f8a2cc6c098e',1,'LetterFields::render()'],['../class_pause_menu.html#ab52735e20aa287ea7a17783e9005e2a8',1,'PauseMenu::render()'],['../class_game_state.html#ae49b20a5455335d879340dbe3b92da7f',1,'GameState::render()'],['../class_loading_state.html#aa5e0949d7bc252afd312005399b39745',1,'LoadingState::render()'],['../class_main_menu_state.html#a343f2f93b5fe14251f425b0709bf43ba',1,'MainMenuState::render()'],['../class_one_save_state.html#a08118becfff8956198d7389747a5b0f9',1,'OneSaveState::render()'],['../class_saves_list_state.html#a9e764c7c07cc08a762d3bc9365bf6338',1,'SavesListState::render()'],['../class_settings_state.html#a9685d562ba72bb84104a9e17a8a27427',1,'SettingsState::render()'],['../class_state.html#aa1f36587befc2c03c4033366e5000d2c',1,'State::render()']]],
+  ['resetgui_2',['resetGui',['../class_main_menu_state.html#ab6c7406776e1a945687164432f9f7c67',1,'MainMenuState::resetGui()'],['../class_one_save_state.html#a2c6d2913bfeb82a92c5a92d57cd097d7',1,'OneSaveState::resetGui()'],['../class_saves_list_state.html#a26e7ee833ad7ecbf228656c96f326302',1,'SavesListState::resetGui()'],['../class_settings_state.html#a92f3b139a6ff405647703a93901b041f',1,'SettingsState::resetGui()']]],
+  ['revealletter_3',['revealLetter',['../class_letter_fields.html#a8fbf0f7af4fb5ff2760bbda5a26f7d6b',1,'LetterFields']]],
+  ['run_4',['run',['../class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa',1,'Game']]]
 ];

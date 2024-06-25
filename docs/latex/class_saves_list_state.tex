@@ -1,0 +1,189 @@
+\doxysection{Saves\+List\+State Class Reference}
+\hypertarget{class_saves_list_state}{}\label{class_saves_list_state}\index{SavesListState@{SavesListState}}
+
+
+View of all savegames.  
+
+
+
+
+{\ttfamily \#include $<$Saves\+List\+State.\+h$>$}
+
+Inheritance diagram for Saves\+List\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_saves_list_state}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_saves_list_state_a7c89e062025a675c816b6bae1268c34d}{Saves\+List\+State}} (\mbox{\hyperlink{class_state_data}{State\+Data}} \texorpdfstring{$\ast$}{*}state\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_saves_list_state_a62aff175ab69a83db2011a17553d4830}\label{class_saves_list_state_a62aff175ab69a83db2011a17553d4830} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Saves\+List\+State} ()
+\begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_saves_list_state_a8bf9d8ab12ca940173733af589e241e4}{update\+Buttons}} (const float \&dt)
+\begin{DoxyCompactList}\small\item\em Function about buttons work. Updating buttons events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_saves_list_state_a555635b108e61623096e6828dd8e853a}{update}} (const float \&dt) override
+\begin{DoxyCompactList}\small\item\em Main state loop updating events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_saves_list_state_a9e764c7c07cc08a762d3bc9365bf6338}{render}} (sf\+::\+Render\+Target \texorpdfstring{$\ast$}{*}target=nullptr) override
+\begin{DoxyCompactList}\small\item\em Loop for rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_state_a9de42e1e80c4ee2580b17af064498a94}{State}} (\mbox{\hyperlink{class_state_data}{State\+Data}} \texorpdfstring{$\ast$}{*}state\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+State} ()
+\begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
+void {\bfseries end\+State} ()
+\begin{DoxyCompactList}\small\item\em Function to terminate the state. \end{DoxyCompactList}\item 
+const bool \& \mbox{\hyperlink{class_state_a18c3b970753bab2937141803644aaf24}{get\+Quit}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the game should be terminated. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_state_a9786ffabe44f3e916d81a2750d8370e0}{update\+Mouse\+Positions}} (sf\+::\+View \texorpdfstring{$\ast$}{*}view=nullptr)
+\begin{DoxyCompactList}\small\item\em Function that updates the mouse position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_saves_list_state_ac8c27c9a1fa31ed22c5352b4a893be63}\label{class_saves_list_state_ac8c27c9a1fa31ed22c5352b4a893be63} 
+void {\bfseries init\+Fonts} ()
+\begin{DoxyCompactList}\small\item\em Function initializing fonts required to display text. \end{DoxyCompactList}\item 
+\Hypertarget{class_saves_list_state_aeadd9a63e71f65530f3cf3a53e9d7e96}\label{class_saves_list_state_aeadd9a63e71f65530f3cf3a53e9d7e96} 
+void {\bfseries init\+Gui} ()
+\begin{DoxyCompactList}\small\item\em Function initializing main manu gui. \end{DoxyCompactList}\item 
+\Hypertarget{class_saves_list_state_a26e7ee833ad7ecbf228656c96f326302}\label{class_saves_list_state_a26e7ee833ad7ecbf228656c96f326302} 
+void {\bfseries reset\+Gui} ()
+\begin{DoxyCompactList}\small\item\em Function to reset Gui to the default state. \end{DoxyCompactList}\item 
+\Hypertarget{class_saves_list_state_ab352497e471f645c08ec80289a05eeac}\label{class_saves_list_state_ab352497e471f645c08ec80289a05eeac} 
+void {\bfseries read\+Savegames} ()
+\begin{DoxyCompactList}\small\item\em Function reading savegames. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_saves_list_state_a8297d7c82bb77b5137ca7f9299c417c8}\label{class_saves_list_state_a8297d7c82bb77b5137ca7f9299c417c8} 
+sf\+::\+Texture {\bfseries title\+Texture}
+\begin{DoxyCompactList}\small\item\em Texture holding title image. \end{DoxyCompactList}\item 
+\Hypertarget{class_saves_list_state_a00c56d8bff662a3c1504a188f7a050d2}\label{class_saves_list_state_a00c56d8bff662a3c1504a188f7a050d2} 
+sf\+::\+Text {\bfseries title}
+\begin{DoxyCompactList}\small\item\em Title image rectangle to render on the view. \end{DoxyCompactList}\item 
+\Hypertarget{class_saves_list_state_a9a140226a0fe379bd3c5827b8850d87a}\label{class_saves_list_state_a9a140226a0fe379bd3c5827b8850d87a} 
+sf\+::\+Font {\bfseries font}
+\begin{DoxyCompactList}\small\item\em Font reference requiered to display text. \end{DoxyCompactList}\item 
+\Hypertarget{class_saves_list_state_ae9a755614a6d0d3f4a1afb0a87fdf696}\label{class_saves_list_state_ae9a755614a6d0d3f4a1afb0a87fdf696} 
+std\+::map$<$ uint8\+\_\+t, \mbox{\hyperlink{classgui_1_1_button}{gui\+::\+Button}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries buttons}
+\begin{DoxyCompactList}\small\item\em A map that stores the buttons. \end{DoxyCompactList}\item 
+\Hypertarget{class_saves_list_state_a80b4a0131aae0bc54fa66f0cad6c0c6a}\label{class_saves_list_state_a80b4a0131aae0bc54fa66f0cad6c0c6a} 
+\mbox{\hyperlink{classgui_1_1_button}{gui\+::\+Button}} \texorpdfstring{$\ast$}{*} {\bfseries quit\+Button}
+\begin{DoxyCompactList}\small\item\em Quit button pointer. \end{DoxyCompactList}\item 
+\Hypertarget{class_saves_list_state_acb28a6e86b9097c4a4763da2bae52ab8}\label{class_saves_list_state_acb28a6e86b9097c4a4763da2bae52ab8} 
+\mbox{\hyperlink{classgui_1_1_button}{gui\+::\+Button}} \texorpdfstring{$\ast$}{*} {\bfseries new\+Game\+Button}
+\begin{DoxyCompactList}\small\item\em New game button pointer. \end{DoxyCompactList}\item 
+\Hypertarget{class_saves_list_state_af9d6da77d5c95d553608c5b57bdbafed}\label{class_saves_list_state_af9d6da77d5c95d553608c5b57bdbafed} 
+std\+::vector$<$ \mbox{\hyperlink{class_save_game_base}{Save\+Game\+Base}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries simple\+Saves}
+\begin{DoxyCompactList}\small\item\em All saves in dir. \end{DoxyCompactList}\item 
+\Hypertarget{class_saves_list_state_a7b7b5835008390c4623289986bae5305}\label{class_saves_list_state_a7b7b5835008390c4623289986bae5305} 
+std\+::vector$<$ sf\+::\+Text \texorpdfstring{$\ast$}{*} $>$ {\bfseries texts}
+\begin{DoxyCompactList}\small\item\em All text pointers vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_state_data}{State\+Data}} \texorpdfstring{$\ast$}{*} {\bfseries state\+Data}
+\begin{DoxyCompactList}\small\item\em Variable holding state data. \end{DoxyCompactList}\item 
+std\+::stack$<$ \mbox{\hyperlink{class_state}{State}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*} {\bfseries states}
+\begin{DoxyCompactList}\small\item\em A stack that stores the views. \end{DoxyCompactList}\item 
+sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*} {\bfseries window}
+\begin{DoxyCompactList}\small\item\em The game window pointer. \end{DoxyCompactList}\item 
+sf\+::\+Texture {\bfseries background\+Texture}
+\begin{DoxyCompactList}\small\item\em background texture ref. \end{DoxyCompactList}\item 
+sf\+::\+Rectangle\+Shape {\bfseries background}
+\begin{DoxyCompactList}\small\item\em Background rectangle. \end{DoxyCompactList}\item 
+bool {\bfseries quit}
+\begin{DoxyCompactList}\small\item\em Is the game to be closed. \end{DoxyCompactList}\item 
+bool {\bfseries paused}
+\begin{DoxyCompactList}\small\item\em Is the game paused. \end{DoxyCompactList}\item 
+sf\+::\+Vector2i {\bfseries mouse\+Pos\+Window}
+\begin{DoxyCompactList}\small\item\em XY mouse position on the window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+View of all savegames. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_saves_list_state_a7c89e062025a675c816b6bae1268c34d}\index{SavesListState@{SavesListState}!SavesListState@{SavesListState}}
+\index{SavesListState@{SavesListState}!SavesListState@{SavesListState}}
+\doxysubsubsection{\texorpdfstring{SavesListState()}{SavesListState()}}
+{\footnotesize\ttfamily \label{class_saves_list_state_a7c89e062025a675c816b6bae1268c34d} 
+Saves\+List\+State\+::\+Saves\+List\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_state_data}{State\+Data}} \texorpdfstring{$\ast$}{*}}]{state\+\_\+data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Class constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state\+\_\+date} & Pointer to main state data. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_saves_list_state_a9e764c7c07cc08a762d3bc9365bf6338}\index{SavesListState@{SavesListState}!render@{render}}
+\index{render@{render}!SavesListState@{SavesListState}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_saves_list_state_a9e764c7c07cc08a762d3bc9365bf6338} 
+void Saves\+List\+State\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \texorpdfstring{$\ast$}{*}}]{target}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Loop for rendering. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Pointer to the renderer \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_state_aa1f36587befc2c03c4033366e5000d2c}{State}}.
+
+\Hypertarget{class_saves_list_state_a555635b108e61623096e6828dd8e853a}\index{SavesListState@{SavesListState}!update@{update}}
+\index{update@{update}!SavesListState@{SavesListState}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_saves_list_state_a555635b108e61623096e6828dd8e853a} 
+void Saves\+List\+State\+::update (\begin{DoxyParamCaption}\item[{const float \&}]{dt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Main state loop updating events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Delta time value \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_state_a2c2021d448defc57111202b74ed0aaa0}{State}}.
+
+\Hypertarget{class_saves_list_state_a8bf9d8ab12ca940173733af589e241e4}\index{SavesListState@{SavesListState}!updateButtons@{updateButtons}}
+\index{updateButtons@{updateButtons}!SavesListState@{SavesListState}}
+\doxysubsubsection{\texorpdfstring{updateButtons()}{updateButtons()}}
+{\footnotesize\ttfamily \label{class_saves_list_state_a8bf9d8ab12ca940173733af589e241e4} 
+void Saves\+List\+State\+::update\+Buttons (\begin{DoxyParamCaption}\item[{const float \&}]{dt}{}\end{DoxyParamCaption})}
+
+
+
+Function about buttons work. Updating buttons events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Delta time value \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+States/\mbox{\hyperlink{_saves_list_state_8h}{Saves\+List\+State.\+h}}\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+States/Saves\+List\+State.\+cpp\end{DoxyCompactItemize}

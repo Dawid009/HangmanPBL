@@ -1,19 +1,18 @@
 /**
- * @file MainMenuState.h
- * @brief Main menu view class
+ * @file SavesListState.h
+ * @brief View of all savegames
  */
 #ifndef HANGMAN_SAVELISTSTATE_H
 #define HANGMAN_SAVELISTSTATE_H
 
 #include "State.h"
 #include "../Modules/Gui.h"
-//#include "GameState.h"
 #include "../Modules/SaveGame.h"
 
 
 /**
- * @class MainMenuState
- * @brief Main Menu class reponsible for view and logic
+ * @class SavesListState
+ * @brief View of all savegames
  */
 class SavesListState : public State{
 
@@ -22,10 +21,10 @@ private:
     sf::Text title; ///<Title image rectangle to render on the view
     sf::Font font; ///<Font reference requiered to display text
     std::map<uint8_t, gui::Button*> buttons; ///<A map that stores the buttons
-    gui::Button* quitButton;
-    gui::Button* newGameButton;
-    std::vector<SaveGameBase*> simpleSaves;
-    std::vector<sf::Text*> texts;
+    gui::Button* quitButton; ///<Quit button pointer
+    gui::Button* newGameButton;///<New game button pointer
+    std::vector<SaveGameBase*> simpleSaves; ///<All saves in dir
+    std::vector<sf::Text*> texts; ///<All text pointers vector
 
     /**
     * @brief Function initializing fonts required to display text.
@@ -42,7 +41,9 @@ private:
     */
     void resetGui();
 
-
+    /**
+    * @brief Function reading savegames
+    */
     void readSavegames();
 
 public:

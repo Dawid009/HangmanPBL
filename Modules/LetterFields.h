@@ -75,6 +75,13 @@ public:
     * @returns Return amount of points
     */
     int revealLetter(uint8_t letter);
+
+
+    /**
+    * @brief Getter for password length
+    * @returns Length
+    */
+    int getLength() {return this->Fields.size(); }
 };
 
 

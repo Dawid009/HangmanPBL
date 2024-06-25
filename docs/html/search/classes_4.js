@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['keyboard_0',['Keyboard',['../class_keyboard.html',1,'']]]
+  ['hangman_0',['Hangman',['../class_hangman.html',1,'']]]
 ];

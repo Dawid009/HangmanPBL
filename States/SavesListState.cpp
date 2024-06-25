@@ -29,18 +29,18 @@ void SavesListState::readSavegames(){
     try {
         for (const auto& entry : std::filesystem::directory_iterator(this->stateData->localpath+"Config/SaveGames")) {
             SaveGameBase* temp = new SaveGameBase();
-            temp->loadSimpleFromFile(this->stateData->localpath+"Config/SaveGames/"+entry.path().filename().string());
-            temp->path = this->stateData->localpath+"Config/SaveGames/"+entry.path().filename().string();
-            simpleSaves.push_back(temp);
+            if(entry.path().extension() == ".ini"){
+                temp->loadSimpleFromFile(this->stateData->localpath+"Config/SaveGames/"+entry.path().filename().string());
+                temp->path = this->stateData->localpath+"Config/SaveGames/"+entry.path().filename().string();
+                simpleSaves.push_back(temp);
+            }
+
         }
     } catch (const std::filesystem::filesystem_error& err) {
         std::cerr << "Filesystem error: " << err.what() << '\n';
     } catch (const std::exception& ex) {
         std::cerr << "General error: " << ex.what() << '\n';
     }
-
-
-
 };
 
 void SavesListState::initFonts()
@@ -55,7 +55,6 @@ void SavesListState::initFonts()
 void SavesListState::initGui()
 {
     const sf::VideoMode& vm = this->stateData->gfxSettings->resolution;
-
     this->background.setSize(sf::Vector2f(static_cast<float>(vm.width),static_cast<float>(vm.height)));
 
     if (!this->backgroundTexture.loadFromFile(this->stateData->localpath+"Images/LS.png"))
@@ -63,7 +62,7 @@ void SavesListState::initGui()
         throw "ERROR::MAIN_MENU::FAILED_TO_LOAD_BACKGROUND_TEXTURE";
     }
 
-    this->title.setPosition(sf::Vector2f(static_cast<float>(gui::calcX(9.f,vm)),static_cast<float>(gui::calcY(9.f,vm))));
+    this->title.setPosition(sf::Vector2f(static_cast<float>(gui::calcX(15.f,vm)),static_cast<float>(gui::calcY(9.f,vm))));
     this->title.setString("Zapisy:");
     this->title.setFont(this->font);
     this->title.setStyle(1);
@@ -73,7 +72,7 @@ void SavesListState::initGui()
     this->background.setTexture(&this->backgroundTexture);
 
     auto* ButtonPlayInitParams = new gui::ButtonParams;
-    ButtonPlayInitParams->x =  gui::calcX(8,vm);
+    ButtonPlayInitParams->x =  gui::calcX(30,vm);
     ButtonPlayInitParams->width = static_cast<float>(gui::calcCharSize(vm,50)*3);
     ButtonPlayInitParams->height = static_cast<float>(gui::calcCharSize(vm,50)*1);
     ButtonPlayInitParams->font = &this->font;
@@ -84,44 +83,62 @@ void SavesListState::initGui()
     ButtonPlayInitParams->text_hover_color= sf::Color(25, 25, 25, 255);
     ButtonPlayInitParams->text_active_color= sf::Color(10, 10, 10, 255);
 
-    for (int i=0;i<simpleSaves.size();i++) {
-        if (simpleSaves.size() > 0){
-            sf::Text *temp = new sf::Text(L"(P: " + std::to_wstring(simpleSaves[i]->getPoints()) + L")",
+    int i=0;
+    for (;i<simpleSaves.size();i++) {
+        if (!simpleSaves.empty()){
+            sf::Text *temp = new sf::Text(L"(Punkty: " + std::to_wstring(simpleSaves[i]->getPoints()) + L")",
                                           this->font, gui::calcCharSize(vm, 90));
-        temp->setPosition(sf::Vector2f(static_cast<float>(gui::calcX(19.f, vm)),
-                                       static_cast<float>(gui::calcY(23.f + i * 7, vm) + gui::calcCharSize(vm, 110))));
-        temp->setFillColor(sf::Color(70, 70, 70, 255));
-        texts.push_back(temp);
+            temp->setPosition(sf::Vector2f(static_cast<float>(gui::calcX(55.f, vm)),
+                                       static_cast<float>(gui::calcY(22.f + i * 7, vm) + gui::calcCharSize(vm, 110))));
+            temp->setFillColor(sf::Color(70, 70, 70, 255));
+            texts.push_back(temp);
 
             sf::Text *temp2 = new sf::Text(simpleSaves[i]->getDate(),
                                           this->font, gui::calcCharSize(vm, 90));
-            temp2->setPosition(sf::Vector2f(static_cast<float>(gui::calcX(30.f, vm)),
-                                           static_cast<float>(gui::calcY(23.f + i * 7, vm) + gui::calcCharSize(vm, 110))));
+            temp2->setPosition(sf::Vector2f(static_cast<float>(gui::calcX(41.f, vm)),
+                                           static_cast<float>(gui::calcY(22.f + i * 7, vm) + gui::calcCharSize(vm, 110))));
             temp2->setFillColor(sf::Color(70, 70, 70, 255));
             texts.push_back(temp2);
 
-
-
         ButtonPlayInitParams->text = simpleSaves[i]->getSaveName();
-        ButtonPlayInitParams->y = static_cast<float>(gui::calcY(23.f + i * 7, vm));
+        ButtonPlayInitParams->y = static_cast<float>(gui::calcY(22.f + i * 7, vm));
         this->buttons[i] = new gui::Button(ButtonPlayInitParams);
     }
 
-        if((simpleSaves.size()<8 && simpleSaves.size()-1 == i) || simpleSaves.size() ==0 ){
+
+        if((simpleSaves.empty() ||simpleSaves.size()<8) ){
             ButtonPlayInitParams->text = "Nowa gra";
-            ButtonPlayInitParams->x =  gui::calcX(10,vm);
-            ButtonPlayInitParams->y = static_cast<float>(gui::calcY(23.f+(i+1)*7,vm));
+            ButtonPlayInitParams->y = static_cast<float>(gui::calcY(22.f+(i+1)*7,vm));
             this->newGameButton = new gui::Button(ButtonPlayInitParams);
+            this->newGameButton->SetEnabled(true);
+        }else{
+            ButtonPlayInitParams->text = "Nowa gra";
+            ButtonPlayInitParams->y = static_cast<float>(gui::calcY(22.f+(i+1)*7,vm));
+            this->newGameButton = new gui::Button(ButtonPlayInitParams);
+            this->newGameButton->SetEnabled(false);
         }
 
     }
+
+    if((simpleSaves.empty() ||simpleSaves.size()<8) ){
+        ButtonPlayInitParams->text = "Nowa gra";
+        ButtonPlayInitParams->y = static_cast<float>(gui::calcY(23.f+(i+1)*7,vm));
+        this->newGameButton = new gui::Button(ButtonPlayInitParams);
+        this->newGameButton->SetEnabled(true);
+    }else{
+        ButtonPlayInitParams->text = "Nowa gra";
+        ButtonPlayInitParams->y = static_cast<float>(gui::calcY(23.f+(i+1)*7,vm));
+        this->newGameButton = new gui::Button(ButtonPlayInitParams);
+        this->newGameButton->SetEnabled(false);
+    }
+
     delete ButtonPlayInitParams;
 
     //Exit
     auto* ButtonInitParams = new gui::ButtonParams;
     ButtonInitParams->x =  gui::calcX(10.f, vm);
     ButtonInitParams->y =  gui::calcY(81.5f, vm);
-    ButtonInitParams->width = static_cast<float>(gui::calcCharSize(vm,50)*7);
+    ButtonInitParams->width = static_cast<float>(gui::calcCharSize(vm,50)*3);
     ButtonInitParams->height = static_cast<float>(gui::calcCharSize(vm,50)*1.2);
     ButtonInitParams->font = &this->font;
     ButtonInitParams->character_size = gui::calcCharSize(vm);
@@ -131,7 +148,6 @@ void SavesListState::initGui()
     ButtonInitParams->text_hover_color= sf::Color(25, 25, 25, 255);
     ButtonInitParams->text_active_color= sf::Color(10, 10, 10, 255);
     ButtonInitParams->text = L"Wróć";
-
 
     this->quitButton = new gui::Button(ButtonInitParams);
     delete ButtonInitParams;
@@ -156,10 +172,13 @@ void SavesListState::updateButtons(const float& dt)
     {
         this->endState();
     }
+    if(this->newGameButton!= nullptr)
     this->newGameButton->update(this->mousePosWindow,dt);
-    if (this->newGameButton->isPressed())
+    if (this->newGameButton!= nullptr && this->newGameButton->isPressed())
     {
-        SaveGame * temp = new SaveGame();
+        SaveGame * temp = new SaveGame(this->stateData->localpath+"Config/SaveGames/");
+
+        this->states->pop();
         this->states->push(new OneSaveState(this->stateData, temp));
     }
 
@@ -170,7 +189,9 @@ void SavesListState::updateButtons(const float& dt)
     for(auto &el : buttons) {
       if (el.second->isPressed()) {
             SaveGame * temp = new SaveGame();
+            temp->path = simpleSaves[el.first]->path;
             temp->loadAllFromFile(simpleSaves[el.first]->path);
+            this->states->pop();
             this->states->push(new OneSaveState(this->stateData, temp));
         }
     }
@@ -196,6 +217,7 @@ void SavesListState::render(sf::RenderTarget* target)
     target->draw(this->title);
 
     this->quitButton->render(*target);
+    if(this->newGameButton!= nullptr)
     this->newGameButton->render(*target);
     //Renderowanie buttonów
     for (auto &it : this->buttons)

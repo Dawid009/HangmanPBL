@@ -1,0 +1,132 @@
+\doxysection{Save\+Game\+Base Class Reference}
+\hypertarget{class_save_game_base}{}\label{class_save_game_base}\index{SaveGameBase@{SaveGameBase}}
+
+
+Base class for savegame.  
+
+
+
+
+{\ttfamily \#include $<$Save\+Game.\+h$>$}
+
+Inheritance diagram for Save\+Game\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_save_game_base}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_save_game_base_ad48b132e31d5e3e4648f135b9e82dc86}\label{class_save_game_base_ad48b132e31d5e3e4648f135b9e82dc86} 
+{\bfseries Save\+Game\+Base} ()
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_save_game_base_a129c04c758956066943f4b08f5e62e1b}{load\+Simple\+From\+File}} (const std\+::string \&\mbox{\hyperlink{class_save_game_base_a5b00540b67afdd10a70c10b414035e78}{path}})
+\begin{DoxyCompactList}\small\item\em Reading savegame simple info from file. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{class_save_game_base_a8b150c3e571b736012fd13cf6bbbf79e}{get\+Save\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Getter for savegame name. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{class_save_game_base_a60e8de8aa46bfd8fd8e4466c1027f739}{get\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Getter for savegame \doxylink{struct_date}{Date}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_save_game_base_a01ba2a971358590cb2de3461cb292951}{get\+Points}} ()
+\begin{DoxyCompactList}\small\item\em Getter for savegame \doxylink{class_points}{Points}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_save_game_base_a96b78faefc89724990f3056d4be4b8b7}{add\+Points}} (int points)
+\begin{DoxyCompactList}\small\item\em Function adding points to the savegame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_save_game_base_afa0fc81c1d596922976f50c93450f317}\label{class_save_game_base_afa0fc81c1d596922976f50c93450f317} 
+\mbox{\hyperlink{struct_date}{Date}} {\bfseries date}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_date}{Date} object. \end{DoxyCompactList}\item 
+\Hypertarget{class_save_game_base_a5b00540b67afdd10a70c10b414035e78}\label{class_save_game_base_a5b00540b67afdd10a70c10b414035e78} 
+std\+::string {\bfseries path}
+\begin{DoxyCompactList}\small\item\em Path to the file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_save_game_base_a3db82ab6e27355f4b1466f6530850c63}\label{class_save_game_base_a3db82ab6e27355f4b1466f6530850c63} 
+std\+::string {\bfseries save\+\_\+name}
+\begin{DoxyCompactList}\small\item\em Savegame name. \end{DoxyCompactList}\item 
+\Hypertarget{class_save_game_base_a2530b7c69f9f79a50b3657c9a5bda833}\label{class_save_game_base_a2530b7c69f9f79a50b3657c9a5bda833} 
+int {\bfseries total\+\_\+points}
+\begin{DoxyCompactList}\small\item\em Total savegame points. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for savegame. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_save_game_base_a96b78faefc89724990f3056d4be4b8b7}\index{SaveGameBase@{SaveGameBase}!addPoints@{addPoints}}
+\index{addPoints@{addPoints}!SaveGameBase@{SaveGameBase}}
+\doxysubsubsection{\texorpdfstring{addPoints()}{addPoints()}}
+{\footnotesize\ttfamily \label{class_save_game_base_a96b78faefc89724990f3056d4be4b8b7} 
+void Save\+Game\+Base\+::add\+Points (\begin{DoxyParamCaption}\item[{int}]{points}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function adding points to the savegame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & \doxylink{class_points}{Points} amount \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_save_game_base_a60e8de8aa46bfd8fd8e4466c1027f739}\index{SaveGameBase@{SaveGameBase}!getDate@{getDate}}
+\index{getDate@{getDate}!SaveGameBase@{SaveGameBase}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}}
+{\footnotesize\ttfamily \label{class_save_game_base_a60e8de8aa46bfd8fd8e4466c1027f739} 
+const std\+::string Save\+Game\+Base\+::get\+Date (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for savegame \doxylink{struct_date}{Date}. 
+
+\begin{DoxyReturn}{Returns}
+Returns date 
+\end{DoxyReturn}
+\Hypertarget{class_save_game_base_a01ba2a971358590cb2de3461cb292951}\index{SaveGameBase@{SaveGameBase}!getPoints@{getPoints}}
+\index{getPoints@{getPoints}!SaveGameBase@{SaveGameBase}}
+\doxysubsubsection{\texorpdfstring{getPoints()}{getPoints()}}
+{\footnotesize\ttfamily \label{class_save_game_base_a01ba2a971358590cb2de3461cb292951} 
+int Save\+Game\+Base\+::get\+Points (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for savegame \doxylink{class_points}{Points}. 
+
+\begin{DoxyReturn}{Returns}
+Returns points 
+\end{DoxyReturn}
+\Hypertarget{class_save_game_base_a8b150c3e571b736012fd13cf6bbbf79e}\index{SaveGameBase@{SaveGameBase}!getSaveName@{getSaveName}}
+\index{getSaveName@{getSaveName}!SaveGameBase@{SaveGameBase}}
+\doxysubsubsection{\texorpdfstring{getSaveName()}{getSaveName()}}
+{\footnotesize\ttfamily \label{class_save_game_base_a8b150c3e571b736012fd13cf6bbbf79e} 
+const std\+::string \& Save\+Game\+Base\+::get\+Save\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for savegame name. 
+
+\begin{DoxyReturn}{Returns}
+Returns name 
+\end{DoxyReturn}
+\Hypertarget{class_save_game_base_a129c04c758956066943f4b08f5e62e1b}\index{SaveGameBase@{SaveGameBase}!loadSimpleFromFile@{loadSimpleFromFile}}
+\index{loadSimpleFromFile@{loadSimpleFromFile}!SaveGameBase@{SaveGameBase}}
+\doxysubsubsection{\texorpdfstring{loadSimpleFromFile()}{loadSimpleFromFile()}}
+{\footnotesize\ttfamily \label{class_save_game_base_a129c04c758956066943f4b08f5e62e1b} 
+void Save\+Game\+Base\+::load\+Simple\+From\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path}{}\end{DoxyParamCaption})}
+
+
+
+Reading savegame simple info from file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & path to the location of savegame \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/\mbox{\hyperlink{_save_game_8h}{Save\+Game.\+h}}\item 
+/\+Users/dawid/\+Documents/programowanie/cpp2/\+Hangman/\+Modules/Save\+Game.\+cpp\end{DoxyCompactItemize}

@@ -1,15 +1,20 @@
 #include "OneSaveState.h"
 #include <locale>
 #include "GameState.h"
+#include "SavesListState.h"
+#include <cstdio>
 
 #define QUIT 10
 #define PLAY 11
+#define REMOVE 12
 
 OneSaveState::OneSaveState(StateData* state_data, SaveGame * saveGame)
         : State(state_data), saveGamePtr(saveGame)
 {
     this->initFonts();
     this->initGui();
+
+    saveGamePtr->saveToFile(saveGamePtr->path);
     this->resetGui();
 }
 
@@ -52,32 +57,41 @@ void OneSaveState::initGui()
     this->background.setTexture(&this->backgroundTexture);
 
 
-
-
-    sf::Text* temp = new sf::Text("Wygrane: "+std::to_string(saveGamePtr->win_games)+"/"+std::to_string(saveGamePtr->win_games+saveGamePtr->loss_games),this->font, gui::calcCharSize(vm,70));
-    temp->setPosition(sf::Vector2f(static_cast<float>(gui::calcX(19.f,vm)),static_cast<float>(gui::calcY(23.f,vm)+gui::calcCharSize(vm,110))));
-    temp->setFillColor(sf::Color(70, 70, 70, 255));
+    sf::Text* temp = new sf::Text("Statystyki:",this->font, gui::calcCharSize(vm,40));
+    temp->setPosition(sf::Vector2f(static_cast<float>(gui::calcX(19.f,vm)),static_cast<float>(gui::calcY(24.f,vm)+gui::calcCharSize(vm,110))));
+    temp->setFillColor(sf::Color(50, 50, 50, 255));
     texts.push_back(temp);
 
+    sf::Text* temp0 = new sf::Text("Wszystkie gry: "+std::to_string(saveGamePtr->win_games+saveGamePtr->loss_games),this->font, gui::calcCharSize(vm,50));
+    temp0->setPosition(sf::Vector2f(static_cast<float>(gui::calcX(19.f,vm)),static_cast<float>(gui::calcY(33.f,vm)+gui::calcCharSize(vm,110))));
+    temp0->setFillColor(sf::Color(70, 70, 70, 255));
+    texts.push_back(temp0);
 
-    sf::Text* temp1 = new sf::Text("Czas gry: "+std::to_string(saveGamePtr->playtime)+"min",this->font, gui::calcCharSize(vm,70));
-    temp1->setPosition(sf::Vector2f(static_cast<float>(gui::calcX(19.f,vm)),static_cast<float>(gui::calcY(30.f,vm)+gui::calcCharSize(vm,110))));
+    sf::Text* temp4 = new sf::Text("Wygrane: "+std::to_string(saveGamePtr->win_games),this->font, gui::calcCharSize(vm,50));
+    temp4->setPosition(sf::Vector2f(static_cast<float>(gui::calcX(19.f,vm)),static_cast<float>(gui::calcY(39.f,vm)+gui::calcCharSize(vm,110))));
+    temp4->setFillColor(sf::Color(70, 70, 70, 255));
+    texts.push_back(temp4);
+
+    sf::Text* temp1 = new sf::Text(L"Łączny zas gry: "+std::to_wstring(saveGamePtr->playtime/60)+L"min "+std::to_wstring(saveGamePtr->playtime%60)+L"s",this->font, gui::calcCharSize(vm,50));
+    temp1->setPosition(sf::Vector2f(static_cast<float>(gui::calcX(19.f,vm)),static_cast<float>(gui::calcY(45.f,vm)+gui::calcCharSize(vm,110))));
     temp1->setFillColor(sf::Color(70, 70, 70, 255));
     texts.push_back(temp1);
 
-    sf::Text* temp2 = new sf::Text("Aktualne id gry: "+std::to_string(saveGamePtr->current_password_id),this->font, gui::calcCharSize(vm,70));
-    temp2->setPosition(sf::Vector2f(static_cast<float>(gui::calcX(19.f,vm)),static_cast<float>(gui::calcY(37.f,vm)+gui::calcCharSize(vm,110))));
+    sf::Text* temp2 = new sf::Text("Poprawne trafienia: "+std::to_string(saveGamePtr->total_good_hits),this->font, gui::calcCharSize(vm,50));
+    temp2->setPosition(sf::Vector2f(static_cast<float>(gui::calcX(19.f,vm)),static_cast<float>(gui::calcY(51.f,vm)+gui::calcCharSize(vm,110))));
     temp2->setFillColor(sf::Color(70, 70, 70, 255));
     texts.push_back(temp2);
 
-
-
+    sf::Text* temp3 = new sf::Text("Niepoprawne trafienia: "+std::to_string(saveGamePtr->total_miss_hits),this->font, gui::calcCharSize(vm,50));
+    temp3->setPosition(sf::Vector2f(static_cast<float>(gui::calcX(19.f,vm)),static_cast<float>(gui::calcY(56.f,vm)+gui::calcCharSize(vm,110))));
+    temp3->setFillColor(sf::Color(70, 70, 70, 255));
+    texts.push_back(temp3);
 
     //Exit
     auto* ButtonInitParams = new gui::ButtonParams;
     ButtonInitParams->x =  gui::calcX(10.f, vm);
     ButtonInitParams->y =  gui::calcY(81.5f, vm);
-    ButtonInitParams->width = static_cast<float>(gui::calcCharSize(vm,50)*7);
+    ButtonInitParams->width = static_cast<float>(gui::calcCharSize(vm,50)*3);
     ButtonInitParams->height = static_cast<float>(gui::calcCharSize(vm,50)*1.2);
     ButtonInitParams->font = &this->font;
     ButtonInitParams->character_size = gui::calcCharSize(vm);
@@ -91,6 +105,7 @@ void OneSaveState::initGui()
 
     this->buttons[QUIT] = new gui::Button(ButtonInitParams);
 
+
     ButtonInitParams->x =  gui::calcX(25.f, vm);
     if(saveGamePtr->current_password_id==0)
         ButtonInitParams->text = L"Nowa gra";
@@ -98,9 +113,12 @@ void OneSaveState::initGui()
         ButtonInitParams->text = L"Kontynnuj";
     }
 
-
     this->buttons[PLAY] = new gui::Button(ButtonInitParams);
 
+    ButtonInitParams->text = L"Usuń";
+    ButtonInitParams->x =  gui::calcX(70.f, vm);
+    ButtonInitParams->text_idle_color= sf::Color::Red;
+    this->buttons[REMOVE] = new gui::Button(ButtonInitParams);
     delete ButtonInitParams;
 }
 
@@ -120,12 +138,26 @@ void OneSaveState::updateButtons(const float& dt)
 {
     if (this->buttons[QUIT]->isPressed())
     {
+        SavesListState *temp = new SavesListState(this->stateData);
         this->endState();
+        this->states->pop();
+        this->states->push(temp);
     }
+
+    if (this->buttons[REMOVE]->isPressed())
+    {
+        std::remove(this->saveGamePtr->path.c_str());
+        SavesListState *temp = new SavesListState(this->stateData);
+        this->endState();
+        this->states->pop();
+        this->states->push(temp);
+    }
+
     if (this->buttons[PLAY]->isPressed())
     {
-        //this->endState();
-        GameState * temp = new GameState(this->stateData);
+        GameState * temp = new GameState(this->stateData, saveGamePtr);
+        this->endState();
+        this->states->pop();
         this->states->push(temp);
     }
 

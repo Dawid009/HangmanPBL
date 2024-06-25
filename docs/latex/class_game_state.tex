@@ -18,7 +18,7 @@ Inheritance diagram for Game\+State\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_game_state_a267b6a5ef80c6c6d252d2cf9b981414d}{Game\+State}} (\mbox{\hyperlink{class_state_data}{State\+Data}} \texorpdfstring{$\ast$}{*}state\+\_\+data)
+\mbox{\hyperlink{class_game_state_ab902d5b451404017f7111ae1c0b2554f}{Game\+State}} (\mbox{\hyperlink{class_state_data}{State\+Data}} \texorpdfstring{$\ast$}{*}state\+\_\+data, \mbox{\hyperlink{class_save_game}{Save\+Game}} \texorpdfstring{$\ast$}{*}save\+Game)
 \begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
 \Hypertarget{class_game_state_ae623df5042cd0c17daa3394fdcb397b3}\label{class_game_state_ae623df5042cd0c17daa3394fdcb397b3} 
 virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Game\+State} ()
@@ -29,7 +29,10 @@ void \mbox{\hyperlink{class_game_state_ae49b20a5455335d879340dbe3b92da7f}{render
 \begin{DoxyCompactList}\small\item\em Loop for rendering. \end{DoxyCompactList}\item 
 \Hypertarget{class_game_state_ad2a47f94bfffccc635b680d996144e0e}\label{class_game_state_ad2a47f94bfffccc635b680d996144e0e} 
 void {\bfseries update\+Pause\+Menu\+Buttons} ()
-\begin{DoxyCompactList}\small\item\em Function updating \doxylink{class_pause_menu}{Pause\+Menu} component events. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Function updating \doxylink{class_pause_menu}{Pause\+Menu} component events. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_state_afb3b8d858a6281c8b8471ac4fab5d799}\label{class_game_state_afb3b8d858a6281c8b8471ac4fab5d799} 
+void {\bfseries update\+End\+Screen\+Buttons} ()
+\begin{DoxyCompactList}\small\item\em Function updating End Screen component events. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_state}{State}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -83,6 +86,30 @@ sf\+::\+Sprite {\bfseries render\+Sprite}
 \Hypertarget{class_game_state_a4f85f0e3048be125432a6e6d76e3ee0a}\label{class_game_state_a4f85f0e3048be125432a6e6d76e3ee0a} 
 \mbox{\hyperlink{class_pause_menu}{Pause\+Menu}} \texorpdfstring{$\ast$}{*} {\bfseries pmenu}
 \begin{DoxyCompactList}\small\item\em in-\/game menu component pointer \end{DoxyCompactList}\item 
+\Hypertarget{class_game_state_a4a6987a3d1e406ed6104762978f86868}\label{class_game_state_a4a6987a3d1e406ed6104762978f86868} 
+\mbox{\hyperlink{class_end_screen}{End\+Screen}} \texorpdfstring{$\ast$}{*} {\bfseries end\+Screen}
+\begin{DoxyCompactList}\small\item\em End screen pointer. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_state_a6f4828f82c7aea7c007a2274205e6f77}\label{class_game_state_a6f4828f82c7aea7c007a2274205e6f77} 
+sf\+::\+Clock {\bfseries end\+Clock}
+\begin{DoxyCompactList}\small\item\em End screen delay. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_state_ad48b48eec97379e94f12a2787174de9f}\label{class_game_state_ad48b48eec97379e94f12a2787174de9f} 
+double {\bfseries total\+Time} =0
+\begin{DoxyCompactList}\small\item\em Total playtime in session. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_state_a1f12ef3ec6e67b73bea72307955e72bf}\label{class_game_state_a1f12ef3ec6e67b73bea72307955e72bf} 
+sf\+::\+Clock {\bfseries time\+Clock}
+\begin{DoxyCompactList}\small\item\em Time clock object. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_state_ad6f3276f8d5c302dee36cbed38b8d786}\label{class_game_state_ad6f3276f8d5c302dee36cbed38b8d786} 
+bool {\bfseries init\+Revealed} = false
+\begin{DoxyCompactList}\small\item\em Are letters from savegame revealed. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_state_a12dc9152bd4dff0d39187ca452387cfd}\label{class_game_state_a12dc9152bd4dff0d39187ca452387cfd} 
+bool {\bfseries ended} = false
+\begin{DoxyCompactList}\small\item\em Is game ended? \end{DoxyCompactList}\item 
+\Hypertarget{class_game_state_afc8b38323127ba0ae47e1cdd9229f175}\label{class_game_state_afc8b38323127ba0ae47e1cdd9229f175} 
+int {\bfseries password\+Line}
+\begin{DoxyCompactList}\small\item\em Id of the password. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_state_a904aeb22ea4ef76eccbc9344ecee2d79}\label{class_game_state_a904aeb22ea4ef76eccbc9344ecee2d79} 
+\mbox{\hyperlink{class_save_game}{Save\+Game}} \texorpdfstring{$\ast$}{*} {\bfseries save\+Game\+Ptr}
+\item 
 \Hypertarget{class_game_state_a0f5f60339d8bd7749ba3695eb5a98fd0}\label{class_game_state_a0f5f60339d8bd7749ba3695eb5a98fd0} 
 \mbox{\hyperlink{class_keyboard}{Keyboard}} \texorpdfstring{$\ast$}{*} {\bfseries keyboard}
 \begin{DoxyCompactList}\small\item\em \doxylink{class_keyboard}{Keyboard} component pointer. \end{DoxyCompactList}\item 
@@ -106,7 +133,10 @@ float {\bfseries delay} =0
 \begin{DoxyCompactList}\small\item\em Fps update delay counter. \end{DoxyCompactList}\item 
 \Hypertarget{class_game_state_a740554a2953ecc27d16d725e715d6358}\label{class_game_state_a740554a2953ecc27d16d725e715d6358} 
 int {\bfseries misses} =0
-\begin{DoxyCompactList}\small\item\em Misses count. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Misses count. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_state_a77c7f3c144dc2cb2b3e6f2395b561b37}\label{class_game_state_a77c7f3c144dc2cb2b3e6f2395b561b37} 
+int {\bfseries passes} =0
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_state}{State}}}
 \begin{DoxyCompactItemize}
@@ -133,11 +163,11 @@ sf\+::\+Vector2i {\bfseries mouse\+Pos\+Window}
 Class reponsible for view and logic. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_game_state_a267b6a5ef80c6c6d252d2cf9b981414d}\index{GameState@{GameState}!GameState@{GameState}}
+\Hypertarget{class_game_state_ab902d5b451404017f7111ae1c0b2554f}\index{GameState@{GameState}!GameState@{GameState}}
 \index{GameState@{GameState}!GameState@{GameState}}
 \doxysubsubsection{\texorpdfstring{GameState()}{GameState()}}
-{\footnotesize\ttfamily \label{class_game_state_a267b6a5ef80c6c6d252d2cf9b981414d} 
-Game\+State\+::\+Game\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_state_data}{State\+Data}} \texorpdfstring{$\ast$}{*}}]{state\+\_\+data}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_game_state_ab902d5b451404017f7111ae1c0b2554f} 
+Game\+State\+::\+Game\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_state_data}{State\+Data}} \texorpdfstring{$\ast$}{*}}]{state\+\_\+data}{, }\item[{\mbox{\hyperlink{class_save_game}{Save\+Game}} \texorpdfstring{$\ast$}{*}}]{save\+Game}{}\end{DoxyParamCaption})}
 
 
 

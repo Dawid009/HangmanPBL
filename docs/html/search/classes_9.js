@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['transition_0',['Transition',['../class_transition.html',1,'']]]
+  ['pausemenu_0',['PauseMenu',['../class_pause_menu.html',1,'']]],
+  ['points_1',['Points',['../class_points.html',1,'']]]
 ];
