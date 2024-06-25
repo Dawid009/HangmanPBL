@@ -9,7 +9,6 @@
 #include "../Modules/Gui.h"
 #include "GameState.h"
 
-
 /**
  * @class MainMenuState
  * @brief Main Menu class reponsible for view and logic
@@ -21,7 +20,11 @@ private:
     sf::Text title; ///<Title image rectangle to render on the view
     sf::Font font; ///<Font reference requiered to display text
     std::map<uint8_t, gui::Button*> buttons; ///<A map that stores the buttons
-
+    sf::Clock time; ///<Fade in/out clock
+    sf::RectangleShape fade;///<Fade in/out black rectangle
+    bool fadein=true; ///<Is fading in or out
+    bool pushedNew=false;
+    State* stateptr;
     /**
     * @brief Function initializing fonts required to display text.
     */

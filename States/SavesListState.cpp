@@ -2,11 +2,12 @@
 #include <locale>
 #include <filesystem>
 #include "OneSaveState.h"
+#include "MainMenuState.h"
 
 #define QUIT 10
 
 SavesListState::SavesListState(StateData* state_data)
-        : State(state_data)
+        : State(state_data),stateptr(nullptr)
 {
     this->readSavegames();
     this->initFonts();
@@ -61,6 +62,18 @@ void SavesListState::initGui()
     {
         throw "ERROR::MAIN_MENU::FAILED_TO_LOAD_BACKGROUND_TEXTURE";
     }
+
+
+    this->fade.setSize(
+            sf::Vector2f
+                    (
+                            static_cast<float>(vm.width),
+                            static_cast<float>(vm.height)
+                    )
+    );
+
+    this->fade.setFillColor(sf::Color(20,20,20,255));
+
 
     this->title.setPosition(sf::Vector2f(static_cast<float>(gui::calcX(15.f,vm)),static_cast<float>(gui::calcY(9.f,vm))));
     this->title.setString("Zapisy:");
@@ -170,29 +183,29 @@ void SavesListState::updateButtons(const float& dt)
     this->quitButton->update(this->mousePosWindow,dt);
     if (this->quitButton->isPressed())
     {
-        this->endState();
+        stateptr = new MainMenuState(this->stateData);
     }
     if(this->newGameButton!= nullptr)
     this->newGameButton->update(this->mousePosWindow,dt);
+
+
     if (this->newGameButton!= nullptr && this->newGameButton->isPressed())
     {
         SaveGame * temp = new SaveGame(this->stateData->localpath+"Config/SaveGames/");
-
-        this->states->pop();
-        this->states->push(new OneSaveState(this->stateData, temp));
+        stateptr = new OneSaveState(this->stateData, temp);
     }
 
     for (auto &it : this->buttons)
     {
         it.second->update(this->mousePosWindow,dt);
     }
+
     for(auto &el : buttons) {
       if (el.second->isPressed()) {
             SaveGame * temp = new SaveGame();
             temp->path = simpleSaves[el.first]->path;
             temp->loadAllFromFile(simpleSaves[el.first]->path);
-            this->states->pop();
-            this->states->push(new OneSaveState(this->stateData, temp));
+            stateptr = new OneSaveState(this->stateData, temp);
         }
     }
 }
@@ -200,6 +213,24 @@ void SavesListState::updateButtons(const float& dt)
 
 void SavesListState::update(const float& dt)
 {
+    if(fadein){
+        this->fade.setFillColor(sf::Color(20,20,20,this->fade.getFillColor().a-dt*1000));
+        if(this->fade.getFillColor().a<20){
+            fadein=false;
+        }
+        time.restart();
+    }
+
+    if (!pushedNew && stateptr!= nullptr) {
+        this->fade.setFillColor(sf::Color(20,20,20,this->fade.getFillColor().a+dt*900));
+        if(this->fade.getFillColor().a>240){
+            pushedNew=true;
+            this->states->pop();
+            this->stateData->states->push(stateptr);
+        }
+    }
+
+
     this->updateMousePositions();
     if(this->stateData->gfxSettings->resolution.width != background.getSize().x || this->stateData->gfxSettings->resolution.height != background.getSize().y){
         resetGui();
@@ -229,6 +260,8 @@ void SavesListState::render(sf::RenderTarget* target)
     {
         target->draw(*it);
     }
+
+    target->draw(fade);
 }
 
 

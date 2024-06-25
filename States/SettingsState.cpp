@@ -1,4 +1,5 @@
 #include "SettingsState.h"
+#include "MainMenuState.h"
 
 void SettingsState::initVariables()
 {
@@ -32,6 +33,15 @@ void SettingsState::initGui()
                             static_cast<float>(vm.height)
                     )
     );
+
+    this->fade.setSize(
+            sf::Vector2f
+                    (
+                            static_cast<float>(vm.width),
+                            static_cast<float>(vm.height)
+                    )
+    );
+    this->fade.setFillColor(sf::Color(50,50,50,255));
 
     if (!this->backgroundTexture.loadFromFile(this->stateData->localpath+"Images/background.jpg"))
     {
@@ -177,7 +187,7 @@ void SettingsState::resetGui()
 }
 
 SettingsState::SettingsState(StateData* state_data)
-        : State(state_data)
+        : State(state_data), stateptr(nullptr)
 {
     this->initVariables();
     this->initFonts();
@@ -208,7 +218,8 @@ void SettingsState::updateGui(const float & dt)
 
     if (this->buttons["BACK"]->isPressed())
     {
-        this->endState();
+        stateptr = new MainMenuState(this->stateData);
+
     }
 
     if (this->buttons["APPLY"]->isPressed())
@@ -241,6 +252,28 @@ void SettingsState::updateGui(const float & dt)
 
 void SettingsState::update(const float& dt)
 {
+    if(fadein){
+        this->fade.setFillColor(sf::Color(20,20,20,this->fade.getFillColor().a-dt*1000));
+        if(this->fade.getFillColor().a<20){
+            fadein=false;
+        }
+        time.restart();
+    }
+
+    if (!pushedNew && stateptr!= nullptr) {
+        this->fade.setFillColor(sf::Color(20,20,20,this->fade.getFillColor().a+dt*900));
+        if(this->fade.getFillColor().a>240){
+            pushedNew=true;
+            //MainMenuState* temp = new MainMenuState(stateData);
+            //delete this->states->top();
+            //MainMenuState* temp = new MainMenuState(stateData);
+            this->states->pop();
+            this->stateData->states->push(stateptr);
+        }
+    }
+
+
+
     this->updateMousePositions();
     this->updateGui(dt);
 }
@@ -265,4 +298,6 @@ void SettingsState::render(sf::RenderTarget* target)
     if(this->stateData->gfxSettings->showFps){
         target->draw(*fpsText);
     }
+
+    target->draw(fade);
 }
