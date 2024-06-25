@@ -88,8 +88,6 @@ void MainMenuState::initGui()
     ButtonInitParams->text = L"Opcje";
     this->buttons[OPTIONS] = new gui::Button(ButtonInitParams);
 
-
-
     //Exit
     ButtonInitParams->y =  gui::calcY(70,vm);
     ButtonInitParams->text = L"Wyjście";
@@ -150,8 +148,6 @@ void MainMenuState::update(const float& dt)
         this->fade.setFillColor(sf::Color(20,20,20,this->fade.getFillColor().a+dt*1000));
         if(this->fade.getFillColor().a>240){
             pushedNew=true;
-            //MainMenuState* temp = new MainMenuState(stateData);
-            //delete this->states->top();
             this->states->pop();
             this->stateData->states->push(stateptr);
         }

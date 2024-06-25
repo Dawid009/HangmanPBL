@@ -10,33 +10,36 @@
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_gui_8h}{../Modules/Gui.h}}"{}}}
 \DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_state_8h}{GameState.h}}"{}}}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_main_menu_state}{MainMenuState}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_state}{State}}\{}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00020\ \ \ \ \ sf::Texture\ \mbox{\hyperlink{class_main_menu_state_ab9ef389720ad235dd307dfc0b119ae55}{titleTexture}};\ }
-\DoxyCodeLine{00021\ \ \ \ \ sf::Text\ \mbox{\hyperlink{class_main_menu_state_a6f57e7eed3da1f24a89883ba6d132203}{title}};\ }
-\DoxyCodeLine{00022\ \ \ \ \ sf::Font\ \mbox{\hyperlink{class_main_menu_state_a452b6e63270b968978ff7fe8267ef15c}{font}};\ }
-\DoxyCodeLine{00023\ \ \ \ \ std::map<uint8\_t,\ gui::Button*>\ \mbox{\hyperlink{class_main_menu_state_a595320998ca16da2070bfdf8fe24e3cb}{buttons}};\ }
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_menu_state_a6a72ebf025483b548c98e248dd18d313}{initFonts}}();}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_menu_state_a00c856794e14eef337abd59f24cbbcd5}{initGui}}();}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_menu_state_ab6c7406776e1a945687164432f9f7c67}{resetGui}}();}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_main_menu_state_a9a3c8b9e00e104f5c3880406df6550b6}{MainMenuState}}(\mbox{\hyperlink{class_state_data}{StateData}}*\ state\_data);}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_main_menu_state_a8af4d586b93c315a1a15b5fe83ec0760}{\string~MainMenuState}}();}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_menu_state_ab4aa18e2cba13350b99e95fd53593013}{updateButtons}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt);}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_menu_state_a5802eb565dc92febf3480d643a11e699}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_menu_state_a343f2f93b5fe14251f425b0709bf43ba}{render}}(sf::RenderTarget*\ target\ =\ \textcolor{keyword}{nullptr})\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00069\ \};}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//HANGMAN\_MAINMENUSTATE\_H}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_main_menu_state}{MainMenuState}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_state}{State}}\{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ \ \ \ \ sf::Texture\ \mbox{\hyperlink{class_main_menu_state_ab9ef389720ad235dd307dfc0b119ae55}{titleTexture}};\ }
+\DoxyCodeLine{00020\ \ \ \ \ sf::Text\ \mbox{\hyperlink{class_main_menu_state_a6f57e7eed3da1f24a89883ba6d132203}{title}};\ }
+\DoxyCodeLine{00021\ \ \ \ \ sf::Font\ \mbox{\hyperlink{class_main_menu_state_a452b6e63270b968978ff7fe8267ef15c}{font}};\ }
+\DoxyCodeLine{00022\ \ \ \ \ std::map<uint8\_t,\ gui::Button*>\ \mbox{\hyperlink{class_main_menu_state_a595320998ca16da2070bfdf8fe24e3cb}{buttons}};\ }
+\DoxyCodeLine{00023\ \ \ \ \ sf::Clock\ \mbox{\hyperlink{class_main_menu_state_a8fca7da44365b2e5ffa0466d7c144832}{time}};\ }
+\DoxyCodeLine{00024\ \ \ \ \ sf::RectangleShape\ \mbox{\hyperlink{class_main_menu_state_a8d2e51d718b45842f7cbcde94e8b71ab}{fade}};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_main_menu_state_a04b06720a051e8d5a6cf8b59446e9e9b}{fadein}}=\textcolor{keyword}{true};\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_main_menu_state_ae59c23bbd8049f70110f02976f7357bf}{pushedNew}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_state}{State}}*\ \mbox{\hyperlink{class_main_menu_state_a4332c0f3e043657ef7603e48c4578a8c}{stateptr}};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_menu_state_a6a72ebf025483b548c98e248dd18d313}{initFonts}}();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_menu_state_a00c856794e14eef337abd59f24cbbcd5}{initGui}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_menu_state_ab6c7406776e1a945687164432f9f7c67}{resetGui}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_main_menu_state_a9a3c8b9e00e104f5c3880406df6550b6}{MainMenuState}}(\mbox{\hyperlink{class_state_data}{StateData}}*\ state\_data);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_main_menu_state_a8af4d586b93c315a1a15b5fe83ec0760}{\string~MainMenuState}}();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_menu_state_ab4aa18e2cba13350b99e95fd53593013}{updateButtons}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_menu_state_a5802eb565dc92febf3480d643a11e699}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_menu_state_a343f2f93b5fe14251f425b0709bf43ba}{render}}(sf::RenderTarget*\ target\ =\ \textcolor{keyword}{nullptr})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00072\ \};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//HANGMAN\_MAINMENUSTATE\_H}}
 
 \end{DoxyCode}

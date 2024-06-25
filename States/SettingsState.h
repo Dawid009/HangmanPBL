@@ -28,11 +28,11 @@ private:
         std::vector<sf::VideoMode> modes; ///<Screen modes read from file
         uint8_t fps[6] = {0,240,120,60,30,15}; ///<Screen fps limits
 
-        sf::Clock time;
+        sf::Clock time; ///<Fade clock object
         sf::RectangleShape fade;///<Fade in/out black rectangle
         bool fadein=true; ///<Is fading in or out
-        bool pushedNew=false;
-        State* stateptr;
+        bool pushedNew=false; ///<Is new state pushed?
+        State* stateptr;///<Pointer to new state
         /**
         * @brief Function to assign basic values to variables
         */

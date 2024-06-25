@@ -14,5 +14,6 @@ var searchData=
   ['pointsamount_11',['PointsAmount',['../class_points.html#aa5af7e8ae18d54edd737d4e383afd7fc',1,'Points']]],
   ['pointsmodule_12',['pointsModule',['../class_game_state.html#af78171f6673db9ca5258828c705d2fa8',1,'GameState']]],
   ['pointstext_13',['pointsText',['../class_game_state.html#a27385b6a285d4fe103f58152445ba3cc',1,'GameState']]],
-  ['project_20configuration_3a_14',['Project configuration:',['../index.html#autotoc_md1',1,'']]]
+  ['project_20configuration_3a_14',['Project configuration:',['../index.html#autotoc_md1',1,'']]],
+  ['pushednew_15',['pushedNew',['../class_main_menu_state.html#ae59c23bbd8049f70110f02976f7357bf',1,'MainMenuState::pushedNew'],['../class_one_save_state.html#aad625b867c8d094d988db82297dc8980',1,'OneSaveState::pushedNew'],['../class_saves_list_state.html#a61aae9f9b3517427846fe5f46e0bfdd2',1,'SavesListState::pushedNew'],['../class_settings_state.html#a91a5b2a1787a132e93b3c7164a50766d',1,'SettingsState::pushedNew']]]
 ];

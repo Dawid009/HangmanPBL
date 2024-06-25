@@ -30,5 +30,6 @@ var searchData=
   ['state_2eh_27',['State.h',['../_state_8h.html',1,'']]],
   ['statedata_28',['StateData',['../class_state_data.html',1,'StateData'],['../class_state_data.html#a02aad935420f214b37d4e66d9c9a1ef9',1,'StateData::StateData()']]],
   ['statedata_29',['stateData',['../class_game.html#a8ef3b436fc7c6a03fa2b79133e863ebe',1,'Game::stateData'],['../class_state.html#a9c55cdba6e8a4a7b8a6a83fa51311514',1,'State::stateData']]],
-  ['states_30',['states',['../class_game.html#ab953bd17e03bc976b1dc13eb6dde9ee0',1,'Game::states'],['../class_state_data.html#af7e8fb0c57ed292d0d8cf319643baebf',1,'StateData::states'],['../class_state.html#a5692fac721147048fe1d2656f8a7a687',1,'State::states']]]
+  ['stateptr_30',['stateptr',['../class_main_menu_state.html#a4332c0f3e043657ef7603e48c4578a8c',1,'MainMenuState::stateptr'],['../class_one_save_state.html#a165506b2c3ec639e7bfa6c821fd9cda2',1,'OneSaveState::stateptr'],['../class_saves_list_state.html#afab7757011183fb6b695639830e80ea6',1,'SavesListState::stateptr'],['../class_settings_state.html#a27e0af0313caa1995095e1d6ea5d1d79',1,'SettingsState::stateptr']]],
+  ['states_31',['states',['../class_game.html#ab953bd17e03bc976b1dc13eb6dde9ee0',1,'Game::states'],['../class_state_data.html#af7e8fb0c57ed292d0d8cf319643baebf',1,'StateData::states'],['../class_state.html#a5692fac721147048fe1d2656f8a7a687',1,'State::states']]]
 ];
