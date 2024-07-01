@@ -55,16 +55,12 @@ EndScreen::EndScreen(sf::VideoMode& vm, sf::Font& font)
     ButtonInitParams->hoverScale = 1.2f;
     ButtonInitParams->activeScale = 1.1f;
 
-    this->buttons["QUIT"] = new gui::Button(
-            ButtonInitParams
-    );
+    this->buttons["QUIT"] = new gui::Button(ButtonInitParams);
+
     x = this->container.getPosition().x + this->container.getSize().x / 3.f - ButtonInitParams->width  / 2.f;
     ButtonInitParams->x = x;
     ButtonInitParams->text = "Nowa gra";
-
-    this->buttons["NEW"] = new gui::Button(
-            ButtonInitParams
-    );
+    this->buttons["NEW"] = new gui::Button(ButtonInitParams);
 
     delete ButtonInitParams;
 }
@@ -72,9 +68,7 @@ EndScreen::EndScreen(sf::VideoMode& vm, sf::Font& font)
 EndScreen::~EndScreen()
 {
     for (auto &it : this->buttons)
-    {
         delete it.second;
-    }
 }
 
 bool EndScreen::isButtonPressed(const std::string& key)
@@ -86,9 +80,7 @@ bool EndScreen::isButtonPressed(const std::string& key)
 void EndScreen::update(const sf::Vector2i& mousePosWindow,const float& dt)
 {
     for (auto &i : this->buttons)
-    {
         i.second->update(mousePosWindow,dt);
-    }
 }
 
 void EndScreen::render(sf::RenderTarget & target)
@@ -103,9 +95,7 @@ void EndScreen::render(sf::RenderTarget & target)
     }
 
     for (auto &i : this->buttons)
-    {
         i.second->render(target);
-    }
 
     target.draw(this->menuText);
 }

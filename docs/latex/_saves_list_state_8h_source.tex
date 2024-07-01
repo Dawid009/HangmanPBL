@@ -9,45 +9,34 @@
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_state_8h}{State.h}}"{}}}
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_gui_8h}{../Modules/Gui.h}}"{}}}
 \DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_save_game_8h}{../Modules/SaveGame.h}}"{}}}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_saves_list_state}{SavesListState}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_state}{State}}\{}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00020\ \ \ \ \ sf::Texture\ \mbox{\hyperlink{class_saves_list_state_a8297d7c82bb77b5137ca7f9299c417c8}{titleTexture}};\ }
-\DoxyCodeLine{00021\ \ \ \ \ sf::Text\ \mbox{\hyperlink{class_saves_list_state_a00c56d8bff662a3c1504a188f7a050d2}{title}};\ }
-\DoxyCodeLine{00022\ \ \ \ \ sf::Font\ \mbox{\hyperlink{class_saves_list_state_a9a140226a0fe379bd3c5827b8850d87a}{font}};\ }
-\DoxyCodeLine{00023\ \ \ \ \ std::map<uint8\_t,\ gui::Button*>\ \mbox{\hyperlink{class_saves_list_state_ae9a755614a6d0d3f4a1afb0a87fdf696}{buttons}};\ }
-\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classgui_1_1_button}{gui::Button}}*\ \mbox{\hyperlink{class_saves_list_state_a80b4a0131aae0bc54fa66f0cad6c0c6a}{quitButton}};\ }
-\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classgui_1_1_button}{gui::Button}}*\ \mbox{\hyperlink{class_saves_list_state_acb28a6e86b9097c4a4763da2bae52ab8}{newGameButton}};}
-\DoxyCodeLine{00026\ \ \ \ \ std::vector<SaveGameBase*>\ \mbox{\hyperlink{class_saves_list_state_af9d6da77d5c95d553608c5b57bdbafed}{simpleSaves}};\ }
-\DoxyCodeLine{00027\ \ \ \ \ std::vector<sf::Text*>\ \mbox{\hyperlink{class_saves_list_state_a7b7b5835008390c4623289986bae5305}{texts}};\ }
-\DoxyCodeLine{00028\ \ \ \ \ sf::Clock\ \mbox{\hyperlink{class_saves_list_state_a2f43178a27482c82f627eb271ff34f1e}{time}};\ }
-\DoxyCodeLine{00029\ \ \ \ \ sf::RectangleShape\ \mbox{\hyperlink{class_saves_list_state_a82d202843b7caf6893c08bccbc45fc8f}{fade}};}
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_saves_list_state_a8b0246299b6662368fa043dc307e0cb2}{fadein}}=\textcolor{keyword}{true};\ }
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_saves_list_state_a61aae9f9b3517427846fe5f46e0bfdd2}{pushedNew}}=\textcolor{keyword}{false};}
-\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_state}{State}}*\ \mbox{\hyperlink{class_saves_list_state_afab7757011183fb6b695639830e80ea6}{stateptr}};}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_saves_list_state_ac8c27c9a1fa31ed22c5352b4a893be63}{initFonts}}();}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_saves_list_state_aeadd9a63e71f65530f3cf3a53e9d7e96}{initGui}}();}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_saves_list_state_a26e7ee833ad7ecbf228656c96f326302}{resetGui}}();}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_saves_list_state_ab352497e471f645c08ec80289a05eeac}{readSavegames}}();}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_saves_list_state_a7c89e062025a675c816b6bae1268c34d}{SavesListState}}(\mbox{\hyperlink{class_state_data}{StateData}}*\ state\_data);}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_saves_list_state_a62aff175ab69a83db2011a17553d4830}{\string~SavesListState}}();}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_saves_list_state_a8bf9d8ab12ca940173733af589e241e4}{updateButtons}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt);}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_saves_list_state_a555635b108e61623096e6828dd8e853a}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_saves_list_state_a9e764c7c07cc08a762d3bc9365bf6338}{render}}(sf::RenderTarget*\ target\ =\ \textcolor{keyword}{nullptr})\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00083\ \};}
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//HANGMAN\_MAINMENUSTATE\_H}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_saves_list_state}{SavesListState}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_state}{State}}\{}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ sf::Texture\ \mbox{\hyperlink{class_saves_list_state_a8297d7c82bb77b5137ca7f9299c417c8}{titleTexture}};\ }
+\DoxyCodeLine{00019\ \ \ \ \ sf::Text\ \mbox{\hyperlink{class_saves_list_state_a00c56d8bff662a3c1504a188f7a050d2}{title}};\ }
+\DoxyCodeLine{00020\ \ \ \ \ std::map<uint8\_t,\ gui::Button*>\ \mbox{\hyperlink{class_saves_list_state_ae9a755614a6d0d3f4a1afb0a87fdf696}{buttons}};\ }
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{classgui_1_1_button}{gui::Button}}*\ \mbox{\hyperlink{class_saves_list_state_a80b4a0131aae0bc54fa66f0cad6c0c6a}{quitButton}};\ }
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{classgui_1_1_button}{gui::Button}}*\ \mbox{\hyperlink{class_saves_list_state_acb28a6e86b9097c4a4763da2bae52ab8}{newGameButton}};}
+\DoxyCodeLine{00023\ \ \ \ \ std::vector<SaveGameBase*>\ \mbox{\hyperlink{class_saves_list_state_af9d6da77d5c95d553608c5b57bdbafed}{simpleSaves}};\ }
+\DoxyCodeLine{00024\ \ \ \ \ std::vector<sf::Text*>\ \mbox{\hyperlink{class_saves_list_state_a7b7b5835008390c4623289986bae5305}{texts}};\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_saves_list_state_aeadd9a63e71f65530f3cf3a53e9d7e96}{initGui}}();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_saves_list_state_a26e7ee833ad7ecbf228656c96f326302}{resetGui}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_saves_list_state_ab352497e471f645c08ec80289a05eeac}{readSavegames}}();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_saves_list_state_a7c89e062025a675c816b6bae1268c34d}{SavesListState}}(\mbox{\hyperlink{class_state_data}{StateData}}*\ state\_data);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_saves_list_state_a3ed948d6d661eec5492287a23c061afe}{\string~SavesListState}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_saves_list_state_a8bf9d8ab12ca940173733af589e241e4}{updateButtons}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_saves_list_state_a555635b108e61623096e6828dd8e853a}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_saves_list_state_a9e764c7c07cc08a762d3bc9365bf6338}{render}}(sf::RenderTarget*\ target\ =\ \textcolor{keyword}{nullptr})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00069\ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

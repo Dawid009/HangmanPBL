@@ -79,11 +79,11 @@ void SaveGame::loadAllFromFile(const std::string& path)
         ifs >> this->date.year;
         ifs >> this->date.minute;
         ifs >> this->date.hour;
-        ifs >> this->current_password_id; //4
-        ifs >> this->misses;//3
-        ifs >> this->win_games;//10
-        ifs >> this->loss_games;//15
-        ifs >> this->playtime;//160
+        ifs >> this->current_password_id;
+        ifs >> this->misses;
+        ifs >> this->win_games;
+        ifs >> this->loss_games;
+        ifs >> this->playtime;
         ifs >> this->total_miss_hits;
         ifs >> this->total_good_hits;
         ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');

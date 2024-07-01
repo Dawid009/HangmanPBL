@@ -19,45 +19,44 @@ private:
         sf::Texture backgroundTexture; ///<Background texture reference.
         sf::Texture titleTexture; ///<Background texture reference.
         sf::RectangleShape background; ///<Background rectangle object
-        sf::Font font;///<Font reference requiered to render text.
         sf::Clock time; ///<Fade in/out clock
         sf::RectangleShape fade;///<Fade in/out black rectangle
         bool fadein=true; ///<Is fading in or out
         sf::Text title; ///<Title text
-        /**
-        * @brief Reading font from file
-        */
-        void initFonts();
 
         /**
         * @brief Function that initialize gui.
         */
         void initGui();
+        /**
+        * @brief Fade update override
+        * @param dt Delta time
+        */
+        void FadeUpdate(const float &dt) override;
 public:
         /**
         * @brief Class constructor
         * @param state_date Pointer to main state data.
         */
-        LoadingState(StateData* state_data);
+        explicit LoadingState(StateData* state_data);
 
         /**
         * @brief Class destructor
         */
-        virtual ~LoadingState();
-
+        ~LoadingState() override;
 
         /**
         * @brief Basic game loop handling events
         * @param dt Delta time
         */
-        void update(const float& dt);
+        void update(const float& dt) override;
 
         /**
         * @brief Loop for rendering
         * @param target Pointer to the renderer
         */
-        void render(sf::RenderTarget* target = NULL);
+        void render(sf::RenderTarget* target = NULL) override;
 };
 
 
-#endif //HANGMAN_SETTINGSSTATE_H
+#endif

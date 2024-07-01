@@ -1,10 +1,17 @@
 var searchData=
 [
-  ['update_0',['update',['../class_game.html#a79df6376b332d63c9eca0dcee30305c3',1,'Game::update()'],['../class_end_screen.html#a8a0cd97a9635cfd007a69f3a580395ee',1,'EndScreen::update()'],['../classgui_1_1_button.html#a44cb4badbb301b0271a51e1edb2b9976',1,'gui::Button::update()'],['../classgui_1_1_drop_down_list.html#a4f98302f29a47b2c79df0f64e8abc541',1,'gui::DropDownList::update()'],['../class_hangman.html#a93e1037c6c63ad8a458b7e8a9ffc1fae',1,'Hangman::update()'],['../class_keyboard.html#a71ba7df6d68045ddaf1e523833f050e0',1,'Keyboard::update()'],['../class_letter_fields.html#ad6a03845462d1b1a2183f75e9e3198d1',1,'LetterFields::update()'],['../class_pause_menu.html#adc598e93e50b05a0e41e696ff5c3fa10',1,'PauseMenu::update()'],['../class_game_state.html#ac135e64a5c269ecc94d806ed5255ca4b',1,'GameState::update()'],['../class_loading_state.html#a652bed0167d3bd593c37f65e3d50ee15',1,'LoadingState::update()'],['../class_main_menu_state.html#a5802eb565dc92febf3480d643a11e699',1,'MainMenuState::update()'],['../class_one_save_state.html#a446d018401472b69cb07e7c000a688c4',1,'OneSaveState::update()'],['../class_saves_list_state.html#a555635b108e61623096e6828dd8e853a',1,'SavesListState::update()'],['../class_settings_state.html#a75ad65b165fe93646fc914d7a46f0bf5',1,'SettingsState::update()'],['../class_state.html#a2c2021d448defc57111202b74ed0aaa0',1,'State::update()']]],
-  ['updatebuttons_1',['updateButtons',['../class_keyboard.html#ab7e68cdf23b36f22966136e39a2cc550',1,'Keyboard::updateButtons()'],['../class_main_menu_state.html#ab4aa18e2cba13350b99e95fd53593013',1,'MainMenuState::updateButtons()'],['../class_one_save_state.html#a4c3d23807a05a22b099c33fc5e791fa3',1,'OneSaveState::updateButtons()'],['../class_saves_list_state.html#a8bf9d8ab12ca940173733af589e241e4',1,'SavesListState::updateButtons()']]],
-  ['updatedt_2',['updateDt',['../class_game.html#a8a513f3fa9524a00cb5b009fefa32c3a',1,'Game']]],
-  ['updateendscreenbuttons_3',['updateEndScreenButtons',['../class_game_state.html#afb3b8d858a6281c8b8471ac4fab5d799',1,'GameState']]],
-  ['updategui_4',['updateGui',['../class_settings_state.html#ae93c595eb623fc91d5e15d11d7b53946',1,'SettingsState']]],
-  ['updatemousepositions_5',['updateMousePositions',['../class_state.html#a9786ffabe44f3e916d81a2750d8370e0',1,'State']]],
-  ['updatepausemenubuttons_6',['updatePauseMenuButtons',['../class_game_state.html#ad2a47f94bfffccc635b680d996144e0e',1,'GameState']]]
+  ['savegame_0',['SaveGame',['../class_save_game.html#adac90ae8c83a5e7fd166d464e147bcf7',1,'SaveGame::SaveGame()'],['../class_save_game.html#a07a751e532dbfa4ce4a7a0c5adf736e4',1,'SaveGame::SaveGame(const std::string &amp;path)']]],
+  ['savegamebase_1',['SaveGameBase',['../class_save_game_base.html#ad48b132e31d5e3e4648f135b9e82dc86',1,'SaveGameBase']]],
+  ['savesliststate_2',['SavesListState',['../class_saves_list_state.html#a7c89e062025a675c816b6bae1268c34d',1,'SavesListState']]],
+  ['savetofile_3',['saveToFile',['../class_graphics_settings.html#a4a72e8954c3a037ba7cb2332b9b69133',1,'GraphicsSettings::saveToFile()'],['../class_save_game.html#aa0dfa6eec7855267e0ea804a08335e60',1,'SaveGame::saveToFile()']]],
+  ['setbuttoncolor_4',['SetButtonColor',['../class_keyboard.html#a8787a01477ad1a057afe22e599347c80',1,'Keyboard']]],
+  ['setbuttonenabled_5',['SetButtonEnabled',['../class_keyboard.html#a95bfaa3563a61fd7a420dfd4ebfd04f5',1,'Keyboard']]],
+  ['setenabled_6',['SetEnabled',['../classgui_1_1_button.html#ae473bec4158d87b3e9ef8adcda6f7776',1,'gui::Button']]],
+  ['setid_7',['setId',['../classgui_1_1_button.html#a97b5820c6acb36cd76886ecb0996ffba',1,'gui::Button']]],
+  ['setlevel_8',['setLevel',['../class_hangman.html#a6c729fee779be8f734eb83c205e4b440',1,'Hangman']]],
+  ['settext_9',['setText',['../classgui_1_1_button.html#a7c3ae2027121cfca048463d9f01673e2',1,'gui::Button']]],
+  ['settingsstate_10',['SettingsState',['../class_settings_state.html#a561642b37dd87062bc5c2020ebe1e08c',1,'SettingsState']]],
+  ['setwin_11',['setWin',['../class_end_screen.html#ae703976d498b663f11c64e29fae29986',1,'EndScreen']]],
+  ['state_12',['State',['../class_state.html#a9de42e1e80c4ee2580b17af064498a94',1,'State']]],
+  ['statedata_13',['StateData',['../class_state_data.html#a02aad935420f214b37d4e66d9c9a1ef9',1,'StateData']]]
 ];

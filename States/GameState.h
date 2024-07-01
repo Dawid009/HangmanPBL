@@ -22,20 +22,15 @@ class GameState : public State {
 private:
     sf::View view; ///<Game view
     sf::Texture backgroundTexture;///<Background texture reference.
-    sf::Font font;///<Font reference requiered to render text.
-    sf::RenderTexture renderTexture;///<deferred renderer screen view
-    sf::Sprite renderSprite; ///<deferred renderer sprite
     PauseMenu* pmenu;///<in-game menu component pointer
     EndScreen* endScreen;///<End screen pointer
     sf::Clock endClock;///<End screen delay
     double totalTime=0;///<Total playtime in session
     sf::Clock timeClock;///<Time clock object
-    //double time=0;///<Time counter
     bool initRevealed = false;///<Are letters from savegame revealed
     bool ended = false;///<Is game ended?
     int passwordLine;///<Id of the password
-
-    SaveGame* saveGamePtr;
+    SaveGame* saveGamePtr; ///<Savegame pointer
     Keyboard* keyboard; ///<Keyboard component pointer.
     LetterFields* letterFields; ///<Letter fields display component pointer.
     Hangman* hangman; ///<Hangman display component pointer.
@@ -43,12 +38,8 @@ private:
     sf::Text* fpsText; ///<Fps text
     sf::Text* pointsText; ///<Points text on the screen
     float delay=0;///<Fps update delay counter
-    int misses=0;///<Misses count
-    int passes=0;
-    /**
-    * @brief Creates a renderer
-    */
-    void initDeferredRender();
+    int misses=0;///<Number of misses
+    int passes=0;///<Number of hits
 
     /**
     * @brief Function initializing gui.
@@ -57,14 +48,9 @@ private:
 
     /**
     * @brief Function picking random password from list
-    * @param maxRow File rows count
+    * @param maxRow Number of file rows
     */
     void pickRandomPassword(std::wstring& stringRef,int maxRow);
-
-    /**
-    * @brief Function initializing fonts required to display text.
-    */
-    void initFonts();
 
     /**
     * @brief Function checking if button is pressed
@@ -87,13 +73,13 @@ public:
     /**
     * @brief Class destructor
     */
-    virtual ~GameState();
+    ~GameState() override;
 
     /**
     * @brief Main state loop updating events
     * @param dt Delta time value
     */
-    void update(const float& dt);
+    void update(const float& dt) final;
 
     /**
     * @brief Loop for rendering
@@ -114,4 +100,4 @@ public:
 };
 
 
-#endif //HANGMAN_GAMESTATE_H
+#endif

@@ -71,4 +71,4 @@ public:
 };
 
 
-#endif //HANGMAN_KEYBOARD_H
+#endif

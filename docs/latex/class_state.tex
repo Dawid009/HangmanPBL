@@ -26,6 +26,12 @@ virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+State} ()
 \Hypertarget{class_state_a27907b80e927649f92e4dc6a845a9213}\label{class_state_a27907b80e927649f92e4dc6a845a9213} 
 void {\bfseries end\+State} ()
 \begin{DoxyCompactList}\small\item\em Function to terminate the state. \end{DoxyCompactList}\item 
+\Hypertarget{class_state_acd1a5032724ab48ae79dcb83642dc7ef}\label{class_state_acd1a5032724ab48ae79dcb83642dc7ef} 
+void {\bfseries init\+Fonts} ()
+\begin{DoxyCompactList}\small\item\em Function initializing fonts required to display text. \end{DoxyCompactList}\item 
+\Hypertarget{class_state_aa7973006092f3e535cffcf0262bfe1b7}\label{class_state_aa7973006092f3e535cffcf0262bfe1b7} 
+void {\bfseries init\+Deferred\+Render} ()
+\begin{DoxyCompactList}\small\item\em Creates deferred renderer. \end{DoxyCompactList}\item 
 const bool \& \mbox{\hyperlink{class_state_a18c3b970753bab2937141803644aaf24}{get\+Quit}} () const
 \begin{DoxyCompactList}\small\item\em Checks if the game should be terminated. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_state_a9786ffabe44f3e916d81a2750d8370e0}{update\+Mouse\+Positions}} (sf\+::\+View \texorpdfstring{$\ast$}{*}view=nullptr)
@@ -34,6 +40,11 @@ virtual void \mbox{\hyperlink{class_state_a2c2021d448defc57111202b74ed0aaa0}{upd
 \begin{DoxyCompactList}\small\item\em Loop for events. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_state_aa1f36587befc2c03c4033366e5000d2c}{render}} (sf\+::\+Render\+Target \texorpdfstring{$\ast$}{*}target=nullptr)=0
 \begin{DoxyCompactList}\small\item\em Loop for rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_state_a52224bc53e97d3bd2b9bdcfc2181cd07}{Fade\+Update}} (const float \&dt)
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -48,7 +59,13 @@ sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*} {\bfseries window}
 \begin{DoxyCompactList}\small\item\em The game window pointer. \end{DoxyCompactList}\item 
 \Hypertarget{class_state_ad7308f66beb9bed69773ef870c41d106}\label{class_state_ad7308f66beb9bed69773ef870c41d106} 
 sf\+::\+Texture {\bfseries background\+Texture}
-\begin{DoxyCompactList}\small\item\em background texture ref. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em background texture ref \end{DoxyCompactList}\item 
+\Hypertarget{class_state_ac0140ed9a54a0ce798f4f668fdb9febc}\label{class_state_ac0140ed9a54a0ce798f4f668fdb9febc} 
+sf\+::\+Render\+Texture {\bfseries render\+Texture}
+\begin{DoxyCompactList}\small\item\em deferred renderer screen view \end{DoxyCompactList}\item 
+\Hypertarget{class_state_ab3804fc99671aed4022205edaa967e2f}\label{class_state_ab3804fc99671aed4022205edaa967e2f} 
+sf\+::\+Sprite {\bfseries render\+Sprite}
+\begin{DoxyCompactList}\small\item\em deferred renderer sprite \end{DoxyCompactList}\item 
 \Hypertarget{class_state_a91f7cb53440b967bb9ef78d90ae7fab2}\label{class_state_a91f7cb53440b967bb9ef78d90ae7fab2} 
 sf\+::\+Rectangle\+Shape {\bfseries background}
 \begin{DoxyCompactList}\small\item\em Background rectangle. \end{DoxyCompactList}\item 
@@ -60,7 +77,25 @@ bool {\bfseries paused}
 \begin{DoxyCompactList}\small\item\em Is the game paused. \end{DoxyCompactList}\item 
 \Hypertarget{class_state_ae19be9c58de5545c8cd162f11969d6ee}\label{class_state_ae19be9c58de5545c8cd162f11969d6ee} 
 sf\+::\+Vector2i {\bfseries mouse\+Pos\+Window}
-\begin{DoxyCompactList}\small\item\em XY mouse position on the window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em XY mouse position on the window. \end{DoxyCompactList}\item 
+\Hypertarget{class_state_a8a0c0fe1cdd1d72e44d058b3b9be1019}\label{class_state_a8a0c0fe1cdd1d72e44d058b3b9be1019} 
+sf\+::\+Clock {\bfseries fade\+Time}
+\begin{DoxyCompactList}\small\item\em Fade clock object. \end{DoxyCompactList}\item 
+\Hypertarget{class_state_adc127d9a3571377da514ce9e17f3fbc1}\label{class_state_adc127d9a3571377da514ce9e17f3fbc1} 
+sf\+::\+Rectangle\+Shape {\bfseries fade}
+\begin{DoxyCompactList}\small\item\em Fade in/out black rectangle. \end{DoxyCompactList}\item 
+\Hypertarget{class_state_a65e80141ccc027b8ebc5f8bd83ff5516}\label{class_state_a65e80141ccc027b8ebc5f8bd83ff5516} 
+bool {\bfseries fadein} =true
+\begin{DoxyCompactList}\small\item\em Is fading in or out. \end{DoxyCompactList}\item 
+\Hypertarget{class_state_ab1060b15984efec1900a4fbf0241b2b5}\label{class_state_ab1060b15984efec1900a4fbf0241b2b5} 
+bool {\bfseries pushed\+New} =false
+\begin{DoxyCompactList}\small\item\em Is new state pushed? \end{DoxyCompactList}\item 
+\Hypertarget{class_state_a11e6aa5e8d16f18c6f80c1b21ec51cb8}\label{class_state_a11e6aa5e8d16f18c6f80c1b21ec51cb8} 
+\mbox{\hyperlink{class_state}{State}} \texorpdfstring{$\ast$}{*} {\bfseries stateptr}
+\begin{DoxyCompactList}\small\item\em Pointer to new state. \end{DoxyCompactList}\item 
+\Hypertarget{class_state_ac01e57d52a3bf0d9b24c02daecd79e30}\label{class_state_ac01e57d52a3bf0d9b24c02daecd79e30} 
+sf\+::\+Font {\bfseries font}
+\begin{DoxyCompactList}\small\item\em Font object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -85,6 +120,16 @@ Class constructor.
 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{class_state_a52224bc53e97d3bd2b9bdcfc2181cd07}\index{State@{State}!FadeUpdate@{FadeUpdate}}
+\index{FadeUpdate@{FadeUpdate}!State@{State}}
+\doxysubsubsection{\texorpdfstring{FadeUpdate()}{FadeUpdate()}}
+{\footnotesize\ttfamily \label{class_state_a52224bc53e97d3bd2b9bdcfc2181cd07} 
+void State\+::\+Fade\+Update (\begin{DoxyParamCaption}\item[{const float \&}]{dt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_loading_state_af8bd6eb2e2d7ab33794f2fd653d53e3c}{Loading\+State}}.
+
 \Hypertarget{class_state_a18c3b970753bab2937141803644aaf24}\index{State@{State}!getQuit@{getQuit}}
 \index{getQuit@{getQuit}!State@{State}}
 \doxysubsubsection{\texorpdfstring{getQuit()}{getQuit()}}
@@ -96,7 +141,7 @@ const bool \& State\+::get\+Quit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCapt
 Checks if the game should be terminated. 
 
 \begin{DoxyReturn}{Returns}
-Returns the result 
+Returns true or false result 
 \end{DoxyReturn}
 \Hypertarget{class_state_aa1f36587befc2c03c4033366e5000d2c}\index{State@{State}!render@{render}}
 \index{render@{render}!State@{State}}
@@ -115,7 +160,7 @@ Loop for rendering.
 \end{DoxyParams}
 
 
-Implemented in \mbox{\hyperlink{class_game_state_ae49b20a5455335d879340dbe3b92da7f}{Game\+State}}, \mbox{\hyperlink{class_loading_state_aa5e0949d7bc252afd312005399b39745}{Loading\+State}}, \mbox{\hyperlink{class_main_menu_state_a343f2f93b5fe14251f425b0709bf43ba}{Main\+Menu\+State}}, \mbox{\hyperlink{class_one_save_state_a08118becfff8956198d7389747a5b0f9}{One\+Save\+State}}, \mbox{\hyperlink{class_saves_list_state_a9e764c7c07cc08a762d3bc9365bf6338}{Saves\+List\+State}}, and \mbox{\hyperlink{class_settings_state_a9685d562ba72bb84104a9e17a8a27427}{Settings\+State}}.
+Implemented in \mbox{\hyperlink{class_game_state_ae49b20a5455335d879340dbe3b92da7f}{Game\+State}}, \mbox{\hyperlink{class_loading_state_a5fbb6b5b57bae18b55de64b1a28607de}{Loading\+State}}, \mbox{\hyperlink{class_main_menu_state_a343f2f93b5fe14251f425b0709bf43ba}{Main\+Menu\+State}}, \mbox{\hyperlink{class_one_save_state_a08118becfff8956198d7389747a5b0f9}{One\+Save\+State}}, \mbox{\hyperlink{class_saves_list_state_a9e764c7c07cc08a762d3bc9365bf6338}{Saves\+List\+State}}, and \mbox{\hyperlink{class_settings_state_aea130b01e477a104a3e0353c47667812}{Settings\+State}}.
 
 \Hypertarget{class_state_a2c2021d448defc57111202b74ed0aaa0}\index{State@{State}!update@{update}}
 \index{update@{update}!State@{State}}
@@ -134,7 +179,7 @@ Loop for events.
 \end{DoxyParams}
 
 
-Implemented in \mbox{\hyperlink{class_game_state_ac135e64a5c269ecc94d806ed5255ca4b}{Game\+State}}, \mbox{\hyperlink{class_loading_state_a652bed0167d3bd593c37f65e3d50ee15}{Loading\+State}}, \mbox{\hyperlink{class_main_menu_state_a5802eb565dc92febf3480d643a11e699}{Main\+Menu\+State}}, \mbox{\hyperlink{class_one_save_state_a446d018401472b69cb07e7c000a688c4}{One\+Save\+State}}, \mbox{\hyperlink{class_saves_list_state_a555635b108e61623096e6828dd8e853a}{Saves\+List\+State}}, and \mbox{\hyperlink{class_settings_state_a75ad65b165fe93646fc914d7a46f0bf5}{Settings\+State}}.
+Implemented in \mbox{\hyperlink{class_game_state_a9fbaf9125b3dbdc0aa888bebb4a0fd3d}{Game\+State}}, \mbox{\hyperlink{class_loading_state_a7bda0f50319394486951a46433862417}{Loading\+State}}, \mbox{\hyperlink{class_main_menu_state_a5802eb565dc92febf3480d643a11e699}{Main\+Menu\+State}}, \mbox{\hyperlink{class_one_save_state_a446d018401472b69cb07e7c000a688c4}{One\+Save\+State}}, \mbox{\hyperlink{class_saves_list_state_a555635b108e61623096e6828dd8e853a}{Saves\+List\+State}}, and \mbox{\hyperlink{class_settings_state_abb9084fbbae697943586b9abe3c76909}{Settings\+State}}.
 
 \Hypertarget{class_state_a9786ffabe44f3e916d81a2750d8370e0}\index{State@{State}!updateMousePositions@{updateMousePositions}}
 \index{updateMousePositions@{updateMousePositions}!State@{State}}

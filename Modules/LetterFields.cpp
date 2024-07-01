@@ -21,7 +21,6 @@ LetterFields::LetterFields(const sf::Font &font, GraphicsSettings *settings,cons
 
 
 LetterFields::~LetterFields(){
-    //Zwalnianie pamięci
     for(auto field : Fields){
         delete field->text;
         delete field->floor;
@@ -86,9 +85,7 @@ void LetterFields::initLetterFields(const std::wstring& password) {
 
 void LetterFields::update(const float& dt) {
     for (auto &it : this->Fields)
-    {
         it->text->setFillColor(sf::Color(40,40,40,static_cast<sf::Uint8>(gui::lerp(it->text->getFillColor().a,it->targetAlpha,dt*3))));
-    }
 }
 
 

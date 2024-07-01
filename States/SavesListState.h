@@ -8,8 +8,6 @@
 #include "State.h"
 #include "../Modules/Gui.h"
 #include "../Modules/SaveGame.h"
-
-
 /**
  * @class SavesListState
  * @brief View of all savegames
@@ -19,23 +17,11 @@ class SavesListState : public State{
 private:
     sf::Texture titleTexture; ///<Texture holding title image
     sf::Text title; ///<Title image rectangle to render on the view
-    sf::Font font; ///<Font reference requiered to display text
     std::map<uint8_t, gui::Button*> buttons; ///<A map that stores the buttons
     gui::Button* quitButton; ///<Quit button pointer
     gui::Button* newGameButton;///<New game button pointer
-    std::vector<SaveGameBase*> simpleSaves; ///<All saves in dir
+    std::vector<SaveGameBase*> simpleSaves; ///<All saves vector
     std::vector<sf::Text*> texts; ///<All text pointers vector
-    sf::Clock time; ///<Fade clock object
-    sf::RectangleShape fade;///<Fade in/out black rectangle
-    bool fadein=true; ///<Is fading in or out
-    bool pushedNew=false;///<Is new state pushed?
-    State* stateptr;///<Pointer to new state
-
-    /**
-    * @brief Function initializing fonts required to display text.
-    */
-    void initFonts();
-
     /**
     * @brief Function initializing main manu gui.
     */
@@ -61,7 +47,7 @@ public:
     /**
     * @brief Class destructor
     */
-    virtual ~SavesListState();
+    ~SavesListState() override;
 
     /**
     * @brief Function about buttons work. Updating buttons events
@@ -82,4 +68,4 @@ public:
     void render(sf::RenderTarget* target = nullptr) override;
 };
 
-#endif //HANGMAN_MAINMENUSTATE_H
+#endif

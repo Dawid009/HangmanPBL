@@ -73,6 +73,4 @@ public:
     void render(sf::RenderTarget& target);
 };
 
-
-
-#endif //HANGMAN_PAUSESCREEN_H
+#endif

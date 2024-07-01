@@ -13,13 +13,12 @@ Hangman::Hangman(GraphicsSettings *settings) : gfxSettings(settings) {
 }
 
 Hangman::~Hangman() {
-    //Zwalnianie pamieci
     delete line;
     delete renderTexture;
     delete sprite;
-    for(auto part : hangman_parts){
+    for(auto part : hangman_parts)
         delete part;
-    }
+
 }
 
 void Hangman::initHangman() {
@@ -112,9 +111,9 @@ void Hangman::setLevel(uint8_t level) {
             break;
     }
 
-    for(auto part : hangman_parts){
+    for(auto part : hangman_parts)
         renderTexture->draw(*part);
-    }
+
     renderTexture->display();
     sprite->setTexture(renderTexture->getTexture());
 }

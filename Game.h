@@ -80,4 +80,4 @@ public:
 };
 
 
-#endif //HANGMAN_GAME_H
+#endif

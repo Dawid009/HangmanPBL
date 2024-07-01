@@ -29,13 +29,13 @@ struct Date{
         this->minute=now->tm_min;
     }
 
-    std::string getDate() const {
-        std::string date_temp;
-        date_temp+=(this->day<10?"0":"")+std::to_string(this->day)+".";
-        date_temp+=(this->month<10?"0":"")+std::to_string(this->month)+".";
-        date_temp+=std::to_string(year)+"  ";
-        date_temp+=(this->hour<10?"0":"")+std::to_string(this->hour)+":";
-        date_temp+=(this->minute<10?"0":"")+std::to_string(this->minute);
+     std::wstring getDate() const {
+        std::wstring date_temp;
+        date_temp+=(this->day<10?L"0":L"")+std::to_wstring(this->day)+L".";
+        date_temp+=(this->month<10?L"0":L"")+std::to_wstring(this->month)+L".";
+        date_temp+=std::to_wstring(year)+L"  ";
+        date_temp+=(this->hour<10?L"0":L"")+std::to_wstring(this->hour)+L":";
+        date_temp+=(this->minute<10?L"0":L"")+std::to_wstring(this->minute);
         return date_temp;
     }
 };
@@ -76,7 +76,7 @@ public:
     * @brief Getter for savegame Date
     * @return Returns  date
     */
-    const std::string getDate() { return this->date.getDate();}
+    std::wstring getDate() const { return this->date.getDate();}
 
     /**
     * @brief Getter for savegame Points
@@ -133,4 +133,4 @@ public:
 };
 
 
-#endif //HANGMAN_SAVEGAME_H
+#endif

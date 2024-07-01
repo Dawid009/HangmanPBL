@@ -37,9 +37,7 @@ public:
     * @return Point amount
     */
     int getPoints() {return PointsAmount;};
-
-
 };
 
 
-#endif //HANGMAN_POINTS_H
+#endif

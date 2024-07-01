@@ -20,12 +20,12 @@ Inheritance diagram for Loading\+State\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{class_loading_state_adb2ee0932d349c6ad200c3437e3e8c1f}{Loading\+State}} (\mbox{\hyperlink{class_state_data}{State\+Data}} \texorpdfstring{$\ast$}{*}state\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
-\Hypertarget{class_loading_state_ae69a22bcb4a59f5bed3ca2f6ba1d577c}\label{class_loading_state_ae69a22bcb4a59f5bed3ca2f6ba1d577c} 
-virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Loading\+State} ()
+\Hypertarget{class_loading_state_ac598bcf570a3c35acc3d8f80378a0d75}\label{class_loading_state_ac598bcf570a3c35acc3d8f80378a0d75} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Loading\+State} () override
 \begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_loading_state_a652bed0167d3bd593c37f65e3d50ee15}{update}} (const float \&dt)
+void \mbox{\hyperlink{class_loading_state_a7bda0f50319394486951a46433862417}{update}} (const float \&dt) override
 \begin{DoxyCompactList}\small\item\em Basic game loop handling events. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_loading_state_aa5e0949d7bc252afd312005399b39745}{render}} (sf\+::\+Render\+Target \texorpdfstring{$\ast$}{*}target=NULL)
+void \mbox{\hyperlink{class_loading_state_a5fbb6b5b57bae18b55de64b1a28607de}{render}} (sf\+::\+Render\+Target \texorpdfstring{$\ast$}{*}target=NULL) override
 \begin{DoxyCompactList}\small\item\em Loop for rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_state}{State}}}
 \begin{DoxyCompactItemize}
@@ -36,6 +36,10 @@ virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+State} ()
 \begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
 void {\bfseries end\+State} ()
 \begin{DoxyCompactList}\small\item\em Function to terminate the state. \end{DoxyCompactList}\item 
+void {\bfseries init\+Fonts} ()
+\begin{DoxyCompactList}\small\item\em Function initializing fonts required to display text. \end{DoxyCompactList}\item 
+void {\bfseries init\+Deferred\+Render} ()
+\begin{DoxyCompactList}\small\item\em Creates deferred renderer. \end{DoxyCompactList}\item 
 const bool \& \mbox{\hyperlink{class_state_a18c3b970753bab2937141803644aaf24}{get\+Quit}} () const
 \begin{DoxyCompactList}\small\item\em Checks if the game should be terminated. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_state_a9786ffabe44f3e916d81a2750d8370e0}{update\+Mouse\+Positions}} (sf\+::\+View \texorpdfstring{$\ast$}{*}view=nullptr)
@@ -43,12 +47,11 @@ virtual void \mbox{\hyperlink{class_state_a9786ffabe44f3e916d81a2750d8370e0}{upd
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_loading_state_af7b8121dd926afaac79142d6cf8ac530}\label{class_loading_state_af7b8121dd926afaac79142d6cf8ac530} 
-void {\bfseries init\+Fonts} ()
-\begin{DoxyCompactList}\small\item\em Reading font from file. \end{DoxyCompactList}\item 
 \Hypertarget{class_loading_state_ab835982e132d2afa5bddd367981bf9e3}\label{class_loading_state_ab835982e132d2afa5bddd367981bf9e3} 
 void {\bfseries init\+Gui} ()
-\begin{DoxyCompactList}\small\item\em Function that initialize gui. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Function that initialize gui. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_loading_state_af8bd6eb2e2d7ab33794f2fd653d53e3c}{Fade\+Update}} (const float \&dt) override
+\begin{DoxyCompactList}\small\item\em Fade update override. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -61,9 +64,6 @@ sf\+::\+Texture {\bfseries title\+Texture}
 \Hypertarget{class_loading_state_a4629435a0e5e192d5cd47e78f31bc5b5}\label{class_loading_state_a4629435a0e5e192d5cd47e78f31bc5b5} 
 sf\+::\+Rectangle\+Shape {\bfseries background}
 \begin{DoxyCompactList}\small\item\em Background rectangle object. \end{DoxyCompactList}\item 
-\Hypertarget{class_loading_state_a0d7e552611b8fd3408703f8ada5403cb}\label{class_loading_state_a0d7e552611b8fd3408703f8ada5403cb} 
-sf\+::\+Font {\bfseries font}
-\begin{DoxyCompactList}\small\item\em Font reference requiered to render text. \end{DoxyCompactList}\item 
 \Hypertarget{class_loading_state_aa8cb7da0201acd79b692581582943762}\label{class_loading_state_aa8cb7da0201acd79b692581582943762} 
 sf\+::\+Clock {\bfseries time}
 \begin{DoxyCompactList}\small\item\em Fade in/out clock. \end{DoxyCompactList}\item 
@@ -87,7 +87,11 @@ std\+::stack$<$ \mbox{\hyperlink{class_state}{State}} \texorpdfstring{$\ast$}{*}
 sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*} {\bfseries window}
 \begin{DoxyCompactList}\small\item\em The game window pointer. \end{DoxyCompactList}\item 
 sf\+::\+Texture {\bfseries background\+Texture}
-\begin{DoxyCompactList}\small\item\em background texture ref. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em background texture ref \end{DoxyCompactList}\item 
+sf\+::\+Render\+Texture {\bfseries render\+Texture}
+\begin{DoxyCompactList}\small\item\em deferred renderer screen view \end{DoxyCompactList}\item 
+sf\+::\+Sprite {\bfseries render\+Sprite}
+\begin{DoxyCompactList}\small\item\em deferred renderer sprite \end{DoxyCompactList}\item 
 sf\+::\+Rectangle\+Shape {\bfseries background}
 \begin{DoxyCompactList}\small\item\em Background rectangle. \end{DoxyCompactList}\item 
 bool {\bfseries quit}
@@ -95,7 +99,19 @@ bool {\bfseries quit}
 bool {\bfseries paused}
 \begin{DoxyCompactList}\small\item\em Is the game paused. \end{DoxyCompactList}\item 
 sf\+::\+Vector2i {\bfseries mouse\+Pos\+Window}
-\begin{DoxyCompactList}\small\item\em XY mouse position on the window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em XY mouse position on the window. \end{DoxyCompactList}\item 
+sf\+::\+Clock {\bfseries fade\+Time}
+\begin{DoxyCompactList}\small\item\em Fade clock object. \end{DoxyCompactList}\item 
+sf\+::\+Rectangle\+Shape {\bfseries fade}
+\begin{DoxyCompactList}\small\item\em Fade in/out black rectangle. \end{DoxyCompactList}\item 
+bool {\bfseries fadein} =true
+\begin{DoxyCompactList}\small\item\em Is fading in or out. \end{DoxyCompactList}\item 
+bool {\bfseries pushed\+New} =false
+\begin{DoxyCompactList}\small\item\em Is new state pushed? \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_state}{State}} \texorpdfstring{$\ast$}{*} {\bfseries stateptr}
+\begin{DoxyCompactList}\small\item\em Pointer to new state. \end{DoxyCompactList}\item 
+sf\+::\+Font {\bfseries font}
+\begin{DoxyCompactList}\small\item\em Font object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -106,7 +122,7 @@ Class reponsible for settings view.
 \index{LoadingState@{LoadingState}!LoadingState@{LoadingState}}
 \doxysubsubsection{\texorpdfstring{LoadingState()}{LoadingState()}}
 {\footnotesize\ttfamily \label{class_loading_state_adb2ee0932d349c6ad200c3437e3e8c1f} 
-Loading\+State\+::\+Loading\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_state_data}{State\+Data}} \texorpdfstring{$\ast$}{*}}]{state\+\_\+data}{}\end{DoxyParamCaption})}
+Loading\+State\+::\+Loading\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_state_data}{State\+Data}} \texorpdfstring{$\ast$}{*}}]{state\+\_\+data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 
 
@@ -120,11 +136,30 @@ Class constructor.
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_loading_state_aa5e0949d7bc252afd312005399b39745}\index{LoadingState@{LoadingState}!render@{render}}
+\Hypertarget{class_loading_state_af8bd6eb2e2d7ab33794f2fd653d53e3c}\index{LoadingState@{LoadingState}!FadeUpdate@{FadeUpdate}}
+\index{FadeUpdate@{FadeUpdate}!LoadingState@{LoadingState}}
+\doxysubsubsection{\texorpdfstring{FadeUpdate()}{FadeUpdate()}}
+{\footnotesize\ttfamily \label{class_loading_state_af8bd6eb2e2d7ab33794f2fd653d53e3c} 
+void Loading\+State\+::\+Fade\+Update (\begin{DoxyParamCaption}\item[{const float \&}]{dt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Fade update override. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Delta time \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_state}{State}}.
+
+\Hypertarget{class_loading_state_a5fbb6b5b57bae18b55de64b1a28607de}\index{LoadingState@{LoadingState}!render@{render}}
 \index{render@{render}!LoadingState@{LoadingState}}
 \doxysubsubsection{\texorpdfstring{render()}{render()}}
-{\footnotesize\ttfamily \label{class_loading_state_aa5e0949d7bc252afd312005399b39745} 
-void Loading\+State\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \texorpdfstring{$\ast$}{*}}]{target}{ = {\ttfamily NULL}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{class_loading_state_a5fbb6b5b57bae18b55de64b1a28607de} 
+void Loading\+State\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \texorpdfstring{$\ast$}{*}}]{target}{ = {\ttfamily NULL}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -139,11 +174,11 @@ Loop for rendering.
 
 Implements \mbox{\hyperlink{class_state_aa1f36587befc2c03c4033366e5000d2c}{State}}.
 
-\Hypertarget{class_loading_state_a652bed0167d3bd593c37f65e3d50ee15}\index{LoadingState@{LoadingState}!update@{update}}
+\Hypertarget{class_loading_state_a7bda0f50319394486951a46433862417}\index{LoadingState@{LoadingState}!update@{update}}
 \index{update@{update}!LoadingState@{LoadingState}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
-{\footnotesize\ttfamily \label{class_loading_state_a652bed0167d3bd593c37f65e3d50ee15} 
-void Loading\+State\+::update (\begin{DoxyParamCaption}\item[{const float \&}]{dt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{class_loading_state_a7bda0f50319394486951a46433862417} 
+void Loading\+State\+::update (\begin{DoxyParamCaption}\item[{const float \&}]{dt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 

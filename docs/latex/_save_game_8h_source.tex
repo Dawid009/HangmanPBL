@@ -25,13 +25,13 @@
 \DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ this-\/>minute=now-\/>tm\_min;}
 \DoxyCodeLine{00030\ \ \ \ \ \}}
 \DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \ \ std::string\ getDate()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ std::string\ date\_temp;}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ date\_temp+=(this-\/>day<10?\textcolor{stringliteral}{"{}0"{}}:\textcolor{stringliteral}{"{}"{}})+std::to\_string(this-\/>day)+\textcolor{stringliteral}{"{}."{}};}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ date\_temp+=(this-\/>month<10?\textcolor{stringliteral}{"{}0"{}}:\textcolor{stringliteral}{"{}"{}})+std::to\_string(this-\/>month)+\textcolor{stringliteral}{"{}."{}};}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ date\_temp+=std::to\_string(year)+\textcolor{stringliteral}{"{}\ \ "{}};}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ date\_temp+=(this-\/>hour<10?\textcolor{stringliteral}{"{}0"{}}:\textcolor{stringliteral}{"{}"{}})+std::to\_string(this-\/>hour)+\textcolor{stringliteral}{"{}:"{}};}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ date\_temp+=(this-\/>minute<10?\textcolor{stringliteral}{"{}0"{}}:\textcolor{stringliteral}{"{}"{}})+std::to\_string(this-\/>minute);}
+\DoxyCodeLine{00032\ \ \ \ \ \ std::wstring\ getDate()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ std::wstring\ date\_temp;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ date\_temp+=(this-\/>day<10?L\textcolor{stringliteral}{"{}0"{}}:L\textcolor{stringliteral}{"{}"{}})+std::to\_wstring(this-\/>day)+L\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ date\_temp+=(this-\/>month<10?L\textcolor{stringliteral}{"{}0"{}}:L\textcolor{stringliteral}{"{}"{}})+std::to\_wstring(this-\/>month)+L\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ date\_temp+=std::to\_wstring(year)+L\textcolor{stringliteral}{"{}\ \ "{}};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ date\_temp+=(this-\/>hour<10?L\textcolor{stringliteral}{"{}0"{}}:L\textcolor{stringliteral}{"{}"{}})+std::to\_wstring(this-\/>hour)+L\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ date\_temp+=(this-\/>minute<10?L\textcolor{stringliteral}{"{}0"{}}:L\textcolor{stringliteral}{"{}"{}})+std::to\_wstring(this-\/>minute);}
 \DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ date\_temp;}
 \DoxyCodeLine{00040\ \ \ \ \ \}}
 \DoxyCodeLine{00041\ \};}
@@ -53,7 +53,7 @@
 \DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_save_game_base_a129c04c758956066943f4b08f5e62e1b}{loadSimpleFromFile}}(\textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{class_save_game_base_a5b00540b67afdd10a70c10b414035e78}{path}});}
 \DoxyCodeLine{00069\ }
 \DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{class_save_game_base_a8b150c3e571b736012fd13cf6bbbf79e}{getSaveName}}()\ \{\ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{class_save_game_base_a3db82ab6e27355f4b1466f6530850c63}{save\_name}};\}}
-\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{class_save_game_base_a60e8de8aa46bfd8fd8e4466c1027f739}{getDate}}()\ \{\ \textcolor{keywordflow}{return}\ this-\/>date.getDate();\}}
+\DoxyCodeLine{00079\ \ \ \ \ std::wstring\ \mbox{\hyperlink{class_save_game_base_a8fd936d0198fc538dd30a66df9cbf430}{getDate}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ this-\/>date.getDate();\}}
 \DoxyCodeLine{00080\ }
 \DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_save_game_base_a01ba2a971358590cb2de3461cb292951}{getPoints}}()\ \{\textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{class_save_game_base_a2530b7c69f9f79a50b3657c9a5bda833}{total\_points}};\}}
 \DoxyCodeLine{00086\ }
@@ -83,6 +83,6 @@
 \DoxyCodeLine{00133\ \};}
 \DoxyCodeLine{00134\ }
 \DoxyCodeLine{00135\ }
-\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//HANGMAN\_SAVEGAME\_H}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

@@ -20,10 +20,10 @@ Inheritance diagram for Game\+State\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{class_game_state_ab902d5b451404017f7111ae1c0b2554f}{Game\+State}} (\mbox{\hyperlink{class_state_data}{State\+Data}} \texorpdfstring{$\ast$}{*}state\+\_\+data, \mbox{\hyperlink{class_save_game}{Save\+Game}} \texorpdfstring{$\ast$}{*}save\+Game)
 \begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
-\Hypertarget{class_game_state_ae623df5042cd0c17daa3394fdcb397b3}\label{class_game_state_ae623df5042cd0c17daa3394fdcb397b3} 
-virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Game\+State} ()
+\Hypertarget{class_game_state_a5eddf97b5c453466e5f9729d7507dab0}\label{class_game_state_a5eddf97b5c453466e5f9729d7507dab0} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Game\+State} () override
 \begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_game_state_ac135e64a5c269ecc94d806ed5255ca4b}{update}} (const float \&dt)
+void \mbox{\hyperlink{class_game_state_a9fbaf9125b3dbdc0aa888bebb4a0fd3d}{update}} (const float \&dt) final
 \begin{DoxyCompactList}\small\item\em Main state loop updating events. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_game_state_ae49b20a5455335d879340dbe3b92da7f}{render}} (sf\+::\+Render\+Target \texorpdfstring{$\ast$}{*}target=NULL)
 \begin{DoxyCompactList}\small\item\em Loop for rendering. \end{DoxyCompactList}\item 
@@ -42,6 +42,10 @@ virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+State} ()
 \begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
 void {\bfseries end\+State} ()
 \begin{DoxyCompactList}\small\item\em Function to terminate the state. \end{DoxyCompactList}\item 
+void {\bfseries init\+Fonts} ()
+\begin{DoxyCompactList}\small\item\em Function initializing fonts required to display text. \end{DoxyCompactList}\item 
+void {\bfseries init\+Deferred\+Render} ()
+\begin{DoxyCompactList}\small\item\em Creates deferred renderer. \end{DoxyCompactList}\item 
 const bool \& \mbox{\hyperlink{class_state_a18c3b970753bab2937141803644aaf24}{get\+Quit}} () const
 \begin{DoxyCompactList}\small\item\em Checks if the game should be terminated. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_state_a9786ffabe44f3e916d81a2750d8370e0}{update\+Mouse\+Positions}} (sf\+::\+View \texorpdfstring{$\ast$}{*}view=nullptr)
@@ -49,17 +53,11 @@ virtual void \mbox{\hyperlink{class_state_a9786ffabe44f3e916d81a2750d8370e0}{upd
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_game_state_a5560dd2fa69f4f5d869127d0e99d50c6}\label{class_game_state_a5560dd2fa69f4f5d869127d0e99d50c6} 
-void {\bfseries init\+Deferred\+Render} ()
-\begin{DoxyCompactList}\small\item\em Creates a renderer. \end{DoxyCompactList}\item 
 \Hypertarget{class_game_state_a343d71fbf12dd0d0cd8decc17d74e603}\label{class_game_state_a343d71fbf12dd0d0cd8decc17d74e603} 
 void {\bfseries init\+View} ()
 \begin{DoxyCompactList}\small\item\em Function initializing gui. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_game_state_ac095e4bc1135419f0c30109103030a7d}{pick\+Random\+Password}} (std\+::wstring \&string\+Ref, int max\+Row)
 \begin{DoxyCompactList}\small\item\em Function picking random password from list. \end{DoxyCompactList}\item 
-\Hypertarget{class_game_state_a254268c7021969701d6df3bbae2e3f4a}\label{class_game_state_a254268c7021969701d6df3bbae2e3f4a} 
-void {\bfseries init\+Fonts} ()
-\begin{DoxyCompactList}\small\item\em Function initializing fonts required to display text. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_game_state_af111c6ae35cd13fadd75a884e07ce97d}{check\+Keyboard}} (uint8\+\_\+t letter)
 \begin{DoxyCompactList}\small\item\em Function checking if button is pressed. \end{DoxyCompactList}\item 
 \Hypertarget{class_game_state_a2be131aadedfcd93b417e9b17b1ac81c}\label{class_game_state_a2be131aadedfcd93b417e9b17b1ac81c} 
@@ -74,15 +72,6 @@ sf\+::\+View {\bfseries view}
 \Hypertarget{class_game_state_a1ed971ac4b35afb31bf8ddf6475d0998}\label{class_game_state_a1ed971ac4b35afb31bf8ddf6475d0998} 
 sf\+::\+Texture {\bfseries background\+Texture}
 \begin{DoxyCompactList}\small\item\em Background texture reference. \end{DoxyCompactList}\item 
-\Hypertarget{class_game_state_ab60dc490bb2d288a20712d1455aa70e8}\label{class_game_state_ab60dc490bb2d288a20712d1455aa70e8} 
-sf\+::\+Font {\bfseries font}
-\begin{DoxyCompactList}\small\item\em Font reference requiered to render text. \end{DoxyCompactList}\item 
-\Hypertarget{class_game_state_a957706ee7af356052e0f1b73544dfaa8}\label{class_game_state_a957706ee7af356052e0f1b73544dfaa8} 
-sf\+::\+Render\+Texture {\bfseries render\+Texture}
-\begin{DoxyCompactList}\small\item\em deferred renderer screen view \end{DoxyCompactList}\item 
-\Hypertarget{class_game_state_a351fea43676cf6a1b6d8144508d76405}\label{class_game_state_a351fea43676cf6a1b6d8144508d76405} 
-sf\+::\+Sprite {\bfseries render\+Sprite}
-\begin{DoxyCompactList}\small\item\em deferred renderer sprite \end{DoxyCompactList}\item 
 \Hypertarget{class_game_state_a4f85f0e3048be125432a6e6d76e3ee0a}\label{class_game_state_a4f85f0e3048be125432a6e6d76e3ee0a} 
 \mbox{\hyperlink{class_pause_menu}{Pause\+Menu}} \texorpdfstring{$\ast$}{*} {\bfseries pmenu}
 \begin{DoxyCompactList}\small\item\em in-\/game menu component pointer \end{DoxyCompactList}\item 
@@ -109,7 +98,7 @@ int {\bfseries password\+Line}
 \begin{DoxyCompactList}\small\item\em Id of the password. \end{DoxyCompactList}\item 
 \Hypertarget{class_game_state_a904aeb22ea4ef76eccbc9344ecee2d79}\label{class_game_state_a904aeb22ea4ef76eccbc9344ecee2d79} 
 \mbox{\hyperlink{class_save_game}{Save\+Game}} \texorpdfstring{$\ast$}{*} {\bfseries save\+Game\+Ptr}
-\item 
+\begin{DoxyCompactList}\small\item\em Savegame pointer. \end{DoxyCompactList}\item 
 \Hypertarget{class_game_state_a0f5f60339d8bd7749ba3695eb5a98fd0}\label{class_game_state_a0f5f60339d8bd7749ba3695eb5a98fd0} 
 \mbox{\hyperlink{class_keyboard}{Keyboard}} \texorpdfstring{$\ast$}{*} {\bfseries keyboard}
 \begin{DoxyCompactList}\small\item\em \doxylink{class_keyboard}{Keyboard} component pointer. \end{DoxyCompactList}\item 
@@ -133,11 +122,16 @@ float {\bfseries delay} =0
 \begin{DoxyCompactList}\small\item\em Fps update delay counter. \end{DoxyCompactList}\item 
 \Hypertarget{class_game_state_a740554a2953ecc27d16d725e715d6358}\label{class_game_state_a740554a2953ecc27d16d725e715d6358} 
 int {\bfseries misses} =0
-\begin{DoxyCompactList}\small\item\em Misses count. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Number of misses. \end{DoxyCompactList}\item 
 \Hypertarget{class_game_state_a77c7f3c144dc2cb2b3e6f2395b561b37}\label{class_game_state_a77c7f3c144dc2cb2b3e6f2395b561b37} 
 int {\bfseries passes} =0
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Number of hits. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_state_a52224bc53e97d3bd2b9bdcfc2181cd07}{Fade\+Update}} (const float \&dt)
+\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_state}{State}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -148,7 +142,11 @@ std\+::stack$<$ \mbox{\hyperlink{class_state}{State}} \texorpdfstring{$\ast$}{*}
 sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*} {\bfseries window}
 \begin{DoxyCompactList}\small\item\em The game window pointer. \end{DoxyCompactList}\item 
 sf\+::\+Texture {\bfseries background\+Texture}
-\begin{DoxyCompactList}\small\item\em background texture ref. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em background texture ref \end{DoxyCompactList}\item 
+sf\+::\+Render\+Texture {\bfseries render\+Texture}
+\begin{DoxyCompactList}\small\item\em deferred renderer screen view \end{DoxyCompactList}\item 
+sf\+::\+Sprite {\bfseries render\+Sprite}
+\begin{DoxyCompactList}\small\item\em deferred renderer sprite \end{DoxyCompactList}\item 
 sf\+::\+Rectangle\+Shape {\bfseries background}
 \begin{DoxyCompactList}\small\item\em Background rectangle. \end{DoxyCompactList}\item 
 bool {\bfseries quit}
@@ -156,7 +154,19 @@ bool {\bfseries quit}
 bool {\bfseries paused}
 \begin{DoxyCompactList}\small\item\em Is the game paused. \end{DoxyCompactList}\item 
 sf\+::\+Vector2i {\bfseries mouse\+Pos\+Window}
-\begin{DoxyCompactList}\small\item\em XY mouse position on the window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em XY mouse position on the window. \end{DoxyCompactList}\item 
+sf\+::\+Clock {\bfseries fade\+Time}
+\begin{DoxyCompactList}\small\item\em Fade clock object. \end{DoxyCompactList}\item 
+sf\+::\+Rectangle\+Shape {\bfseries fade}
+\begin{DoxyCompactList}\small\item\em Fade in/out black rectangle. \end{DoxyCompactList}\item 
+bool {\bfseries fadein} =true
+\begin{DoxyCompactList}\small\item\em Is fading in or out. \end{DoxyCompactList}\item 
+bool {\bfseries pushed\+New} =false
+\begin{DoxyCompactList}\small\item\em Is new state pushed? \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_state}{State}} \texorpdfstring{$\ast$}{*} {\bfseries stateptr}
+\begin{DoxyCompactList}\small\item\em Pointer to new state. \end{DoxyCompactList}\item 
+sf\+::\+Font {\bfseries font}
+\begin{DoxyCompactList}\small\item\em Font object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -208,7 +218,7 @@ Function picking random password from list.
 
 
 \begin{DoxyParams}{Parameters}
-{\em max\+Row} & File rows count \\
+{\em max\+Row} & Number of file rows \\
 \hline
 \end{DoxyParams}
 \Hypertarget{class_game_state_ae49b20a5455335d879340dbe3b92da7f}\index{GameState@{GameState}!render@{render}}
@@ -230,11 +240,11 @@ Loop for rendering.
 
 Implements \mbox{\hyperlink{class_state_aa1f36587befc2c03c4033366e5000d2c}{State}}.
 
-\Hypertarget{class_game_state_ac135e64a5c269ecc94d806ed5255ca4b}\index{GameState@{GameState}!update@{update}}
+\Hypertarget{class_game_state_a9fbaf9125b3dbdc0aa888bebb4a0fd3d}\index{GameState@{GameState}!update@{update}}
 \index{update@{update}!GameState@{GameState}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
-{\footnotesize\ttfamily \label{class_game_state_ac135e64a5c269ecc94d806ed5255ca4b} 
-void Game\+State\+::update (\begin{DoxyParamCaption}\item[{const float \&}]{dt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{class_game_state_a9fbaf9125b3dbdc0aa888bebb4a0fd3d} 
+void Game\+State\+::update (\begin{DoxyParamCaption}\item[{const float \&}]{dt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
 
 
 

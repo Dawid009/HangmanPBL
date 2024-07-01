@@ -18,17 +18,7 @@ class MainMenuState : public State{
 private:
     sf::Texture titleTexture; ///<Texture holding title image
     sf::Text title; ///<Title image rectangle to render on the view
-    sf::Font font; ///<Font reference requiered to display text
     std::map<uint8_t, gui::Button*> buttons; ///<A map that stores the buttons
-    sf::Clock time; ///<Fade in/out clock
-    sf::RectangleShape fade;///<Fade in/out black rectangle
-    bool fadein=true; ///<Is fading in or out
-    bool pushedNew=false;///<Is new state pushed?
-    State* stateptr;///<Pointer to new state
-    /**
-    * @brief Function initializing fonts required to display text.
-    */
-    void initFonts();
 
     /**
     * @brief Function initializing main manu gui.
@@ -50,7 +40,7 @@ public:
     /**
     * @brief Class destructor
     */
-    virtual ~MainMenuState();
+    ~MainMenuState() override;
 
     /**
     * @brief Function about buttons work. Updating buttons events

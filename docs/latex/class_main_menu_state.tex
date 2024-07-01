@@ -20,8 +20,8 @@ Inheritance diagram for Main\+Menu\+State\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{class_main_menu_state_a9a3c8b9e00e104f5c3880406df6550b6}{Main\+Menu\+State}} (\mbox{\hyperlink{class_state_data}{State\+Data}} \texorpdfstring{$\ast$}{*}state\+\_\+data)
 \begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
-\Hypertarget{class_main_menu_state_a8af4d586b93c315a1a15b5fe83ec0760}\label{class_main_menu_state_a8af4d586b93c315a1a15b5fe83ec0760} 
-virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Main\+Menu\+State} ()
+\Hypertarget{class_main_menu_state_ad915ac256c65138d775d58f5b2229b5a}\label{class_main_menu_state_ad915ac256c65138d775d58f5b2229b5a} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Main\+Menu\+State} () override
 \begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_main_menu_state_ab4aa18e2cba13350b99e95fd53593013}{update\+Buttons}} (const float \&dt)
 \begin{DoxyCompactList}\small\item\em Function about buttons work. Updating buttons events. \end{DoxyCompactList}\item 
@@ -38,6 +38,10 @@ virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+State} ()
 \begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
 void {\bfseries end\+State} ()
 \begin{DoxyCompactList}\small\item\em Function to terminate the state. \end{DoxyCompactList}\item 
+void {\bfseries init\+Fonts} ()
+\begin{DoxyCompactList}\small\item\em Function initializing fonts required to display text. \end{DoxyCompactList}\item 
+void {\bfseries init\+Deferred\+Render} ()
+\begin{DoxyCompactList}\small\item\em Creates deferred renderer. \end{DoxyCompactList}\item 
 const bool \& \mbox{\hyperlink{class_state_a18c3b970753bab2937141803644aaf24}{get\+Quit}} () const
 \begin{DoxyCompactList}\small\item\em Checks if the game should be terminated. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_state_a9786ffabe44f3e916d81a2750d8370e0}{update\+Mouse\+Positions}} (sf\+::\+View \texorpdfstring{$\ast$}{*}view=nullptr)
@@ -45,9 +49,6 @@ virtual void \mbox{\hyperlink{class_state_a9786ffabe44f3e916d81a2750d8370e0}{upd
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_main_menu_state_a6a72ebf025483b548c98e248dd18d313}\label{class_main_menu_state_a6a72ebf025483b548c98e248dd18d313} 
-void {\bfseries init\+Fonts} ()
-\begin{DoxyCompactList}\small\item\em Function initializing fonts required to display text. \end{DoxyCompactList}\item 
 \Hypertarget{class_main_menu_state_a00c856794e14eef337abd59f24cbbcd5}\label{class_main_menu_state_a00c856794e14eef337abd59f24cbbcd5} 
 void {\bfseries init\+Gui} ()
 \begin{DoxyCompactList}\small\item\em Function initializing main manu gui. \end{DoxyCompactList}\item 
@@ -63,28 +64,15 @@ sf\+::\+Texture {\bfseries title\+Texture}
 \Hypertarget{class_main_menu_state_a6f57e7eed3da1f24a89883ba6d132203}\label{class_main_menu_state_a6f57e7eed3da1f24a89883ba6d132203} 
 sf\+::\+Text {\bfseries title}
 \begin{DoxyCompactList}\small\item\em Title image rectangle to render on the view. \end{DoxyCompactList}\item 
-\Hypertarget{class_main_menu_state_a452b6e63270b968978ff7fe8267ef15c}\label{class_main_menu_state_a452b6e63270b968978ff7fe8267ef15c} 
-sf\+::\+Font {\bfseries font}
-\begin{DoxyCompactList}\small\item\em Font reference requiered to display text. \end{DoxyCompactList}\item 
 \Hypertarget{class_main_menu_state_a595320998ca16da2070bfdf8fe24e3cb}\label{class_main_menu_state_a595320998ca16da2070bfdf8fe24e3cb} 
 std\+::map$<$ uint8\+\_\+t, \mbox{\hyperlink{classgui_1_1_button}{gui\+::\+Button}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries buttons}
-\begin{DoxyCompactList}\small\item\em A map that stores the buttons. \end{DoxyCompactList}\item 
-\Hypertarget{class_main_menu_state_a8fca7da44365b2e5ffa0466d7c144832}\label{class_main_menu_state_a8fca7da44365b2e5ffa0466d7c144832} 
-sf\+::\+Clock {\bfseries time}
-\begin{DoxyCompactList}\small\item\em Fade in/out clock. \end{DoxyCompactList}\item 
-\Hypertarget{class_main_menu_state_a8d2e51d718b45842f7cbcde94e8b71ab}\label{class_main_menu_state_a8d2e51d718b45842f7cbcde94e8b71ab} 
-sf\+::\+Rectangle\+Shape {\bfseries fade}
-\begin{DoxyCompactList}\small\item\em Fade in/out black rectangle. \end{DoxyCompactList}\item 
-\Hypertarget{class_main_menu_state_a04b06720a051e8d5a6cf8b59446e9e9b}\label{class_main_menu_state_a04b06720a051e8d5a6cf8b59446e9e9b} 
-bool {\bfseries fadein} =true
-\begin{DoxyCompactList}\small\item\em Is fading in or out. \end{DoxyCompactList}\item 
-\Hypertarget{class_main_menu_state_ae59c23bbd8049f70110f02976f7357bf}\label{class_main_menu_state_ae59c23bbd8049f70110f02976f7357bf} 
-bool {\bfseries pushed\+New} =false
-\begin{DoxyCompactList}\small\item\em Is new state pushed? \end{DoxyCompactList}\item 
-\Hypertarget{class_main_menu_state_a4332c0f3e043657ef7603e48c4578a8c}\label{class_main_menu_state_a4332c0f3e043657ef7603e48c4578a8c} 
-\mbox{\hyperlink{class_state}{State}} \texorpdfstring{$\ast$}{*} {\bfseries stateptr}
-\begin{DoxyCompactList}\small\item\em Pointer to new state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A map that stores the buttons. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_state}{State}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_state_a52224bc53e97d3bd2b9bdcfc2181cd07}{Fade\+Update}} (const float \&dt)
+\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_state}{State}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -95,7 +83,11 @@ std\+::stack$<$ \mbox{\hyperlink{class_state}{State}} \texorpdfstring{$\ast$}{*}
 sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*} {\bfseries window}
 \begin{DoxyCompactList}\small\item\em The game window pointer. \end{DoxyCompactList}\item 
 sf\+::\+Texture {\bfseries background\+Texture}
-\begin{DoxyCompactList}\small\item\em background texture ref. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em background texture ref \end{DoxyCompactList}\item 
+sf\+::\+Render\+Texture {\bfseries render\+Texture}
+\begin{DoxyCompactList}\small\item\em deferred renderer screen view \end{DoxyCompactList}\item 
+sf\+::\+Sprite {\bfseries render\+Sprite}
+\begin{DoxyCompactList}\small\item\em deferred renderer sprite \end{DoxyCompactList}\item 
 sf\+::\+Rectangle\+Shape {\bfseries background}
 \begin{DoxyCompactList}\small\item\em Background rectangle. \end{DoxyCompactList}\item 
 bool {\bfseries quit}
@@ -103,7 +95,19 @@ bool {\bfseries quit}
 bool {\bfseries paused}
 \begin{DoxyCompactList}\small\item\em Is the game paused. \end{DoxyCompactList}\item 
 sf\+::\+Vector2i {\bfseries mouse\+Pos\+Window}
-\begin{DoxyCompactList}\small\item\em XY mouse position on the window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em XY mouse position on the window. \end{DoxyCompactList}\item 
+sf\+::\+Clock {\bfseries fade\+Time}
+\begin{DoxyCompactList}\small\item\em Fade clock object. \end{DoxyCompactList}\item 
+sf\+::\+Rectangle\+Shape {\bfseries fade}
+\begin{DoxyCompactList}\small\item\em Fade in/out black rectangle. \end{DoxyCompactList}\item 
+bool {\bfseries fadein} =true
+\begin{DoxyCompactList}\small\item\em Is fading in or out. \end{DoxyCompactList}\item 
+bool {\bfseries pushed\+New} =false
+\begin{DoxyCompactList}\small\item\em Is new state pushed? \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_state}{State}} \texorpdfstring{$\ast$}{*} {\bfseries stateptr}
+\begin{DoxyCompactList}\small\item\em Pointer to new state. \end{DoxyCompactList}\item 
+sf\+::\+Font {\bfseries font}
+\begin{DoxyCompactList}\small\item\em Font object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

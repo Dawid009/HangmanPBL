@@ -5,7 +5,7 @@
 #include "OneSaveState.h"
 
 GameState::GameState(StateData* state_data, SaveGame* saveGame)
-        : State(state_data), saveGamePtr(saveGame)
+        : State(state_data), saveGamePtr(saveGame), misses(0)
 {
     this->paused = false;
     this->initDeferredRender();
@@ -31,7 +31,7 @@ GameState::~GameState() {
     delete pmenu;
     delete pointsModule;
     std::cout<<"Destruktor gamestate!"<<std::endl;
-};
+}
 
 
 void GameState::pickRandomPassword(std::wstring& stringRef,int maxRow){
@@ -44,11 +44,8 @@ void GameState::pickRandomPassword(std::wstring& stringRef,int maxRow){
     std::wstring line;
     int currentLine = 1;
 
-
-
-    std::wifstream file(this->stateData->localpath+"Passwords/PL.ini");
+    std::wifstream file(this->stateData->localpath+"Keywords/PL.ini");
     if (file.is_open()) {
-        // Iteracyjne odczytywanie pliku
         while (std::getline(file, line)) {
             if (currentLine == passwordLine) {
                 break;
@@ -63,36 +60,6 @@ void GameState::pickRandomPassword(std::wstring& stringRef,int maxRow){
     saveGamePtr->current_password_id=passwordLine;
     stringRef = line;
 }
-
-void GameState::initDeferredRender()
-{
-    this->renderTexture.create(
-            this->stateData->gfxSettings->resolution.width,
-            this->stateData->gfxSettings->resolution.height
-    );
-
-    this->renderSprite.setTexture(this->renderTexture.getTexture());
-    this->renderSprite.setTextureRect(
-            sf::IntRect(
-                    0,
-                    0,
-                    this->stateData->gfxSettings->resolution.width,
-                    this->stateData->gfxSettings->resolution.height
-            )
-    );
-}
-
-
-
-void GameState::initFonts()
-{
-    if (!this->font.loadFromFile(this->stateData->localpath+"Fonts/Caveat.ttf"))
-    {
-        throw("ERROR::MAINMENUSTATE::COULD NOT LOAD FONT");
-    }
-    std::locale::global(std::locale("pl_PL.UTF-8"));
-}
-
 
 void GameState::initView()
 {
@@ -131,7 +98,6 @@ void GameState::initPauseMenu()
     this->pmenu = new PauseMenu(this->stateData->gfxSettings->resolution, this->font);
     this->pmenu->addButton("QUIT", gui::calcY(74.f, vm), gui::calcX(13.f, vm), gui::calcY(6.f, vm), gui::calcCharSize(vm), L"Wyjdź");
     this->pmenu->addButton("CONTINUE", gui::calcY(35.f, vm), gui::calcX(13.f, vm), gui::calcY(6.f, vm), gui::calcCharSize(vm), L"Kontynuuj");
-
     this->endScreen = new EndScreen(this->stateData->gfxSettings->resolution,this->font);
 }
 
@@ -184,9 +150,8 @@ void GameState::checkKeyboard(const uint8_t letter) {
         }
         endClock.restart();
     }else{
-        for(int i=0;i<34;i++){
+        for(int i=0;i<34;i++)
             letterFields->revealLetter(i);
-        }
 
         if(!ended){
             if (endClock.getElapsedTime().asSeconds() >= 2) {
@@ -201,7 +166,6 @@ void GameState::checkKeyboard(const uint8_t letter) {
                 ended =true;
             }
         }
-
     }
 
     if(this->letterFields->getLength()==passes){
@@ -231,20 +195,19 @@ void GameState::updatePauseMenuButtons() {
     }
     if (this->pmenu->isButtonPressed("CONTINUE"))
         this->paused = false;
-
 }
 
 
 void GameState::updateEndScreenButtons() {
     if(this->endScreen->isButtonPressed("NEW")){
-        GameState * temp = new GameState(this->stateData, saveGamePtr);
+        auto * temp = new GameState(this->stateData, saveGamePtr);
         this->states->pop();
         this->states->push(temp);
         this->endState();
     }
 
     if(this->endScreen->isButtonPressed("QUIT")){
-        OneSaveState * temp = new OneSaveState(this->stateData, saveGamePtr);
+        auto * temp = new OneSaveState(this->stateData, saveGamePtr);
         this->states->pop();
         this->states->push(temp);
         this->endState();
@@ -257,14 +220,13 @@ void GameState::update(const float& dt)
 {
     this->updateMousePositions(&this->view);
 
-    if (!this->paused && !ended) //gra w  trakcie
+    if (!this->paused && !ended)
     {
         totalTime+=dt;
         this->letterFields->update(dt);
         this->keyboard->update(mousePosWindow,dt);
 
-        //Sprawdzanie czy nacisniety przycisk
-        for(uint8_t i{0};i<34;i++){
+        for(uint8_t i{0};i<34 && !ended;i++){
             checkKeyboard(i);
         }
 
@@ -272,7 +234,7 @@ void GameState::update(const float& dt)
             this->paused = true;
         }
     }
-    else //gra zapauzowana
+    else
     {
         timeClock.restart();
         this->pmenu->update(this->mousePosWindow,dt);
@@ -296,39 +258,25 @@ void GameState::update(const float& dt)
 
 void GameState::render(sf::RenderTarget* target)
 {
-    //dodać prerenderowanie niektórych elementów
+    if (!target) target = this->window;
     this->renderTexture.clear();
-    if (!target)
-        target = this->window;
-    this->renderTexture.clear();
-    //target->draw(this->background);
-
     renderTexture.draw(this->background);
+    renderTexture.draw(*pointsText);
+
     this->hangman->render(&renderTexture);
     this->keyboard->render(&renderTexture);
     this->letterFields->render(&renderTexture);
 
-    if(this->stateData->gfxSettings->showFps){
+    if(this->stateData->gfxSettings->showFps)
         renderTexture.draw(*fpsText);
-    }
-
-    renderTexture.draw(*pointsText);
 
     if (this->paused && !ended)
-    {
         this->pmenu->render(this->renderTexture);
-    }
 
-    if(this->ended) {
+    if(this->ended)
         this->endScreen->render(this->renderTexture);
-    }
-
-
 
     this->renderTexture.display();
     this->renderSprite.setTexture(this->renderTexture.getTexture());
     target->draw(renderSprite);
 }
-
-
-

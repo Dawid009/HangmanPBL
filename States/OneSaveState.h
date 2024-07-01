@@ -19,19 +19,11 @@ class OneSaveState : public State{
 private:
     sf::Texture titleTexture; ///<Texture holding title image
     sf::Text title; ///<Title image rectangle to render on the view
-    sf::Font font; ///<Font reference requiered to display text
     std::map<uint8_t, gui::Button*> buttons; ///<A map that stores the buttons
     std::vector<sf::Text*> texts; ///<All text pointers vector
     SaveGame * saveGamePtr; ///<Pointer to this savegame object
-    sf::Clock time;///<Fade clock object
-    sf::RectangleShape fade;///<Fade in/out black rectangle
-    bool fadein=true; ///<Is fading in or out
-    bool pushedNew=false;///<Is new state pushed?
-    State* stateptr;///<Pointer to new state
-    /**
-    * @brief Function initializing fonts required to display text.
-    */
-    void initFonts();
+
+    void createStatTexts();
 
     /**
     * @brief Function initializing main manu gui.
@@ -43,19 +35,18 @@ private:
     */
     void resetGui();
 
-
 public:
     /**
     * @brief Class constructor
     * @param state_date Pointer to main state data.
-     * @param saveGame Pointer to the savegame object.
+    * @param saveGame Pointer to the savegame object.
     */
     explicit OneSaveState(StateData* state_data, SaveGame * saveGame);
 
     /**
     * @brief Class destructor
     */
-    virtual ~OneSaveState();
+    ~OneSaveState() override;
 
     /**
     * @brief Function about buttons work. Updating buttons events
@@ -76,4 +67,4 @@ public:
     void render(sf::RenderTarget* target = nullptr) override;
 };
 
-#endif //HANGMAN_MAINMENUSTATE_H
+#endif

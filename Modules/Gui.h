@@ -48,6 +48,9 @@ namespace gui {
     */
     unsigned calcCharSize(const sf::VideoMode& vm, unsigned modifier = 60);
 
+
+    sf::Text* CreateText(const std::wstring& text,float X, float Y,sf::Font* font, sf::Color color, unsigned characterSize);
+
     /**
     * @struct ButtonParams
     * @brief Options when creating a button

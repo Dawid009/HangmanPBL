@@ -55,4 +55,4 @@ public:
 };
 
 
-#endif //HANGMAN_HANGMAN_H
+#endif

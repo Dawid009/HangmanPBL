@@ -110,21 +110,19 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_points.html#a69225177d8015382ee9616f554722715">addPoints</a>(<span class="keyword">const</span> uint8_t letterId,<span class="keywordtype">int</span> amount);</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_points.html#a978cbb40d9467df33e23873653cf629b">   39</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_points.html#a978cbb40d9467df33e23873653cf629b">getPoints</a>() {<span class="keywordflow">return</span> <a class="code hl_variable" href="class_points.html#aa5af7e8ae18d54edd737d4e383afd7fc">PointsAmount</a>;};</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
 </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#endif </span><span class="comment">//HANGMAN_POINTS_H</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclass_points_html"><div class="ttname"><a href="class_points.html">Points</a></div><div class="ttdoc">Class reponsible for game points.</div><div class="ttdef"><b>Definition</b> Points.h:14</div></div>
 <div class="ttc" id="aclass_points_html_a2c3e1f956cc4e67c9d08f6b79de0fefe"><div class="ttname"><a href="class_points.html#a2c3e1f956cc4e67c9d08f6b79de0fefe">Points::wordLength</a></div><div class="ttdeci">size_t wordLength</div><div class="ttdoc">Password length.</div><div class="ttdef"><b>Definition</b> Points.h:18</div></div>
 <div class="ttc" id="aclass_points_html_a2cff005118ce97d128e4660539a88f32"><div class="ttname"><a href="class_points.html#a2cff005118ce97d128e4660539a88f32">Points::correctStreak</a></div><div class="ttdeci">float correctStreak</div><div class="ttdoc">Streak.</div><div class="ttdef"><b>Definition</b> Points.h:19</div></div>
-<div class="ttc" id="aclass_points_html_a69225177d8015382ee9616f554722715"><div class="ttname"><a href="class_points.html#a69225177d8015382ee9616f554722715">Points::addPoints</a></div><div class="ttdeci">void addPoints(const uint8_t letterId, int amount)</div><div class="ttdoc">Add points based on letter type and amount of letter hits.</div><div class="ttdef"><b>Definition</b> Points.cpp:10</div></div>
+<div class="ttc" id="aclass_points_html_a69225177d8015382ee9616f554722715"><div class="ttname"><a href="class_points.html#a69225177d8015382ee9616f554722715">Points::addPoints</a></div><div class="ttdeci">void addPoints(const uint8_t letterId, int amount)</div><div class="ttdoc">Add points based on letter type and amount of letter hits.</div><div class="ttdef"><b>Definition</b> Points.cpp:9</div></div>
 <div class="ttc" id="aclass_points_html_a8aeb324c69f5a3e06abb40adc7794080"><div class="ttname"><a href="class_points.html#a8aeb324c69f5a3e06abb40adc7794080">Points::missStreak</a></div><div class="ttdeci">float missStreak</div><div class="ttdoc">Streak.</div><div class="ttdef"><b>Definition</b> Points.h:20</div></div>
 <div class="ttc" id="aclass_points_html_a978cbb40d9467df33e23873653cf629b"><div class="ttname"><a href="class_points.html#a978cbb40d9467df33e23873653cf629b">Points::getPoints</a></div><div class="ttdeci">int getPoints()</div><div class="ttdoc">Returns points amount.</div><div class="ttdef"><b>Definition</b> Points.h:39</div></div>
 <div class="ttc" id="aclass_points_html_aa5af7e8ae18d54edd737d4e383afd7fc"><div class="ttname"><a href="class_points.html#aa5af7e8ae18d54edd737d4e383afd7fc">Points::PointsAmount</a></div><div class="ttdeci">float PointsAmount</div><div class="ttdoc">Amount of the points.</div><div class="ttdef"><b>Definition</b> Points.h:17</div></div>
-<div class="ttc" id="aclass_points_html_ad9fee478b4bf94526386c4327898798d"><div class="ttname"><a href="class_points.html#ad9fee478b4bf94526386c4327898798d">Points::Points</a></div><div class="ttdeci">Points(size_t length)</div><div class="ttdoc">Class constructor.</div><div class="ttdef"><b>Definition</b> Points.cpp:5</div></div>
+<div class="ttc" id="aclass_points_html_ad9fee478b4bf94526386c4327898798d"><div class="ttname"><a href="class_points.html#ad9fee478b4bf94526386c4327898798d">Points::Points</a></div><div class="ttdeci">Points(size_t length)</div><div class="ttdoc">Class constructor.</div><div class="ttdef"><b>Definition</b> Points.cpp:4</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -36,11 +36,11 @@ class LetterFields {
 private:
     std::vector<LetterField*> Fields;///<A vector that stores all letter
     class GraphicsSettings* gfxSettings;///<Pointer to the graphics settings
-    sf::Font font;///<Font reference requiered to render text.
+    sf::Font font;///<Font reference requiered to render text
 
     /**
-    * @brief Function creating all fields and their views.
-    * @param password Password to be created visually and stored in array.
+    * @brief Function creating all fields and their views
+    * @param password Password to be created visually and stored in array
     */
     void initLetterFields(const std::wstring& password);
 
@@ -85,4 +85,4 @@ public:
 };
 
 
-#endif //HANGMAN_LETTERFIELDS_H
+#endif

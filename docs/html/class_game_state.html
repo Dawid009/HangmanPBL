@@ -113,13 +113,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab902d5b451404017f7111ae1c0b2554f" id="r_ab902d5b451404017f7111ae1c0b2554f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab902d5b451404017f7111ae1c0b2554f">GameState</a> (<a class="el" href="class_state_data.html">StateData</a> *state_data, <a class="el" href="class_save_game.html">SaveGame</a> *saveGame)</td></tr>
 <tr class="memdesc:ab902d5b451404017f7111ae1c0b2554f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor.  <br /></td></tr>
 <tr class="separator:ab902d5b451404017f7111ae1c0b2554f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae623df5042cd0c17daa3394fdcb397b3" id="r_ae623df5042cd0c17daa3394fdcb397b3"><td class="memItemLeft" align="right" valign="top"><a id="ae623df5042cd0c17daa3394fdcb397b3" name="ae623df5042cd0c17daa3394fdcb397b3"></a>
-virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~GameState</b> ()</td></tr>
-<tr class="memdesc:ae623df5042cd0c17daa3394fdcb397b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class destructor. <br /></td></tr>
-<tr class="separator:ae623df5042cd0c17daa3394fdcb397b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac135e64a5c269ecc94d806ed5255ca4b" id="r_ac135e64a5c269ecc94d806ed5255ca4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac135e64a5c269ecc94d806ed5255ca4b">update</a> (const float &amp;dt)</td></tr>
-<tr class="memdesc:ac135e64a5c269ecc94d806ed5255ca4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main state loop updating events.  <br /></td></tr>
-<tr class="separator:ac135e64a5c269ecc94d806ed5255ca4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5eddf97b5c453466e5f9729d7507dab0" id="r_a5eddf97b5c453466e5f9729d7507dab0"><td class="memItemLeft" align="right" valign="top"><a id="a5eddf97b5c453466e5f9729d7507dab0" name="a5eddf97b5c453466e5f9729d7507dab0"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~GameState</b> () override</td></tr>
+<tr class="memdesc:a5eddf97b5c453466e5f9729d7507dab0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class destructor. <br /></td></tr>
+<tr class="separator:a5eddf97b5c453466e5f9729d7507dab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fbaf9125b3dbdc0aa888bebb4a0fd3d" id="r_a9fbaf9125b3dbdc0aa888bebb4a0fd3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fbaf9125b3dbdc0aa888bebb4a0fd3d">update</a> (const float &amp;dt) final</td></tr>
+<tr class="memdesc:a9fbaf9125b3dbdc0aa888bebb4a0fd3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main state loop updating events.  <br /></td></tr>
+<tr class="separator:a9fbaf9125b3dbdc0aa888bebb4a0fd3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae49b20a5455335d879340dbe3b92da7f" id="r_ae49b20a5455335d879340dbe3b92da7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae49b20a5455335d879340dbe3b92da7f">render</a> (sf::RenderTarget *target=NULL)</td></tr>
 <tr class="memdesc:ae49b20a5455335d879340dbe3b92da7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loop for rendering.  <br /></td></tr>
 <tr class="separator:ae49b20a5455335d879340dbe3b92da7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,6 +143,14 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~State</b> ()</td>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>endState</b> ()</td></tr>
 <tr class="memdesc:a27907b80e927649f92e4dc6a845a9213 inherit pub_methods_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to terminate the state. <br /></td></tr>
 <tr class="separator:a27907b80e927649f92e4dc6a845a9213 inherit pub_methods_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd1a5032724ab48ae79dcb83642dc7ef inherit pub_methods_class_state" id="r_acd1a5032724ab48ae79dcb83642dc7ef"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>initFonts</b> ()</td></tr>
+<tr class="memdesc:acd1a5032724ab48ae79dcb83642dc7ef inherit pub_methods_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function initializing fonts required to display text. <br /></td></tr>
+<tr class="separator:acd1a5032724ab48ae79dcb83642dc7ef inherit pub_methods_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7973006092f3e535cffcf0262bfe1b7 inherit pub_methods_class_state" id="r_aa7973006092f3e535cffcf0262bfe1b7"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>initDeferredRender</b> ()</td></tr>
+<tr class="memdesc:aa7973006092f3e535cffcf0262bfe1b7 inherit pub_methods_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates deferred renderer. <br /></td></tr>
+<tr class="separator:aa7973006092f3e535cffcf0262bfe1b7 inherit pub_methods_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18c3b970753bab2937141803644aaf24 inherit pub_methods_class_state" id="r_a18c3b970753bab2937141803644aaf24"><td class="memItemLeft" align="right" valign="top">const bool &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#a18c3b970753bab2937141803644aaf24">getQuit</a> () const</td></tr>
 <tr class="memdesc:a18c3b970753bab2937141803644aaf24 inherit pub_methods_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the game should be terminated.  <br /></td></tr>
 <tr class="separator:a18c3b970753bab2937141803644aaf24 inherit pub_methods_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,10 +160,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>endState</b> ()</td><
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a5560dd2fa69f4f5d869127d0e99d50c6" id="r_a5560dd2fa69f4f5d869127d0e99d50c6"><td class="memItemLeft" align="right" valign="top"><a id="a5560dd2fa69f4f5d869127d0e99d50c6" name="a5560dd2fa69f4f5d869127d0e99d50c6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>initDeferredRender</b> ()</td></tr>
-<tr class="memdesc:a5560dd2fa69f4f5d869127d0e99d50c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a renderer. <br /></td></tr>
-<tr class="separator:a5560dd2fa69f4f5d869127d0e99d50c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a343d71fbf12dd0d0cd8decc17d74e603" id="r_a343d71fbf12dd0d0cd8decc17d74e603"><td class="memItemLeft" align="right" valign="top"><a id="a343d71fbf12dd0d0cd8decc17d74e603" name="a343d71fbf12dd0d0cd8decc17d74e603"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>initView</b> ()</td></tr>
 <tr class="memdesc:a343d71fbf12dd0d0cd8decc17d74e603"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function initializing gui. <br /></td></tr>
@@ -163,10 +167,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>initView</b> ()</td><
 <tr class="memitem:ac095e4bc1135419f0c30109103030a7d" id="r_ac095e4bc1135419f0c30109103030a7d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac095e4bc1135419f0c30109103030a7d">pickRandomPassword</a> (std::wstring &amp;stringRef, int maxRow)</td></tr>
 <tr class="memdesc:ac095e4bc1135419f0c30109103030a7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function picking random password from list.  <br /></td></tr>
 <tr class="separator:ac095e4bc1135419f0c30109103030a7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a254268c7021969701d6df3bbae2e3f4a" id="r_a254268c7021969701d6df3bbae2e3f4a"><td class="memItemLeft" align="right" valign="top"><a id="a254268c7021969701d6df3bbae2e3f4a" name="a254268c7021969701d6df3bbae2e3f4a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>initFonts</b> ()</td></tr>
-<tr class="memdesc:a254268c7021969701d6df3bbae2e3f4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function initializing fonts required to display text. <br /></td></tr>
-<tr class="separator:a254268c7021969701d6df3bbae2e3f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af111c6ae35cd13fadd75a884e07ce97d" id="r_af111c6ae35cd13fadd75a884e07ce97d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af111c6ae35cd13fadd75a884e07ce97d">checkKeyboard</a> (uint8_t letter)</td></tr>
 <tr class="memdesc:af111c6ae35cd13fadd75a884e07ce97d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function checking if button is pressed.  <br /></td></tr>
 <tr class="separator:af111c6ae35cd13fadd75a884e07ce97d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -185,18 +185,6 @@ sf::View&#160;</td><td class="memItemRight" valign="bottom"><b>view</b></td></tr
 sf::Texture&#160;</td><td class="memItemRight" valign="bottom"><b>backgroundTexture</b></td></tr>
 <tr class="memdesc:a1ed971ac4b35afb31bf8ddf6475d0998"><td class="mdescLeft">&#160;</td><td class="mdescRight">Background texture reference. <br /></td></tr>
 <tr class="separator:a1ed971ac4b35afb31bf8ddf6475d0998"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab60dc490bb2d288a20712d1455aa70e8" id="r_ab60dc490bb2d288a20712d1455aa70e8"><td class="memItemLeft" align="right" valign="top"><a id="ab60dc490bb2d288a20712d1455aa70e8" name="ab60dc490bb2d288a20712d1455aa70e8"></a>
-sf::Font&#160;</td><td class="memItemRight" valign="bottom"><b>font</b></td></tr>
-<tr class="memdesc:ab60dc490bb2d288a20712d1455aa70e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Font reference requiered to render text. <br /></td></tr>
-<tr class="separator:ab60dc490bb2d288a20712d1455aa70e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a957706ee7af356052e0f1b73544dfaa8" id="r_a957706ee7af356052e0f1b73544dfaa8"><td class="memItemLeft" align="right" valign="top"><a id="a957706ee7af356052e0f1b73544dfaa8" name="a957706ee7af356052e0f1b73544dfaa8"></a>
-sf::RenderTexture&#160;</td><td class="memItemRight" valign="bottom"><b>renderTexture</b></td></tr>
-<tr class="memdesc:a957706ee7af356052e0f1b73544dfaa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">deferred renderer screen view <br /></td></tr>
-<tr class="separator:a957706ee7af356052e0f1b73544dfaa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a351fea43676cf6a1b6d8144508d76405" id="r_a351fea43676cf6a1b6d8144508d76405"><td class="memItemLeft" align="right" valign="top"><a id="a351fea43676cf6a1b6d8144508d76405" name="a351fea43676cf6a1b6d8144508d76405"></a>
-sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><b>renderSprite</b></td></tr>
-<tr class="memdesc:a351fea43676cf6a1b6d8144508d76405"><td class="mdescLeft">&#160;</td><td class="mdescRight">deferred renderer sprite <br /></td></tr>
-<tr class="separator:a351fea43676cf6a1b6d8144508d76405"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f85f0e3048be125432a6e6d76e3ee0a" id="r_a4f85f0e3048be125432a6e6d76e3ee0a"><td class="memItemLeft" align="right" valign="top"><a id="a4f85f0e3048be125432a6e6d76e3ee0a" name="a4f85f0e3048be125432a6e6d76e3ee0a"></a>
 <a class="el" href="class_pause_menu.html">PauseMenu</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pmenu</b></td></tr>
 <tr class="memdesc:a4f85f0e3048be125432a6e6d76e3ee0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">in-game menu component pointer <br /></td></tr>
@@ -231,6 +219,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>passwordLine</b></td><
 <tr class="separator:afc8b38323127ba0ae47e1cdd9229f175"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a904aeb22ea4ef76eccbc9344ecee2d79" id="r_a904aeb22ea4ef76eccbc9344ecee2d79"><td class="memItemLeft" align="right" valign="top"><a id="a904aeb22ea4ef76eccbc9344ecee2d79" name="a904aeb22ea4ef76eccbc9344ecee2d79"></a>
 <a class="el" href="class_save_game.html">SaveGame</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>saveGamePtr</b></td></tr>
+<tr class="memdesc:a904aeb22ea4ef76eccbc9344ecee2d79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Savegame pointer. <br /></td></tr>
 <tr class="separator:a904aeb22ea4ef76eccbc9344ecee2d79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f5f60339d8bd7749ba3695eb5a98fd0" id="r_a0f5f60339d8bd7749ba3695eb5a98fd0"><td class="memItemLeft" align="right" valign="top"><a id="a0f5f60339d8bd7749ba3695eb5a98fd0" name="a0f5f60339d8bd7749ba3695eb5a98fd0"></a>
 <a class="el" href="class_keyboard.html">Keyboard</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>keyboard</b></td></tr>
@@ -262,14 +251,18 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>delay</b> =0</td></t
 <tr class="separator:a7e4b0ab46fbb77bfd2a3647057fe296b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a740554a2953ecc27d16d725e715d6358" id="r_a740554a2953ecc27d16d725e715d6358"><td class="memItemLeft" align="right" valign="top"><a id="a740554a2953ecc27d16d725e715d6358" name="a740554a2953ecc27d16d725e715d6358"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>misses</b> =0</td></tr>
-<tr class="memdesc:a740554a2953ecc27d16d725e715d6358"><td class="mdescLeft">&#160;</td><td class="mdescRight">Misses count. <br /></td></tr>
+<tr class="memdesc:a740554a2953ecc27d16d725e715d6358"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of misses. <br /></td></tr>
 <tr class="separator:a740554a2953ecc27d16d725e715d6358"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77c7f3c144dc2cb2b3e6f2395b561b37" id="r_a77c7f3c144dc2cb2b3e6f2395b561b37"><td class="memItemLeft" align="right" valign="top"><a id="a77c7f3c144dc2cb2b3e6f2395b561b37" name="a77c7f3c144dc2cb2b3e6f2395b561b37"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>passes</b> =0</td></tr>
+<tr class="memdesc:a77c7f3c144dc2cb2b3e6f2395b561b37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of hits. <br /></td></tr>
 <tr class="separator:a77c7f3c144dc2cb2b3e6f2395b561b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_methods_class_state"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_state')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_state.html">State</a></td></tr>
+<tr class="memitem:a52224bc53e97d3bd2b9bdcfc2181cd07 inherit pro_methods_class_state" id="r_a52224bc53e97d3bd2b9bdcfc2181cd07"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#a52224bc53e97d3bd2b9bdcfc2181cd07">FadeUpdate</a> (const float &amp;dt)</td></tr>
+<tr class="separator:a52224bc53e97d3bd2b9bdcfc2181cd07 inherit pro_methods_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_state"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_state')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_state.html">State</a></td></tr>
 <tr class="memitem:a9c55cdba6e8a4a7b8a6a83fa51311514 inherit pro_attribs_class_state" id="r_a9c55cdba6e8a4a7b8a6a83fa51311514"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="class_state_data.html">StateData</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>stateData</b></td></tr>
@@ -285,8 +278,16 @@ sf::RenderWindow *&#160;</td><td class="memItemRight" valign="bottom"><b>window<
 <tr class="separator:ae6259a383c98ae7496266a76a9daf478 inherit pro_attribs_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7308f66beb9bed69773ef870c41d106 inherit pro_attribs_class_state" id="r_ad7308f66beb9bed69773ef870c41d106"><td class="memItemLeft" align="right" valign="top">
 sf::Texture&#160;</td><td class="memItemRight" valign="bottom"><b>backgroundTexture</b></td></tr>
-<tr class="memdesc:ad7308f66beb9bed69773ef870c41d106 inherit pro_attribs_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">background texture ref. <br /></td></tr>
+<tr class="memdesc:ad7308f66beb9bed69773ef870c41d106 inherit pro_attribs_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">background texture ref <br /></td></tr>
 <tr class="separator:ad7308f66beb9bed69773ef870c41d106 inherit pro_attribs_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0140ed9a54a0ce798f4f668fdb9febc inherit pro_attribs_class_state" id="r_ac0140ed9a54a0ce798f4f668fdb9febc"><td class="memItemLeft" align="right" valign="top">
+sf::RenderTexture&#160;</td><td class="memItemRight" valign="bottom"><b>renderTexture</b></td></tr>
+<tr class="memdesc:ac0140ed9a54a0ce798f4f668fdb9febc inherit pro_attribs_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">deferred renderer screen view <br /></td></tr>
+<tr class="separator:ac0140ed9a54a0ce798f4f668fdb9febc inherit pro_attribs_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3804fc99671aed4022205edaa967e2f inherit pro_attribs_class_state" id="r_ab3804fc99671aed4022205edaa967e2f"><td class="memItemLeft" align="right" valign="top">
+sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><b>renderSprite</b></td></tr>
+<tr class="memdesc:ab3804fc99671aed4022205edaa967e2f inherit pro_attribs_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">deferred renderer sprite <br /></td></tr>
+<tr class="separator:ab3804fc99671aed4022205edaa967e2f inherit pro_attribs_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91f7cb53440b967bb9ef78d90ae7fab2 inherit pro_attribs_class_state" id="r_a91f7cb53440b967bb9ef78d90ae7fab2"><td class="memItemLeft" align="right" valign="top">
 sf::RectangleShape&#160;</td><td class="memItemRight" valign="bottom"><b>background</b></td></tr>
 <tr class="memdesc:a91f7cb53440b967bb9ef78d90ae7fab2 inherit pro_attribs_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Background rectangle. <br /></td></tr>
@@ -303,6 +304,30 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>paused</b></td></tr>
 sf::Vector2i&#160;</td><td class="memItemRight" valign="bottom"><b>mousePosWindow</b></td></tr>
 <tr class="memdesc:ae19be9c58de5545c8cd162f11969d6ee inherit pro_attribs_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">XY mouse position on the window. <br /></td></tr>
 <tr class="separator:ae19be9c58de5545c8cd162f11969d6ee inherit pro_attribs_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a0c0fe1cdd1d72e44d058b3b9be1019 inherit pro_attribs_class_state" id="r_a8a0c0fe1cdd1d72e44d058b3b9be1019"><td class="memItemLeft" align="right" valign="top">
+sf::Clock&#160;</td><td class="memItemRight" valign="bottom"><b>fadeTime</b></td></tr>
+<tr class="memdesc:a8a0c0fe1cdd1d72e44d058b3b9be1019 inherit pro_attribs_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fade clock object. <br /></td></tr>
+<tr class="separator:a8a0c0fe1cdd1d72e44d058b3b9be1019 inherit pro_attribs_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc127d9a3571377da514ce9e17f3fbc1 inherit pro_attribs_class_state" id="r_adc127d9a3571377da514ce9e17f3fbc1"><td class="memItemLeft" align="right" valign="top">
+sf::RectangleShape&#160;</td><td class="memItemRight" valign="bottom"><b>fade</b></td></tr>
+<tr class="memdesc:adc127d9a3571377da514ce9e17f3fbc1 inherit pro_attribs_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fade in/out black rectangle. <br /></td></tr>
+<tr class="separator:adc127d9a3571377da514ce9e17f3fbc1 inherit pro_attribs_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65e80141ccc027b8ebc5f8bd83ff5516 inherit pro_attribs_class_state" id="r_a65e80141ccc027b8ebc5f8bd83ff5516"><td class="memItemLeft" align="right" valign="top">
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>fadein</b> =true</td></tr>
+<tr class="memdesc:a65e80141ccc027b8ebc5f8bd83ff5516 inherit pro_attribs_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is fading in or out. <br /></td></tr>
+<tr class="separator:a65e80141ccc027b8ebc5f8bd83ff5516 inherit pro_attribs_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1060b15984efec1900a4fbf0241b2b5 inherit pro_attribs_class_state" id="r_ab1060b15984efec1900a4fbf0241b2b5"><td class="memItemLeft" align="right" valign="top">
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>pushedNew</b> =false</td></tr>
+<tr class="memdesc:ab1060b15984efec1900a4fbf0241b2b5 inherit pro_attribs_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is new state pushed? <br /></td></tr>
+<tr class="separator:ab1060b15984efec1900a4fbf0241b2b5 inherit pro_attribs_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11e6aa5e8d16f18c6f80c1b21ec51cb8 inherit pro_attribs_class_state" id="r_a11e6aa5e8d16f18c6f80c1b21ec51cb8"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="class_state.html">State</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>stateptr</b></td></tr>
+<tr class="memdesc:a11e6aa5e8d16f18c6f80c1b21ec51cb8 inherit pro_attribs_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to new state. <br /></td></tr>
+<tr class="separator:a11e6aa5e8d16f18c6f80c1b21ec51cb8 inherit pro_attribs_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac01e57d52a3bf0d9b24c02daecd79e30 inherit pro_attribs_class_state" id="r_ac01e57d52a3bf0d9b24c02daecd79e30"><td class="memItemLeft" align="right" valign="top">
+sf::Font&#160;</td><td class="memItemRight" valign="bottom"><b>font</b></td></tr>
+<tr class="memdesc:ac01e57d52a3bf0d9b24c02daecd79e30 inherit pro_attribs_class_state"><td class="mdescLeft">&#160;</td><td class="mdescRight">Font object. <br /></td></tr>
+<tr class="separator:ac01e57d52a3bf0d9b24c02daecd79e30 inherit pro_attribs_class_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class reponsible for view and logic. </p>
@@ -400,7 +425,7 @@ sf::Vector2i&#160;</td><td class="memItemRight" valign="bottom"><b>mousePosWindo
 <p>Function picking random password from list. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">maxRow</td><td>File rows count </td></tr>
+    <tr><td class="paramname">maxRow</td><td>Number of file rows </td></tr>
   </table>
   </dd>
 </dl>
@@ -442,8 +467,8 @@ sf::Vector2i&#160;</td><td class="memItemRight" valign="bottom"><b>mousePosWindo
 
 </div>
 </div>
-<a id="ac135e64a5c269ecc94d806ed5255ca4b" name="ac135e64a5c269ecc94d806ed5255ca4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac135e64a5c269ecc94d806ed5255ca4b">&#9670;&#160;</a></span>update()</h2>
+<a id="a9fbaf9125b3dbdc0aa888bebb4a0fd3d" name="a9fbaf9125b3dbdc0aa888bebb4a0fd3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fbaf9125b3dbdc0aa888bebb4a0fd3d">&#9670;&#160;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -460,7 +485,7 @@ sf::Vector2i&#160;</td><td class="memItemRight" valign="bottom"><b>mousePosWindo
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

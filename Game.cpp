@@ -30,7 +30,6 @@ Game::Game()
 
 Game::~Game()
 {
-    //Zwalnianie pamięci
     delete this->window;
 
     while (!this->states.empty())
@@ -62,7 +61,6 @@ void Game::initWindow()
 
 void Game::updateDt()
 {
-    //Aktualizuje zmienną DeltaTime
     this->dt = this->dtClock.restart().asSeconds();
 }
 
@@ -129,7 +127,6 @@ void Game::render()
 
 void Game::run()
 {
-    //Główna pętla gry
     while (this->window->isOpen())
     {
         this->updateDt();

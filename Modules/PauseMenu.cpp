@@ -22,9 +22,7 @@ PauseMenu::PauseMenu(sf::VideoMode& vm, sf::Font& font)
 PauseMenu::~PauseMenu()
 {
     for (auto &it : this->buttons)
-    {
         delete it.second;
-    }
 }
 
 bool PauseMenu::isButtonPressed(const std::string& key)
@@ -56,19 +54,14 @@ void PauseMenu::addButton(
     ButtonInitParams->hoverScale = 1.2f;
     ButtonInitParams->activeScale = 1.1f;
 
-    this->buttons[key] = new gui::Button(
-            ButtonInitParams
-    );
-
+    this->buttons[key] = new gui::Button(ButtonInitParams);
     delete ButtonInitParams;
 }
 
 void PauseMenu::update(const sf::Vector2i& mousePosWindow,const float& dt)
 {
     for (auto &i : this->buttons)
-    {
         i.second->update(mousePosWindow,dt);
-    }
 }
 
 void PauseMenu::render(sf::RenderTarget & target)
@@ -77,9 +70,7 @@ void PauseMenu::render(sf::RenderTarget & target)
     target.draw(this->container);
 
     for (auto &i : this->buttons)
-    {
         i.second->render(target);
-    }
 
     target.draw(this->menuText);
 }

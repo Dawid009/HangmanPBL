@@ -1,12 +1,33 @@
 #include "SettingsState.h"
 #include "MainMenuState.h"
 
+
+SettingsState::SettingsState(StateData* state_data)
+        : State(state_data),delay(0.f),fpsText(nullptr)
+{
+    this->initDeferredRender();
+    this->initVariables();
+    this->initFonts();
+    this->initGui();
+}
+
+SettingsState::~SettingsState()
+{
+    delete fpsText;
+    for (auto &it : buttons)
+        delete it.second;
+
+    for (auto &it2 : dropDownLists)
+        delete it2.second;
+}
+
+
+
 void SettingsState::initVariables()
 {
     this->modes = sf::VideoMode::getFullscreenModes();
     const sf::VideoMode& vm = this->stateData->gfxSettings->resolution;
     fpsText = new sf::Text();
-
     fpsText->setString("");
     fpsText->setFont(this->font);
     fpsText->setCharacterSize(gui::calcCharSize(vm,70.f));
@@ -14,44 +35,20 @@ void SettingsState::initVariables()
     fpsText->setFillColor(sf::Color(20, 20, 20, 255));
 }
 
-void SettingsState::initFonts()
-{
-    if (!this->font.loadFromFile(this->stateData->localpath+"Fonts/Caveat.ttf"))
-    {
-        throw("ERROR::MAINMENUSTATE::COULD NOT LOAD FONT");
-    }
-}
 
 void SettingsState::initGui()
 {
     const sf::VideoMode& vm = this->stateData->gfxSettings->resolution;
-
-    this->background.setSize(
-            sf::Vector2f
-                    (
-                            static_cast<float>(vm.width),
-                            static_cast<float>(vm.height)
-                    )
-    );
-
-    this->fade.setSize(
-            sf::Vector2f
-                    (
-                            static_cast<float>(vm.width),
-                            static_cast<float>(vm.height)
-                    )
-    );
+    this->background.setSize(sf::Vector2f(static_cast<float>(vm.width),static_cast<float>(vm.height)));
+    this->fade.setSize(sf::Vector2f(static_cast<float>(vm.width),static_cast<float>(vm.height)));
     this->fade.setFillColor(sf::Color(50,50,50,255));
 
     if (!this->backgroundTexture.loadFromFile(this->stateData->localpath+"Images/background.jpg"))
-    {
         throw "ERROR::MAIN_MENU_STATE::FAILED_TO_LOAD_BACKGROUND_TEXTURE";
-    }
 
     this->background.setTexture(&this->backgroundTexture);
 
     auto* ButtonInitParams = new gui::ButtonParams;
-
     ButtonInitParams->x =  gui::calcX(10.f, vm);
     ButtonInitParams->y =  gui::calcY(81.5f, vm);
     ButtonInitParams->width = gui::calcX(9.f, vm);
@@ -66,12 +63,10 @@ void SettingsState::initGui()
     ButtonInitParams->activeScale = 1.1f;
     this->buttons["BACK"] = new gui::Button(ButtonInitParams);
 
-
     ButtonInitParams->x =  gui::calcX(25.f, vm);
     ButtonInitParams->y =  gui::calcY(81.5f, vm);
     ButtonInitParams->text = "Aplikuj i zapisz";
     this->buttons["APPLY"] = new gui::Button(ButtonInitParams);
-
 
     short active_id{0};
     std::vector<std::string> modes_str;
@@ -82,7 +77,6 @@ void SettingsState::initGui()
             active_id=i;
         }
     }
-
 
     auto* DropdownParams = new gui::DropDownParams();
     DropdownParams->x = gui::calcX(42.5f, vm);
@@ -165,65 +159,33 @@ void SettingsState::initGui()
     *text = L"Pokaż Fps";
     this->dropDownLists["SHOWFPS"] = new gui::DropDownList(DropdownParams);
 
-
     delete DropdownParams;
 }
 
 void SettingsState::resetGui()
 {
     for (auto& it : buttons)
-    {
         delete it.second;
-    }
+
     this->buttons.clear();
 
     for (auto& it2: dropDownLists)
-    {
         delete it2.second;
-    }
+
     this->dropDownLists.clear();
-
     this->initGui();
-}
-
-SettingsState::SettingsState(StateData* state_data)
-        : State(state_data), stateptr(nullptr)
-{
-    this->initVariables();
-    this->initFonts();
-    this->initGui();
-}
-
-SettingsState::~SettingsState()
-{
-
-    for (auto &it : buttons)
-    {
-        delete it.second;
-    }
-
-    for (auto &it2 : dropDownLists)
-    {
-        delete it2.second;
-    }
 }
 
 
 void SettingsState::updateGui(const float & dt)
 {
     for (auto &it : this->buttons)
-    {
         it.second->update(this->mousePosWindow,dt);
-    }
 
     if (this->buttons["BACK"]->isPressed())
-    {
         stateptr = new MainMenuState(this->stateData);
 
-    }
-
-    if (this->buttons["APPLY"]->isPressed())
-    {
+    if (this->buttons["APPLY"]->isPressed()){
         this->stateData->gfxSettings->resolution = this->modes[this->dropDownLists["RESOLUTION"]->getActiveElementId()];
         this->stateData->gfxSettings->fullscreen = this->dropDownLists["FULLSCREEN"]->getActiveElementId() != 0;
         this->stateData->gfxSettings->contextSettings.antialiasingLevel = this->dropDownLists["ALIASING"]->getActiveElementId() !=0;
@@ -237,9 +199,7 @@ void SettingsState::updateGui(const float & dt)
     }
 
     for (auto &it : this->dropDownLists)
-    {
         it.second->update(this->mousePosWindow, dt);
-    }
 
     if(this->stateData->gfxSettings->showFps && delay>1.5f){
         fpsText->setString(std::to_string(static_cast<int>(1/dt)));
@@ -247,33 +207,11 @@ void SettingsState::updateGui(const float & dt)
     }else{
         delay+=dt;
     }
-
 }
 
 void SettingsState::update(const float& dt)
 {
-    if(fadein){
-        this->fade.setFillColor(sf::Color(20,20,20,this->fade.getFillColor().a-dt*1000));
-        if(this->fade.getFillColor().a<20){
-            fadein=false;
-        }
-        time.restart();
-    }
-
-    if (!pushedNew && stateptr!= nullptr) {
-        this->fade.setFillColor(sf::Color(20,20,20,this->fade.getFillColor().a+dt*900));
-        if(this->fade.getFillColor().a>240){
-            pushedNew=true;
-            //MainMenuState* temp = new MainMenuState(stateData);
-            //delete this->states->top();
-            //MainMenuState* temp = new MainMenuState(stateData);
-            this->states->pop();
-            this->stateData->states->push(stateptr);
-        }
-    }
-
-
-
+    this->FadeUpdate(dt);
     this->updateMousePositions();
     this->updateGui(dt);
 }
@@ -281,23 +219,22 @@ void SettingsState::update(const float& dt)
 
 void SettingsState::render(sf::RenderTarget* target)
 {
-    if (!target)
-        target = this->window;
-
-    target->draw(this->background);
+    if (!target) target = this->window;
+    this->renderTexture.clear();
+    this->renderTexture.draw(this->background);
 
     for (auto &it : this->buttons)
-    {
-        it.second->render(*target);
-    }
+        it.second->render(renderTexture);
 
     for (auto &it : this->dropDownLists)
-    {
-        it.second->render(*target);
-    }
-    if(this->stateData->gfxSettings->showFps){
-        target->draw(*fpsText);
-    }
+        it.second->render(renderTexture);
 
-    target->draw(fade);
+    if(this->stateData->gfxSettings->showFps)
+        this->renderTexture.draw(*fpsText);
+
+    this->renderTexture.draw(fade);
+
+    this->renderTexture.display();
+    this->renderSprite.setTexture(this->renderTexture.getTexture());
+    target->draw(renderSprite);
 }

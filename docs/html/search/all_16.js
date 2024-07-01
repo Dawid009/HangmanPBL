@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['x_0',['x',['../structgui_1_1_button_params.html#a983c867a843858ad4c8a4e47474c55d8',1,'gui::ButtonParams::x'],['../structgui_1_1_drop_down_params.html#a837c60ad61a7ac8329bd27c3cc0fddcc',1,'gui::DropDownParams::x']]]
+  ['v0_200_201_0',['v0.0.1',['../index.html#autotoc_md3',1,'']]],
+  ['verticalsync_1',['verticalSync',['../class_graphics_settings.html#a83ba01db4ea7807c5bfead8f063859ec',1,'GraphicsSettings']]],
+  ['videomodes_2',['videoModes',['../class_graphics_settings.html#a6dd98c8ce866de60c10dd23e818171d0',1,'GraphicsSettings']]],
+  ['view_3',['view',['../class_game_state.html#a73ed1e17069e6a5eaee863aa4674959f',1,'GameState']]]
 ];

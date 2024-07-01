@@ -58,8 +58,6 @@ void Keyboard::initKeyboard() {
         id++;
     }
 
-
-    //przeniesc gdzie indziej
     ButtonInitParams->x =  gui::calcX(90,vm);
     ButtonInitParams->y =  gui::calcY(90,vm);
     ButtonInitParams->hoverScale = 1.2f;
@@ -77,9 +75,7 @@ void Keyboard::initKeyboard() {
 void Keyboard::updateButtons(const sf::Vector2i& mousePosWindow,const float& dt)
 {
     for (auto &it : this->buttons)
-    {
         it.second->update(mousePosWindow,dt);
-    }
 }
 
 
@@ -90,12 +86,8 @@ void Keyboard::update(const sf::Vector2i& mousePosWindow,const float& dt)
 
 
 void Keyboard::render(sf::RenderTarget *target) {
-
-    //Renderowanie buttonów
     for (auto &it : this->buttons)
-    {
         it.second->render(*target);
-    }
 }
 
 

@@ -15,26 +15,24 @@
 \DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ sf::Texture\ \mbox{\hyperlink{class_loading_state_ae37659a6dad9f8550214609799237ab4}{backgroundTexture}};\ }
 \DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ sf::Texture\ \mbox{\hyperlink{class_loading_state_a118b0a5b06ae69fbc29bcc6925f28965}{titleTexture}};\ }
 \DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ sf::RectangleShape\ \mbox{\hyperlink{class_loading_state_a4629435a0e5e192d5cd47e78f31bc5b5}{background}};\ }
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ sf::Font\ \mbox{\hyperlink{class_loading_state_a0d7e552611b8fd3408703f8ada5403cb}{font}};}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ sf::Clock\ \mbox{\hyperlink{class_loading_state_aa8cb7da0201acd79b692581582943762}{time}};\ }
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ sf::RectangleShape\ \mbox{\hyperlink{class_loading_state_a394383e081c26cbd9e6ebad54c9ad2eb}{fade}};}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_loading_state_a611d282ed6be3e32e141f1156b130872}{fadein}}=\textcolor{keyword}{true};\ }
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ sf::Text\ \mbox{\hyperlink{class_loading_state_a2bffef8f887e3cc6b7ac5dede1fc9c39}{title}};\ }
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_loading_state_af7b8121dd926afaac79142d6cf8ac530}{initFonts}}();}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_loading_state_ab835982e132d2afa5bddd367981bf9e3}{initGui}}();}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ sf::Clock\ \mbox{\hyperlink{class_loading_state_aa8cb7da0201acd79b692581582943762}{time}};\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ sf::RectangleShape\ \mbox{\hyperlink{class_loading_state_a394383e081c26cbd9e6ebad54c9ad2eb}{fade}};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_loading_state_a611d282ed6be3e32e141f1156b130872}{fadein}}=\textcolor{keyword}{true};\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ sf::Text\ \mbox{\hyperlink{class_loading_state_a2bffef8f887e3cc6b7ac5dede1fc9c39}{title}};\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_loading_state_ab835982e132d2afa5bddd367981bf9e3}{initGui}}();}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_loading_state_af8bd6eb2e2d7ab33794f2fd653d53e3c}{FadeUpdate}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \&dt)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00036\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_loading_state_adb2ee0932d349c6ad200c3437e3e8c1f}{LoadingState}}(\mbox{\hyperlink{class_state_data}{StateData}}*\ state\_data);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_loading_state_adb2ee0932d349c6ad200c3437e3e8c1f}{LoadingState}}(\mbox{\hyperlink{class_state_data}{StateData}}*\ state\_data);}
 \DoxyCodeLine{00042\ }
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_loading_state_ae69a22bcb4a59f5bed3ca2f6ba1d577c}{\string~LoadingState}}();}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_loading_state_ac598bcf570a3c35acc3d8f80378a0d75}{\string~LoadingState}}()\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_loading_state_a652bed0167d3bd593c37f65e3d50ee15}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt);}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_loading_state_aa5e0949d7bc252afd312005399b39745}{render}}(sf::RenderTarget*\ target\ =\ NULL);}
-\DoxyCodeLine{00060\ \};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_loading_state_a7bda0f50319394486951a46433862417}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ dt)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_loading_state_a5fbb6b5b57bae18b55de64b1a28607de}{render}}(sf::RenderTarget*\ target\ =\ NULL)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00060\ }
 \DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//HANGMAN\_SETTINGSSTATE\_H}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

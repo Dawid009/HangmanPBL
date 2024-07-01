@@ -10,9 +10,10 @@
 #include "../Modules/GraphicsSettings.h"
 class State;
 
-/** @class StateData
+/**
+ * @class StateData
  * @brief A class that stores data about state
- * */
+ */
 class StateData
 {
 public:
@@ -20,10 +21,10 @@ public:
     * @brief Class constructor
     */
     StateData() {};
-    sf::RenderWindow* window;///<The game window pointer.
+    sf::RenderWindow* window;///<The game window pointer
     GraphicsSettings* gfxSettings;///<An object that stores settings
-    std::stack<State*>* states;///<A stack that stores the views.
-    std::string localpath;
+    std::stack<State*>* states;///<A stack that stores the views
+    std::string localpath;///<Apple bundle path
 };
 
 /**
@@ -33,14 +34,23 @@ public:
 class State {
 protected:
     StateData* stateData; ///<Variable holding state data
-    std::stack<State*>* states;///<A stack that stores the views.
-    sf::RenderWindow* window;///<The game window pointer.
-    sf::Texture backgroundTexture;///<background texture ref.
-    sf::RectangleShape background;///<Background rectangle.
+    std::stack<State*>* states;///<A stack that stores the views
+    sf::RenderWindow* window;///<The game window pointer
+    sf::Texture backgroundTexture;///<background texture ref
+    sf::RenderTexture renderTexture;///<deferred renderer screen view
+    sf::Sprite renderSprite; ///<deferred renderer sprite
+    sf::RectangleShape background;///<Background rectangle
     bool quit;///<Is the game to be closed
     bool paused;///<Is the game paused
     sf::Vector2i mousePosWindow;///<XY mouse position on the window
+    sf::Clock fadeTime; ///<Fade clock object
+    sf::RectangleShape fade;///<Fade in/out black rectangle
+    bool fadein=true; ///<Is fading in or out
+    bool pushedNew=false; ///<Is new state pushed?
+    State* stateptr;///<Pointer to new state
+    sf::Font font; ///<Font object
 
+    virtual void FadeUpdate(const float& dt);
 public:
     /**
     * @brief Class constructor
@@ -59,8 +69,18 @@ public:
     void endState();
 
     /**
+    * @brief Function initializing fonts required to display text.
+    */
+    void initFonts();
+
+    /**
+    * @brief Creates deferred renderer
+    */
+    void initDeferredRender();
+
+    /**
     * @brief Checks if the game should be terminated
-    * @return Returns the result
+    * @return Returns true or false result
     */
     const bool& getQuit() const;
 
@@ -84,4 +104,4 @@ public:
 };
 
 
-#endif //HANGMAN_STATE_H
+#endif

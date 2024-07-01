@@ -21,6 +21,14 @@ unsigned gui::calcCharSize(const sf::VideoMode &vm, const unsigned modifier) {
 }
 
 
+sf::Text* gui::CreateText(const std::wstring& text, float X, float Y, sf::Font* font,sf::Color color, unsigned characterSize){
+    auto *temp = new sf::Text(text,*font,characterSize);
+    temp->setPosition(sf::Vector2f(X,Y));
+    temp->setFillColor(color);
+    return temp;
+}
+
+
 gui::Button::Button(ButtonParams * params) :
     buttonState(BTN_IDLE),
     hoverScale(params->hoverScale),
@@ -71,6 +79,7 @@ gui::Button::Button(ButtonParams * params) :
     );
 }
 
+
 gui::Button::~Button() = default;
 
 bool gui::Button::isPressed() const
@@ -92,9 +101,9 @@ void gui::Button::update(const sf::Vector2i& mousePosWindow, const float& dt)
 
     if (this->shape.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePosWindow)) && this->enabled)
     {
-
         this->buttonState = BTN_HOVER;
-        if (!mousePressed && sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->enabled) {
+        if (!mousePressed && sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->enabled)
+        {
             this->buttonState = BTN_ACTIVE;
             mousePressed=true;
         }
@@ -111,7 +120,6 @@ void gui::Button::update(const sf::Vector2i& mousePosWindow, const float& dt)
             this->shape.setOutlineColor(this->outlineIdleColor);
             this->shape.setFillColor(backgroundIdleColor);
             break;
-
         case BTN_HOVER:
             scaleXY = lerp(this->text.getScale().x, hoverScale, this->scaleToHoverTime*dt);
             this->text.setScale(scaleXY,scaleXY);
@@ -119,7 +127,6 @@ void gui::Button::update(const sf::Vector2i& mousePosWindow, const float& dt)
             this->shape.setOutlineColor(this->outlineHoverColor);
             this->shape.setFillColor(backgroundHoverColor);
             break;
-
         case BTN_ACTIVE:
             scaleXY = lerp(this->text.getScale().x, activeScale, this->scaleToActiveTime*dt);
             this->text.setScale(scaleXY,scaleXY);
@@ -180,7 +187,6 @@ void gui::Button::setId(short unsigned id)
 gui::DropDownList::DropDownList(DropDownParams* params)
         : font(*params->font), showList(false), keytimeMax(1.f), keytime(0.f)
 {
-
     if(params->label!= nullptr){
         label = new sf::Text();
         label->setString(*params->label);
@@ -232,6 +238,7 @@ gui::DropDownList::DropDownList(DropDownParams* params)
     }
 }
 
+
 gui::DropDownList::~DropDownList()
 {
     delete this->activeElement;
@@ -240,6 +247,7 @@ gui::DropDownList::~DropDownList()
         delete el;
     }
 }
+
 
 bool gui::DropDownList::getKeytime()
 {
@@ -251,6 +259,7 @@ bool gui::DropDownList::getKeytime()
 
     return false;
 }
+
 
 const unsigned short & gui::DropDownList::getActiveElementId() const
 {
@@ -279,7 +288,6 @@ void gui::DropDownList::update(const sf::Vector2i & mousePosWindow, const float&
             this->showList = true;
             renderIndex=0;
         }
-
     }
 
     if (this->showList)
@@ -303,7 +311,6 @@ void gui::DropDownList::render(sf::RenderTarget & target)
     this->activeElement->render(target);
     if(label!= nullptr)
         target.draw(*label);
-
     if (this->showList)
     {
         for(int i=0;i<renderIndex;i++){

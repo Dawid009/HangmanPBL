@@ -9,10 +9,7 @@
 #include"Gui.h"
 #include "SaveGame.h"
 
-
 class Gui;
-
-
 /**
  * @class EndScreen
  * @brief Class reponsible for End screen overlay
@@ -49,7 +46,6 @@ public:
     * @return Return value of true or false
     */
     bool isButtonPressed(const std::string& key);
-
 
     /**
     * @brief Function setting this object to win or not

@@ -40,4 +40,4 @@ public:
     void loadFromFile(const std::string& path);
 };
 
-#endif //HANGMAN_GRAPHICSSETTINGS_H
+#endif
